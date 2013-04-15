@@ -1,0 +1,12 @@
+unit gui;
+
+interface
+
+type
+  TGUI = class
+
+  end;
+
+implementation
+
+end.

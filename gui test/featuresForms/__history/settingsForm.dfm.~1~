@@ -1,0 +1,58 @@
+object settingsForm: TsettingsForm
+  Left = 0
+  Top = 0
+  Caption = 'settingsForm'
+  ClientHeight = 290
+  ClientWidth = 551
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PropTree: TVirtualStringTree
+    Left = 0
+    Top = 0
+    Width = 551
+    Height = 290
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Header.AutoSizeIndex = 0
+    Header.Font.Charset = DEFAULT_CHARSET
+    Header.Font.Color = clWindowText
+    Header.Font.Height = -11
+    Header.Font.Name = 'Tahoma'
+    Header.Font.Style = []
+    Header.Options = [hoAutoResize, hoColumnResize, hoDrag, hoShowSortGlyphs, hoVisible]
+    LineMode = lmBands
+    ParentFont = False
+    TabOrder = 0
+    TreeOptions.AutoOptions = [toAutoScrollOnExpand, toAutoTristateTracking, toAutoDeleteMovedNodes]
+    TreeOptions.MiscOptions = [toEditable, toFullRepaintOnResize, toInitOnSave, toWheelPanning, toEditOnDblClick]
+    TreeOptions.PaintOptions = [toShowButtons, toShowRoot, toThemeAware, toUseBlendedImages]
+    TreeOptions.SelectionOptions = [toFullRowSelect]
+    OnCreateEditor = PropTreeCreateEditor
+    OnEditing = PropTreeEditing
+    OnGetText = PropTreeGetText
+    OnNodeDblClick = PropTreeNodeDblClick
+    Columns = <
+      item
+        Position = 0
+        Width = 227
+        WideText = 'Property'
+      end
+      item
+        Position = 1
+        Width = 320
+        WideText = 'Value'
+      end>
+  end
+end

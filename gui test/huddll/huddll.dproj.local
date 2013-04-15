@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899/12/30 00:00:00.000.902,C:\Users\Ja\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\Ja\Desktop\Projekty\delphi\gui test\huddll\huddll.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.639,=C:\Users\Ja\Desktop\Projekty\delphi\gui test\huddll\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.603,C:\Users\Ja\Desktop\Projekty\delphi\gui test\huddll\InitFmxHack.pas=</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.561,=C:\Users\Ja\Desktop\Projekty\delphi\gui test\huddll\Unit2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.625,C:\Users\Ja\Desktop\Projekty\delphi\gui test\huddll\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\huddll\InitFmxHack.pas</Transaction>
+  </Transactions>
+</BorlandProject>

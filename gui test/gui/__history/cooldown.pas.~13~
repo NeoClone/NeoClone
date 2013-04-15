@@ -1,0 +1,81 @@
+unit cooldown;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Addresses, inputer,System.Math,StrUtils;
+
+type
+
+  TCooldown = class
+  private
+
+  public
+function getCooldown: integer;
+  end;
+
+implementation
+
+uses
+  Unit1;
+// I don't think we need to know how much time is the CD,
+//we just check each 1sec if Cancast(cooldownid) and yea, that's all lol xD
+// why 1sec? cause is the minimun for everything (runes,heal,etc)
+
+function TCooldown.getCooldown: integer;
+var
+num,num2,num3,num4,num5,num7,num8,num9,num10,i,Tibiatime: integer;
+CategoryAttackTimeStart,CategoryAttackTimeEnd,
+CategoryHealingTimeStart,CategoryHealingTimeEnd,
+CategorySupportTimeStart,CategorySupportTimeEnd,
+CategorySpecialTimeStart,CategorySpecialTimeEnd :integer;
+begin
+    Tibiatime := Memory.ReadInteger(Integer(ADDR_BASE) + clientTibiaTime);
+
+    num := Memory.ReadInteger(Integer(ADDR_BASE) + coolDownCategoryStart);
+    num2 := Memory.ReadInteger((num));
+    num3 := Memory.ReadInteger((num2));
+    CategoryAttackTimeStart := Memory.ReadInteger(((num2 + 12)));
+    CategoryAttackTimeEnd := Memory.ReadInteger(((num2 + $10)));
+    CategoryHealingTimeStart := Memory.ReadInteger(((num3 + 12)));
+    CategoryHealingTimeEnd := Memory.ReadInteger(((num3 + $10)));
+    num3 := Memory.ReadInteger((num3));
+    CategorySupportTimeStart := Memory.ReadInteger(((num3 + 12)));
+    CategorySupportTimeEnd := Memory.ReadInteger(((num3 + $10)));
+    num3 := Memory.ReadInteger((num3));
+    CategorySpecialTimeStart := Memory.ReadInteger(((num3 + 12)));
+    CategorySpecialTimeEnd := Memory.ReadInteger(((num3 + $10)));
+   // showmessage(inttostr(CategoryHealingTimeStart)+' '+inttostr(CategoryHealingTimeEnd)+' '+
+   // inttostr(CategoryHealingTimeEnd-CategoryHealingTimeStart)+' '+inttostr(Tibiatime));
+
+    num4 := Memory.ReadInteger(Integer(ADDR_BASE) + coolDownItems);
+    num5 := Memory.ReadInteger(Integer(ADDR_BASE) + coolDownItemsStart);
+    num5 := Memory.ReadInteger((num5));
+    i := 0;
+    while ((i < num4)) do
+    begin
+        num7 := Memory.ReadInteger((num5));
+        Memory.ReadInteger(((num5 + 4)));
+        num8 := Memory.ReadInteger(((num5 + 8)));
+        num9 := Memory.ReadInteger(((num5 + 12)));
+        num10 := Memory.ReadInteger(((num5 + $10)));
+        num5 := num7;
+        showmessage(inttostr(num10)+' '+inttostr(num9)+' '+inttostr(num8));
+                   {
+        for spell in xmlSpellList do
+        begin
+            if (spell.CoolDownID = num8) then //from spells.xml ibot
+            begin
+                spell.CooldownTimeStart := num9;
+                spell.CooldownTimeEnd := num10
+            end
+        end;          }
+        inc(i)
+    end
+
+
+
+end;
+
+end.

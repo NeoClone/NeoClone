@@ -1,0 +1,36 @@
+unit gui;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, containers;
+
+type
+  TGUI = class
+    FContainers: TContainers;
+  public
+
+  published
+    constructor Create; overload;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+
+constructor TContainers.Create;
+begin
+  inherited;
+
+  FWindows := TWindows.Create;
+end;
+
+destructor TContainers.Destroy;
+begin
+  FWindows.Free;
+
+  inherited;
+end;
+
+end.

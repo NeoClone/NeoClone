@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libfile>
+    <help>
+        <title>&lt;u&gt;Hardek's Functions&lt;/u&gt;</title>
+        <text>Well, this is my library:</text>
+        <title>Creature Functions</title>
+        <text>The following functions are concerned with creatures information.</text>
+        <function>
+            <name>creatureinfo</name>
+            <parameters>string creaturename</parameters>
+            <return>table</return>
+            <description>Returns a table with information about a creature, {name, exp, hp, ratio, maxdmg, bestspell}.</description>
+        </function>
+        <function>
+            <name>creaturemaxhp</name>
+            <parameters>string creaturename</parameters>
+            <return>int</return>
+            <description>Returns the maximum amount of HP a creature has.</description>
+        </function>
+        <function>
+            <name>creaturehp</name>
+            <parameters>string creaturename</parameters>
+            <return>int</return>
+            <description>Returns the current amount of HP a creature has.</description>
+        </function>
+        <function>
+            <name>creatureexp</name>
+            <parameters>string creaturename</parameters>
+            <return>int</return>
+            <description>Returns the amount of experience a creature gives.</description>
+        </function>
+        <function>
+            <name>expratio</name>
+            <parameters>string creaturename</parameters>
+            <return>float</return>
+            <description>Returns the reason EXP / HP of the creature.</description>
+        </function>
+        <function>
+            <name>maxdamage</name>
+            <parameters>optional string creaturename</parameters>
+            <return>int</return>
+            <description>Returns the maximum amount of HP you can loose in 1 turn concerning all monsters on your screen, optionally you can pass a creature name to know how much damage that creature can deal in 1 turn.</description>
+        </function>
+        <function>
+            <name>bestelement</name>
+            <parameters>string creaturename, optional boolean strongonly</parameters>
+            <return>string</return>
+            <description>Returns the creature's weakness (fire, ice, earth, energy, death, physical).</description>
+        </function>
+        <function>
+            <name>beststrongstrike</name>
+            <parameters>string creaturename</parameters>
+            <return>string</return>
+            <description>Returns the best STRONG strike spell against the creature.</description>
+        </function>
+        <function>
+            <name>beststrike</name>
+            <parameters>string creaturename</parameters>
+            <return>string</return>
+            <description>Returns the best strike spell against the creature.</description>
+        </function>
+        <function>
+            <name>bestspell</name>
+            <parameters>string creaturename</parameters>
+            <return>string</return>
+            <description>Returns the best strike spell against the creature.</description>
+        </function>
+        <title>Item Functions</title>
+        <text>The following functions are concerned with items information.</text>
+        <function>
+            <name>itemscosttocap</name>
+            <parameters>string itemname, int cap</parameters>
+            <return>int</return>
+            <description>Returns cost when BUYING items from NPCs, as much as needed to reach 'cap' cap (use this to withdraw money before using buyitemstocap, for example).</description>
+        </function>
+        <title>Helper Functions</title>
+        <text>The following functions will help you making everyday scripts.</text>
+        <function>
+            <name>waitping</name>
+            <parameters>optional int base=200</parameters>
+            <return></return>
+            <description>Wait based in your average ping, useful for most actions delay.</description>
+        </function>
+        <function>
+            <name>timeleft</name>
+            <parameters>string t, optional int ctime=currenttime()</parameters>
+            <return>int</return>
+            <description>Returns the number of seconds left to t. Example: timeleft('6:00') will return the number of seconds from now to 6am</description>
+        </function>
+        <function>
+            <name>tryexec</name>
+            <parameters>string cmd, int x, int y, int z, optional int maxtries</parameters>
+            <return>bool</return>
+            <description>Check if the character is at the desired location, and executes the command, if unable, will try to reach the location x, y, z and try again, returns false if 'maxtries' tries is reached.</description>
+        </function>
+        <function>
+            <name>dontlist</name>
+            <parameters></parameters>
+            <return></return>
+            <description>Simply an alias for listas('dontlist').</description>
+        </function>
+        <function>
+            <name>euclideandist</name>
+            <parameters>sx, sy, dx, dy</parameters>
+            <return>float</return>
+            <description>Will calculate the euclidean distance between {sx, sy} and {dx, dy}.</description>
+        </function>
+        <title>Cavebot Functions</title>
+        <text>The following functions are very useful for caveboting, like buying items, refilling supplies depositing loot.</text>
+        <function>
+            <name>buyitemstocap</name>
+            <parameters>string itemname, int cap</parameters>
+            <return></return>
+            <description>Will buy items 'itemname' until you reach 'cap' capacity, useful for potions or food, for example.</description>
+        </function>
+        <function>
+            <name>depositall</name>
+            <parameters></parameters>
+            <return></return>
+            <description>Just deposit all your gold (you must be near a NPC).</description>
+        </function>
+        <function>
+            <name>withdraw</name>
+            <parameters>int amount, optional string npc, optional bool sayhi=false</parameters>
+            <return>bool</return>
+            <description>Safely withdraw the desired amount of gold from your acount by verifying the answer from the NPC, if no npc is passed, it will accept any message as an answer (not a big problem on most of times). The 'sayhi' parameter is for say hi or not before talking to the npc, true for saying and no for not saying.</description>
+        </function>
+        <function>
+            <name>opendepot</name>
+            <parameters></parameters>
+            <return></return>
+            <description>Reach and open a depot chest.</description>
+        </function>
+        <function>
+            <name>movetoinsist</name>
+            <parameters>int x, int y, int z, optional int maxtries=5</parameters>
+            <return></return>
+            <description>Tries and retries 'maxtries' times to reach the desired location.</description>
+        </function>
+        <function>
+            <name>refillsofts</name>
+            <parameters></parameters>
+            <return></return>
+            <description>Repairs all visible worn soft boots, considering visible money, will try getting more money on the bank in case you don't have enough with your character.</description>
+        </function>
+        <function>
+            <name>deposititems</name>
+            <parameters>dest, stack, from, open, item1, item2, ...</parameters>
+            <return></return>
+            <description>Deposits all {...} items on depot, separating stackables from normal ones, the boolean 'open' parameter is to set if the bot should open the depot chest or not. Parameter dest is the name of the container for normal items, parameter stack is the name of the container for stackable items/</description>
+        </function>
+        <function>
+            <name>dropitemsex</name>
+            <parameters>int cap, string item1, string item2, ...</parameters>
+            <return></return>
+            <description>Will drop the items described on parameters until you have reached `cap` capacity.</description>
+        </function>
+        <function>
+            <name>goback</name>
+            <parameters></parameters>
+            <return></return>
+            <description>Simply an alias for gotolabel(0).</description>
+        </function>
+        <title>Player Functions</title>
+        <text>The following functions are concerned with your characters information.</text>
+        <function>
+            <name>getelementword</name>
+            <parameters>string element</parameters>
+            <return>string</return>
+            <description>Returns the word for the passed element. (vis, flam, frigo, mort, tera, san)</description>
+        </function>
+        <function>
+            <name>trapped</name>
+            <parameters></parameters>
+            <return>bool</return>
+            <description>Checks if you are trapped, returns true if you are, false if you are not.</description>
+        </function>
+        <function>
+            <name>getplayerskill</name>
+            <parameters></parameters>
+            <return>table</return>
+            <description>Will return the characters skill (sword, club, axe or distance) value on a table {$skill, $skillpc}.</description>
+        </function>
+        <function>
+            <name>spelldamage</name>
+            <parameters>string spellname, optional level, optional mlevel, optional skill</parameters>
+            <return>table</return>
+            <description>Will return the min and max damage you can deal with the spell, pass the spell name, not words, i.e. energy wave or rage of the skies. Returns a table {min_damage, max_damage}.</description>
+        </function>
+    </help>
+    <examples>
+        <category name="Cavebot">
+            <example name="Deposit items">
+                <description>This action will deposit your desired items on depot.</description>
+                <content name="depositloot">
+                    <hScript>from       = '!!from!!'
+dest       = '!!dest!!'
+items      = {'royal helmet', 'dragon scale mail', 'small sapphire'}
+deposititems(dest, stack, from, !!opendp!!, items)</hScript>
+                    <input var="!!from!!" default="">Enter name of the container that your character looted the items (leave blank for anyone):</input>
+                    <input var="!!dest!!" default="yellow backpack">Enter the name of the container you wish to put items in the 'items' list:</input>
+                    <input var="!!opendp!!" default="true">true if you want the bot to open a depot automatically, no if you don't:</input>
+                    <type>a</type>
+                </content>
+            </example>
+        </category>
+    </examples>
+</libfile>

@@ -1,0 +1,59 @@
+unit States;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,settingsFormUnit,
+  Vcl.ExtCtrls;
+
+type
+  TEStates = class(TForm)
+    Cavebot: TCheckBox;
+    Healer: TCheckBox;
+    Looting: TCheckBox;
+    ManaTraining: TCheckBox;
+    Targeting: TCheckBox;
+    Timer1: TTimer;
+    procedure HealerClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+
+  end;
+
+var
+  EStates: TEStates;
+  tree: TsettingsForm;
+
+implementation
+
+{$R *.dfm}
+     uses Unit1;
+
+
+procedure TEStates.HealerClick(Sender: TObject);
+begin
+Timer1.Enabled:= False;  //okay, we turn this off so it doesn't interefere
+//just when we click (so before it changes)
+if (tree.getsetting('Healer/HealerEnabled') = 'yes') and not EStates.healer.Checked then
+tree.setsetting('Healer/HealerEnabled','no')
+
+else if (tree.getsetting('Healer/HealerEnabled') = 'no') and EStates.healer.Checked then
+tree.setsetting('Healer/HealerEnabled','yes');
+
+Timer1.Enabled:= True;   //kk, I want my timer on again!
+end;
+
+procedure TEStates.Timer1Timer(Sender: TObject);
+begin
+  if (tree.getsetting('Healer/HealerEnabled') = 'yes') and not EStates.Healer.Checked then
+       EStates.healer.Checked:= True
+  else if (tree.getsetting('Healer/HealerEnabled') = 'no') and EStates.Healer.Checked then
+  EStates.healer.Checked:= False;
+end;
+
+end.

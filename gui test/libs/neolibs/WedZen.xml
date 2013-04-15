@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libfile>
+	<help>
+		<title>&lt;u&gt;WedNesDay &amp; Zen's Functions&lt;/u&gt;</title>
+		<text>Well, after helping some people, we decided to start our own library with functions that can help people.</text>
+
+		
+		<title>Scripting Help Functions</title>
+		<text>The following functions may help you making general scripts.</text>
+
+		<function>
+				<name>goprev</name>
+				<parameters></parameters>
+				<return></return>
+				<description>Back to the previous waypoint.</description>
+		</function>
+		
+		<function>
+				<name>temple</name>
+				<parameters>string town</parameters>
+				<return></return>
+				<description>Returns wheter you're standing on the temple coordinates of the city <i>town</i>, or not, example: temple("thais")</description>
+		</function>		
+
+		<function>
+				<name>hpcount</name>
+				<parameters></parameters>
+				<return></return>
+				<description>Returns the number of visible health potions, all types.</description>
+		</function>
+		
+		<function>
+				<name>mpcount</name>
+				<parameters></parameters>
+				<return></return>
+				<description>Returns the number of visible mana potions, all types.</description>
+		</function>
+		
+		<function>
+				<name>math.pi</name>
+				<parameters>number</parameters>
+				<return></return>
+				<description>Return the pi constant.</description>
+		</function>
+
+		<function>
+				<name>depositeronto</name>
+				<parameters>string dest, int itemid1, int itemid2...</parameters>
+				<return></return>
+				<description>Will deposit your stackable items on locker and open and deposit not stackable items on dest backpack.</description>
+		</function>
+
+		<function>
+				<name>tradetalk</name>
+				<parameters>string text</parameters>
+				<return></return>
+				<description>Will make your character say the text parameter given, in Advertising channel and wait about 120 seconds. If it's not open, it will display an error message.</description>
+		</function>
+		
+		<function>
+				<name>yell</name>
+				<parameters>string text</parameters>
+				<return></return>
+				<description>Will make your character yell the text parameter given and wait about 30 seconds.</description>
+		</function>
+		
+		<function>
+				<name>advertising</name>
+				<parameters>string text</parameters>
+				<return></return>
+				<description>Will make your character yell the text parameter given, also say in Advertising channel and wait until not exhausted to say/yell again. If Advertising channel is not open, it will display an error message.</description>
+		</function>
+
+		<function>
+				<name>usepick</name>
+				<parameters>int posx, int posy, int posz, opt int holes</parameters>
+				<return></return>
+				<description>Will use the kind of pick you've in your inventory in a closed whole until it becomes a hole. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the hole was opened successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+		</function>	
+
+	</help>
+	    <examples>
+        <category name="Cavebot">
+            <example name="Depositer">
+                <description>The action will deposit your stackable items on locker and open and deposit not stackable items on destination backpack.</description>
+                <content name="depositer">
+                    <hScript>depositeronto('!!dpBP!!', !!lootItem!!)</hScript>
+                    <input var="!!dpBP!!" default="red backpack">Enter the name of the container from locker that you will open and move all the loot.</input>
+					<input var="!!lootItem!!" default="'scarab coin', 'leather boots', 'small amethyst', 'scarab shield'">Enter the name of the loots.</input>
+                    <type>a</type>
+                </content>
+            </example>
+        </category>
+    </examples>
+</libfile>

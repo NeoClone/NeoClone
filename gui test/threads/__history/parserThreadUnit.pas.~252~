@@ -1,0 +1,639 @@
+unit parserThreadUnit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Xml.VerySimple, settingsHelper, addresses, Vcl.Dialogs,
+  eventQueue, PriorityQueue, math, netmsg, inputer, log, parserThreadHelper;
+
+type
+  TParserThread = class(TThread)
+    packetID: integer;
+    FPacketQueue: array of TPacket;
+  public
+    function insert(packet: TPacket): integer;
+    procedure delete( index: integer );
+    function pop( index: integer = -1 ): TPacket;
+  protected
+    procedure Execute; override;
+  end;
+
+var
+  m_skipTiles: word;
+
+implementation
+
+uses
+  unit1;
+
+
+function TParserThread.insert(packet: TPacket): integer;
+var
+  res: integer;
+begin
+
+  SetLength(FPacketQueue, length(FPacketQueue) + 1);
+  res := length(FPacketQueue) - 1;
+
+  FPacketQueue[res].buf := packet.buf;
+  FPacketQueue[res].len := packet.len;
+
+  result := res;
+end;
+
+procedure TParserThread.delete( index: integer );
+var
+  i: integer;
+begin
+
+  // je¿eli podajemy z³¹ wartoœæ wtedy exit
+  if index >= length(FPacketQueue) then exit;
+  //if index < 0 then exit;
+
+  // przesuwamy wszystkie obiekty by móc skróciæ tablice
+  if index = High(FPacketQueue) then
+    SetLength(FPacketQueue, length(FPacketQueue) - 1)
+  else
+  begin
+    for i := index to High(FPacketQueue) - 1 do
+      FPacketQueue[i] := FPacketQueue[i + 1];
+    SetLength(FPacketQueue, length(FPacketQueue) - 1);
+  end;
+
+end;
+
+function TParserThread.pop( index: integer = -1 ): TPacket;
+var
+  id: integer;
+begin
+
+  if index > -1 then
+  begin
+    result := FPacketQueue[index];
+    delete( index );
+    exit;
+  end;
+
+  result.len := 0;
+  id := 0;
+  if length(FPacketQueue) > 0 then
+  begin
+    result := FPacketQueue[id];
+    delete(id);
+  end;
+
+end;
+
+function ParseThing( packet: TNetMsg; loc: TLocation; offset: integer ): boolean;
+var
+  thingId: word;
+  itemId: integer;
+begin
+
+  thingId := packet.GetU16();
+
+  if (thingId = $61) or (thingId = $62) then // creatures
+  begin
+
+    if thingId = $62 then //creature is known
+    begin
+      packet.skip(4); // id
+    end
+    else if (thingId = $61) then //creature is not known
+    begin
+      //perhaps we have to remove a known creature
+      packet.skip(4); // remove id
+
+      packet.skip(4); // id
+      packet.SkipString(); // name
+    end;
+
+    packet.skip(1); // health
+    packet.skip(1); // direction
+    packet.SkipOutfit(); // outfit
+    packet.skip(1); // light level
+    packet.skip(1); // light color
+    packet.skip(2); // speed
+    packet.skip(1); // skull
+    packet.skip(1); // party shield
+
+    if (thingId = $61) then
+    begin
+      packet.skip(1); // war icon
+    end;
+
+    packet.skip(1); // is blocking
+
+    result := true;
+    exit;
+
+  end
+  else if (thingId = $63) then // creature turn
+  begin
+    packet.skip(4); // id
+    packet.skip(1); // direction
+
+    result := true;
+    exit;
+  end
+  else // item
+  begin
+
+    if thingId = High(Word) then
+    begin
+      itemId := packet.GetU16();
+    end else
+      itemId := thingId;
+
+    if DatTiles[itemId].haveExtraByte then
+    begin
+      packet.Skip(1); // count
+    end;
+
+    result := true;
+
+  end;
+
+end;
+
+function ParseTileDescription( packet: TNetMsg; loc: TLocation ): boolean;
+var
+  n: integer;
+  inspectTileId: word;
+begin
+  n := 0;
+  result := true;
+
+  while true do
+  begin
+
+    inspectTileId := packet.PeekU16();
+    if (inspectTileId >= $FF00) then
+    begin
+      //end of the tile
+      result := true;
+      break;
+    end
+    else
+    begin
+      if (n > 10) then
+      begin
+        result := false;
+        break;
+      end;
+      //read tile things: items and creatures
+      ParseThing( packet, loc, n );
+    end;
+    inc(n);
+  end;
+
+end;
+
+function ParseFloorDescription( packet: TNetMsg; x, y, z, width, height, offset: integer ): boolean;
+var
+  skipTiles, tileOpt: word;
+  nx, ny: integer;
+  loc: TLocation;
+begin
+
+  for nx := 0 to width-1 do
+  begin
+    for ny := 0 to height-1 do
+    begin
+
+      if m_skipTiles = 0 then
+      begin
+
+        tileOpt := packet.PeekU16();
+        //Decide if we have to skip tiles
+        // or if it is a real tile
+        if tileOpt >= $FF00 then
+        begin
+          skipTiles := packet.GetU16();
+          m_skipTiles := skipTiles and $FF;
+        end
+        else
+        begin
+          //real tile so read tile
+          loc.x := x + nx + offset;
+          loc.y := y + ny + offset;
+          loc.z := z;
+
+           result := ParseTileDescription( packet, loc );
+          if not result then exit;
+
+          skipTiles := packet.GetU16();
+          m_skipTiles := skipTiles and $FF;
+        end;
+
+      end
+      else
+      begin
+        //skipping tiles...
+        dec(m_skipTiles);
+      end;
+    end;
+  end;
+end;
+
+function ParseMapDescription( packet: TNetMsg; x, y, z, width, height: integer ): boolean;
+var
+  startz, endz, zstep, nz: integer;
+begin
+  m_skipTiles := 0;
+  result := false;
+  //calculate map limits
+  if (z > 7) then
+  begin
+    startz := z - 2;
+    endz := math.Min( 16 - 1, z + 2 );
+    zstep := 1;
+  end
+  else
+  begin
+    startz := 7;
+    endz := 0;
+    zstep := -1;
+  end;
+
+  nz := startz;
+  while (nz < (endz + zstep)) do
+  begin
+    result := ParseFloorDescription( packet, x, y, nz, width, height, z - nz );
+    if not result then exit;
+    nz := nz + zstep;
+  end;
+end;
+
+procedure TParserThread.Execute;
+var
+  packet: TNetMsg;
+  loc: TLocation;
+  i,j: Integer;
+  xmlNode: TXmlNode;
+  subPacket: TPacket;
+begin
+  packet := TNetMsg.Create;
+
+  while not Terminated do
+  begin
+    subPacket := pop();
+    if subPacket.len > 0 then
+    begin
+      packet.LoadPacket(subPacket);
+
+      while not (packet.isEOP) do
+      begin
+
+        packetID := packet.GetByte();
+        //if not GUI.Player.isConnected then break;
+
+        case NewInPacketId(packetID) of
+
+          NewInPacketId.inOUTFIT:
+            begin
+              readOUTFIT( packet );
+            end;
+
+          NewInPacketId.inMESSAGE:
+            begin
+              readMESSAGE( packet );
+            end;
+
+          NewInPacketId.inPING:
+            begin
+              readPING( packet );
+            end;
+
+          NewInPacketId.inWAIT:
+            begin
+              readWAIT( packet );
+            end;
+
+          NewInPacketId.inBUDDYDATA:
+            begin
+              readBUDDYDATA( packet );
+            end;
+
+          NewInPacketId.inCREATUREPARTY:
+            begin
+              readCREATUREPARTY( packet );
+            end;
+
+          NewInPacketId.inQUESTLOG:
+            begin
+              readQUESTLOG( packet );
+            end;
+
+          NewInPacketId.inFIELDDATA:
+            begin
+              readFIELDDATA( packet );
+            end;
+
+          NewInPacketId.inCLOSECONTAINER:
+            begin
+              readCLOSECONTAINER( packet );
+            end;
+
+          NewInPacketId.inLEFTROW:
+            begin
+              readLEFTROW( packet );
+            end;
+
+          NewInPacketId.inFULLMAP:
+            begin
+              readFULLMAP( packet );
+            end;
+
+          NewInPacketId.inMISSILEEFFECT:
+            begin
+              readMISSILEEFFECT( packet );
+            end;
+
+          NewInPacketId.inSPELLGROUPDELAY:
+            begin
+              readSPELLGROUPDELAY( packet );
+            end;
+
+          NewInPacketId.inBOTTOMROW:
+            begin
+              readBOTTOMROW( packet );
+            end;
+
+          NewInPacketId.inLOGINERROR:
+            begin
+              readLOGINERROR( packet );
+            end;
+
+          NewInPacketId.inQUESTLINE:
+            begin
+              readQUESTLINE( packet );
+            end;
+
+          NewInPacketId.inCREATURESKULL:
+            begin
+              readCREATURESKULL( packet );
+            end;
+
+          NewInPacketId.inTRAPPERS:
+            begin
+              readTRAPPERS( packet );
+            end;
+
+          NewInPacketId.inBUDDYLOGIN:
+            begin
+              readBUDDYLOGIN( packet );
+            end;
+
+          NewInPacketId.inSNAPBACK:
+            begin
+              readSNAPBACK( packet );
+            end;
+
+          NewInPacketId.inOBJECTINFO:
+            begin
+              readOBJECTINFO( packet );
+            end;
+
+          NewInPacketId.inCHANNELS:
+            begin
+              readCHANNELS( packet );
+            end;
+
+          NewInPacketId.inOPENCHANNEL:
+            begin
+              readOPENCHANNEL( packet );
+            end;
+
+          NewInPacketId.inTOPFLOOR:
+            begin
+              readTOPFLOOR( packet );
+            end;
+
+          NewInPacketId.inPRIVATECHANNEL:
+            begin
+              readPRIVATECHANNEL( packet );
+            end;
+
+          NewInPacketId.inLOGINWAIT:
+            begin
+              readLOGINWAIT( packet );
+            end;
+
+          NewInPacketId.inCREATEONMAP:
+            begin
+              readCREATEONMAP( packet );
+            end;
+
+          NewInPacketId.inCHALLENGE:
+            begin
+              readCHALLENGE( packet );
+            end;
+
+          NewInPacketId.inCONTAINER:
+            begin
+              readCONTAINER( packet );
+            end;
+
+          NewInPacketId.inNPCOFFER:
+            begin
+              readNPCOFFER( packet );
+            end;
+
+          NewInPacketId.inBUDDYLOGOUT:
+            begin
+              readBUDDYLOGOUT( packet );
+            end;
+
+          NewInPacketId.inMARKETBROWSE:
+            begin
+              readMARKETBROWSE( packet );
+            end;
+
+          NewInPacketId.inMARKETLEAVE:
+            begin
+              readMARKETLEAVE( packet );
+            end;
+
+          NewInPacketId.inCOUNTEROFFER:
+            begin
+              readCOUNTEROFFER( packet );
+            end;
+
+          NewInPacketId.inMARKETENTER:
+            begin
+              readMARKETENTER( packet );
+            end;
+
+          NewInPacketId.inCREATURESPEED:
+            begin
+              readCREATURESPEED( packet );
+            end;
+
+          NewInPacketId.inMARKCREATURE:
+            begin
+              readMARKCREATURE( packet );
+            end;
+
+          NewInPacketId.inSPELLDELAY:
+            begin
+              readSPELLDELAY( packet );
+            end;
+
+          NewInPacketId.inDELETEONMAP:
+            begin
+              readDELETEONMAP( packet );
+            end;
+
+          NewInPacketId.inCREATUREOUTFIT:
+            begin
+              readCREATUREOUTFIT( packet );
+            end;
+
+          NewInPacketId.inAMBIENTE:
+            begin
+              readAMBIENTE( packet );
+            end;
+
+          NewInPacketId.inPLAYERSKILLS:
+            begin
+              readPLAYERSKILLS( packet );
+            end;
+
+          NewInPacketId.inCREATUREUNPASS:
+            begin
+              readCREATUREUNPASS( packet );
+            end;
+
+          NewInPacketId.inDELETEINCONTAINER:
+            begin
+              readDELETEINCONTAINER( packet );
+            end;
+
+          NewInPacketId.inCREATEINCONTAINER:
+            begin
+              readCREATEINCONTAINER( packet );
+            end;
+
+          NewInPacketId.inCREATUREHEALTH:
+            begin
+              readCREATUREHEALTH( packet );
+            end;
+
+          NewInPacketId.inINITGAME:
+            begin
+              readINITGAME( packet );
+            end;
+
+          NewInPacketId.inTOPROW:
+            begin
+              readTOPROW( packet );
+            end;
+
+          NewInPacketId.inBOTTOMFLOOR:
+            begin
+              readBOTTOMFLOOR( packet );
+            end;
+
+          NewInPacketId.inPLAYERDATA:
+            begin
+              readPLAYERDATA( packet );
+            end;
+
+          NewInPacketId.inCREATURELIGHT:
+            begin
+              readCREATURELIGHT( packet );
+            end;
+
+          NewInPacketId.inTUTORIALHINT:
+            begin
+              readTUTORIALHINT( packet );
+            end;
+
+          NewInPacketId.inPLAYERGOODS:
+            begin
+              readPLAYERGOODS( packet );
+            end;
+
+          NewInPacketId.inPLAYERINVENTORY:
+            begin
+              readPLAYERINVENTORY( packet );
+            end;
+
+          NewInPacketId.inMOVECREATURE:
+            begin
+              readMOVECREATURE( packet );
+            end;
+
+          NewInPacketId.inEDITLIST:
+            begin
+              readEDITLIST( packet );
+            end;
+
+          NewInPacketId.inCLOSETRADE:
+            begin
+              readCLOSETRADE( packet );
+            end;
+
+          NewInPacketId.inSETINVENTORY:
+            begin
+              readSETINVENTORY( packet );
+            end;
+
+          NewInPacketId.inCHANGEONMAP:
+            begin
+              readCHANGEONMAP( packet );
+            end;
+
+          NewInPacketId.inDEAD:
+            begin
+              readDEAD( packet );
+            end;
+
+          NewInPacketId.inCHANGEINCONTAINER:
+            begin
+              readCHANGEINCONTAINER( packet );
+            end;
+
+          NewInPacketId.inDELETEINVENTORY:
+            begin
+              readDELETEINVENTORY( packet );
+            end;
+
+          NewInPacketId.inLOGINADVICE:
+            begin
+              readLOGINADVICE( packet );
+            end;
+
+          NewInPacketId.inCHANNELEVENT:
+            begin
+              readCHANNELEVENT( packet );
+            end;
+
+          NewInPacketId.inMARKETDETAIL:
+            begin
+              readMARKETDETAIL( packet );
+            end;
+
+          NewInPacketId.inOPENOWNCHANNEL:
+            begin
+              readOPENOWNCHANNEL( packet );
+            end;
+
+
+
+        else
+          begin
+            break;
+          end;
+
+        end;
+      end;
+    end;
+    sleep(1);
+  end;
+
+end;
+
+end.

@@ -1,0 +1,830 @@
+
+{********************************************************}
+{                                                        }
+{                    XML Data Binding                    }
+{                                                        }
+{         Generated on: 2011-12-30 19:53:13              }
+{       Generated from: C:\Users\Ja\Desktop\mo'bot.xml   }
+{                                                        }
+{********************************************************}
+
+unit configXML;
+
+interface
+
+uses xmldom, XMLDoc, XMLIntf;
+
+type
+
+{ Forward Decls }
+
+  IXMLMobotType = interface;
+  IXMLHealerType = interface;
+  IXMLHealrulesType = interface;
+  IXMLRuleType = interface;
+  IXMLHealthType = interface;
+  IXMLManaType = interface;
+  IXMLSpamRateType = interface;
+  IXMLMethodPriorityType = interface;
+  IXMLManatrainingType = interface;
+  IXMLManaMissingType = interface;
+  IXMLSpellPriorityType = interface;
+  IXMLSettingsType = interface;
+
+{ IXMLMobotType }
+
+  IXMLMobotType = interface(IXMLNode)
+    ['{55C2292B-9C0F-4308-9B86-B2D5AED2F072}']
+    { Property Accessors }
+    function Get_Healer: IXMLHealerType;
+    { Methods & Properties }
+    property Healer: IXMLHealerType read Get_Healer;
+  end;
+
+{ IXMLHealerType }
+
+  IXMLHealerType = interface(IXMLNode)
+    ['{2E18AD91-3555-4D86-A942-816279D50372}']
+    { Property Accessors }
+    function Get_Healrules: IXMLHealrulesType;
+    function Get_Manatraining: IXMLManatrainingType;
+    function Get_Settings: IXMLSettingsType;
+    { Methods & Properties }
+    property Healrules: IXMLHealrulesType read Get_Healrules;
+    property Manatraining: IXMLManatrainingType read Get_Manatraining;
+    property Settings: IXMLSettingsType read Get_Settings;
+  end;
+
+{ IXMLHealrulesType }
+
+  IXMLHealrulesType = interface(IXMLNodeCollection)
+    ['{5D208AE0-F2F5-425A-8037-B7635B976659}']
+    { Property Accessors }
+    function Get_Rule(Index: Integer): IXMLRuleType;
+    { Methods & Properties }
+    function Add: IXMLRuleType;
+    function Insert(const Index: Integer): IXMLRuleType;
+    property Rule[Index: Integer]: IXMLRuleType read Get_Rule; default;
+  end;
+
+{ IXMLRuleType }
+
+  IXMLRuleType = interface(IXMLNode)
+    ['{2E14AD8F-46AE-4251-BC04-89945FB60BEA}']
+    { Property Accessors }
+    function Get_Name: WideString;
+    function Get_Health: IXMLHealthType;
+    function Get_Mana: IXMLManaType;
+    function Get_HealMethod: WideString;
+    function Get_ExtraCondition: WideString;
+    function Get_SpamRate: IXMLSpamRateType;
+    function Get_MethodPriority: IXMLMethodPriorityType;
+    procedure Set_Name(Value: WideString);
+    procedure Set_HealMethod(Value: WideString);
+    procedure Set_ExtraCondition(Value: WideString);
+    { Methods & Properties }
+    property Name: WideString read Get_Name write Set_Name;
+    property Health: IXMLHealthType read Get_Health;
+    property Mana: IXMLManaType read Get_Mana;
+    property HealMethod: WideString read Get_HealMethod write Set_HealMethod;
+    property ExtraCondition: WideString read Get_ExtraCondition write Set_ExtraCondition;
+    property SpamRate: IXMLSpamRateType read Get_SpamRate;
+    property MethodPriority: IXMLMethodPriorityType read Get_MethodPriority;
+  end;
+
+{ IXMLHealthType }
+
+  IXMLHealthType = interface(IXMLNode)
+    ['{F1F5B18E-898B-4A41-BB11-13742E07D57B}']
+    { Property Accessors }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    function Get_Type_: WideString;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+    procedure Set_Type_(Value: WideString);
+    { Methods & Properties }
+    property From: Integer read Get_From write Set_From;
+    property To_: Integer read Get_To_ write Set_To_;
+    property Type_: WideString read Get_Type_ write Set_Type_;
+  end;
+
+{ IXMLManaType }
+
+  IXMLManaType = interface(IXMLNode)
+    ['{35920B80-E6A4-474E-9663-4698ED953E67}']
+    { Property Accessors }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    function Get_Type_: WideString;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+    procedure Set_Type_(Value: WideString);
+    { Methods & Properties }
+    property From: Integer read Get_From write Set_From;
+    property To_: Integer read Get_To_ write Set_To_;
+    property Type_: WideString read Get_Type_ write Set_Type_;
+  end;
+
+{ IXMLSpamRateType }
+
+  IXMLSpamRateType = interface(IXMLNode)
+    ['{724D9961-F523-466C-96FF-B62F2094D666}']
+    { Property Accessors }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+    { Methods & Properties }
+    property From: Integer read Get_From write Set_From;
+    property To_: Integer read Get_To_ write Set_To_;
+  end;
+
+{ IXMLMethodPriorityType }
+
+  IXMLMethodPriorityType = interface(IXMLNode)
+    ['{174A376A-B47F-4201-B493-D07D8047C681}']
+    { Property Accessors }
+    function Get_Priority: Integer;
+    function Get_OverridePriority: Integer;
+    function Get_ExpireTime: Integer;
+    function Get_LifeTime: Integer;
+    function Get_EventType: WideString;
+    procedure Set_Priority(Value: Integer);
+    procedure Set_OverridePriority(Value: Integer);
+    procedure Set_ExpireTime(Value: Integer);
+    procedure Set_LifeTime(Value: Integer);
+    procedure Set_EventType(Value: WideString);
+    { Methods & Properties }
+    property Priority: Integer read Get_Priority write Set_Priority;
+    property OverridePriority: Integer read Get_OverridePriority write Set_OverridePriority;
+    property ExpireTime: Integer read Get_ExpireTime write Set_ExpireTime;
+    property LifeTime: Integer read Get_LifeTime write Set_LifeTime;
+    property EventType: WideString read Get_EventType write Set_EventType;
+  end;
+
+{ IXMLManatrainingType }
+
+  IXMLManatrainingType = interface(IXMLNode)
+    ['{F94CC651-2BD8-425E-8760-A5EDAC9D9313}']
+    { Property Accessors }
+    function Get_ManaMissing: IXMLManaMissingType;
+    function Get_SpamRate: IXMLSpamRateType;
+    function Get_Active: WideString;
+    function Get_SpellPriority: IXMLSpellPriorityType;
+    procedure Set_Active(Value: WideString);
+    { Methods & Properties }
+    property ManaMissing: IXMLManaMissingType read Get_ManaMissing;
+    property SpamRate: IXMLSpamRateType read Get_SpamRate;
+    property Active: WideString read Get_Active write Set_Active;
+    property SpellPriority: IXMLSpellPriorityType read Get_SpellPriority;
+  end;
+
+{ IXMLManaMissingType }
+
+  IXMLManaMissingType = interface(IXMLNode)
+    ['{623C24F1-9481-440F-A0A6-78500373476B}']
+    { Property Accessors }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+    { Methods & Properties }
+    property From: Integer read Get_From write Set_From;
+    property To_: Integer read Get_To_ write Set_To_;
+  end;
+
+{ IXMLSpellPriorityType }
+
+  IXMLSpellPriorityType = interface(IXMLNode)
+    ['{B5ECCEB8-E0B5-4AE8-AB02-CE38B58D1F61}']
+    { Property Accessors }
+    function Get_Priority: Integer;
+    function Get_OverridePriority: Integer;
+    function Get_ExpireTime: Integer;
+    function Get_LifeTime: Integer;
+    function Get_EventType: WideString;
+    procedure Set_Priority(Value: Integer);
+    procedure Set_OverridePriority(Value: Integer);
+    procedure Set_ExpireTime(Value: Integer);
+    procedure Set_LifeTime(Value: Integer);
+    procedure Set_EventType(Value: WideString);
+    { Methods & Properties }
+    property Priority: Integer read Get_Priority write Set_Priority;
+    property OverridePriority: Integer read Get_OverridePriority write Set_OverridePriority;
+    property ExpireTime: Integer read Get_ExpireTime write Set_ExpireTime;
+    property LifeTime: Integer read Get_LifeTime write Set_LifeTime;
+    property EventType: WideString read Get_EventType write Set_EventType;
+  end;
+
+{ IXMLSettingsType }
+
+  IXMLSettingsType = interface(IXMLNode)
+    ['{F656407B-0A4C-4A24-8A2E-F55842435B02}']
+    { Property Accessors }
+    function Get_PingCompensation: Integer;
+    function Get_Active: WideString;
+    procedure Set_PingCompensation(Value: Integer);
+    procedure Set_Active(Value: WideString);
+    { Methods & Properties }
+    property PingCompensation: Integer read Get_PingCompensation write Set_PingCompensation;
+    property Active: WideString read Get_Active write Set_Active;
+  end;
+
+{ Forward Decls }
+
+  TXMLMobotType = class;
+  TXMLHealerType = class;
+  TXMLHealrulesType = class;
+  TXMLRuleType = class;
+  TXMLHealthType = class;
+  TXMLManaType = class;
+  TXMLSpamRateType = class;
+  TXMLMethodPriorityType = class;
+  TXMLManatrainingType = class;
+  TXMLManaMissingType = class;
+  TXMLSpellPriorityType = class;
+  TXMLSettingsType = class;
+
+{ TXMLMobotType }
+
+  TXMLMobotType = class(TXMLNode, IXMLMobotType)
+  protected
+    { IXMLMobotType }
+    function Get_Healer: IXMLHealerType;
+  public
+    procedure AfterConstruction; override;
+  end;
+
+{ TXMLHealerType }
+
+  TXMLHealerType = class(TXMLNode, IXMLHealerType)
+  protected
+    { IXMLHealerType }
+    function Get_Healrules: IXMLHealrulesType;
+    function Get_Manatraining: IXMLManatrainingType;
+    function Get_Settings: IXMLSettingsType;
+  public
+    procedure AfterConstruction; override;
+  end;
+
+{ TXMLHealrulesType }
+
+  TXMLHealrulesType = class(TXMLNodeCollection, IXMLHealrulesType)
+  protected
+    { IXMLHealrulesType }
+    function Get_Rule(Index: Integer): IXMLRuleType;
+    function Add: IXMLRuleType;
+    function Insert(const Index: Integer): IXMLRuleType;
+  public
+    procedure AfterConstruction; override;
+  end;
+
+{ TXMLRuleType }
+
+  TXMLRuleType = class(TXMLNode, IXMLRuleType)
+  protected
+    { IXMLRuleType }
+    function Get_Name: WideString;
+    function Get_Health: IXMLHealthType;
+    function Get_Mana: IXMLManaType;
+    function Get_HealMethod: WideString;
+    function Get_ExtraCondition: WideString;
+    function Get_SpamRate: IXMLSpamRateType;
+    function Get_MethodPriority: IXMLMethodPriorityType;
+    procedure Set_Name(Value: WideString);
+    procedure Set_HealMethod(Value: WideString);
+    procedure Set_ExtraCondition(Value: WideString);
+  public
+    procedure AfterConstruction; override;
+  end;
+
+{ TXMLHealthType }
+
+  TXMLHealthType = class(TXMLNode, IXMLHealthType)
+  protected
+    { IXMLHealthType }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    function Get_Type_: WideString;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+    procedure Set_Type_(Value: WideString);
+  end;
+
+{ TXMLManaType }
+
+  TXMLManaType = class(TXMLNode, IXMLManaType)
+  protected
+    { IXMLManaType }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    function Get_Type_: WideString;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+    procedure Set_Type_(Value: WideString);
+  end;
+
+{ TXMLSpamRateType }
+
+  TXMLSpamRateType = class(TXMLNode, IXMLSpamRateType)
+  protected
+    { IXMLSpamRateType }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+  end;
+
+{ TXMLMethodPriorityType }
+
+  TXMLMethodPriorityType = class(TXMLNode, IXMLMethodPriorityType)
+  protected
+    { IXMLMethodPriorityType }
+    function Get_Priority: Integer;
+    function Get_OverridePriority: Integer;
+    function Get_ExpireTime: Integer;
+    function Get_LifeTime: Integer;
+    function Get_EventType: WideString;
+    procedure Set_Priority(Value: Integer);
+    procedure Set_OverridePriority(Value: Integer);
+    procedure Set_ExpireTime(Value: Integer);
+    procedure Set_LifeTime(Value: Integer);
+    procedure Set_EventType(Value: WideString);
+  end;
+
+{ TXMLManatrainingType }
+
+  TXMLManatrainingType = class(TXMLNode, IXMLManatrainingType)
+  protected
+    { IXMLManatrainingType }
+    function Get_ManaMissing: IXMLManaMissingType;
+    function Get_SpamRate: IXMLSpamRateType;
+    function Get_Active: WideString;
+    function Get_SpellPriority: IXMLSpellPriorityType;
+    procedure Set_Active(Value: WideString);
+  public
+    procedure AfterConstruction; override;
+  end;
+
+{ TXMLManaMissingType }
+
+  TXMLManaMissingType = class(TXMLNode, IXMLManaMissingType)
+  protected
+    { IXMLManaMissingType }
+    function Get_From: Integer;
+    function Get_To_: Integer;
+    procedure Set_From(Value: Integer);
+    procedure Set_To_(Value: Integer);
+  end;
+
+{ TXMLSpellPriorityType }
+
+  TXMLSpellPriorityType = class(TXMLNode, IXMLSpellPriorityType)
+  protected
+    { IXMLSpellPriorityType }
+    function Get_Priority: Integer;
+    function Get_OverridePriority: Integer;
+    function Get_ExpireTime: Integer;
+    function Get_LifeTime: Integer;
+    function Get_EventType: WideString;
+    procedure Set_Priority(Value: Integer);
+    procedure Set_OverridePriority(Value: Integer);
+    procedure Set_ExpireTime(Value: Integer);
+    procedure Set_LifeTime(Value: Integer);
+    procedure Set_EventType(Value: WideString);
+  end;
+
+{ TXMLSettingsType }
+
+  TXMLSettingsType = class(TXMLNode, IXMLSettingsType)
+  protected
+    { IXMLSettingsType }
+    function Get_PingCompensation: Integer;
+    function Get_Active: WideString;
+    procedure Set_PingCompensation(Value: Integer);
+    procedure Set_Active(Value: WideString);
+  end;
+
+{ Global Functions }
+
+function Getmobot(Doc: IXMLDocument): IXMLMobotType;
+function Loadmobot(const FileName: WideString): IXMLMobotType;
+function Newmobot: IXMLMobotType;
+
+const
+  TargetNamespace = '';
+
+implementation
+
+{ Global Functions }
+
+function Getmobot(Doc: IXMLDocument): IXMLMobotType;
+begin
+  Result := Doc.GetDocBinding('mobot', TXMLMobotType, TargetNamespace) as IXMLMobotType;
+end;
+
+function Loadmobot(const FileName: WideString): IXMLMobotType;
+begin
+  Result := LoadXMLDocument(FileName).GetDocBinding('mobot', TXMLMobotType, TargetNamespace) as IXMLMobotType;
+end;
+
+function Newmobot: IXMLMobotType;
+begin
+  Result := NewXMLDocument.GetDocBinding('mobot', TXMLMobotType, TargetNamespace) as IXMLMobotType;
+end;
+
+{ TXMLMobotType }
+
+procedure TXMLMobotType.AfterConstruction;
+begin
+  RegisterChildNode('healer', TXMLHealerType);
+  inherited;
+end;
+
+function TXMLMobotType.Get_Healer: IXMLHealerType;
+begin
+  Result := ChildNodes['healer'] as IXMLHealerType;
+end;
+
+{ TXMLHealerType }
+
+procedure TXMLHealerType.AfterConstruction;
+begin
+  RegisterChildNode('healrules', TXMLHealrulesType);
+  RegisterChildNode('manatraining', TXMLManatrainingType);
+  RegisterChildNode('settings', TXMLSettingsType);
+  inherited;
+end;
+
+function TXMLHealerType.Get_Healrules: IXMLHealrulesType;
+begin
+  Result := ChildNodes['healrules'] as IXMLHealrulesType;
+end;
+
+function TXMLHealerType.Get_Manatraining: IXMLManatrainingType;
+begin
+  Result := ChildNodes['manatraining'] as IXMLManatrainingType;
+end;
+
+function TXMLHealerType.Get_Settings: IXMLSettingsType;
+begin
+  Result := ChildNodes['settings'] as IXMLSettingsType;
+end;
+
+{ TXMLHealrulesType }
+
+procedure TXMLHealrulesType.AfterConstruction;
+begin
+  RegisterChildNode('rule', TXMLRuleType);
+  ItemTag := 'rule';
+  ItemInterface := IXMLRuleType;
+  inherited;
+end;
+
+function TXMLHealrulesType.Get_Rule(Index: Integer): IXMLRuleType;
+begin
+  Result := List[Index] as IXMLRuleType;
+end;
+
+function TXMLHealrulesType.Add: IXMLRuleType;
+begin
+  Result := AddItem(-1) as IXMLRuleType;
+end;
+
+function TXMLHealrulesType.Insert(const Index: Integer): IXMLRuleType;
+begin
+  Result := AddItem(Index) as IXMLRuleType;
+end;
+
+{ TXMLRuleType }
+
+procedure TXMLRuleType.AfterConstruction;
+begin
+  RegisterChildNode('health', TXMLHealthType);
+  RegisterChildNode('mana', TXMLManaType);
+  RegisterChildNode('spamRate', TXMLSpamRateType);
+  RegisterChildNode('methodPriority', TXMLMethodPriorityType);
+  inherited;
+end;
+
+function TXMLRuleType.Get_Name: WideString;
+begin
+  Result := AttributeNodes['name'].Text;
+end;
+
+procedure TXMLRuleType.Set_Name(Value: WideString);
+begin
+  SetAttribute('name', Value);
+end;
+
+function TXMLRuleType.Get_Health: IXMLHealthType;
+begin
+  Result := ChildNodes['health'] as IXMLHealthType;
+end;
+
+function TXMLRuleType.Get_Mana: IXMLManaType;
+begin
+  Result := ChildNodes['mana'] as IXMLManaType;
+end;
+
+function TXMLRuleType.Get_HealMethod: WideString;
+begin
+  Result := ChildNodes['healMethod'].Text;
+end;
+
+procedure TXMLRuleType.Set_HealMethod(Value: WideString);
+begin
+  ChildNodes['healMethod'].NodeValue := Value;
+end;
+
+function TXMLRuleType.Get_ExtraCondition: WideString;
+begin
+  Result := ChildNodes['extraCondition'].Text;
+end;
+
+procedure TXMLRuleType.Set_ExtraCondition(Value: WideString);
+begin
+  ChildNodes['extraCondition'].NodeValue := Value;
+end;
+
+function TXMLRuleType.Get_SpamRate: IXMLSpamRateType;
+begin
+  Result := ChildNodes['spamRate'] as IXMLSpamRateType;
+end;
+
+function TXMLRuleType.Get_MethodPriority: IXMLMethodPriorityType;
+begin
+  Result := ChildNodes['methodPriority'] as IXMLMethodPriorityType;
+end;
+
+{ TXMLHealthType }
+
+function TXMLHealthType.Get_From: Integer;
+begin
+  Result := AttributeNodes['from'].NodeValue;
+end;
+
+procedure TXMLHealthType.Set_From(Value: Integer);
+begin
+  SetAttribute('from', Value);
+end;
+
+function TXMLHealthType.Get_To_: Integer;
+begin
+  Result := AttributeNodes['to'].NodeValue;
+end;
+
+procedure TXMLHealthType.Set_To_(Value: Integer);
+begin
+  SetAttribute('to', Value);
+end;
+
+function TXMLHealthType.Get_Type_: WideString;
+begin
+  Result := AttributeNodes['type'].Text;
+end;
+
+procedure TXMLHealthType.Set_Type_(Value: WideString);
+begin
+  SetAttribute('type', Value);
+end;
+
+{ TXMLManaType }
+
+function TXMLManaType.Get_From: Integer;
+begin
+  Result := AttributeNodes['from'].NodeValue;
+end;
+
+procedure TXMLManaType.Set_From(Value: Integer);
+begin
+  SetAttribute('from', Value);
+end;
+
+function TXMLManaType.Get_To_: Integer;
+begin
+  Result := AttributeNodes['to'].NodeValue;
+end;
+
+procedure TXMLManaType.Set_To_(Value: Integer);
+begin
+  SetAttribute('to', Value);
+end;
+
+function TXMLManaType.Get_Type_: WideString;
+begin
+  Result := AttributeNodes['type'].Text;
+end;
+
+procedure TXMLManaType.Set_Type_(Value: WideString);
+begin
+  SetAttribute('type', Value);
+end;
+
+{ TXMLSpamRateType }
+
+function TXMLSpamRateType.Get_From: Integer;
+begin
+  Result := AttributeNodes['from'].NodeValue;
+end;
+
+procedure TXMLSpamRateType.Set_From(Value: Integer);
+begin
+  SetAttribute('from', Value);
+end;
+
+function TXMLSpamRateType.Get_To_: Integer;
+begin
+  Result := AttributeNodes['to'].NodeValue;
+end;
+
+procedure TXMLSpamRateType.Set_To_(Value: Integer);
+begin
+  SetAttribute('to', Value);
+end;
+
+{ TXMLMethodPriorityType }
+
+function TXMLMethodPriorityType.Get_Priority: Integer;
+begin
+  Result := ChildNodes['priority'].NodeValue;
+end;
+
+procedure TXMLMethodPriorityType.Set_Priority(Value: Integer);
+begin
+  ChildNodes['priority'].NodeValue := Value;
+end;
+
+function TXMLMethodPriorityType.Get_OverridePriority: Integer;
+begin
+  Result := ChildNodes['overridePriority'].NodeValue;
+end;
+
+procedure TXMLMethodPriorityType.Set_OverridePriority(Value: Integer);
+begin
+  ChildNodes['overridePriority'].NodeValue := Value;
+end;
+
+function TXMLMethodPriorityType.Get_ExpireTime: Integer;
+begin
+  Result := ChildNodes['expireTime'].NodeValue;
+end;
+
+procedure TXMLMethodPriorityType.Set_ExpireTime(Value: Integer);
+begin
+  ChildNodes['expireTime'].NodeValue := Value;
+end;
+
+function TXMLMethodPriorityType.Get_LifeTime: Integer;
+begin
+  Result := ChildNodes['lifeTime'].NodeValue;
+end;
+
+procedure TXMLMethodPriorityType.Set_LifeTime(Value: Integer);
+begin
+  ChildNodes['lifeTime'].NodeValue := Value;
+end;
+
+function TXMLMethodPriorityType.Get_EventType: WideString;
+begin
+  Result := ChildNodes['eventType'].Text;
+end;
+
+procedure TXMLMethodPriorityType.Set_EventType(Value: WideString);
+begin
+  ChildNodes['eventType'].NodeValue := Value;
+end;
+
+{ TXMLManatrainingType }
+
+procedure TXMLManatrainingType.AfterConstruction;
+begin
+  RegisterChildNode('manaMissing', TXMLManaMissingType);
+  RegisterChildNode('spamRate', TXMLSpamRateType);
+  RegisterChildNode('spellPriority', TXMLSpellPriorityType);
+  inherited;
+end;
+
+function TXMLManatrainingType.Get_ManaMissing: IXMLManaMissingType;
+begin
+  Result := ChildNodes['manaMissing'] as IXMLManaMissingType;
+end;
+
+function TXMLManatrainingType.Get_SpamRate: IXMLSpamRateType;
+begin
+  Result := ChildNodes['spamRate'] as IXMLSpamRateType;
+end;
+
+function TXMLManatrainingType.Get_Active: WideString;
+begin
+  Result := ChildNodes['active'].Text;
+end;
+
+procedure TXMLManatrainingType.Set_Active(Value: WideString);
+begin
+  ChildNodes['active'].NodeValue := Value;
+end;
+
+function TXMLManatrainingType.Get_SpellPriority: IXMLSpellPriorityType;
+begin
+  Result := ChildNodes['spellPriority'] as IXMLSpellPriorityType;
+end;
+
+{ TXMLManaMissingType }
+
+function TXMLManaMissingType.Get_From: Integer;
+begin
+  Result := AttributeNodes['from'].NodeValue;
+end;
+
+procedure TXMLManaMissingType.Set_From(Value: Integer);
+begin
+  SetAttribute('from', Value);
+end;
+
+function TXMLManaMissingType.Get_To_: Integer;
+begin
+  Result := AttributeNodes['to'].NodeValue;
+end;
+
+procedure TXMLManaMissingType.Set_To_(Value: Integer);
+begin
+  SetAttribute('to', Value);
+end;
+
+{ TXMLSpellPriorityType }
+
+function TXMLSpellPriorityType.Get_Priority: Integer;
+begin
+  Result := ChildNodes['priority'].NodeValue;
+end;
+
+procedure TXMLSpellPriorityType.Set_Priority(Value: Integer);
+begin
+  ChildNodes['priority'].NodeValue := Value;
+end;
+
+function TXMLSpellPriorityType.Get_OverridePriority: Integer;
+begin
+  Result := ChildNodes['overridePriority'].NodeValue;
+end;
+
+procedure TXMLSpellPriorityType.Set_OverridePriority(Value: Integer);
+begin
+  ChildNodes['overridePriority'].NodeValue := Value;
+end;
+
+function TXMLSpellPriorityType.Get_ExpireTime: Integer;
+begin
+  Result := ChildNodes['expireTime'].NodeValue;
+end;
+
+procedure TXMLSpellPriorityType.Set_ExpireTime(Value: Integer);
+begin
+  ChildNodes['expireTime'].NodeValue := Value;
+end;
+
+function TXMLSpellPriorityType.Get_LifeTime: Integer;
+begin
+  Result := ChildNodes['lifeTime'].NodeValue;
+end;
+
+procedure TXMLSpellPriorityType.Set_LifeTime(Value: Integer);
+begin
+  ChildNodes['lifeTime'].NodeValue := Value;
+end;
+
+function TXMLSpellPriorityType.Get_EventType: WideString;
+begin
+  Result := ChildNodes['eventType'].Text;
+end;
+
+procedure TXMLSpellPriorityType.Set_EventType(Value: WideString);
+begin
+  ChildNodes['eventType'].NodeValue := Value;
+end;
+
+{ TXMLSettingsType }
+
+function TXMLSettingsType.Get_PingCompensation: Integer;
+begin
+  Result := ChildNodes['pingCompensation'].NodeValue;
+end;
+
+procedure TXMLSettingsType.Set_PingCompensation(Value: Integer);
+begin
+  ChildNodes['pingCompensation'].NodeValue := Value;
+end;
+
+function TXMLSettingsType.Get_Active: WideString;
+begin
+  Result := ChildNodes['active'].Text;
+end;
+
+procedure TXMLSettingsType.Set_Active(Value: WideString);
+begin
+  ChildNodes['active'].NodeValue := Value;
+end;
+
+end.

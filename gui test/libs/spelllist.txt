@@ -1,0 +1,133 @@
+<spells>
+	<spell name="light healing" words="exura" group1="healing" group2="" type="instant" level="9" mp="20" price="170" premium="false" soul="0" mlevel="0" condition="" CoolDownID="1"/>
+	<spell name="intense healing" words="exura gran" group1="healing" group2="" type="instant" level="11" mp="70" price="350" premium="false" soul="0" mlevel="0" condition="" CoolDownID="2"/>
+	<spell name="ultimate healing" words="exura vita" group1="healing" group2="" type="instant" level="20" mp="160" price="1000" premium="false" soul="0" mlevel="0" condition="" CoolDownID="3"/>
+	<spell name="intense healing rune" words="adura gran" group1="support" group2="" type="rune" level="15" mp="120" price="600" premium="false" soul="2" mlevel="1" condition="7" CoolDownID="4"/>
+	<spell name="ultimate healing rune" words="adura vita" group1="support" group2="" type="rune" level="24" mp="400" price="1500" premium="false" soul="3" mlevel="4" condition="7" CoolDownID="5"/>
+	<spell name="haste" words="utani hur" group1="support" group2="" type="instant" level="14" mp="60" price="600" premium="true" soul="0" mlevel="0" condition="" CoolDownID="6"/>
+	<spell name="light magic missile rune" words="adori min vis" group1="support" group2="" type="rune" level="15" mp="120" price="500" premium="false" soul="1" mlevel="0" condition="7" CoolDownID="7"/>
+	<spell name="heavy magic missile rune" words="adori vis" group1="support" group2="" type="rune" level="25" mp="350" price="1500" premium="false" soul="2" mlevel="3" condition="7" CoolDownID="8"/>
+	<spell name="summon creature" words="utevo res" group1="support" group2="" type="instant" level="25" mp="0" price="2000" premium="false" soul="0" mlevel="0" condition="word" CoolDownID="9"/>
+	<spell name="light" words="utevo lux" group1="support" group2="" type="instant" level="8" mp="20" price="100" premium="false" soul="0" mlevel="0" condition="" CoolDownID="10"/>
+	<spell name="great light" words="utevo gran lux" group1="support" group2="" type="instant" level="13" mp="60" price="500" premium="false" soul="0" mlevel="0" condition="" CoolDownID="11"/>
+	<spell name="convince creature rune" words="adeta sio" group1="support" group2="" type="rune" level="16" mp="200" price="800" premium="false" soul="3" mlevel="5" condition="7" CoolDownID="12"/>
+	<spell name="energy wave" words="exevo vis hur" group1="attack" group2="" type="instant" level="38" mp="170" price="2500" premium="false" soul="0" mlevel="0" condition="bigwave" CoolDownID="13"/>
+	<spell name="chameleon rune" words="adevo ina" group1="support" group2="" type="rune" level="27" mp="600" price="1300" premium="false" soul="2" mlevel="4" condition="7" CoolDownID="14"/>
+	<spell name="fireball rune" words="adori flam" group1="support" group2="" type="rune" level="27" mp="460" price="1600" premium="true" soul="3" mlevel="4" condition="7" CoolDownID="15"/>
+	<spell name="great fireball rune" words="adori mas flam" group1="support" group2="" type="rune" level="30" mp="530" price="1200" premium="false" soul="3" mlevel="4" condition="3x3" CoolDownID="16"/>
+	<spell name="fire bomb rune" words="adevo mas flam" group1="support" group2="" type="rune" level="27" mp="600" price="1500" premium="false" soul="4" mlevel="5" condition="1x1" CoolDownID="17"/>
+	<spell name="explosion rune" words="adevo mas hur" group1="support" group2="" type="rune" level="31" mp="570" price="1800" premium="false" soul="4" mlevel="6" condition="explo" CoolDownID="18"/>
+	<spell name="fire wave" words="exevo flam hur" group1="attack" group2="" type="instant" level="18" mp="25" price="850" premium="false" soul="0" mlevel="0" condition="smallwave" CoolDownID="19"/>
+	<spell name="find person" words="exiva" group1="support" group2="" type="instant" level="8" mp="20" price="80" premium="false" soul="0" mlevel="0" condition="word" CoolDownID="20"/>
+	<spell name="sudden death rune" words="adori gran mort" group1="support" group2="" type="rune" level="45" mp="985" price="3000" premium="false" soul="5" mlevel="15" condition="7" CoolDownID="21"/>
+	<spell name="energy beam" words="exevo vis lux" group1="attack" group2="" type="instant" level="23" mp="40" price="1000" premium="false" soul="0" mlevel="0" condition="smallbeam" CoolDownID="22"/>
+	<spell name="great energy beam" words="exevo gran vis lux" group1="attack" group2="" type="instant" level="29" mp="110" price="1800" premium="false" soul="0" mlevel="0" condition="bigbeam" CoolDownID="23"/>
+	<spell name="hell's core" words="exevo gran mas flam" group1="attack" group2="" type="instant" level="60" mp="1100" price="8000" premium="true" soul="0" mlevel="0" condition="5x5" CoolDownID="24"/>
+	<spell name="fire field rune" words="adevo grav flam" group1="support" group2="" type="rune" level="15" mp="240" price="500" premium="false" soul="1" mlevel="1" condition="7" CoolDownID="25"/>
+	<spell name="poison field rune" words="adevo grav pox" group1="support" group2="" type="rune" level="14" mp="200" price="300" premium="false" soul="1" mlevel="0" condition="7" CoolDownID="26"/>
+	<spell name="energy field rune" words="adevo grav vis" group1="support" group2="" type="rune" level="18" mp="320" price="700" premium="false" soul="2" mlevel="3" condition="7" CoolDownID="27"/>
+	<spell name="fire wall rune" words="adevo mas grav flam" group1="support" group2="" type="rune" level="33" mp="780" price="2000" premium="false" soul="4" mlevel="6" condition="7" CoolDownID="28"/>
+	<spell name="cure poison" words="exana pox" group1="healing" group2="" type="instant" level="10" mp="30" price="150" premium="false" soul="0" mlevel="0" condition="" CoolDownID="29"/>
+	<spell name="destroy field rune" words="adito grav" group1="support" group2="" type="rune" level="17" mp="120" price="700" premium="false" soul="2" mlevel="3" condition="7" CoolDownID="30"/>
+	<spell name="cure poison rune" words="adana pox" group1="support" group2="" type="rune" level="15" mp="200" price="600" premium="false" soul="1" mlevel="0" condition="7" CoolDownID="31"/>
+	<spell name="poison wall rune" words="adevo mas grav pox" group1="support" group2="" type="rune" level="29" mp="640" price="1600" premium="false" soul="3" mlevel="5" condition="7" CoolDownID="32"/>
+	<spell name="energy wall rune" words="adevo mas grav vis" group1="support" group2="" type="rune" level="41" mp="1000" price="2500" premium="false" soul="5" mlevel="9" condition="7" CoolDownID="33"/>
+	<spell name="salvation" words="exura gran san" group1="healing" group2="" type="instant" level="60" mp="210" price="8000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="36"/>
+	<spell name="creature illusion" words="utevo res ina" group1="support" group2="" type="instant" level="23" mp="100" price="1000" premium="false" soul="0" mlevel="0" condition="word" CoolDownID="38"/>
+	<spell name="strong haste" words="utani gran hur" group1="support" group2="" type="instant" level="20" mp="100" price="1300" premium="true" soul="0" mlevel="0" condition="" CoolDownID="39"/>
+	<spell name="food" words="exevo pan" group1="support" group2="" type="instant" level="14" mp="120" price="300" premium="false" soul="0" mlevel="0" condition="" CoolDownID="42"/>
+	<spell name="strong ice wave" words="exevo gran frigo hur" group1="attack" group2="" type="instant" level="40" mp="170" price="6000" premium="true" soul="0" mlevel="0" condition="smallwave" CoolDownID="43"/>
+	<spell name="magic shield" words="utamo vita" group1="support" group2="" type="instant" level="14" mp="50" price="450" premium="false" soul="0" mlevel="0" condition="" CoolDownID="44"/>
+	<spell name="invisible" words="utana vid" group1="support" group2="" type="instant" level="35" mp="440" price="2000" premium="false" soul="0" mlevel="0" condition="" CoolDownID="45"/>
+	<spell name="conjure poisoned arrow" words="exevo con pox" group1="support" group2="" type="instant" level="16" mp="130" price="700" premium="false" soul="0" mlevel="0" condition="" CoolDownID="48"/>
+	<spell name="conjure explosive arrow" words="exevo con flam" group1="support" group2="" type="instant" level="25" mp="290" price="1000" premium="false" soul="0" mlevel="0" condition="" CoolDownID="49"/>
+	<spell name="soulfire rune" words="adevo res flam" group1="support" group2="" type="rune" level="27" mp="420" price="1800" premium="true" soul="3" mlevel="7" condition="7" CoolDownID="50"/>
+	<spell name="conjure arrow" words="exevo con" group1="support" group2="" type="instant" level="13" mp="100" price="450" premium="false" soul="0" mlevel="0" condition="" CoolDownID="51"/>
+	<spell name="retrieve friend" words="" group1="" group2="" type="" level="0" mp="0" price="0" premium="false" soul="0" mlevel="0" condition=""/>
+	<spell name="paralyze rune" words="adana ani" group1="support" group2="" type="rune" level="54" mp="1400" price="1900" premium="true" soul="3" mlevel="18" condition="7" CoolDownID="54"/>
+	<spell name="energy bomb rune" words="adevo mas vis" group1="support" group2="" type="rune" level="37" mp="880" price="2300" premium="true" soul="5" mlevel="10" condition="1x1" CoolDownID="55"/>
+	<spell name="wrath of nature" words="exevo gran mas tera" group1="attack" group2="" type="instant" level="55" mp="700" price="6000" premium="true" soul="0" mlevel="0" condition="6x6" CoolDownID="56"/>
+	<spell name="strong ethereal spear" words="exori gran con" group1="attack" group2="" type="instant" level="90" mp="55" price="20000" premium="true" soul="0" mlevel="0" condition="7" CoolDownID="57"/>
+	<spell name="front sweep" words="exori min" group1="attack" group2="" type="instant" level="70" mp="200" price="4000" premium="true" soul="0" mlevel="0" condition="front" CoolDownID="59"/>
+	<spell name="brutal strike" words="exori ico" group1="attack" group2="" type="instant" level="16" mp="30" price="1000" premium="true" soul="0" mlevel="0" condition="1" CoolDownID="61"/>
+	<spell name="annihilation" words="exori gran ico" group1="attack" group2="" type="instant" level="110" mp="300" price="20000" premium="true" soul="0" mlevel="0" condition="5" CoolDownID="62"/>
+	<spell name="invite guests" words="aleta sio" group1="" group2="" type="" level="0" mp="0" price="0" premium="false" soul="0" mlevel="0" condition=""/>
+	<spell name="invite subowners" words="aleta som" group1="" group2="" type="" level="0" mp="0" price="0" premium="false" soul="0" mlevel="0" condition=""/>
+	<spell name="kick guest" words="alana sio" group1="" group2="" type="" level="0" mp="0" price="0" premium="false" soul="0" mlevel="0" condition=""/>
+	<spell name="edit door" words="aleta grav" group1="" group2="" type="" level="0" mp="0" price="0" premium="false" soul="0" mlevel="0" condition=""/>
+	<spell name="ultimate light" words="utevo vis lux" group1="support" group2="" type="instant" level="26" mp="140" price="1600" premium="true" soul="0" mlevel="0" condition="" CoolDownID="75"/>
+	<spell name="magic rope" words="exani tera" group1="support" group2="" type="instant" level="9" mp="20" price="200" premium="true" soul="0" mlevel="0" condition="" CoolDownID="76"/>
+	<spell name="stalagmite rune" words="adori tera" group1="support" group2="" type="rune" level="24" mp="350" price="1400" premium="false" soul="2" mlevel="3" condition="7" CoolDownID="77"/>
+	<spell name="desintegrate rune" words="adito tera" group1="support" group2="" type="rune" level="21" mp="200" price="900" premium="true" soul="3" mlevel="4" condition="1" CoolDownID="78"/>
+	<spell name="conjure bolt" words="exevo con mort" group1="support" group2="" type="instant" level="17" mp="140" price="750" premium="true" soul="0" mlevel="0" condition="" CoolDownID="79"/>
+	<spell name="berserk" words="exori" group1="attack" group2="" type="instant" level="35" mp="115" price="2500" premium="true" soul="0" mlevel="0" condition="1x1" CoolDownID="80"/>
+	<spell name="levitate" words="exani hur" group1="support" group2="" type="instant" level="12" mp="50" price="500" premium="true" soul="0" mlevel="0" condition="word" CoolDownID="81"/>
+	<spell name="mass healing" words="exura gran mas res" group1="healing" group2="" type="instant" level="36" mp="150" price="2200" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="82"/>
+	<spell name="animate dead rune" words="adana mort" group1="support" group2="" type="rune" level="27" mp="600" price="1200" premium="true" soul="5" mlevel="4" condition="1" CoolDownID="83"/>
+	<spell name="heal friend" words="exura sio" group1="healing" group2="" type="instant" level="18" mp="140" price="800" premium="true" soul="0" mlevel="0" condition="word" CoolDownID="84"/>
+	<spell name="magic wall rune" words="adevo grav tera" group1="support" group2="" type="rune" level="32" mp="750" price="2100" premium="true" soul="5" mlevel="9" condition="7" CoolDownID="86"/>
+	<spell name="death strike" words="exori mort" group1="attack" group2="" type="instant" level="16" mp="20" price="800" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="87"/>
+	<spell name="energy strike" words="exori vis" group1="attack" group2="" type="instant" level="12" mp="20" price="800" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="88"/>
+	<spell name="flame strike" words="exori flam" group1="attack" group2="" type="instant" level="14" mp="20" price="800" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="89"/>
+	<spell name="cancel invisibility" words="exana ina" group1="support" group2="" type="instant" level="26" mp="200" price="1600" premium="true" soul="0" mlevel="0" condition=""/>
+	<spell name="poison bomb rune" words="adevo mas pox" group1="support" group2="" type="rune" level="25" mp="520" price="1000" premium="true" soul="2" mlevel="4" condition="7" CoolDownID="91"/>
+	<spell name="enchant staff" words="exeta vis" group1="support" group2="" type="instant" level="41" mp="80" price="2000" premium="true" soul="0" mlevel="0" condition=""/>
+	<spell name="challenge" words="exeta res" group1="support" group2="" type="instant" level="20" mp="30" price="2000" premium="true" soul="0" mlevel="0" condition="1x1" CoolDownID="93"/>
+	<spell name="wild growth rune" words="adevo grav vita" group1="support" group2="" type="rune" level="27" mp="600" price="2000" premium="true" soul="5" mlevel="8" condition="7" CoolDownID="94"/>
+	<spell name="conjure power bolt" words="exevo con vis" group1="support" group2="" type="instant" level="59" mp="700" price="2000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="95"/>
+	<spell name="fierce berserk" words="exori gran" group1="attack" group2="" type="instant" level="90" mp="340" price="7500" premium="true" soul="0" mlevel="0" condition="1x1" CoolDownID="105"/>
+	<spell name="groundshaker" words="exori mas" group1="attack" group2="" type="instant" level="33" mp="160" price="1500" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="106"/>
+	<spell name="whirlwind throw" words="exori hur" group1="attack" group2="" type="instant" level="28" mp="40" price="800" premium="true" soul="0" mlevel="0" condition="5" CoolDownID="107"/>
+	<spell name="conjure sniper arrow" words="exevo con hur" group1="support" group2="" type="instant" level="24" mp="160" price="800" premium="true" soul="0" mlevel="0" condition="" CoolDownID="108"/>
+	<spell name="conjure piercing bolt" words="exevo con grav" group1="support" group2="" type="instant" level="33" mp="180" price="850" premium="true" soul="0" mlevel="0" condition="" CoolDownID="109"/>
+	<spell name="enchant spear" words="exeta con" group1="support" group2="" type="instant" level="45" mp="350" price="2000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="110"/>
+	<spell name="ethereal spear" words="exori con" group1="attack" group2="" type="instant" level="23" mp="25" price="1100" premium="true" soul="0" mlevel="0" condition="7" CoolDownID="111"/>
+	<spell name="ice strike" words="exori frigo" group1="attack" group2="" type="instant" level="15" mp="20" price="800" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="112"/>
+	<spell name="terra strike" words="exori tera" group1="attack" group2="" type="instant" level="13" mp="20" price="800" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="113"/>
+	<spell name="icicle rune" words="adori frigo" group1="support" group2="" type="rune" level="28" mp="460" price="1700" premium="true" soul="3" mlevel="4" condition="7" CoolDownID="114"/>
+	<spell name="avalanche rune" words="adori mas frigo" group1="support" group2="" type="rune" level="30" mp="530" price="1200" premium="false" soul="3" mlevel="4" condition="3x3" CoolDownID="115"/>
+	<spell name="stone shower rune" words="adori mas tera" group1="support" group2="" type="rune" level="28" mp="430" price="1100" premium="true" soul="3" mlevel="4" condition="3x3" CoolDownID="116"/>
+	<spell name="thunderstorm rune" words="adori mas vis" group1="support" group2="" type="rune" level="28" mp="430" price="1100" premium="true" soul="3" mlevel="4" condition="3x3" CoolDownID="117"/>
+	<spell name="eternal winter" words="exevo gran mas frigo" group1="attack" group2="" type="instant" level="60" mp="1050" price="8000" premium="true" soul="0" mlevel="0" condition="5x5" CoolDownID="118"/>
+	<spell name="rage of the skies" words="exevo gran mas vis" group1="attack" group2="" type="instant" level="55" mp="600" price="6000" premium="true" soul="0" mlevel="0" condition="6x6" CoolDownID="119"/>
+	<spell name="terra wave" words="exevo tera hur" group1="attack" group2="" type="instant" level="38" mp="210" price="2500" premium="false" soul="0" mlevel="0" condition="bigwave" CoolDownID="113"/>
+	<spell name="ice wave" words="exevo frigo hur" group1="attack" group2="" type="instant" level="18" mp="25" price="850" premium="false" soul="0" mlevel="0" condition="smallwave" CoolDownID="121"/>
+	<spell name="divine missile" words="exori san" group1="attack" group2="" type="instant" level="40" mp="20" price="1800" premium="true" soul="0" mlevel="0" condition="4" CoolDownID="122"/>
+	<spell name="wound cleansing" words="exura ico" group1="healing" group2="" type="instant" level="10" mp="40" price="300" premium="false" soul="0" mlevel="0" condition="" CoolDownID="123"/>
+	<spell name="divine caldera" words="exevo mas san" group1="attack" group2="" type="instant" level="50" mp="160" price="3000" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="124"/>
+	<spell name="divine healing" words="exura san" group1="healing" group2="" type="instant" level="35" mp="160" price="3000" premium="false" soul="0" mlevel="0" condition="" CoolDownID="125"/>
+	<spell name="train party" words="utito mas sio" group1="support" group2="" type="instant" level="32" mp="0" price="4000" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="126"/>
+	<spell name="protect party" words="utamo mas sio" group1="support" group2="" type="instant" level="32" mp="0" price="4000" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="127"/>
+	<spell name="heal party" words="utura mas sio" group1="support" group2="" type="instant" level="32" mp="0" price="4000" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="128"/>
+	<spell name="enchant party" words="utori mas sio" group1="support" group2="" type="instant" level="32" mp="0" price="4000" premium="true" soul="0" mlevel="0" condition="3x3" CoolDownID="129"/>
+	<spell name="holy missile rune" words="adori san" group1="support" group2="" type="rune" level="27" mp="300" price="1600" premium="true" soul="3" mlevel="4" condition="7" CoolDownID="130"/>
+	<spell name="charge" words="utani tempo hur" group1="support" group2="" type="instant" level="25" mp="100" price="1300" premium="true" soul="0" mlevel="0" condition="" CoolDownID="131"/>
+	<spell name="protector" words="utamo tempo" group1="support" group2="" type="instant" level="55" mp="200" price="6000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="132"/>
+	<spell name="blood rage" words="utito tempo" group1="support" group2="" type="instant" level="60" mp="290" price="8000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="133"/>
+	<spell name="swift foot" words="utamo tempo san" group1="support" group2="" type="instant" level="55" mp="400" price="6000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="134"/>
+	<spell name="sharpshooter" words="utito tempo san" group1="support" group2="" type="instant" level="60" mp="450" price="8000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="135"/>
+	<spell name="ignite" words="utori flam" group1="attack" group2="" type="instant" level="26" mp="30" price="1500" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="138"/>
+	<spell name="curse" words="utori mort" group1="attack" group2="" type="instant" level="75" mp="30" price="6000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="139"/>
+	<spell name="electrify" words="utori vis" group1="attack" group2="" type="instant" level="34" mp="30" price="6000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="140"/>
+	<spell name="inflict wound" words="utori kor" group1="attack" group2="" type="instant" level="40" mp="30" price="2500" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="141"/>
+	<spell name="envenom" words="utori pox" group1="attack" group2="" type="instant" level="50" mp="30" price="6000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="142"/>
+	<spell name="holy flash" words="utori san" group1="attack" group2="" type="instant" level="70" mp="50" price="7500" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="143"/>
+	<spell name="cure bleeding" words="exana kor" group1="healing" group2="" type="instant" level="45" mp="30" price="2500" premium="true" soul="0" mlevel="0" condition="" CoolDownID="144"/>
+	<spell name="cure burning" words="exana flam" group1="healing" group2="" type="instant" level="30" mp="30" price="2000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="145"/>
+	<spell name="cure electrification" words="exana vis" group1="healing" group2="" type="instant" level="22" mp="30" price="1000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="146"/>
+	<spell name="cure curse" words="exana mort" group1="healing" group2="" type="instant" level="80" mp="40" price="6000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="147"/>
+	<spell name="physical strike" words="exori moe ico" group1="attack" group2="" type="instant" level="16" mp="20" price="800" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="148"/>
+	<spell name="lightning" words="exori amp vis" group1="attack" group2="special" type="instant" level="55" mp="60" price="5000" premium="true" soul="0" mlevel="0" condition="5" CoolDownID="149"/>
+	<spell name="strong flame strike" words="exori gran flam" group1="attack" group2="special" type="instant" level="70" mp="60" price="6000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="150"/>
+	<spell name="strong energy strike" words="exori gran vis" group1="attack" group2="special" type="instant" level="80" mp="60" price="7500" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="151"/>
+	<spell name="strong ice strike" words="exori gran frigo" group1="attack" group2="special" type="instant" level="80" mp="60" price="6000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="152"/>
+	<spell name="strong terra strike" words="exori gran tera" group1="attack" group2="special" type="instant" level="70" mp="60" price="6000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="153"/>
+	<spell name="ultimate flame strike" words="exori max flam" group1="attack" group2="" type="instant" level="90" mp="100" price="15000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="154"/>
+	<spell name="ultimate energy strike" words="exori max vis" group1="attack" group2="" type="instant" level="100" mp="100" price="15000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="155"/>
+	<spell name="ultimate ice strike" words="exori max frigo" group1="attack" group2="" type="instant" level="100" mp="100" price="15000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="156"/>
+	<spell name="ultimate terra strike" words="exori max tera" group1="attack" group2="" type="instant" level="90" mp="100" price="15000" premium="true" soul="0" mlevel="0" condition="3" CoolDownID="157"/>
+	<spell name="intense wound cleansing" words="exura gran ico" group1="healing" group2="" type="instant" level="80" mp="200" price="6000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="158"/>
+	<spell name="recovery" words="utura" group1="healing" group2="" type="instant" level="50" mp="75" price="4000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="159"/>
+	<spell name="intense recovery" words="utura gran" group1="healing" group2="" type="instant" level="100" mp="165" price="10000" premium="true" soul="0" mlevel="0" condition="" CoolDownID="160"/>
+	<spell name="apprentice's strike" words="exori min flam" group1="attack" group2="" type="instant" level="8" mp="6" price="800" premium="false" soul="0" mlevel="0" condition="3" CoolDownID="169"/>
+</spells>

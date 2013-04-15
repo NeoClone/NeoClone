@@ -1,0 +1,616 @@
+{-------------------------------------------------------------------------------
+The contents of this file are subject to the Mozilla Public License
+Version 1.1 (the "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+http://www.mozilla.org/MPL/
+
+Software distributed under the License is distributed on an "AS IS" basis,
+WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
+the specific language governing rights and limitations under the License.
+
+Code template generated with SynGen.
+The original code is: C:\Users\Ja\Desktop\LuaSyn.pas, released 2011-12-28.
+Description: Syntax Parser/Highlighter for LUA
+The initial author of this file is Knobik.
+Copyright (c) 2011, all rights reserved.
+
+Contributors to the SynEdit and mwEdit projects are listed in the
+Contributors.txt file.
+
+Alternatively, the contents of this file may be used under the terms of the
+GNU General Public License Version 2 or later (the "GPL"), in which case
+the provisions of the GPL are applicable instead of those above.
+If you wish to allow use of your version of this file only under the terms
+of the GPL and not to allow others to use your version of this file
+under the MPL, indicate your decision by deleting the provisions above and
+replace them with the notice and other provisions required by the GPL.
+If you do not delete the provisions above, a recipient may use your version
+of this file under either the MPL or the GPL.
+
+$Id: $
+
+You may retrieve the latest version of this file at the SynEdit home page,
+located at http://SynEdit.SourceForge.net
+
+-------------------------------------------------------------------------------}
+
+{$IFNDEF QLUASYN}
+unit LuaSyn;
+{$ENDIF}
+
+{$I SynEdit.inc}
+
+interface
+
+uses
+{$IFDEF SYN_CLX}
+  QGraphics,
+  QSynEditTypes,
+  QSynEditHighlighter,
+  QSynUnicode,
+{$ELSE}
+  Graphics,
+  SynEditTypes,
+  SynEditHighlighter,
+  SynUnicode,
+{$ENDIF}
+  SysUtils,
+  Classes;
+
+type
+  TtkTokenKind = (
+    tkIdentifier,
+    tkKey,
+    tkNull,
+    tkString,
+    tkUnknown);
+
+  TRangeState = (rsUnKnown, rsStringQuote, rsString);
+
+  TProcTableProc = procedure of object;
+
+  PIdentFuncTableFunc = ^TIdentFuncTableFunc;
+  TIdentFuncTableFunc = function (Index: Integer): TtkTokenKind of object;
+
+type
+  TSynLuaSyn = class(TSynCustomHighlighter)
+  private
+    fRange: TRangeState;
+    fTokenID: TtkTokenKind;
+    fIdentFuncTable: array[0..28] of TIdentFuncTableFunc;
+    fIdentifierAttri: TSynHighlighterAttributes;
+    fKeyAttri: TSynHighlighterAttributes;
+    fStringAttri: TSynHighlighterAttributes;
+    function HashKey(Str: PWideChar): Cardinal;
+    function FuncAnd(Index: Integer): TtkTokenKind;
+    function FuncBreak(Index: Integer): TtkTokenKind;
+    function FuncDo(Index: Integer): TtkTokenKind;
+    function FuncElse(Index: Integer): TtkTokenKind;
+    function FuncElseif(Index: Integer): TtkTokenKind;
+    function FuncEnd(Index: Integer): TtkTokenKind;
+    function FuncFalse(Index: Integer): TtkTokenKind;
+    function FuncFor(Index: Integer): TtkTokenKind;
+    function FuncFunction(Index: Integer): TtkTokenKind;
+    function FuncIf(Index: Integer): TtkTokenKind;
+    function FuncIn(Index: Integer): TtkTokenKind;
+    function FuncLocal(Index: Integer): TtkTokenKind;
+    function FuncNil(Index: Integer): TtkTokenKind;
+    function FuncNot(Index: Integer): TtkTokenKind;
+    function FuncOr(Index: Integer): TtkTokenKind;
+    function FuncRepeat(Index: Integer): TtkTokenKind;
+    function FuncReturn(Index: Integer): TtkTokenKind;
+    function FuncThen(Index: Integer): TtkTokenKind;
+    function FuncTrue(Index: Integer): TtkTokenKind;
+    function FuncUntil(Index: Integer): TtkTokenKind;
+    function FuncWhile(Index: Integer): TtkTokenKind;
+    procedure IdentProc;
+    procedure UnknownProc;
+    function AltFunc(Index: Integer): TtkTokenKind;
+    procedure InitIdent;
+    function IdentKind(MayBe: PWideChar): TtkTokenKind;
+    procedure NullProc;
+    procedure CRProc;
+    procedure LFProc;
+    procedure StringQuoteOpenProc;
+    procedure StringQuoteProc;
+    procedure StringOpenProc;
+    procedure StringProc;
+  protected
+    function GetSampleSource: UnicodeString; override;
+    function IsFilterStored: Boolean; override;
+  public
+    constructor Create(AOwner: TComponent); override;
+    class function GetFriendlyLanguageName: UnicodeString; override;
+    class function GetLanguageName: string; override;
+    function GetRange: Pointer; override;
+    procedure ResetRange; override;
+    procedure SetRange(Value: Pointer); override;
+    function GetDefaultAttribute(Index: Integer): TSynHighlighterAttributes; override;
+    function GetEol: Boolean; override;
+    function GetKeyWords(TokenKind: Integer): UnicodeString; override;
+    function GetTokenID: TtkTokenKind;
+    function GetTokenAttribute: TSynHighlighterAttributes; override;
+    function GetTokenKind: Integer; override;
+    function IsIdentChar(AChar: WideChar): Boolean; override;
+    procedure Next; override;
+  published
+    property IdentifierAttri: TSynHighlighterAttributes read fIdentifierAttri write fIdentifierAttri;
+    property KeyAttri: TSynHighlighterAttributes read fKeyAttri write fKeyAttri;
+    property StringAttri: TSynHighlighterAttributes read fStringAttri write fStringAttri;
+  end;
+
+implementation
+
+uses
+{$IFDEF SYN_CLX}
+  QSynEditStrConst;
+{$ELSE}
+  SynEditStrConst;
+{$ENDIF}
+
+resourcestring
+  SYNS_FilterLUA = 'All files (*.lua)|*.lua';
+  SYNS_LangLUA = 'LUA';
+  SYNS_FriendlyLangLUA = 'LUA';
+
+const
+  // as this language is case-insensitive keywords *must* be in lowercase
+  KeyWords: array[0..20] of UnicodeString = (
+    'and', 'break', 'do', 'else', 'elseif', 'end', 'false', 'for', 'function', 
+    'if', 'in', 'local', 'nil', 'not', 'or', 'repeat', 'return', 'then', 'true', 
+    'until', 'while' 
+  );
+
+  KeyIndices: array[0..28] of Integer = (
+    -1, 18, 1, 13, 17, -1, 7, 11, 15, 16, 9, 10, -1, 14, 19, 12, 0, 4, 5, 6, -1, 
+    -1, 8, 20, -1, -1, 3, -1, 2 
+  );
+
+procedure TSynLuaSyn.InitIdent;
+var
+  i: Integer;
+begin
+  for i := Low(fIdentFuncTable) to High(fIdentFuncTable) do
+    if KeyIndices[i] = -1 then
+      fIdentFuncTable[i] := AltFunc;
+
+  fIdentFuncTable[16] := FuncAnd;
+  fIdentFuncTable[2] := FuncBreak;
+  fIdentFuncTable[28] := FuncDo;
+  fIdentFuncTable[26] := FuncElse;
+  fIdentFuncTable[17] := FuncElseif;
+  fIdentFuncTable[18] := FuncEnd;
+  fIdentFuncTable[19] := FuncFalse;
+  fIdentFuncTable[6] := FuncFor;
+  fIdentFuncTable[22] := FuncFunction;
+  fIdentFuncTable[10] := FuncIf;
+  fIdentFuncTable[11] := FuncIn;
+  fIdentFuncTable[7] := FuncLocal;
+  fIdentFuncTable[15] := FuncNil;
+  fIdentFuncTable[3] := FuncNot;
+  fIdentFuncTable[13] := FuncOr;
+  fIdentFuncTable[8] := FuncRepeat;
+  fIdentFuncTable[9] := FuncReturn;
+  fIdentFuncTable[4] := FuncThen;
+  fIdentFuncTable[1] := FuncTrue;
+  fIdentFuncTable[14] := FuncUntil;
+  fIdentFuncTable[23] := FuncWhile;
+end;
+
+{$Q-}
+function TSynLuaSyn.HashKey(Str: PWideChar): Cardinal;
+begin
+  Result := 0;
+  while IsIdentChar(Str^) do
+  begin
+    Result := Result * 118 + Ord(Str^) * 11;
+    inc(Str);
+  end;
+  Result := Result mod 29;
+  fStringLen := Str - fToIdent;
+end;
+{$Q+}
+
+function TSynLuaSyn.FuncAnd(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncBreak(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncDo(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncElse(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncElseif(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncEnd(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncFalse(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncFor(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncFunction(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncIf(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncIn(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncLocal(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncNil(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncNot(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncOr(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncRepeat(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncReturn(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncThen(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncTrue(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncUntil(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.FuncWhile(Index: Integer): TtkTokenKind;
+begin
+  if IsCurrentToken(KeyWords[Index]) then
+    Result := tkKey
+  else
+    Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.AltFunc(Index: Integer): TtkTokenKind;
+begin
+  Result := tkIdentifier;
+end;
+
+function TSynLuaSyn.IdentKind(MayBe: PWideChar): TtkTokenKind;
+var
+  Key: Cardinal;
+begin
+  fToIdent := MayBe;
+  Key := HashKey(MayBe);
+  if Key <= High(fIdentFuncTable) then
+    Result := fIdentFuncTable[Key](KeyIndices[Key])
+  else
+    Result := tkIdentifier;
+end;
+
+procedure TSynLuaSyn.NullProc;
+begin
+  fTokenID := tkNull;
+  inc(Run);
+end;
+
+procedure TSynLuaSyn.CRProc;
+begin
+  fTokenID := tkUnknown;
+  inc(Run);
+  if fLine[Run] = #10 then
+    inc(Run);
+end;
+
+procedure TSynLuaSyn.LFProc;
+begin
+  fTokenID := tkUnknown;
+  inc(Run);
+end;
+
+procedure TSynLuaSyn.StringQuoteOpenProc;
+begin
+  Inc(Run);
+  fRange := rsStringQuote;
+  StringQuoteProc;
+  fTokenID := tkString;
+end;
+
+procedure TSynLuaSyn.StringQuoteProc;
+begin
+  fTokenID := tkString;
+  repeat
+    if (fLine[Run] = '"') then
+    begin
+      Inc(Run, 1);
+      fRange := rsUnKnown;
+      Break;
+    end;
+    if not IsLineEnd(Run) then
+      Inc(Run);
+  until IsLineEnd(Run);
+end;
+
+procedure TSynLuaSyn.StringOpenProc;
+begin
+  Inc(Run);
+  fRange := rsString;
+  StringProc;
+  fTokenID := tkString;
+end;
+
+procedure TSynLuaSyn.StringProc;
+begin
+  fTokenID := tkString;
+  repeat
+    if (fLine[Run] = '''') then
+    begin
+      Inc(Run, 1);
+      fRange := rsUnKnown;
+      Break;
+    end;
+    if not IsLineEnd(Run) then
+      Inc(Run);
+  until IsLineEnd(Run);
+end;
+
+constructor TSynLuaSyn.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  fCaseSensitive := False;
+
+  fIdentifierAttri := TSynHighLighterAttributes.Create(SYNS_AttrIdentifier, SYNS_FriendlyAttrIdentifier);
+  AddAttribute(fIdentifierAttri);
+
+  fKeyAttri := TSynHighLighterAttributes.Create(SYNS_AttrReservedWord, SYNS_FriendlyAttrReservedWord);
+  fKeyAttri.Style := [fsBold];
+  AddAttribute(fKeyAttri);
+
+  fStringAttri := TSynHighLighterAttributes.Create(SYNS_AttrString, SYNS_FriendlyAttrString);
+  AddAttribute(fStringAttri);
+
+  SetAttributesOnChange(DefHighlightChange);
+  InitIdent;
+  fDefaultFilter := SYNS_FilterLUA;
+  fRange := rsUnknown;
+end;
+
+procedure TSynLuaSyn.IdentProc;
+begin
+  fTokenID := IdentKind(fLine + Run);
+inc(Run, fStringLen);
+while IsIdentChar(fLine[Run]) do
+Inc(Run);
+
+end;
+
+procedure TSynLuaSyn.UnknownProc;
+begin
+  inc(Run);
+  fTokenID := tkUnknown;
+end;
+
+procedure TSynLuaSyn.Next;
+begin
+  fTokenPos := Run;
+  case fRange of
+  else
+    case fLine[Run] of
+      #0: NullProc;
+      #10: LFProc;
+      #13: CRProc;
+      '"': StringQuoteOpenProc;
+      '''': StringOpenProc;
+      'A'..'Z', 'a'..'z', '_': IdentProc;
+    else
+      UnknownProc;
+    end;
+  end;
+  inherited;
+end;
+
+function TSynLuaSyn.GetDefaultAttribute(Index: Integer): TSynHighLighterAttributes;
+begin
+  case Index of
+    SYN_ATTR_IDENTIFIER: Result := fIdentifierAttri;
+    SYN_ATTR_KEYWORD: Result := fKeyAttri;
+    SYN_ATTR_STRING: Result := fStringAttri;
+  else
+    Result := nil;
+  end;
+end;
+
+function TSynLuaSyn.GetEol: Boolean;
+begin
+  Result := Run = fLineLen + 1;
+end;
+
+function TSynLuaSyn.GetKeyWords(TokenKind: Integer): UnicodeString;
+begin
+  Result := 
+    'and,break,do,else,elseif,end,false,for,function,if,in,local,nil,not,o' +
+    'r,repeat,return,then,true,until,while';
+end;
+
+function TSynLuaSyn.GetTokenID: TtkTokenKind;
+begin
+  Result := fTokenId;
+end;
+
+function TSynLuaSyn.GetTokenAttribute: TSynHighLighterAttributes;
+begin
+  case GetTokenID of
+    tkIdentifier: Result := fIdentifierAttri;
+    tkKey: Result := fKeyAttri;
+    tkString: Result := fStringAttri;
+    tkUnknown: Result := fIdentifierAttri;
+  else
+    Result := nil;
+  end;
+end;
+
+function TSynLuaSyn.GetTokenKind: Integer;
+begin
+  Result := Ord(fTokenId);
+end;
+
+function TSynLuaSyn.IsIdentChar(AChar: WideChar): Boolean;
+begin
+  case AChar of
+    '_', '0'..'9', 'a'..'z', 'A'..'Z':
+      Result := True;
+    else
+      Result := False;
+  end;
+end;
+
+function TSynLuaSyn.GetSampleSource: UnicodeString;
+begin
+  Result := 
+    'Sample source for: '#13#10 +
+    'Syntax Parser/Highlighter for LUA';
+end;
+
+function TSynLuaSyn.IsFilterStored: Boolean;
+begin
+  Result := fDefaultFilter <> SYNS_FilterLUA;
+end;
+
+class function TSynLuaSyn.GetFriendlyLanguageName: UnicodeString;
+begin
+  Result := SYNS_FriendlyLangLUA;
+end;
+
+class function TSynLuaSyn.GetLanguageName: string;
+begin
+  Result := SYNS_LangLUA;
+end;
+
+procedure TSynLuaSyn.ResetRange;
+begin
+  fRange := rsUnknown;
+end;
+
+procedure TSynLuaSyn.SetRange(Value: Pointer);
+begin
+  fRange := TRangeState(Value);
+end;
+
+function TSynLuaSyn.GetRange: Pointer;
+begin
+  Result := Pointer(fRange);
+end;
+
+initialization
+{$IFNDEF SYN_CPPB_1}
+  RegisterPlaceableHighlighter(TSynLuaSyn);
+{$ENDIF}
+end.

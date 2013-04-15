@@ -1,0 +1,50 @@
+unit States;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, settingsFormUnit;
+
+type
+  TEStates = class(TForm)
+    Cavebot: TCheckBox;
+    Healer: TCheckBox;
+    Looting: TCheckBox;
+    ManaTraining: TCheckBox;
+    Targeting: TCheckBox;
+    procedure CavebotClick(Sender: TObject);
+
+    procedure FormShow(Sender: TObject); // <--- IM HERE!
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+
+  end;
+
+var
+  EStates: TEStates;
+
+implementation
+
+{$R *.dfm}
+
+procedure TEStates.CavebotClick(Sender: TObject);
+var
+
+tree: TsettingsForm;
+begin
+        if tree.getsetting('Cavebot/CavebotEnabled') = 'no'  then
+        begin
+              showmessage('nada');
+        end;
+end;
+
+procedure TEStates.FormShow(Sender: TObject);// <--- IM HERE!
+begin
+
+              showmessage('nada');
+end;
+
+end.

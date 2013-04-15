@@ -1,0 +1,1848 @@
+<items>
+ <category name="scripting help"/>
+ <item npcvalue="0" weight="0" id="5" name="list version" npcprice="0"/>
+ <category name="taming items"/>
+ <item npcvalue="0" weight="2.0" id="12311" name="carrot on a stick" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12318" name="giant shrimp" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12309" name="harness" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12260" name="hunting horn" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12306" name="leather whip" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12303" name="maxilla maximus" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12308" name="reins" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5907" name="slingshot" npcprice="34463"/>
+ <item npcvalue="0" weight="2.0" id="12320" name="sweet smelling bait" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="12305" name="tin key" npcprice="-1"/>
+ <category name="contest prizes"/>
+ <item npcvalue="0" weight="12.0" id="8156" name="abacus" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="9208" name="bronze cup of honour" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="9214" name="bronze trophy of excellence" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="9211" name="bronze warrior trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="8737" name="cm token" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="9206" name="champion's cup" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="10477" name="dragon goblet" npcprice="-1"/>
+ <item npcvalue="0" weight="7.77" id="9144" name="epaminondas doll" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="9626" name="golden fafnar trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="9212" name="golden trophy of excellence" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="9209" name="golden warrior trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="0.05" id="9189" name="hand puppets" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="8150" name="key of numerous locks" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="5783" name="medal of honour" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="10800" name="orc's jaw shredder" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="0" name="phoenix statue" npcprice="-1"/>
+ <item npcvalue="0" weight="4.0" id="0" name="pigeon trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="9207" name="silver cup of honour" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="9627" name="silver fafnar trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="9213" name="silver trophy of excellence" npcprice="-1"/>
+ <item npcvalue="0" weight="18.5" id="9210" name="silver warrior trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="4065" name="statue of devovorga" npcprice="-1"/>
+ <item npcvalue="0" weight="12.5" id="9614" name="the famous golden bug" npcprice="-1"/>
+ <item npcvalue="0" weight="12.0" id="8152" name="the mexcalibur" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="8151" name="tibiahispano emblem" npcprice="-1"/>
+ <item npcvalue="0" weight="42.0" id="3997" name="tibiora's box (closed)" npcprice="-1"/>
+ <item npcvalue="0" weight="42.0" id="4010" name="tibiora's box (opened)" npcprice="-1"/>
+ <category name="club"/>
+ <item npcvalue="20000" weight="55.0" id="7414" name="abyss hammer" npcprice="-1"/>
+ <item npcvalue="8000" weight="35.0" id="7426" name="amber staff" npcprice="-1"/>
+ <item npcvalue="0" weight="40.0" id="3341" name="arcane staff" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="3348" name="banana staff" npcprice="-1"/>
+ <item npcvalue="120" weight="68.0" id="3305" name="battle hammer" npcprice="-1"/>
+ <item npcvalue="0" weight="39.0" id="7429" name="blessed sceptre" npcprice="-1"/>
+ <item npcvalue="0" weight="39.0" id="3337" name="bone club" npcprice="-1"/>
+ <item npcvalue="10000" weight="120.0" id="7428" name="bonebreaker" npcprice="-1"/>
+ <item npcvalue="1500" weight="38.0" id="7379" name="brutetamer's staff" npcprice="-1"/>
+ <item npcvalue="9000" weight="63.0" id="7427" name="chaos mace" npcprice="-1"/>
+ <item npcvalue="170" weight="58.0" id="3311" name="clerical mace" npcprice="-1"/>
+ <item npcvalue="1" weight="25.0" id="3270" name="club" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9385" name="club of the fury" npcprice="-1"/>
+ <item npcvalue="30000" weight="78.0" id="7415" name="cranial basher" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="3333" name="crystal mace" npcprice="-1"/>
+ <item npcvalue="110" weight="68.0" id="3327" name="daramanian mace" npcprice="-1"/>
+ <item npcvalue="0" weight="99.0" id="8099" name="dark trinity mace" npcprice="-1"/>
+ <item npcvalue="0" weight="180.0" id="7431" name="demonbone" npcprice="-1"/>
+ <item npcvalue="3000" weight="15.0" id="7387" name="diamond sceptre" npcprice="-1"/>
+ <item npcvalue="10000" weight="60.0" id="10391" name="drachaku" npcprice="-1"/>
+ <item npcvalue="2000" weight="97.0" id="3322" name="dragon hammer" npcprice="-1"/>
+ <item npcvalue="3000" weight="18.0" id="7430" name="dragonbone staff" npcprice="-1"/>
+ <item npcvalue="0" weight="58.0" id="789" name="earth clerical mace" npcprice="-1"/>
+ <item npcvalue="0" weight="78.0" id="791" name="earth cranial basher" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="790" name="earth crystal mace" npcprice="-1"/>
+ <item npcvalue="0" weight="54.0" id="792" name="earth orcish maul" npcprice="-1"/>
+ <item npcvalue="1200" weight="85.0" id="793" name="earth war hammer" npcprice="-1"/>
+ <item npcvalue="0" weight="38.0" id="3321" name="enchanted staff" npcprice="-1"/>
+ <item npcvalue="0" weight="58.0" id="806" name="energy clerical mace" npcprice="-1"/>
+ <item npcvalue="0" weight="78.0" id="808" name="energy cranial basher" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="807" name="energy crystal mace" npcprice="-1"/>
+ <item npcvalue="0" weight="54.0" id="809" name="energy orcish maul" npcprice="-1"/>
+ <item npcvalue="1200" weight="85.0" id="810" name="energy war hammer" npcprice="-1"/>
+ <item npcvalue="0" weight="58.0" id="670" name="fiery clerical mace" npcprice="-1"/>
+ <item npcvalue="0" weight="78.0" id="672" name="fiery cranial basher" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="671" name="fiery crystal mace" npcprice="-1"/>
+ <item npcvalue="0" weight="54.0" id="673" name="fiery orcish maul" npcprice="-1"/>
+ <item npcvalue="1200" weight="85.0" id="674" name="fiery war hammer" npcprice="-1"/>
+ <item npcvalue="1000" weight="42.0" id="7432" name="furry club" npcprice="-1"/>
+ <item npcvalue="250" weight="68.0" id="3208" name="giant smithhammer" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="9373" name="glutton's mace" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="7450" name="hammer of prophecy" npcprice="-1"/>
+ <item npcvalue="30000" weight="70.0" id="3332" name="hammer of wrath" npcprice="-1"/>
+ <item npcvalue="50000" weight="110.0" id="3340" name="heavy mace" npcprice="-1"/>
+ <item npcvalue="0" weight="58.0" id="689" name="icy clerical mace" npcprice="-1"/>
+ <item npcvalue="0" weight="78.0" id="691" name="icy cranial basher" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="690" name="icy crystal mace" npcprice="-1"/>
+ <item npcvalue="0" weight="54.0" id="692" name="icy orcish maul" npcprice="-1"/>
+ <item npcvalue="1200" weight="85.0" id="693" name="icy war hammer" npcprice="-1"/>
+ <item npcvalue="0" weight="66.0" id="3310" name="iron hammer" npcprice="-1"/>
+ <item npcvalue="25000" weight="32.0" id="7422" name="jade hammer" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="3343" name="lich staff" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3325" name="light mace" npcprice="-1"/>
+ <item npcvalue="5000" weight="38.0" id="7424" name="lunar staff" npcprice="-1"/>
+ <item npcvalue="30" weight="38.0" id="3286" name="mace" npcprice="90"/>
+ <item npcvalue="300" weight="45.0" id="7381" name="mammoth whopper" npcprice="-1"/>
+ <item npcvalue="100" weight="54.0" id="3282" name="morning star" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="7409" name="northern star" npcprice="-1"/>
+ <item npcvalue="0" weight="65.0" id="8100" name="obsidian truncheon" npcprice="-1"/>
+ <item npcvalue="22000" weight="26.0" id="7421" name="onyx flail" npcprice="-1"/>
+ <item npcvalue="0" weight="54.0" id="7392" name="orcish maul" npcprice="-1"/>
+ <item npcvalue="20000" weight="23.0" id="7410" name="queen's sceptre" npcprice="-1"/>
+ <item npcvalue="7000" weight="21.0" id="7437" name="sapphire hammer" npcprice="-1"/>
+ <item npcvalue="10" weight="30.0" id="3453" name="scythe" npcprice="25"/>
+ <item npcvalue="10000" weight="41.0" id="7451" name="shadow sceptre" npcprice="-1"/>
+ <item npcvalue="270" weight="67.0" id="3312" name="silver mace" npcprice="-1"/>
+ <item npcvalue="6000" weight="17.0" id="3324" name="skull staff" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="7423" name="skullcrusher" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="11692" name="snake god's sceptre" npcprice="-1"/>
+ <item npcvalue="5000" weight="68.0" id="7452" name="spiked squelcher" npcprice="-1"/>
+ <item npcvalue="1" weight="38.0" id="3289" name="staff" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9376" name="stale bread of ancientness" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="3336" name="studded club" npcprice="-1"/>
+ <item npcvalue="500" weight="51.0" id="7425" name="taurus mace" npcprice="-1"/>
+ <item npcvalue="0" weight="115.0" id="8101" name="the stomper" npcprice="-1"/>
+ <item npcvalue="450" weight="125.0" id="3309" name="thunder hammer" npcprice="-1"/>
+ <item npcvalue="1200" weight="85.0" id="3279" name="war hammer" npcprice="-1"/>
+ <category name="creature products"/>
+ <item npcvalue="10" weight="0.5" id="10296" name="acorn" npcprice="-1"/>
+ <item npcvalue="200" weight="1.6" id="9632" name="ancient stone" npcprice="-1"/>
+ <item npcvalue="50" weight="0.9" id="10297" name="antlers" npcprice="-1"/>
+ <item npcvalue="120" weight="1.2" id="5883" name="ape fur" npcprice="-1"/>
+ <item npcvalue="15" weight="0.65" id="10299" name="badger fur" npcprice="-1"/>
+ <item npcvalue="30" weight="1.12" id="11445" name="bamboo stick" npcprice="-1"/>
+ <item npcvalue="55" weight="0.68" id="11511" name="banana sash" npcprice="-1"/>
+ <item npcvalue="50" weight="1.0" id="5894" name="bat wing" npcprice="-1"/>
+ <item npcvalue="290" weight="1.5" id="11447" name="battle stone" npcprice="-1"/>
+ <item npcvalue="100" weight="1.2" id="5896" name="bear paw" npcprice="-1"/>
+ <item npcvalue="2000" weight="12.5" id="5930" name="behemoth claw" npcprice="-1"/>
+ <item npcvalue="190" weight="1.75" id="9645" name="black hood" npcprice="-1"/>
+ <item npcvalue="300" weight="1.18" id="11448" name="black wool" npcprice="-1"/>
+ <item npcvalue="320" weight="0.8" id="11449" name="blood preservation" npcprice="-1"/>
+ <item npcvalue="100" weight="1.2" id="9633" name="bloody pincers" npcprice="-1"/>
+ <item npcvalue="200" weight="1.69" id="9667" name="boggy dreads" npcprice="-1"/>
+ <item npcvalue="150" weight="2.2" id="10404" name="bone shoulderplate" npcprice="-1"/>
+ <item npcvalue="80" weight="5.0" id="5898" name="bonelord eye" npcprice="-1"/>
+ <item npcvalue="210" weight="0.92" id="10277" name="bony tail" npcprice="-1"/>
+ <item npcvalue="180" weight="3.58" id="10320" name="book of necromantic rituals" npcprice="-1"/>
+ <item npcvalue="120" weight="1.5" id="9646" name="book of prayers" npcprice="120"/>
+ <item npcvalue="350" weight="1.12" id="11702" name="brimstone fangs" npcprice="-1"/>
+ <item npcvalue="120" weight="1.12" id="11703" name="brimstone shell" npcprice="-1"/>
+ <item npcvalue="30" weight="1.3" id="11451" name="broken crossbow" npcprice="-1"/>
+ <item npcvalue="340" weight="2.0" id="11660" name="broken draken mail" npcprice="-1"/>
+ <item npcvalue="180" weight="6.4" id="9656" name="broken gladiator shield" npcprice="180"/>
+ <item npcvalue="100" weight="2.1" id="10418" name="broken halberd" npcprice="-1"/>
+ <item npcvalue="20" weight="1.56" id="11453" name="broken helmet" npcprice="-1"/>
+ <item npcvalue="35" weight="1.28" id="11452" name="broken shamanic staff" npcprice="-1"/>
+ <item npcvalue="120" weight="1.4" id="11661" name="broken slicer" npcprice="-1"/>
+ <item npcvalue="20" weight="0.85" id="9689" name="bunch of troll hair" npcprice="-1"/>
+ <item npcvalue="800" weight="2.27" id="9688" name="bundle of cursed straw" npcprice="-1"/>
+ <item npcvalue="50" weight="0.35" id="10300" name="carniphila seeds" npcprice="-1"/>
+ <item npcvalue="35" weight="0.88" id="10275" name="carrion worm fang" npcprice="-1"/>
+ <item npcvalue="28" weight="0.69" id="10301" name="centipede leg" npcprice="-1"/>
+ <item npcvalue="30" weight="0.1" id="5890" name="chicken feather" npcprice="-1"/>
+ <item npcvalue="15" weight="0.75" id="9634" name="cobra tongue" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="7882" name="cockroach leg" npcprice="-1"/>
+ <item npcvalue="110" weight="0.36" id="11514" name="colourful feather" npcprice="-1"/>
+ <item npcvalue="45" weight="0.8" id="10302" name="compass" npcprice="-1"/>
+ <item npcvalue="700" weight="1.12" id="10409" name="corrupted flag" npcprice="-1"/>
+ <item npcvalue="35" weight="1.75" id="10272" name="crab pincers" npcprice="-1"/>
+ <item npcvalue="280" weight="1.65" id="9638" name="cultish mask" npcprice="-1"/>
+ <item npcvalue="150" weight="2.0" id="9639" name="cultish robe" npcprice="150"/>
+ <item npcvalue="500" weight="0.82" id="11455" name="cultish symbol" npcprice="-1"/>
+ <item npcvalue="320" weight="0.97" id="10410" name="cursed shoulder spikes" npcprice="-1"/>
+ <item npcvalue="55" weight="1.11" id="9657" name="cyclops toe" npcprice="-1"/>
+ <item npcvalue="48" weight="0.9" id="10303" name="dark rosary" npcprice="-1"/>
+ <item npcvalue="300" weight="1.0" id="5906" name="demon dust" npcprice="-1"/>
+ <item npcvalue="1000" weight="10.0" id="5954" name="demon horn" npcprice="-1"/>
+ <item npcvalue="80" weight="1.32" id="9647" name="demonic skeletal hand" npcprice="-1"/>
+ <item npcvalue="120" weight="1.34" id="11456" name="dirty turban" npcprice="-1"/>
+ <item npcvalue="20" weight="0.32" id="11684" name="downy feather" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="6546" name="dracola's eye" npcprice="-1"/>
+ <item npcvalue="8000" weight="12.5" id="5919" name="dragon claw" npcprice="-1"/>
+ <item npcvalue="175" weight="1.55" id="10444" name="dragon priest's wandtip" npcprice="-1"/>
+ <item npcvalue="100" weight="2.5" id="11457" name="dragon's tail" npcprice="-1"/>
+ <item npcvalue="550" weight="0.68" id="11658" name="draken sulphur" npcprice="-1"/>
+ <item npcvalue="430" weight="0.78" id="11659" name="draken wristbands" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="5900" name="dwarven beard" npcprice="-1"/>
+ <item npcvalue="0" weight="50.0" id="9606" name="egg of the many" npcprice="-1"/>
+ <item npcvalue="150" weight="0.75" id="10276" name="elder bonelord tentacle" npcprice="-1"/>
+ <item npcvalue="90" weight="1.12" id="11465" name="elven astral observer" npcprice="-1"/>
+ <item npcvalue="50" weight="0.8" id="11464" name="elven scouting glass" npcprice="-1"/>
+ <item npcvalue="45" weight="1.1" id="9635" name="elvish talisman" npcprice="-1"/>
+ <item npcvalue="360" weight="0.95" id="10306" name="essence of a bad dream" npcprice="-1"/>
+ <item npcvalue="390" weight="0.93" id="11671" name="eye of corruption" npcprice="-1"/>
+ <item npcvalue="375" weight="1.15" id="9636" name="fiery heart" npcprice="-1"/>
+ <item npcvalue="150" weight="1.2" id="5895" name="fish fin" npcprice="-1"/>
+ <item npcvalue="30" weight="0.75" id="11466" name="flask of embalming fluid" npcprice="-1"/>
+ <item npcvalue="160" weight="2.48" id="9658" name="frost giant pelt" npcprice="-1"/>
+ <item npcvalue="30" weight="1.8" id="9648" name="frosty ear of a troll" npcprice="-1"/>
+ <item npcvalue="280" weight="1.86" id="9661" name="frosty heart" npcprice="-1"/>
+ <item npcvalue="90" weight="0.97" id="9649" name="gauze bandage" npcprice="-1"/>
+ <item npcvalue="200" weight="0.95" id="9655" name="gear crystal" npcprice="-1"/>
+ <item npcvalue="80" weight="1.3" id="11458" name="geomancer's robe" npcprice="-1"/>
+ <item npcvalue="120" weight="1.22" id="11463" name="geomancer's staff" npcprice="-1"/>
+ <item npcvalue="700" weight="12.0" id="10449" name="ghastly dragon head" npcprice="-1"/>
+ <item npcvalue="90" weight="0.5" id="9690" name="ghostly tissue" npcprice="-1"/>
+ <item npcvalue="60" weight="1.4" id="11467" name="ghoul snack" npcprice="-1"/>
+ <item npcvalue="380" weight="1.2" id="10280" name="giant eye" npcprice="-1"/>
+ <item npcvalue="30" weight="0.5" id="11443" name="girlish hair decoration" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="8143" name="gland" npcprice="-1"/>
+ <item npcvalue="25" weight="0.1" id="9054" name="glob of acid slime" npcprice="-1"/>
+ <item npcvalue="20" weight="0.1" id="9053" name="glob of mercury" npcprice="-1"/>
+ <item npcvalue="30" weight="0.1" id="9055" name="glob of tar" npcprice="-1"/>
+ <item npcvalue="20" weight="0.75" id="11539" name="goblin ear" npcprice="-1"/>
+ <item npcvalue="100" weight="0.6" id="5877" name="green dragon leather" npcprice="-1"/>
+ <item npcvalue="100" weight="0.8" id="5920" name="green dragon scale" npcprice="-1"/>
+ <item npcvalue="350" weight="0.46" id="11446" name="hair of a banshee" npcprice="-1"/>
+ <item npcvalue="55" weight="1.24" id="10283" name="half-digested piece of meat" npcprice="-1"/>
+ <item npcvalue="85" weight="0.64" id="9659" name="half-eaten brain" npcprice="-1"/>
+ <item npcvalue="70" weight="6.0" id="5925" name="hardened bone" npcprice="-1"/>
+ <item npcvalue="115" weight="2.26" id="9683" name="haunted piece of wood" npcprice="-1"/>
+ <item npcvalue="500" weight="0.75" id="9637" name="hellhound slobber" npcprice="-1"/>
+ <item npcvalue="475" weight="1.25" id="10304" name="hellspawn tail" npcprice="-1"/>
+ <item npcvalue="50" weight="2.1" id="5921" name="heaven blossom" npcprice="-1"/>
+ <item npcvalue="550" weight="1.12" id="10415" name="high guard flag" npcprice="-1"/>
+ <item npcvalue="130" weight="1.03" id="10416" name="high guard shoulderplates" npcprice="-1"/>
+ <item npcvalue="40" weight="0.8" id="5902" name="honeycomb" npcprice="-1"/>
+ <item npcvalue="90" weight="2.5" id="5922" name="holy orchid" npcprice="-1"/>
+ <item npcvalue="80" weight="1.32" id="11469" name="hunter's quiver" npcprice="-1"/>
+ <item npcvalue="500" weight="50.0" id="4839" name="hydra egg" npcprice="-1"/>
+ <item npcvalue="600" weight="13.0" id="10282" name="hydra head" npcprice="-1"/>
+ <item npcvalue="180" weight="1.24" id="11470" name="jewelled belt" npcprice="-1"/>
+ <item npcvalue="100" weight="1.4" id="11471" name="kongra's shoulderpad" npcprice="-1"/>
+ <item npcvalue="80" weight="1.07" id="10455" name="lancer beetle shell" npcprice="-1"/>
+ <item npcvalue="500" weight="2.2" id="10417" name="legionnaire flags" npcprice="-1"/>
+ <item npcvalue="60" weight="1.8" id="9691" name="lion's mane" npcprice="-1"/>
+ <item npcvalue="300" weight="1.5" id="11680" name="lizard essence" npcprice="-1"/>
+ <item npcvalue="150" weight="0.5" id="5876" name="lizard leather" npcprice="-1"/>
+ <item npcvalue="120" weight="0.8" id="5881" name="lizard scale" npcprice="-1"/>
+ <item npcvalue="1000" weight="0.94" id="11454" name="luminous orb" npcprice="-1"/>
+ <item npcvalue="10" weight="0.68" id="9692" name="lump of dirt" npcprice="-1"/>
+ <item npcvalue="130" weight="1.16" id="10305" name="lump of earth" npcprice="-1"/>
+ <item npcvalue="100" weight="6.0" id="10321" name="mammoth tusk" npcprice="-1"/>
+ <item npcvalue="280" weight="1.15" id="11489" name="mantassin tail" npcprice="-1"/>
+ <item npcvalue="320" weight="0.5" id="10298" name="metal spike" npcprice="-1"/>
+ <item npcvalue="75" weight="1.11" id="11472" name="minotaur horn" npcprice="-1"/>
+ <item npcvalue="80" weight="0.4" id="5878" name="minotaur leather" npcprice="-1"/>
+ <item npcvalue="60" weight="1.4" id="11474" name="miraculum" npcprice="-1"/>
+ <item npcvalue="15000" weight="35.0" id="5943" name="morgaroth's heart" npcprice="-1"/>
+ <item npcvalue="420" weight="1.75" id="9662" name="mutated bat ear" npcprice="-1"/>
+ <item npcvalue="50" weight="2.5" id="10308" name="mutated flesh" npcprice="-1"/>
+ <item npcvalue="150" weight="1.43" id="9668" name="mutated rat tail" npcprice="-1"/>
+ <item npcvalue="700" weight="0.96" id="9660" name="mystical hourglass" npcprice="-1"/>
+ <item npcvalue="250" weight="2.2" id="11475" name="necromantic robe" npcprice="-1"/>
+ <item npcvalue="75" weight="0.88" id="10314" name="nettle blossom" npcprice="-1"/>
+ <item npcvalue="25" weight="0.9" id="11476" name="nettle spit" npcprice="-1"/>
+ <item npcvalue="430" weight="1.44" id="11486" name="noble turban" npcprice="-1"/>
+ <item npcvalue="30" weight="0.5" id="11479" name="orc leather" npcprice="-1"/>
+ <item npcvalue="150" weight="1.0" id="10196" name="orc tooth" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="7786" name="orc tusk" npcprice="-1"/>
+ <item npcvalue="85" weight="1.8" id="11477" name="orcish gear" npcprice="-1"/>
+ <item npcvalue="12000" weight="35.0" id="5808" name="orshabaal's brain" npcprice="-1"/>
+ <item npcvalue="30" weight="1.3" id="11481" name="pelvis bone" npcprice="-1"/>
+ <item npcvalue="250" weight="5.0" id="5893" name="perfect behemoth fang" npcprice="-1"/>
+ <item npcvalue="250" weight="1.5" id="10420" name="petrified scream" npcprice="-1"/>
+ <item npcvalue="20" weight="1.1" id="11483" name="piece of archer armor" npcprice="-1"/>
+ <item npcvalue="15" weight="1.04" id="10279" name="piece of crocodile leather" npcprice="-1"/>
+ <item npcvalue="420" weight="1.32" id="9663" name="piece of dead brain" npcprice="-1"/>
+ <item npcvalue="550" weight="2.5" id="9664" name="piece of hellfire armor" npcprice="-1"/>
+ <item npcvalue="0" weight="65.0" id="6540" name="piece of massacre's shell" npcprice="-1"/>
+ <item npcvalue="45" weight="1.42" id="9641" name="piece of scarab shell" npcprice="-1"/>
+ <item npcvalue="50" weight="1.1" id="11482" name="piece of warrior armor" npcprice="-1"/>
+ <item npcvalue="10" weight="0.98" id="9693" name="pig foot" npcprice="-1"/>
+ <item npcvalue="25" weight="0.98" id="11484" name="pile of grave earth" npcprice="-1"/>
+ <item npcvalue="10" weight="1.3" id="11485" name="poison spider shell" npcprice="-1"/>
+ <item npcvalue="50" weight="0.8" id="9640" name="poisonous slime" npcprice="-1"/>
+ <item npcvalue="30" weight="1.5" id="9650" name="polar bear paw" npcprice="-1"/>
+ <item npcvalue="60" weight="1.2" id="11444" name="protective charm" npcprice="-1"/>
+ <item npcvalue="110" weight="2.3" id="11473" name="purple robe" npcprice="-1"/>
+ <item npcvalue="500" weight="1.44" id="11491" name="quara bone" npcprice="-1"/>
+ <item npcvalue="350" weight="0.8" id="11488" name="quara eye" npcprice="-1"/>
+ <item npcvalue="410" weight="1.2" id="11490" name="quara pincers" npcprice="-1"/>
+ <item npcvalue="140" weight="1.07" id="11487" name="quara tentacle" npcprice="-1"/>
+ <item npcvalue="200" weight="0.6" id="5948" name="red dragon leather" npcprice="-1"/>
+ <item npcvalue="200" weight="0.9" id="5882" name="red dragon scale" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="10289" name="red lantern" npcprice="-1"/>
+ <item npcvalue="66" weight="0.97" id="11492" name="rope belt" npcprice="-1"/>
+ <item npcvalue="30" weight="0.6" id="10291" name="rotten piece of cloth" npcprice="-1"/>
+ <item npcvalue="400" weight="1.28" id="10311" name="sabretooth" npcprice="-1"/>
+ <item npcvalue="120" weight="0.5" id="11493" name="safety pin" npcprice="-1"/>
+ <item npcvalue="20" weight="0.75" id="10456" name="sandcrawler shell" npcprice="-1"/>
+ <item npcvalue="680" weight="0.93" id="11673" name="scale of corruption" npcprice="-1"/>
+ <item npcvalue="280" weight="2.3" id="9631" name="scarab pincers" npcprice="-1"/>
+ <item npcvalue="25" weight="1.2" id="9651" name="scorpion tail" npcprice="-1"/>
+ <item npcvalue="230" weight="0.79" id="11510" name="scroll of heroic deeds" npcprice="-1"/>
+ <item npcvalue="450" weight="1.5" id="10312" name="scythe leg" npcprice="-1"/>
+ <item npcvalue="520" weight="1.46" id="9666" name="sea serpent scale" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="647" name="seeds" npcprice="-1"/>
+ <item npcvalue="25" weight="1.12" id="10407" name="shaggy tail" npcprice="-1"/>
+ <item npcvalue="45" weight="0.9" id="11478" name="shamanic hood" npcprice="-1"/>
+ <item npcvalue="2000" weight="19.0" id="7290" name="shard" npcprice="-1"/>
+ <item npcvalue="500" weight="1.56" id="10310" name="shiny stone" npcprice="-1"/>
+ <item npcvalue="35" weight="1.15" id="10292" name="silky fur" npcprice="-1"/>
+ <item npcvalue="80" weight="1.16" id="11480" name="skull belt" npcprice="-1"/>
+ <item npcvalue="50" weight="1.05" id="10274" name="skunk tail" npcprice="-1"/>
+ <item npcvalue="95" weight="0.5" id="11512" name="small flask of eyedrops" npcprice="-1"/>
+ <item npcvalue="480" weight="0.8" id="11450" name="small notebook" npcprice="-1"/>
+ <item npcvalue="70" weight="1.1" id="11513" name="small pitchfork" npcprice="-1"/>
+ <item npcvalue="400" weight="1.0" id="9694" name="snake skin" npcprice="-1"/>
+ <item npcvalue="10" weight="0.5" id="8031" name="spider fangs" npcprice="-1"/>
+ <item npcvalue="100" weight="0.1" id="5879" name="spider silk" npcprice="-1"/>
+ <item npcvalue="100" weight="1.25" id="10408" name="spiked iron ball" npcprice="-1"/>
+ <item npcvalue="95" weight="0.86" id="9642" name="spooky blue eye" npcprice="-1"/>
+ <item npcvalue="120" weight="1.53" id="10278" name="stone wing" npcprice="-1"/>
+ <item npcvalue="600" weight="2.3" id="10309" name="strand of medusa hair" npcprice="-1"/>
+ <item npcvalue="50" weight="1.2" id="10293" name="striped fur" npcprice="-1"/>
+ <item npcvalue="100" weight="1.42" id="10315" name="sulphurous stone" npcprice="-1"/>
+ <item npcvalue="20" weight="0.94" id="9686" name="swamp grass" npcprice="-1"/>
+ <item npcvalue="240" weight="0.93" id="11672" name="tail of corruption" npcprice="-1"/>
+ <item npcvalue="80" weight="0.4" id="10281" name="tarantula egg" npcprice="-1"/>
+ <item npcvalue="120" weight="0.7" id="9684" name="tattered piece of robe" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="396" name="technomancer beard" npcprice="-1"/>
+ <item npcvalue="5000" weight="3.0" id="11666" name="tentacle piece" npcprice="-1"/>
+ <item npcvalue="60" weight="1.15" id="10454" name="terramite legs" npcprice="-1"/>
+ <item npcvalue="170" weight="1.5" id="10452" name="terramite shell" npcprice="-1"/>
+ <item npcvalue="95" weight="1.17" id="10273" name="terrorbird beak" npcprice="-1"/>
+ <item npcvalue="0" weight="30.0" id="6535" name="the plasmother's remains" npcprice="-1"/>
+ <item npcvalue="150" weight="1.25" id="10307" name="thick fur" npcprice="-1"/>
+ <item npcvalue="100" weight="1.2" id="9643" name="thorn" npcprice="-1"/>
+ <item npcvalue="25" weight="1" id="3741" name="troll green" npcprice="-1"/>
+ <item npcvalue="50" weight="1.4" id="11515" name="trollroot" npcprice="-1"/>
+ <item npcvalue="90" weight="5.0" id="5899" name="turtle shell" npcprice="-1"/>
+ <item npcvalue="100" weight="10.0" id="3044" name="tusk" npcprice="-1"/>
+ <item npcvalue="200" weight="0.8" id="10450" name="undead heart" npcprice="-1"/>
+ <item npcvalue="480" weight="1.25" id="10316" name="unholy bone" npcprice="-1"/>
+ <item npcvalue="100" weight="1.0" id="5905" name="vampire dust" npcprice="-1"/>
+ <item npcvalue="275" weight="0.5" id="9685" name="vampire teeth" npcprice="-1"/>
+ <item npcvalue="460" weight="1.45" id="9654" name="war crystal" npcprice="-1"/>
+ <item npcvalue="200" weight="1.2" id="10405" name="warmaster's wristguards" npcprice="-1"/>
+ <item npcvalue="30" weight="1.05" id="10318" name="warwolf fur" npcprice="-1"/>
+ <item npcvalue="250" weight="1.7" id="10397" name="weaver's wandtip" npcprice="-1"/>
+ <item npcvalue="380" weight="1.13" id="10317" name="werewolf fur" npcprice="-1"/>
+ <item npcvalue="110" weight="1.05" id="10411" name="widow's mandibles" npcprice="-1"/>
+ <item npcvalue="800" weight="4.5" id="10313" name="winged tail" npcprice="-1"/>
+ <item npcvalue="20" weight="1.1" id="10295" name="winter wolf fur" npcprice="-1"/>
+ <item npcvalue="60" weight="3.33" id="9652" name="witch broom" npcprice="-1"/>
+ <item npcvalue="70" weight="0.8" id="5897" name="wolf paw" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="5901" name="wood" npcprice="-1"/>
+ <item npcvalue="15" weight="1.18" id="10319" name="wool" npcprice="-1"/>
+ <item npcvalue="400" weight="1.8" id="9665" name="wyrm scale" npcprice="-1"/>
+ <item npcvalue="265" weight="2.25" id="9644" name="wyvern talisman" npcprice="-1"/>
+ <item npcvalue="600" weight="0.98" id="10413" name="zaogun flag" npcprice="-1"/>
+ <item npcvalue="150" weight="1.03" id="10414" name="zaogun shoulderplates" npcprice="-1"/>
+ <category name="books"/>
+ <item npcvalue="0" weight="55.55" id="10025" name="almanac of magic" npcprice="600"/>
+ <item npcvalue="100" weigth="13.0" id="2842" name="book" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="11699" name="botany almanach" npcprice="-1"/>
+ <item npcvalue="0" weight="78.0" id="8155" name="heavily bound book" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="9093" name="jean pierre's cookbook i" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="11541" name="jean pierre's cookbook ii" npcprice="-1"/>
+ <item npcvalue="0" weight="58.0" id="6120" name="nature magic spellbook" npcprice="-1"/>
+ <item npcvalue="0" weight="58.0" id="0" name="spellbook of dragha" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="7874" name="the witches' grimoire" npcprice="-1"/>
+ <item npcvalue="0" weight="13.37" id="8149" name="tibiacity encyclopedia" npcprice="-1"/>
+ <category name="quest items"/>
+ <item npcvalue="0" weight="8.0" id="0" name="amarie's favourite book" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="3235" name="ancient rune" npcprice="-1"/>
+ <item npcvalue="400" weight="1.8" id="7253" name="animal cure" npcprice="-1"/>
+ <item npcvalue="0" weight="2.45" id="9236" name="animal fetish" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="6108" name="atlas" npcprice="-1"/>
+ <item npcvalue="0" weight="0.45" id="10026" name="baby rotworm" npcprice="600"/>
+ <item npcvalue="0" weight="400.0" id="235" name="bag (ahmet)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="142" name="bale of white cloth" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="143" name="bale of yellowed cloth" npcprice="-1"/>
+ <item npcvalue="0" weight="85.0" id="0" name="barrel of beer" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="beer bottle" npcprice="-1"/>
+ <item npcvalue="0" weight="6.5" id="11695" name="black jade cobra" npcprice="-1"/>
+ <item npcvalue="0" weight="4.2" id="3214" name="blessed ankh" npcprice="-1"/>
+ <item npcvalue="0" weight="8.9" id="8225" name="blood crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="3236" name="blue note" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="4867" name="botanist's container" npcprice="-1"/>
+ <item npcvalue="0" weight="40.0" id="0" name="box (pies)" npcprice="-1"/>
+ <item npcvalue="0" weight="1000.0" id="0" name="branch" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="8194" name="bread (garlic)" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="7785" name="bricklayers' kit" npcprice="-1"/>
+ <item npcvalue="0" weight="12.5" id="6099" name="brutus bloodbeard's hat" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="0" name="bundle of rags" npcprice="-1"/>
+ <item npcvalue="0" weight="4.0" id="3240" name="burning heart" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="4863" name="butterfly conservation kit" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="4864" name="butterfly conservation kit (purple)" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="4865" name="butterfly conservation kit (blue)" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="4866" name="butterfly conservation kit (red)" npcprice="-1"/>
+ <item npcvalue="0" weight="22.5" id="5466" name="bunch of sugar cane" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="9698" name="carrying device" npcprice="-1"/>
+ <item npcvalue="0" weight="1.7" id="0" name="case of rust bugs" npcprice="-1"/>
+ <item npcvalue="3000" weight="300.0" id="0" name="cask of brown ale (item)" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="5938" name="ceiron's waterskin" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="6561" name="ceremonial ankh" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="8827" name="charged ghost charm" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="141" name="cigar" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="3238" name="cobrafang dagger" npcprice="-1"/>
+ <item npcvalue="0" weight="4.5" id="5945" name="coral comb" npcprice="-1"/>
+ <item npcvalue="0" weight="5.1" id="10218" name="corned fish" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="4828" name="cough syrup" npcprice="-1"/>
+ <item npcvalue="0" weight="100.0" id="0" name="crate (jimmy)" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="0" name="crate (swapped)" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="0" name="crate (wine)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="0" name="crumpled piece of paper" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="3239" name="crystal arrow" npcprice="-1"/>
+ <item npcvalue="0" weight="0.9" id="6093" name="crystal ring (eleonore)" npcprice="-1"/>
+ <item npcvalue="0" weight="11.0" id="6124" name="damaged logbook" npcprice="-1"/>
+ <item npcvalue="0" weight="46.0" id="5924" name="damaged steel helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="2.6" id="9238" name="dark essence" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="6102" name="deadeye devious' eye patch" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="0" name="deed of ownership" npcprice="-1"/>
+ <item npcvalue="0" weight="3.1" id="9240" name="deep crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="disguise kit" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="disguise kit" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="768" name="document (lightbearer)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="768" name="document of the follower" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="770" name="document of the leader" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="769" name="document of the officer" npcprice="-1"/>
+ <item npcvalue="0" weight="60.0" id="4845" name="dwarven pickaxe" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="124" name="easily inflammable sulphur" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="9131" name="eclesius' sandals" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="0" name="ectoplasm container" npcprice="-1"/>
+ <item npcvalue="0" weight="40.0" id="5947" name="elane's crossbow" npcprice="-1"/>
+ <item npcvalue="0" weight="3.2" id="9521" name="elemental crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="0" name="elven poetry book" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="empty beer bottle" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="0" name="empty flower pot" npcprice="-1"/>
+ <item npcvalue="2000" weight="2.5" id="945" name="energy soil" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="946" name="eternal flames" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="0" name="exploding cookie" npcprice="-1"/>
+ <item npcvalue="50" weight="0.9" id="4871" name="explorer brooch" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="11545" name="exquisite silk" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="11547" name="exquisite wood" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="fake dwarven beard" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="3205" name="family brooch" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="4834" name="family brooch (dwarven family)" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="0" name="file ah-x17l89" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="9699" name="filled carrying device" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="fine sulphur" npcprice="-1"/>
+ <item npcvalue="0" weight="9.4" id="0" name="fine vase" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="10009" name="flask of crown polisher" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="10189" name="flask of extra greasy oil" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="11364" name="flask of plant poison" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="10183" name="flask of poison" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="10183" name="flask with beaver bait" npcprice="100"/>
+ <item npcvalue="0" weight="1.8" id="7523" name="flask with paint" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="942" name="flawless ice crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="11550" name="flexible dragon scale" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="7289" name="frost charm" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="7248" name="frostbite herb" npcprice="-1"/>
+ <item npcvalue="0" weight="100.0" id="0" name="funeral urn" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="0" name="gem holder" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="3223" name="gemmed lamp" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="8822" name="ghost charm" npcprice="-1"/>
+ <item npcvalue="0" weight="22.0" id="0" name="ghost residue" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="8746" name="ghost's tear" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="4832" name="giant ape's hair" npcprice="-1"/>
+ <item npcvalue="2000" weight="2.5" id="941" name="glimmering soil" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="9235" name="golem disassembler" npcprice="-1"/>
+ <item npcvalue="0" weight="30.0" id="9255" name="golem head" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="0" name="grodrik's favourite axe" npcprice="-1"/>
+ <item npcvalue="0" weight="40.0" id="919" name="hallowed axe" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="3127" name="hat for eclesius (dark)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="3128" name="hat for eclesius (pink)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="3129" name="hat for eclesius (wooden)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="9254" name="headache pill" npcprice="-1"/>
+ <item npcvalue="0" weight="64.5" id="9201" name="heated worm punisher" npcprice="-1"/>
+ <item npcvalue="0" weight="600.0" id="0" name="heavy package" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="8820" name="helmet (morik)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="3228" name="helmet adornment" npcprice="-1"/>
+ <item npcvalue="0" weight="1.6" id="3222" name="helmet ornament" npcprice="-1"/>
+ <item npcvalue="0" weight="2.6" id="3227" name="helmet piece" npcprice="-1"/>
+ <item npcvalue="0" weight="2.6" id="12314" name="hollow stampor hoof" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="0" name="holy icon" npcprice="-1"/>
+ <item npcvalue="0" weight="70.0" id="4872" name="ice pick" npcprice="-1"/>
+ <item npcvalue="2000" weight="2.5" id="944" name="iced soil" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="4837" name="icicle (item)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="0" name="intelligence reports" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="0" name="invitation" npcprice="-1"/>
+ <item npcvalue="0" weight="1.7" id="0" name="jewel case (nomad)" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="0" name="jug (ants)" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="8761" name="jug of embalming fluid" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="key (prison cells)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="3507" name="label" npcprice="1"/>
+ <item npcvalue="0" weight="1.4" id="3225" name="left horn" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="3505" name="letter" npcprice="8"/>
+ <item npcvalue="0" weight="0.1" id="0" name="letter to chantalle" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="letter to eremo" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="letter to markwin" npcprice="-1"/>
+ <item npcvalue="0" weight="500.0" id="3217" name="letterbag" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="9173" name="love potion" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="0" name="machine crate" npcprice="-1"/>
+ <item npcvalue="0" weight="1.4" id="11552" name="magic crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="magical watch" npcprice="-1"/>
+ <item npcvalue="0" weight="1.35" id="0" name="mago mechanic core" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="11328" name="marked crate" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="matrix crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="12.0" id="0" name="mead horn" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="9307" name="mechanical fish" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="memory crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="memory stone" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="9615" name="midnight shard" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="0" name="mining helmet (budrik)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="molten wax" npcprice="-1"/>
+ <item npcvalue="5000" weight="2.5" id="947" name="mother soil" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="144" name="mummy disguise" npcprice="-1"/>
+ <item npcvalue="0" weight="0.01" id="0" name="mushroom spores" npcprice="-1"/>
+ <item npcvalue="100" weight="0.5" id="6087" name="music sheet (first)" npcprice="-1"/>
+ <item npcvalue="250" weight="0.5" id="6088" name="music sheet (second)" npcprice="-1"/>
+ <item npcvalue="400" weight="0.5" id="6089" name="music sheet (third)" npcprice="-1"/>
+ <item npcvalue="800" weight="0.5" id="6090" name="music sheet (fourth)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="mysterious package" npcprice="-1"/>
+ <item npcvalue="0" weight="0.6" id="11551" name="mystic root" npcprice="-1"/>
+ <item npcvalue="2000" weight="2.5" id="940" name="natural soil" npcprice="-1"/>
+ <item npcvalue="0" weight="8.2" id="0" name="nautical map" npcprice="-1"/>
+ <item npcvalue="5000" weight="2.5" id="954" name="neutral matter" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="0" name="nilsor's waterskin" npcprice="-1"/>
+ <item npcvalue="0" weight="2.22" id="11549" name="old iron" npcprice="-1"/>
+ <item npcvalue="500" weight="2.0" id="4831" name="old parchment" npcprice="-1"/>
+ <item npcvalue="0" weight="7.8" id="0" name="old power core" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="3244" name="old and used backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3241" name="ornamented ankh" npcprice="-1"/>
+ <item npcvalue="0" weight="36.0" id="0" name="package of potions" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="0" name="parcel (watchtower)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="parchment (deathlist)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="picture (mina losa)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="piece of broken amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="7245" name="piece of cactus" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="8762" name="piece of royal satin" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="0" name="poem scroll" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="0" name="precious necklace" npcprice="-1"/>
+ <item npcvalue="0" weight="12.0" id="0" name="present (postman)" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="0" name="present bag" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="948" name="pure energy" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="7249" name="purple kiss blossom" npcprice="-1"/>
+ <item npcvalue="0" weight="3.1" id="9697" name="rare crystal" npcprice="1000"/>
+ <item npcvalue="0" weight="14.0" id="11362" name="replica of the sceptre" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="resonance crystal" npcprice="-1"/>
+ <item npcvalue="0" weight="1.4" id="3224" name="right horn" npcprice="-1"/>
+ <item npcvalue="0" weight="0.9" id="0" name="ring (rerun)" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="0" name="rotten heart of a tree" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="8760" name="sample of sand wasp honey" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="8759" name="sample of venorean spice" npcprice="-1"/>
+ <item npcvalue="0" weight="0.9" id="0" name="scale from a frozen dragon" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="scribbled sheet of paper" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="secret letter" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="10199" name="serpent crest" npcprice="-1"/>
+ <item npcvalue="0" weight="4.0" id="0" name="shadow orb" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="sheet of tracing paper" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="silver key (private room)" npcprice="-1"/>
+ <item npcvalue="0" weight="38.0" id="0" name="simon the beggar's favorite staff" npcprice="-1"/>
+ <item npcvalue="0" weight="21.8" id="0" name="skull of ratha" npcprice="-1"/>
+ <item npcvalue="0" weight="21.8" id="10159" name="skull of a caveman" npcprice="-1"/>
+ <item npcvalue="0" weight="66.0" id="4835" name="snake destroyer" npcprice="-1"/>
+ <item npcvalue="0" weight="14.0" id="11371" name="snake sceptre" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="solitude charm" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="0" name="some special leaves" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="special flask" npcprice="1000"/>
+ <item npcvalue="0" weight="5.0" id="11546" name="spectral cloth" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="spectral dress" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="0" name="spectral stone" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="5886" name="spool of yarn" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="0" name="spy report" npcprice="-1"/>
+ <item npcvalue="0" weight="1.15" id="9248" name="stabilizer" npcprice="-1"/>
+ <item npcvalue="0" weight="2.6" id="12312" name="stampor horn" npcprice="-1"/>
+ <item npcvalue="0" weight="2.6" id="12313" name="stampor talons" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="4838" name="strange powder" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="6105" name="striker's favourite pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="0.35" id="11548" name="strong sinew" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="3237" name="sword hilt" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="3233" name="tear of daraman" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="the alchemist's formulas" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="the dust of arthei" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="the dust of boreth" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="the dust of lersatio" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="the dust of marziel" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="the dwarven emperor's beard" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="6100" name="the lethal lissy's shirt" npcprice="-1"/>
+ <item npcvalue="0" weight="0.75" id="7924" name="the ring of the count" npcprice="-1"/>
+ <item npcvalue="0" weight="4.5" id="11367" name="the tail of the keeper" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="10198" name="tribal crest" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="10027" name="universal tool" npcprice="550"/>
+ <item npcvalue="0" weight="10.0" id="0" name="valuable vase" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9041" name="vampiric crest" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="very old piece of paper" npcprice="-1"/>
+ <item npcvalue="0" weight="22.0" id="0" name="waldo's posthorn" npcprice="-1"/>
+ <item npcvalue="0" weight="75.0" id="0" name="weapons crate" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="0" name="whisper beer" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="4827" name="whisper moss" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="0" name="white flower (item)" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="0" name="whoopee cushion" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="4829" name="witches' cap spot" npcprice="-1"/>
+ <item npcvalue="0" weight="64.5" id="9234" name="worm punisher" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="9239" name="worm queen tooth" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="wrinkled parchment" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="0" name="xodet's first wand" npcprice="-1"/>
+ <category name="armors"/>
+ <item npcvalue="0" weight="99.0" id="3394" name="amazon armor" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="3570" name="ball gown" npcprice="-1"/>
+ <item npcvalue="500" weight="35.0" id="8044" name="belted cape" npcprice="-1"/>
+ <item npcvalue="10000" weight="22.0" id="3567" name="blue robe" npcprice="-1"/>
+ <item npcvalue="150" weight="80.0" id="3359" name="brass armor" npcprice="450"/>
+ <item npcvalue="0" weight="32.0" id="3565" name="cape" npcprice="-1"/>
+ <item npcvalue="70" weight="100.0" id="3358" name="chain armor" npcprice="200"/>
+ <item npcvalue="1" weight="27.0" id="3562" name="coat" npcprice="8"/>
+ <item npcvalue="12000" weight="99.0" id="3381" name="crown armor" npcprice="-1"/>
+ <item npcvalue="0" weight="84.5" id="8050" name="crystalline armor" npcprice="-1"/>
+ <item npcvalue="400" weight="120.0" id="3383" name="dark armor" npcprice="-1"/>
+ <item npcvalue="0" weight="29.0" id="8037" name="dark lord's cape" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="3388" name="demon armor" npcprice="-1"/>
+ <item npcvalue="0" weight="75.0" id="8057" name="divine plate" npcprice="-1"/>
+ <item npcvalue="1" weight="25.0" id="3379" name="doublet" npcprice="16"/>
+ <item npcvalue="0" weight="28.5" id="8039" name="dragon robe" npcprice="-1"/>
+ <item npcvalue="40000" weight="114.0" id="3386" name="dragon scale mail" npcprice="-1"/>
+ <item npcvalue="30000" weight="130.0" id="3397" name="dwarven armor" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8054" name="earthborn titan armor" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="11651" name="elite draken mail" npcprice="-1"/>
+ <item npcvalue="0" weight="90.0" id="3399" name="elven mail" npcprice="-1"/>
+ <item npcvalue="200" weight="25.5" id="8064" name="ethno coat" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8053" name="fireborn giant armor" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="9015" name="flower dress" npcprice="-1"/>
+ <item npcvalue="6000" weight="21.0" id="8043" name="focus cape" npcprice="-1"/>
+ <item npcvalue="0" weight="75.0" id="8059" name="frozen plate" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="8048" name="girl's dress" npcprice="-1"/>
+ <item npcvalue="11000" weight="22.5" id="824" name="glacier robe" npcprice="-1"/>
+ <item npcvalue="20000" weight="80.0" id="3360" name="golden armor" npcprice="-1"/>
+ <item npcvalue="0" weight="9.3" id="3563" name="green tunic" npcprice="-1"/>
+ <item npcvalue="0" weight="28.5" id="8041" name="greenwood coat" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="9379" name="heavy metal t-shirt" npcprice="-1"/>
+ <item npcvalue="3000" weight="19.0" id="8045" name="hibiscus dress" npcprice="-1"/>
+ <item npcvalue="1" weight="24.0" id="3561" name="jacket" npcprice="12"/>
+ <item npcvalue="5000" weight="120.0" id="3370" name="knight armor" npcprice="-1"/>
+ <item npcvalue="0" weight="85.0" id="8049" name="lavos armor" npcprice="-1"/>
+ <item npcvalue="12" weight="60.0" id="3361" name="leather armor" npcprice="35"/>
+ <item npcvalue="1000" weight="95.0" id="3404" name="leopard armor" npcprice="-1"/>
+ <item npcvalue="11000" weight="22.5" id="825" name="lightning robe" npcprice="-1"/>
+ <item npcvalue="6400" weight="85.0" id="3366" name="magic plate armor" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="7991" name="magician's robe" npcprice="-1"/>
+ <item npcvalue="11000" weight="22.5" id="826" name="magma coat" npcprice="-1"/>
+ <item npcvalue="6000" weight="20.0" id="7463" name="mammoth fur cape" npcprice="-1"/>
+ <item npcvalue="0" weight="69.0" id="8060" name="master archer's armor" npcprice="-1"/>
+ <item npcvalue="0" weight="75.0" id="8058" name="molten plate" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3402" name="native armor" npcprice="-1"/>
+ <item npcvalue="900" weight="120.0" id="3380" name="noble armor" npcprice="-1"/>
+ <item npcvalue="0" weight="100.0" id="8056" name="oceanborn leviathan armor" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="11701" name="old cape" npcprice="-1"/>
+ <item npcvalue="15000" weight="65.0" id="8063" name="paladin armor" npcprice="-1"/>
+ <item npcvalue="500" weight="20.0" id="6095" name="pirate shirt" npcprice="-1"/>
+ <item npcvalue="400" weight="120.0" id="3357" name="plate armor" npcprice="-1"/>
+ <item npcvalue="0" weight="48.0" id="3571" name="ranger's cloak" npcprice="-1"/>
+ <item npcvalue="300" weight="26.0" id="3566" name="red robe" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3564" name="red tunic" npcprice="-1"/>
+ <item npcvalue="0" weight="29.5" id="8038" name="robe of the ice queen" npcprice="-1"/>
+ <item npcvalue="0" weight="31.0" id="8062" name="robe of the underworld" npcprice="-1"/>
+ <item npcvalue="0" weight="130.0" id="11686" name="royal draken mail" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="11687" name="royal scale robe" npcprice="-1"/>
+ <item npcvalue="75" weight="105.0" id="3377" name="scale armor" npcprice="-1"/>
+ <item npcvalue="0" weight="24.0" id="3568" name="simple dress" npcprice="-1"/>
+ <item npcvalue="18000" weight="110.0" id="8061" name="skullcracker armor" npcprice="-1"/>
+ <item npcvalue="12000" weight="23.5" id="10438" name="spellweaver's robe" npcprice="-1"/>
+ <item npcvalue="350" weight="26.5" id="8042" name="spirit cloak" npcprice="-1"/>
+ <item npcvalue="18" weight="71.0" id="3378" name="studded armor" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="8046" name="summer dress" npcprice="-1"/>
+ <item npcvalue="0" weight="84.5" id="8052" name="swamplair armor" npcprice="-1"/>
+ <item npcvalue="11000" weight="22.5" id="811" name="terra mantle" npcprice="-1"/>
+ <item npcvalue="0" weight="32.0" id="9400" name="the rain coat" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="8047" name="tunic" npcprice="-1"/>
+ <item npcvalue="0" weight="28.5" id="8040" name="velvet mantle" npcprice="-1"/>
+ <item npcvalue="0" weight="84.5" id="8051" name="voltage armor" npcprice="-1"/>
+ <item npcvalue="0" weight="24.0" id="3569" name="white dress" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8055" name="windborn colossus armor" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="7993" name="witchhunter's coat" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="wood cape" npcprice="-1"/>
+ <item npcvalue="0" weight="70.0" id="8862" name="yalahari armor" npcprice="-1"/>
+ <item npcvalue="14000" weight="95.5" id="10384" name="zaoan armor" npcprice="-1"/>
+ <item npcvalue="12000" weight="24.5" id="10439" name="zaoan robe" npcprice="-1"/>
+ <category name="helmets"/>
+ <item npcvalue="0" weight="29.5" id="3393" name="amazon helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="8.2" id="3022" name="ancient tiara" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="5917" name="bandana" npcprice="-1"/>
+ <item npcvalue="8000" weight="6.0" id="9103" name="batwing hat" npcprice="-1"/>
+ <item npcvalue="7500" weight="46.0" id="3408" name="bonelord helmet" npcprice="-1"/>
+ <item npcvalue="30" weight="27.0" id="3354" name="brass helmet" npcprice="20"/>
+ <item npcvalue="0" weight="19.5" id="3395" name="ceremonial mask" npcprice="-1"/>
+ <item npcvalue="17" weight="42.0" id="3352" name="chain helmet" npcprice="52"/>
+ <item npcvalue="900" weight="22.0" id="3407" name="charmer's tiara" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="11674" name="cobra crown" npcprice="-1"/>
+ <item npcvalue="2500" weight="29.5" id="3385" name="crown helmet" npcprice="-1"/>
+ <item npcvalue="6000" weight="52.0" id="3391" name="crusader helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="3226" name="damaged helmet" npcprice="-1"/>
+ <item npcvalue="250" weight="46.0" id="3384" name="dark helmet" npcprice="-1"/>
+ <item npcvalue="95" weight="29.5" id="3387" name="demon helmet" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="3356" name="devil helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="60.0" id="3400" name="dragon scale helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="42.0" id="3396" name="dwarven helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="43.0" id="11689" name="elite draken helmet" npcprice="-1"/>
+ <item npcvalue="850" weight="21.0" id="3406" name="feather headdress" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9013" name="flower wreath" npcprice="-1"/>
+ <item npcvalue="0" weight="27.6" id="3230" name="full helmet of the ancients" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="7458" name="fur cap" npcprice="-1"/>
+ <item npcvalue="2500" weight="10.0" id="829" name="glacier mask" npcprice="-1"/>
+ <item npcvalue="0" weight="32.0" id="3365" name="golden helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="3210" name="hat of the mad" npcprice="-1"/>
+ <item npcvalue="0" weight="11.0" id="9382" name="helmet of nature" npcprice="-1"/>
+ <item npcvalue="0" weight="12.5" id="9381" name="helmet of ultimate terror" npcprice="-1"/>
+ <item npcvalue="0" weight="27.6" id="3229" name="helmet of the ancients" npcprice="-1"/>
+ <item npcvalue="0" weight="210.0" id="5460" name="helmet of the deep" npcprice="-1"/>
+ <item npcvalue="0" weight="51.0" id="3390" name="horned helmet" npcprice="-1"/>
+ <item npcvalue="280" weight="42.0" id="3405" name="horseman helmet" npcprice="-1"/>
+ <item npcvalue="150" weight="30.0" id="3353" name="iron helmet" npcprice="-1"/>
+ <item npcvalue="9000" weight="9.0" id="10451" name="jade hat" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="894" name="jester hat" npcprice="-1"/>
+ <item npcvalue="200" weight="51.0" id="7461" name="krimhorn helmet" npcprice="-1"/>
+ <item npcvalue="4" weight="22.0" id="3355" name="leather helmet" npcprice="12"/>
+ <item npcvalue="8" weight="31.0" id="3374" name="legion helmet" npcprice="-1"/>
+ <item npcvalue="2500" weight="10.0" id="828" name="lightning headband" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="7992" name="mage hat" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="3573" name="magician hat" npcprice="-1"/>
+ <item npcvalue="2500" weight="10.0" id="827" name="magma monocle" npcprice="-1"/>
+ <item npcvalue="0" weight="46.0" id="9399" name="mighty helm of green sparks" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="875" name="mining helmet" npcprice="-1"/>
+ <item npcvalue="150" weight="8.5" id="3574" name="mystic turban" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="9374" name="odd hat" npcprice="-1"/>
+ <item npcvalue="1500" weight="5.0" id="7459" name="pair of earmuffs" npcprice="-1"/>
+ <item npcvalue="1000" weight="12.5" id="6096" name="pirate hat" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="3576" name="post officer's hat" npcprice="-1"/>
+ <item npcvalue="400" weight="31.0" id="7462" name="ragnir helmet" npcprice="-1"/>
+ <item npcvalue="30000" weight="48.0" id="3392" name="royal helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="6531" name="santa hat" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="0" name="sedge hat" npcprice="-1"/>
+ <item npcvalue="40000" weight="42.0" id="5741" name="skull helmet" npcprice="-1"/>
+ <item npcvalue="16" weight="32.0" id="3375" name="soldier helmet" npcprice="-1"/>
+ <item npcvalue="293" weight="46.0" id="3351" name="steel helmet" npcprice="-1"/>
+ <item npcvalue="500" weight="46.0" id="3373" name="strange helmet" npcprice="-1"/>
+ <item npcvalue="2" weight="24.5" id="3376" name="studded helmet" npcprice="63"/>
+ <item npcvalue="2500" weight="10.0" id="830" name="terra hood" npcprice="-1"/>
+ <item npcvalue="250" weight="25.0" id="3403" name="tribal mask" npcprice="-1"/>
+ <item npcvalue="66" weight="39.0" id="3367" name="viking helmet" npcprice="265"/>
+ <item npcvalue="5000" weight="68.0" id="3369" name="warrior helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="12.0" id="3368" name="winged helmet" npcprice="-1"/>
+ <item npcvalue="0" weight="7.8" id="9653" name="witch hat" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="8864" name="yalahari mask" npcprice="-1"/>
+ <item npcvalue="45000" weight="66.0" id="10385" name="zaoan helmet" npcprice="-1"/>
+ <category name="shields"/>
+ <item npcvalue="0" weight="62.0" id="3437" name="amazon shield" npcprice="-1"/>
+ <item npcvalue="900" weight="61.0" id="3432" name="ancient shield" npcprice="-1"/>
+ <item npcvalue="95" weight="62.0" id="3413" name="battle shield" npcprice="-1"/>
+ <item npcvalue="800" weight="42.0" id="3429" name="black shield" npcprice="-1"/>
+ <item npcvalue="0" weight="68.0" id="3423" name="blessed shield" npcprice="-1"/>
+ <item npcvalue="80" weight="55.0" id="3441" name="bone shield" npcprice="-1"/>
+ <item npcvalue="1200" weight="47.0" id="3418" name="bonelord shield" npcprice="-1"/>
+ <item npcvalue="16" weight="60.0" id="3411" name="brass shield" npcprice="65"/>
+ <item npcvalue="5000" weight="49.0" id="3435" name="castle shield" npcprice="-1"/>
+ <item npcvalue="10" weight="63.0" id="3430" name="copper shield" npcprice="-1"/>
+ <item npcvalue="8000" weight="62.0" id="3419" name="crown shield" npcprice="-1"/>
+ <item npcvalue="400" weight="52.0" id="3421" name="dark shield" npcprice="-1"/>
+ <item npcvalue="30000" weight="26.0" id="3420" name="demon shield" npcprice="-1"/>
+ <item npcvalue="4000" weight="60.0" id="3416" name="dragon shield" npcprice="-1"/>
+ <item npcvalue="100" weight="55.0" id="3425" name="dwarven shield" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3438" name="eagle shield" npcprice="-1"/>
+ <item npcvalue="0" weight="69.0" id="8078" name="fiery rainbow shield" npcprice="-1"/>
+ <item npcvalue="480" weight="84.0" id="3422" name="great shield" npcprice="-1"/>
+ <item npcvalue="0" weight="50.0" id="3433" name="griffin shield" npcprice="-1"/>
+ <item npcvalue="2000" weight="55.0" id="3415" name="guardian shield" npcprice="-1"/>
+ <item npcvalue="0" weight="69.0" id="8079" name="icy rainbow shield" npcprice="-1"/>
+ <item npcvalue="550" weight="57.0" id="3414" name="mastermind shield" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9372" name="meat shield" npcprice="-1"/>
+ <item npcvalue="9000" weight="58.0" id="3436" name="medusa shield" npcprice="-1"/>
+ <item npcvalue="0" weight="32.0" id="6432" name="necromancer shield" npcprice="-1"/>
+ <item npcvalue="0" weight="32.0" id="6390" name="nightmare shield" npcprice="-1"/>
+ <item npcvalue="1500" weight="41.0" id="7460" name="norse shield" npcprice="-1"/>
+ <item npcvalue="0" weight="67.0" id="3424" name="ornamented shield" npcprice="-1"/>
+ <item npcvalue="16000" weight="35.0" id="3439" name="phoenix shield" npcprice="-1"/>
+ <item npcvalue="45" weight="65.0" id="3410" name="plate shield" npcprice="125"/>
+ <item npcvalue="0" weight="69.0" id="8077" name="rainbow shield" npcprice="-1"/>
+ <item npcvalue="0" weight="52.0" id="3427" name="rose shield" npcprice="-1"/>
+ <item npcvalue="280" weight="59.0" id="3445" name="salamander shield" npcprice="-1"/>
+ <item npcvalue="2000" weight="47.0" id="3440" name="scarab shield" npcprice="-1"/>
+ <item npcvalue="120" weight="49.0" id="3444" name="sentinel shield" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="9380" name="shield of care" npcprice="-1"/>
+ <item npcvalue="0" weight="49.0" id="11688" name="shield of corruption" npcprice="-1"/>
+ <item npcvalue="0" weight="54.0" id="3417" name="shield of honour" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9377" name="shield of the white knight" npcprice="-1"/>
+ <item npcvalue="0" weight="69.0" id="8080" name="sparking rainbow shield" npcprice="-1"/>
+ <item npcvalue="80" weight="69.0" id="3409" name="steel shield" npcprice="-1"/>
+ <item npcvalue="2" weight="59.0" id="3426" name="studded shield" npcprice="-1"/>
+ <item npcvalue="0" weight="51.0" id="3442" name="tempest shield" npcprice="-1"/>
+ <item npcvalue="0" weight="69.0" id="8081" name="terran rainbow shield" npcprice="-1"/>
+ <item npcvalue="0" weight="52.0" id="9401" name="the shield nevermourn" npcprice="-1"/>
+ <item npcvalue="150" weight="52.0" id="6131" name="tortoise shield" npcprice="-1"/>
+ <item npcvalue="8000" weight="82.0" id="3428" name="tower shield" npcprice="-1"/>
+ <item npcvalue="850" weight="69.0" id="3443" name="tusk shield" npcprice="-1"/>
+ <item npcvalue="15000" weight="38.0" id="3434" name="vampire shield" npcprice="-1"/>
+ <item npcvalue="85" weight="66.0" id="3431" name="viking shield" npcprice="-1"/>
+ <item npcvalue="5" weight="40.0" id="3412" name="wooden shield" npcprice="15"/>
+ <category name="fluid containers"/>
+ <item npcvalue="0" weight="97.0" id="2893" name="amphora" npcprice="-1"/>
+ <item npcvalue="250" weight="4.7" id="2903" name="golden mug" npcprice="-1"/>
+ <category name="amulets and necklaces"/>
+ <item npcvalue="45000" weight="4.2" id="3057" name="amulet of loss" npcprice="-1"/>
+ <item npcvalue="200" weight="8.4" id="3025" name="ancient amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="8.2" id="10457" name="beetle necklace" npcprice="-1"/>
+ <item npcvalue="0" weight="4.2" id="3080" name="broken amulet" npcprice="-1"/>
+ <item npcvalue="50" weight="5.0" id="3056" name="bronze amulet" npcprice="100"/>
+ <item npcvalue="0" weight="4.1" id="3009" name="bronze necklace" npcprice="-1"/>
+ <item npcvalue="400" weight="4.9" id="3008" name="crystal necklace" npcprice="-1"/>
+ <item npcvalue="20000" weight="6.9" id="3019" name="demonbone amulet" npcprice="-1"/>
+ <item npcvalue="100" weight="6.3" id="3085" name="dragon necklace" npcprice="-1"/>
+ <item npcvalue="100" weight="2.7" id="3082" name="elven amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="5.2" id="9802" name="friendship amulet (1)" npcprice="-1"/>
+ <item npcvalue="0" weight="5.2" id="9803" name="friendship amulet (2)" npcprice="-1"/>
+ <item npcvalue="50" weight="3.8" id="3083" name="garlic necklace" npcprice="-1"/>
+ <item npcvalue="1500" weight="5.0" id="815" name="glacier amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="8.3" id="3013" name="golden amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="6.3" id="0" name="jerom's family necklace" npcprice="-1"/>
+ <item npcvalue="0" weight="5.5" id="7532" name="koshei's ancient amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="9303" name="leviathan's amulet" npcprice="-1"/>
+ <item npcvalue="1500" weight="5.0" id="816" name="lightning pendant" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="10476" name="lucky clover amulet" npcprice="-1"/>
+ <item npcvalue="1500" weight="5.0" id="817" name="magma amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3102" name="paw amulet" npcprice="-1"/>
+ <item npcvalue="2500" weight="6.0" id="3055" name="platinum amulet" npcprice="-1"/>
+ <item npcvalue="100" weight="5.5" id="3084" name="protection amulet" npcprice="-1"/>
+ <item npcvalue="2000" weight="5.7" id="3016" name="ruby necklace" npcprice="3560"/>
+ <item npcvalue="0" weight="7.0" id="9302" name="sacred tree amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3021" name="sapphire amulet" npcprice="-1"/>
+ <item npcvalue="200" weight="7.7" id="3018" name="scarab amulet" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="3572" name="scarf" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="9304" name="shockwave amulet" npcprice="-1"/>
+ <item npcvalue="50" weight="5.0" id="3054" name="silver amulet" npcprice="100"/>
+ <item npcvalue="0" weight="4.8" id="3015" name="silver necklace" npcprice="-1"/>
+ <item npcvalue="0" weight="6.1" id="3014" name="star amulet" npcprice="-1"/>
+ <item npcvalue="500" weight="7.0" id="3081" name="stone skin amulet" npcprice="-1"/>
+ <item npcvalue="30" weight="2.9" id="3045" name="strange talisman" npcprice="-1"/>
+ <item npcvalue="1500" weight="5.0" id="814" name="terra amulet" npcprice="-1"/>
+ <item npcvalue="3000" weight="5.4" id="10412" name="wailing widow's necklace" npcprice="-1"/>
+ <item npcvalue="100" weight="3.3" id="3012" name="wolf tooth chain" npcprice="-1"/>
+ <category name="axe"/>
+ <item npcvalue="5000" weight="56.0" id="7436" name="angelic axe" npcprice="-1"/>
+ <item npcvalue="7" weight="40.0" id="3274" name="axe" npcprice="20"/>
+ <item npcvalue="185" weight="51.0" id="3317" name="barbarian axe" npcprice="-1"/>
+ <item npcvalue="80" weight="50.0" id="3266" name="battle axe" npcprice="-1"/>
+ <item npcvalue="1500" weight="61.5" id="3344" name="beastslayer axe" npcprice="-1"/>
+ <item npcvalue="18000" weight="63.0" id="7412" name="butcher's axe" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3329" name="daramanian axe" npcprice="-1"/>
+ <item npcvalue="1000" weight="52.5" id="3328" name="daramanian waraxe" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8098" name="demonwing axe" npcprice="-1"/>
+ <item npcvalue="260" weight="70.0" id="3275" name="double axe" npcprice="-1"/>
+ <item npcvalue="9000" weight="67.0" id="3302" name="dragon lance" npcprice="-1"/>
+ <item npcvalue="10000" weight="54.0" id="10388" name="drakinata" npcprice="-1"/>
+ <item npcvalue="15000" weight="38.0" id="7419" name="dreaded cleaver" npcprice="-1"/>
+ <item npcvalue="0" weight="82.0" id="3323" name="dwarven axe" npcprice="-1"/>
+ <item npcvalue="0" weight="51.0" id="783" name="earth barbarian axe" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="787" name="earth headchopper" npcprice="-1"/>
+ <item npcvalue="0" weight="61.0" id="786" name="earth heroic axe" npcprice="-1"/>
+ <item npcvalue="2000" weight="59.0" id="785" name="earth knight axe" npcprice="-1"/>
+ <item npcvalue="9000" weight="61.5" id="788" name="earth war axe" npcprice="-1"/>
+ <item npcvalue="0" weight="51.0" id="801" name="energy barbarian axe" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="804" name="energy headchopper" npcprice="-1"/>
+ <item npcvalue="0" weight="61.0" id="803" name="energy heroic axe" npcprice="-1"/>
+ <item npcvalue="2000" weight="59.0" id="802" name="energy knight axe" npcprice="-1"/>
+ <item npcvalue="9000" weight="61.5" id="805" name="energy war axe" npcprice="-1"/>
+ <item npcvalue="0" weight="99.0" id="7453" name="executioner" npcprice="-1"/>
+ <item npcvalue="0" weight="51.0" id="665" name="fiery barbarian axe" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="668" name="fiery headchopper" npcprice="-1"/>
+ <item npcvalue="0" weight="61.0" id="667" name="fiery heroic axe" npcprice="-1"/>
+ <item npcvalue="2000" weight="59.0" id="666" name="fiery knight axe" npcprice="-1"/>
+ <item npcvalue="9000" weight="61.5" id="669" name="fiery war axe" npcprice="-1"/>
+ <item npcvalue="8000" weight="40.0" id="3320" name="fire axe" npcprice="-1"/>
+ <item npcvalue="3000" weight="95.0" id="7454" name="glorious axe" npcprice="-1"/>
+ <item npcvalue="10" weight="19.5" id="3306" name="golden sickle" npcprice="-1"/>
+ <item npcvalue="300" weight="90.0" id="3303" name="great axe" npcprice="-1"/>
+ <item npcvalue="11000" weight="110.0" id="3315" name="guardian halberd" npcprice="-1"/>
+ <item npcvalue="400" weight="90.0" id="3269" name="halberd" npcprice="-1"/>
+ <item npcvalue="5" weight="18.0" id="3268" name="hand axe" npcprice="8"/>
+ <item npcvalue="25" weight="35.0" id="3276" name="hatchet" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="7380" name="headchopper" npcprice="-1"/>
+ <item npcvalue="0" weight="88.0" id="8096" name="hellforged axe" npcprice="-1"/>
+ <item npcvalue="30000" weight="61.0" id="7389" name="heroic axe" npcprice="-1"/>
+ <item npcvalue="0" weight="51.0" id="684" name="icy barbarian axe" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="687" name="icy headchopper" npcprice="-1"/>
+ <item npcvalue="0" weight="61.0" id="686" name="icy heroic axe" npcprice="-1"/>
+ <item npcvalue="2000" weight="59.0" id="685" name="icy knight axe" npcprice="-1"/>
+ <item npcvalue="9000" weight="61.5" id="688" name="icy war axe" npcprice="-1"/>
+ <item npcvalue="0" weight="82.0" id="7435" name="impaler" npcprice="-1"/>
+ <item npcvalue="2000" weight="59.0" id="3318" name="knight axe" npcprice="-1"/>
+ <item npcvalue="0" weight="55.0" id="7455" name="mythril axe" npcprice="-1"/>
+ <item npcvalue="2000" weight="78.0" id="3314" name="naginata" npcprice="-1"/>
+ <item npcvalue="10000" weight="38.0" id="7456" name="noble axe" npcprice="-1"/>
+ <item npcvalue="500" weight="80.0" id="3313" name="obsidian lance" npcprice="-1"/>
+ <item npcvalue="350" weight="45.0" id="3316" name="orcish axe" npcprice="-1"/>
+ <item npcvalue="20000" weight="61.5" id="7411" name="ornamented axe" npcprice="-1"/>
+ <item npcvalue="0" weight="52.5" id="3331" name="ravager's axe" npcprice="-1"/>
+ <item npcvalue="0" weight="55.0" id="7433" name="ravenwing" npcprice="-1"/>
+ <item npcvalue="0" weight="59.0" id="7420" name="reaper's axe" npcprice="-1"/>
+ <item npcvalue="500" weight="80.0" id="3346" name="ripper lance" npcprice="-1"/>
+ <item npcvalue="0" weight="92.0" id="7434" name="royal axe" npcprice="-1"/>
+ <item npcvalue="45000" weight="58.0" id="6553" name="ruthless axe" npcprice="-1"/>
+ <item npcvalue="0" weight="30.0" id="9384" name="scythe of the reaper" npcprice="-1"/>
+ <item npcvalue="1" weight="10.5" id="3293" name="sickle" npcprice="-1"/>
+ <item npcvalue="0" weight="110.0" id="8097" name="solar axe" npcprice="-1"/>
+ <item npcvalue="0" weight="41.0" id="7773" name="steel axe" npcprice="-1"/>
+ <item npcvalue="0" weight="99.0" id="3319" name="stonecutter axe" npcprice="-1"/>
+ <item npcvalue="4000" weight="81.0" id="7413" name="titan axe" npcprice="-1"/>
+ <item npcvalue="0" weight="64.0" id="3335" name="twin axe" npcprice="-1"/>
+ <item npcvalue="30000" weight="52.0" id="7388" name="vile axe" npcprice="-1"/>
+ <item npcvalue="12000" weight="61.5" id="3342" name="war axe" npcprice="-1"/>
+ <item npcvalue="500" weight="87.0" id="10406" name="zaoan halberd" npcprice="1200"/>
+ <category name="runes"/>
+ <item npcvalue="0" weight="2.1" id="3203" name="animate dead rune" npcprice="375"/>
+ <item npcvalue="0" weight="2.1" id="3153" name="antidote rune" npcprice="65"/>
+ <item npcvalue="0" weight="0.52" id="3161" name="avalanche rune" npcprice="45"/>
+ <item npcvalue="0" weight="2.1" id="3178" name="chameleon rune" npcprice="65"/>
+ <item npcvalue="0" weight="2.1" id="3153" name="cure poison rune" npcprice="210"/>
+ <item npcvalue="0" weight="2.1" id="3199" name="convince creature rune" npcprice="80"/>
+ <item npcvalue="0" weight="0.7" id="3197" name="desintegrate rune" npcprice="26"/>
+ <item npcvalue="0" weight="0.7" id="3148" name="destroy field rune" npcprice="15"/>
+ <item npcvalue="0" weight="1.05" id="3168" name="energy bomb rune" npcprice="162"/>
+ <item npcvalue="0" weight="0.7" id="3164" name="energy field rune" npcprice="38"/>
+ <item npcvalue="0" weight="0.52" id="3166" name="energy wall rune" npcprice="85"/>
+ <item npcvalue="0" weight="0.35" id="3200" name="explosion rune" npcprice="31"/>
+ <item npcvalue="0" weight="1.05" id="3192" name="fire bomb rune" npcprice="117"/>
+ <item npcvalue="0" weight="0.7" id="3188" name="fire field rune" npcprice="28"/>
+ <item npcvalue="0" weight="0.52" id="3190" name="fire wall rune" npcprice="61"/>
+ <item npcvalue="0" weight="0.42" id="3189" name="fireball rune" npcprice="30"/>
+ <item npcvalue="0" weight="0.52" id="3191" name="great fireball rune" npcprice="45"/>
+ <item npcvalue="0" weight="0.21" id="3198" name="heavy magic missile rune" npcprice="12"/>
+ <item npcvalue="0" weight="0.42" id="3182" name="holy missile rune" npcprice="16"/>
+ <item npcvalue="0" weight="0.42" id="3158" name="icicle rune" npcprice="30"/>
+ <item npcvalue="0" weight="2.1" id="3152" name="intense healing rune" npcprice="95"/>
+ <item npcvalue="0" weight="0.21" id="3174" name="light magic missile rune" npcprice="4"/>
+ <item npcvalue="0" weight="0.7" id="3180" name="magic wall rune" npcprice="116"/>
+ <item npcvalue="0" weight="2.1" id="3165" name="paralyze rune" npcprice="700"/>
+ <item npcvalue="0" weight="1.05" id="3173" name="poison bomb rune" npcprice="85"/>
+ <item npcvalue="0" weight="0.7" id="3172" name="poison field rune" npcprice="21"/>
+ <item npcvalue="0" weight="0.52" id="3176" name="poison wall rune" npcprice="52"/>
+ <item npcvalue="0" weight="0.7" id="3195" name="soulfire rune" npcprice="46"/>
+ <item npcvalue="0" weight="0.21" id="3179" name="stalagmite rune" npcprice="12"/>
+ <item npcvalue="0" weight="0.52" id="3175" name="stone shower rune" npcprice="37"/>
+ <item npcvalue="0" weight="0.7" id="3155" name="sudden death rune" npcprice="108"/>
+ <item npcvalue="0" weight="0.52" id="3202" name="thunderstorm rune" npcprice="37"/>
+ <item npcvalue="0" weight="2.1" id="3160" name="ultimate healing rune" npcprice="175"/>
+ <item npcvalue="0" weight="1.05" id="3180" name="wild growth rune" npcprice="160"/>
+ <category name="magical items"/>
+ <item npcvalue="100" weight="4.2" id="3214" name="ankh" npcprice="-1"/>
+ <item npcvalue="0" weight="2.1" id="3147" name="blank rune" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3251" name="blood orb" npcprice="-1"/>
+ <item npcvalue="190" weight="34.0" id="3076" name="crystal ball" npcprice="-1"/>
+ <item npcvalue="1000" weight="1.0" id="6499" name="demonic essence" npcprice="-1"/>
+ <item npcvalue="0" weight="4.9" id="3206" name="dragonfetish" npcprice="-1"/>
+ <item npcvalue="4000" weight="14.0" id="5669" name="enigmatic voodoo skull" npcprice="-1"/>
+ <item npcvalue="0" weight="8.4" id="3024" name="holy falcon" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="943" name="holy soil" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="6534" name="imperor's trident" npcprice="-1"/>
+ <item npcvalue="85" weight="2.5" id="3061" name="life crystal" npcprice="-1"/>
+ <item npcvalue="170" weight="2.5" id="3062" name="mind stone" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="6537" name="mr. punish's handcuffs" npcprice="-1"/>
+ <item npcvalue="4000" weight="14.0" id="5668" name="mysterious voodoo skull" npcprice="-1"/>
+ <item npcvalue="750" weight="8.0" id="3060" name="orb" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="3215" name="phoenix egg" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3254" name="roc feather" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="5809" name="soul stone" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10343" name="spiritual charm" npcprice="-1"/>
+ <item npcvalue="0" weight="9.99" id="4061" name="stone of wisdom" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="3058" name="strange symbol" npcprice="-1"/>
+ <item npcvalue="320" weight="0.2" id="3034" name="talon" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="6539" name="handmaiden's protector" npcprice="-1"/>
+ <category name="dolls and bears"/>
+ <item npcvalue="0" weight="43.0" id="3213" name="annihilation bear" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="7183" name="baby seal doll" npcprice="-1"/>
+ <item npcvalue="200" weight="6.5" id="2991" name="doll" npcprice="-1"/>
+ <item npcvalue="0" weight="6.5" id="0" name="fan doll of king tibianus" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="10798" name="ferumbras doll" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="4100" name="gamemaster doll" npcprice="-1"/>
+ <item npcvalue="0" weight="12.0" id="8778" name="jester doll" npcprice="-1"/>
+ <item npcvalue="0" weight="4.5" id="10290" name="mini mummy" npcprice="-1"/>
+ <item npcvalue="50" weight="4.9" id="3078" name="mysterious fetish" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="10277" name="nightmare doll" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="8154" name="norseman doll" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="5080" name="panda teddy" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="8781" name="part of a jester doll (left arm)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="8783" name="part of a jester doll (left leg)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="8782" name="part of a jester doll (right arm)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="8784" name="part of a jester doll (right leg)" npcprice="-1"/>
+ <item npcvalue="500" weight="6.5" id="5810" name="pirate voodoo doll" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="6567" name="santa doll" npcprice="-1"/>
+ <item npcvalue="0" weight="5.5" id="10338" name="santa teddy" npcprice="-1"/>
+ <item npcvalue="0" weight="6.2" id="10339" name="snowman doll" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="5791" name="stuffed dragon" npcprice="-1"/>
+ <item npcvalue="0" weight="4.5" id="10294" name="stuffed toad" npcprice="-1"/>
+ <item npcvalue="0" weight="5.9" id="2993" name="teddy bear" npcprice="-1"/>
+ <item npcvalue="0" weight="4.0" id="8779" name="the head of a jester doll" npcprice="-1"/>
+ <item npcvalue="0" weight="4.0" id="8780" name="the torso of a jester doll" npcprice="-1"/>
+ <item npcvalue="0" weight="12.5" id="123" name="toy mouse" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="8178" name="toy spider" npcprice="-1"/>
+ <item npcvalue="0" weight="6.5" id="0" name="treasure island voodoo doll" npcprice="-1"/>
+ <item npcvalue="0" weight="9.4" id="8191" name="vampire doll" npcprice="-1"/>
+ <item npcvalue="400" weight="6.5" id="3002" name="voodoo doll" npcprice="-1"/>
+ <item npcvalue="0" weight="6.5" id="3209" name="voodoo doll (king)" npcprice="-1"/>
+ <item npcvalue="0" weight="8.6" id="2989" name="wooden doll" npcprice="-1"/>
+ <category name="liquids"/>
+ <item npcvalue="0" weight="1.75" id="7644" name="antidote potion" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="beer" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="7439" name="berserk potion" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="blood" npcprice="-1"/>
+ <item npcvalue="0" weight="2.8" id="8758" name="bottle of bug milk" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="7443" name="bullseye potion" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="coconut milk" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="6558" name="concentrated demonic blood" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="fruit juice" npcprice="-1"/>
+ <item npcvalue="0" weight="3.1" id="239" name="great health potion" npcprice="190"/>
+ <item npcvalue="0" weight="3.1" id="238" name="great mana potion" npcprice="120"/>
+ <item npcvalue="0" weight="3.1" id="7642" name="great spirit potion" npcprice="190"/>
+ <item npcvalue="0" weight="2.7" id="266" name="health potion" npcprice="45"/>
+ <item npcvalue="0" weight="1.8" id="0" name="lemonade" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="lifefluid" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="magical oil" npcprice="-1"/>
+ <item npcvalue="0" weight="2.7" id="268" name="mana potion" npcprice="50"/>
+ <item npcvalue="0" weight="1.8" id="0" name="manafluid" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="7440" name="mastermind potion" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="mead" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="milk" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="mud" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="oil" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="rum" npcprice="-1"/>
+ <item npcvalue="0" weight="0.9" id="9016" name="rust remover" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="slime (liquid)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.75" id="7876" name="small health potion" npcprice="-1"/>
+ <item npcvalue="0" weight="2.9" id="236" name="strong health potion" npcprice="100"/>
+ <item npcvalue="0" weight="2.9" id="237" name="strong mana potion" npcprice="80"/>
+ <item npcvalue="0" weight="0.0" id="0" name="tea" npcprice="-1"/>
+ <item npcvalue="0" weight="3.1" id="7643" name="ultimate health potion" npcprice="310"/>
+ <item npcvalue="0" weight="1.8" id="0" name="urine" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="water (liquid)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="0" name="wine" npcprice="-1"/>
+ <category name="distance"/>
+ <item npcvalue="0" weight="95.0" id="5803" name="arbalest" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="7368" name="assassin star" npcprice="100"/>
+ <item npcvalue="130" weight="31.0" id="3350" name="bow" npcprice="350"/>
+ <item npcvalue="0" weight="55.0" id="8022" name="chain bolter" npcprice="-1"/>
+ <item npcvalue="25000" weight="52.0" id="8027" name="composite hornbow" npcprice="-1"/>
+ <item npcvalue="160" weight="40.0" id="3349" name="crossbow" npcprice="-1"/>
+ <item npcvalue="0" weight="44.0" id="8030" name="elethriel's elemental bow" npcprice="-1"/>
+ <item npcvalue="0" weight="39.0" id="7438" name="elvish bow" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="7367" name="enchanted spear" npcprice="-1"/>
+ <item npcvalue="25" weight="22.0" id="3347" name="hunting spear" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="8021" name="modified crossbow" npcprice="-1"/>
+ <item npcvalue="0" weight="12.5" id="9378" name="musician's bow" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8023" name="royal crossbow" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="7378" name="royal spear" npcprice="15"/>
+ <item npcvalue="0" weight="22.0" id="8029" name="silkweaver bow" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="5907" name="slingshot" npcprice="-1"/>
+ <item npcvalue="0" weight="3.6" id="1781" name="small stone" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="2992" name="snowball" npcprice="-1"/>
+ <item npcvalue="3" weight="20.0" id="3277" name="spear" npcprice="10"/>
+ <item npcvalue="0" weight="55.0" id="8024" name="the devileye" npcprice="-1"/>
+ <item npcvalue="0" weight="150.0" id="8025" name="the ironworker" npcprice="-1"/>
+ <item npcvalue="2" weight="5.0" id="3298" name="throwing knife" npcprice="-1"/>
+ <item npcvalue="17" weight="2.0" id="3287" name="throwing star" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="7366" name="viper star" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="8026" name="warsinger bow" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="8028" name="yol's bow" npcprice="-1"/>
+ <category name="furniture"/>
+ <item npcvalue="0" weight="0.0" id="0" name="armor rack" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="bamboo drawer" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="bamboo shelf" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="bookcase" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="drawers" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="dresser" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="locker" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="small bamboo shelf" npcprice="-1"/>
+ <item npcvalue="90" weight="0.0" id="0" name="weapon rack" npcprice="-1"/>
+ <category name="ammunition"/>
+ <item npcvalue="0" weight="0.7" id="3447" name="arrow" npcprice="3"/>
+ <item npcvalue="0" weight="0.8" id="3446" name="bolt" npcprice="-1"/>
+ <item npcvalue="0" weight="0.9" id="3449" name="burst arrow" npcprice="-1"/>
+ <item npcvalue="0" weight="0.7" id="774" name="earth arrow" npcprice="5"/>
+ <item npcvalue="0" weight="0.7" id="763" name="flaming arrow" npcprice="5"/>
+ <item npcvalue="0" weight="0.7" id="761" name="flash arrow" npcprice="5"/>
+ <item npcvalue="0" weight="0.9" id="6528" name="infernal bolt" npcprice="-1"/>
+ <item npcvalue="0" weight="0.7" id="7365" name="onyx arrow" npcprice="7"/>
+ <item npcvalue="0" weight="0.8" id="7363" name="piercing bolt" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="3448" name="poison arrow" npcprice="-1"/>
+ <item npcvalue="0" weight="0.9" id="3450" name="power bolt" npcprice="7"/>
+ <item npcvalue="0" weight="0.7" id="762" name="shiver arrow" npcprice="5"/>
+ <item npcvalue="0" weight="0.7" id="7364" name="sniper arrow" npcprice="-1"/>
+ <category name="sword"/>
+ <item npcvalue="20000" weight="17.0" id="7404" name="assassin dagger" npcprice="-1"/>
+ <item npcvalue="40000" weight="130.0" id="7403" name="berserker" npcprice="-1"/>
+ <item npcvalue="0" weight="59.0" id="7406" name="blacksteel sword" npcprice="-1"/>
+ <item npcvalue="0" weight="64.0" id="11693" name="blade of corruption" npcprice="-1"/>
+ <item npcvalue="0" weight="52.0" id="7416" name="bloody edge" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="3338" name="bone sword" npcprice="-1"/>
+ <item npcvalue="0" weight="29.0" id="3295" name="bright sword" npcprice="-1"/>
+ <item npcvalue="500" weight="52.5" id="3301" name="broadsword" npcprice="-1"/>
+ <item npcvalue="118" weight="40.0" id="3283" name="carlin sword" npcprice="473"/>
+ <item npcvalue="0" weight="8.7" id="3292" name="combat knife" npcprice="-1"/>
+ <item npcvalue="0" weight="36.0" id="7385" name="crimson sword" npcprice="610"/>
+ <item npcvalue="600" weight="69.0" id="7449" name="crystal sword" npcprice="-1"/>
+ <item npcvalue="2" weight="9.5" id="3267" name="dagger" npcprice="5"/>
+ <item npcvalue="36000" weight="150.0" id="7382" name="demonrage sword" npcprice="-1"/>
+ <item npcvalue="0" weight="24.5" id="3339" name="djinn blade" npcprice="-1"/>
+ <item npcvalue="15000" weight="82.0" id="7402" name="dragon slayer" npcprice="-1"/>
+ <item npcvalue="0" weight="59.0" id="782" name="earth blacksteel sword" npcprice="-1"/>
+ <item npcvalue="15000" weight="82.0" id="783" name="earth dragon slayer" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="781" name="earth mystic blade" npcprice="-1"/>
+ <item npcvalue="0" weight="48.0" id="780" name="earth relic sword" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="779" name="earth spike sword" npcprice="-1"/>
+ <item npcvalue="0" weight="41.0" id="8102" name="emerald sword" npcprice="-1"/>
+ <item npcvalue="0" weight="59.0" id="797" name="energy blacksteel sword" npcprice="-1"/>
+ <item npcvalue="15000" weight="82.0" id="798" name="energy dragon slayer" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="796" name="energy mystic blade" npcprice="-1"/>
+ <item npcvalue="0" weight="48.0" id="795" name="energy relic sword" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="794" name="energy spike sword" npcprice="-1"/>
+ <item npcvalue="8000" weight="14.5" id="3326" name="epee" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="9386" name="farmer's avenger" npcprice="-1"/>
+ <item npcvalue="0" weight="59.0" id="663" name="fiery blacksteel sword" npcprice="-1"/>
+ <item npcvalue="15000" weight="82.0" id="664" name="fiery dragon slayer" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="662" name="fiery mystic blade" npcprice="-1"/>
+ <item npcvalue="0" weight="48.0" id="661" name="fiery relic sword" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="660" name="fiery spike sword" npcprice="-1"/>
+ <item npcvalue="4000" weight="23.0" id="3280" name="fire sword" npcprice="-1"/>
+ <item npcvalue="17000" weight="180.0" id="3281" name="giant sword" npcprice="-1"/>
+ <item npcvalue="8000" weight="31.0" id="7407" name="haunted blade" npcprice="-1"/>
+ <item npcvalue="0" weight="72.0" id="7405" name="havoc blade" npcprice="-1"/>
+ <item npcvalue="1000" weight="15.0" id="3284" name="ice rapier" npcprice="-1"/>
+ <item npcvalue="0" weight="59.0" id="682" name="icy blacksteel sword" npcprice="-1"/>
+ <item npcvalue="15000" weight="82.0" id="683" name="icy dragon slayer" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="681" name="icy mystic blade" npcprice="-1"/>
+ <item npcvalue="0" weight="48.0" id="680" name="icy relic sword" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="679" name="icy spike sword" npcprice="-1"/>
+ <item npcvalue="0" weight="42.0" id="9396" name="incredible mumpiz slayer" npcprice="-1"/>
+ <item npcvalue="0" weight="29.0" id="7774" name="jagged sword" npcprice="-1"/>
+ <item npcvalue="8" weight="31.0" id="3300" name="katana" npcprice="-1"/>
+ <item npcvalue="1" weight="4.2" id="3291" name="knife" npcprice="-1"/>
+ <item npcvalue="51" weight="42.0" id="3285" name="longsword" npcprice="-1"/>
+ <item npcvalue="0" weight="43.0" id="3278" name="magic longsword" npcprice="-1"/>
+ <item npcvalue="0" weight="42.0" id="3288" name="magic sword" npcprice="-1"/>
+ <item npcvalue="12000" weight="68.0" id="7386" name="mercenary sword" npcprice="-1"/>
+ <item npcvalue="30000" weight="35.0" id="7384" name="mystic blade" npcprice="-1"/>
+ <item npcvalue="35000" weight="46.0" id="7418" name="nightmare blade" npcprice="-1"/>
+ <item npcvalue="0" weight="52.0" id="3334" name="pharaoh sword" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="9387" name="poet's fencing quill" npcprice="-1"/>
+ <item npcvalue="0" weight="1.6" id="9375" name="pointed rabbitslayer" npcprice="-1"/>
+ <item npcvalue="50" weight="8.8" id="3299" name="poison dagger" npcprice="-1"/>
+ <item npcvalue="7" weight="15.0" id="3272" name="rapier" npcprice="15"/>
+ <item npcvalue="25000" weight="48.0" id="7383" name="relic sword" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="6101" name="ron the ripper's sabre" npcprice="-1"/>
+ <item npcvalue="0" weight="46.0" id="7417" name="runed sword" npcprice="-1"/>
+ <item npcvalue="12" weight="25.0" id="3273" name="sabre" npcprice="25"/>
+ <item npcvalue="16500" weight="50.0" id="10389" name="sais" npcprice="-1"/>
+ <item npcvalue="150" weight="29.0" id="3307" name="scimitar" npcprice="-1"/>
+ <item npcvalue="900" weight="41.0" id="3297" name="serpent sword" npcprice="-1"/>
+ <item npcvalue="10" weight="35.0" id="3294" name="short sword" npcprice="-1"/>
+ <item npcvalue="500" weight="10.2" id="3290" name="silver dagger" npcprice="-1"/>
+ <item npcvalue="1000" weight="50.0" id="3271" name="spike sword" npcprice="-1"/>
+ <item npcvalue="25" weight="35.0" id="3264" name="sword" npcprice="85"/>
+ <item npcvalue="200" weight="29.0" id="3345" name="templar scytheblade" npcprice="-1"/>
+ <item npcvalue="16000" weight="61.0" id="7391" name="thaian sword" npcprice="-1"/>
+ <item npcvalue="0" weight="64.0" id="6527" name="the avenger" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="8103" name="the epiphany" npcprice="-1"/>
+ <item npcvalue="0" weight="68.0" id="8104" name="the calamity" npcprice="-1"/>
+ <item npcvalue="0" weight="50.0" id="7390" name="the justice seeker" npcprice="-1"/>
+ <item npcvalue="28000" weight="180.0" id="11657" name="twiceslicer" npcprice="-1"/>
+ <item npcvalue="500" weight="50.0" id="10392" name="twin hooks" npcprice="1100"/>
+ <item npcvalue="450" weight="70.0" id="3265" name="two handed sword" npcprice="-1"/>
+ <item npcvalue="0" weight="64.0" id="3296" name="warlord sword" npcprice="-1"/>
+ <item npcvalue="1500" weight="20.0" id="7408" name="wyvern fang" npcprice="-1"/>
+ <item npcvalue="30000" weight="49.0" id="10390" name="zaoan sword" npcprice="-1"/>
+ <category name="rings"/>
+ <item npcvalue="100" weight="0.9" id="3092" name="axe ring" npcprice="-1"/>
+ <item npcvalue="0" weight="0.4" id="9593" name="broken wedding ring" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9393" name="claw of 'the noxious spawn'" npcprice="-1"/>
+ <item npcvalue="100" weight="0.9" id="3093" name="club ring" npcprice="-1"/>
+ <item npcvalue="250" weight="0.9" id="3007" name="crystal ring" npcprice="-1"/>
+ <item npcvalue="1000" weight="0.8" id="6299" name="death ring" npcprice="-1"/>
+ <item npcvalue="100" weight="1.1" id="3097" name="dwarven ring" npcprice="-1"/>
+ <item npcvalue="100" weight="0.8" id="3051" name="energy ring" npcprice="-1"/>
+ <item npcvalue="0" weight="0.4" id="9585" name="engraved wedding ring" npcprice="-1"/>
+ <item npcvalue="8000" weight="1.0" id="3063" name="gold ring" npcprice="-1"/>
+ <item npcvalue="50" weight="0.8" id="3052" name="life ring" npcprice="-1"/>
+ <item npcvalue="250" weight="1.0" id="3048" name="might ring" npcprice="-1"/>
+ <item npcvalue="50" weight="0.8" id="3050" name="power ring" npcprice="-1"/>
+ <item npcvalue="100" weight="0.8" id="3098" name="ring of healing" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3245" name="ring of wishes" npcprice="-1"/>
+ <item npcvalue="30000" weight="0.4" id="3006" name="ring of the sky" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="349" name="signet ring" npcprice="-1"/>
+ <item npcvalue="200" weight="1.0" id="3049" name="stealth ring" npcprice="-1"/>
+ <item npcvalue="100" weight="0.9" id="3091" name="sword ring" npcprice="-1"/>
+ <item npcvalue="100" weight="0.9" id="3053" name="time ring" npcprice="-1"/>
+ <item npcvalue="100" weight="0.4" id="3004" name="wedding ring" npcprice="-1"/>
+ <category name="containers"/>
+ <item npcvalue="0" weight="18.0" id="2854" name="brown backpack" npcprice="10"/>
+ <item npcvalue="0" weight="15.0" id="3253" name="backpack of holding" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="2853" name="bag" npcprice="5"/>
+ <item npcvalue="0" weight="0.0" id="0" name="barrel" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="barrel (brown)" npcprice="-1"/>
+ <item npcvalue="0" weight="9.5" id="2855" name="basket" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="5949" name="beach backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="5950" name="beach bag" npcprice="5"/>
+ <item npcvalue="0" weight="18.0" id="2869" name="blue backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2861" name="blue bag" npcprice="20"/>
+ <item npcvalue="0" weight="35.0" id="2469" name="box" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="2473" name="box (brown)" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="8860" name="brocade backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="8861" name="brocade bag" npcprice="4"/>
+ <item npcvalue="0" weight="18.0" id="2872" name="camouflage backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2864" name="camouflage bag" npcprice="5"/>
+ <item npcvalue="0" weight="120.0" id="2472" name="chest" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="6510" name="christmas present (blue)" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="6509" name="christmas present (green)" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="6505" name="christmas present (red)" npcprice="-1"/>
+ <item npcvalue="0" weight="80.0" id="2471" name="crate" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="9605" name="crown backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="9601" name="demon backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="10326" name="dragon backpack" npcprice="200"/>
+ <item npcvalue="0" weight="18.0" id="10324" name="expedition backpack" npcprice="100"/>
+ <item npcvalue="0" weight="8.0" id="10325" name="expedition bag" npcprice="50"/>
+ <item npcvalue="0" weight="18.0" id="7342" name="fur backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="7343" name="fur bag" npcprice="20"/>
+ <item npcvalue="0" weight="18.0" id="2871" name="golden backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2863" name="golden bag" npcprice="20"/>
+ <item npcvalue="0" weight="18.0" id="2865" name="green backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2857" name="green bag" npcprice="20"/>
+ <item npcvalue="0" weight="18.0" id="2870" name="grey backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2862" name="grey bag" npcprice="20"/>
+ <item npcvalue="0" weight="18.0" id="10202" name="heart backpack" npcprice="500"/>
+ <item npcvalue="0" weight="1.7" id="6104" name="jewel case" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="5801" name="jewelled backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2483" name="large trunk" npcprice="-1"/>
+ <item npcvalue="0" weight="18.5" id="10327" name="minotaur backpack" npcprice="200"/>
+ <item npcvalue="0" weight="18.0" id="9604" name="moon backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="9602" name="orange backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="9603" name="orange bag" npcprice="25"/>
+ <item npcvalue="0" weight="18.0" id="3503" name="parcel" npcprice="-1"/>
+ <item npcvalue="0" weight="100.0" id="0" name="pile of bones" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="5926" name="pirate backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="5927" name="pirate bag" npcprice="20"/>
+ <item npcvalue="0" weight="6.0" id="2856" name="present" npcprice="10"/>
+ <item npcvalue="0" weight="18.0" id="2868" name="purple backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2860" name="purple bag" npcprice="20"/>
+ <item npcvalue="0" weight="18.0" id="2867" name="red backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2859" name="red bag" npcprice="20"/>
+ <item npcvalue="0" weight="16.5" id="10346" name="santa backpack" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="3504" name="stamped parcel" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="2866" name="yellow backpack" npcprice="20"/>
+ <item npcvalue="0" weight="8.0" id="2858" name="yellow bag" npcprice="20"/>
+ <category name="decorations"/>
+ <item npcvalue="0" weight="15.08" id="10817" name="bag of oriental spices" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="6491" name="bat decoration" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10429" name="beautiful marble statue" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="9619" name="bejeweled ship's telescope" npcprice="-1"/>
+ <item npcvalue="0" weight="92.0" id="2975" name="birdcage" npcprice="-1"/>
+ <item npcvalue="0" weight="92.0" id="2976" name="birdcage (with bird)" npcprice="-1"/>
+ <item npcvalue="4000" weight="24.0" id="9056" name="black skull (item)" npcprice="-1"/>
+ <item npcvalue="10000" weight="4.9" id="8531" name="blood goblet" npcprice="-1"/>
+ <item npcvalue="0" weight="4.9" id="8532" name="blood skull" npcprice="-1"/>
+ <item npcvalue="60" weight="25.0" id="6507" name="blue christmas bundle" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="6504" name="blue christmas garland" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="2394" name="blue pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="7371" name="bronze goblet" npcprice="2000"/>
+ <item npcvalue="40" weight="18.0" id="6489" name="christmas branch" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="6502" name="christmas garland" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2986" name="christmas tree" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="6501" name="christmas wreath" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10422" name="clay lump" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="2664" name="cuckoo clock" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2933" name="djinn's lamp" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="9039" name="dracoyle statue" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10347" name="dragon tapestry" npcprice="80"/>
+ <item npcvalue="0" weight="-1" id="10286" name="dragon throne" npcprice="-1"/>
+ <item npcvalue="0" weight="-1" id="10212" name="dragon statue" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="edged mirror" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="elven brooch" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="elven vase" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="896" name="firlefanz" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="0" name="frozen heart" npcprice="-1"/>
+ <item npcvalue="0" weight="76.0" id="2979" name="globe" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="goblin statue" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="8148" name="golden falcon" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="5749" name="golden figurine" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="7369" name="golden goblet" npcprice="5000"/>
+ <item npcvalue="0" weight="32.0" id="5928" name="goldfish bowl (empty)" npcprice="-1"/>
+ <item npcvalue="0" weight="32.0" id="0" name="goldfish bowl (with fish)" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="6508" name="green christmas bundle" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="2396" name="green pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="17.0" id="2393" name="heart pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="7441" name="ice cube" npcprice="-1"/>
+ <item npcvalue="0" weight="20.0" id="7445" name="ice mammoth" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="7447" name="ice statue (bird)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="7446" name="ice statue (fish)" npcprice="-1"/>
+ <item npcvalue="0" weight="7.25" id="895" name="jester staff" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="knight statue" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="marble statue" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="5802" name="message in a bottle" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="minotaur statue" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="2994" name="model ship" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="5055" name="monkey statue (no hearing)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="5046" name="monkey statue (no seeing)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="5056" name="monkey statue (no speaking)" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="8146" name="oracle figurine" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="oval mirror" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="2639" name="picture (landscape)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="picture (portrait)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="2640" name="picture (still life)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10426" name="piece of marble rock" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="2995" name="piggy bank" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="0" name="pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10425" name="pretty clay statue" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2977" name="pumpkinhead" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="6506" name="red christmas bundle" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="0" name="red christmas garland" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="2395" name="red pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="0" id="2988" name="rocking horse" npcprice="30"/>
+ <item npcvalue="0" weight="10.0" id="10432" name="rough clay statue" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="10427" name="rough marble statue" npcprice="-1"/>
+ <item npcvalue="0" weight="15.5" id="2398" name="round blue pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="0" name="round mirror" npcprice="-1"/>
+ <item npcvalue="0" weight="15.5" id="0" name="round pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.5" id="2400" name="round purple pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.5" id="2399" name="round red pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.5" id="0" name="round turquoise pillow" npcprice="-1"/>
+ <item npcvalue="1000" weight="10.0" id="9045" name="royal tapestry" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="9046" name="silky tapestry" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="0" name="silver goblet" npcprice="3000"/>
+ <item npcvalue="0" weight="10.0" id="6525" name="skeleton decoration (not on wall)" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2389" name="small blue pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2387" name="small green pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="2933" name="small oil lamp" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2390" name="small orange pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="0" name="small pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2386" name="small purple pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2388" name="small red pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="0" name="small turquoise pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2392" name="small white pillow" npcprice="-1"/>
+ <item npcvalue="0" weight="-1" id="10208" name="snowman" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3020" name="some golden fruits" npcprice="-1"/>
+ <item npcvalue="0" weight="0.05" id="8032" name="spiderwebs" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="standing mirror" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="surprise package" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="table lamp" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="2644" name="tapestry (purple, not on wall)" npcprice="-1"/>
+ <item id="2647" name="tapestry (green, not on wall)"/>		weight="10.0"		npcvalue="0"		npcprice="-1"/>&#xd;
+ 		<item id="2650" name="tapestry (yellow, not on wall)"/>		weight="10.0"		npcvalue="0"		npcprice="-1"/>&#xd;
+ 		<item id="2653" name="tapestry (orange, not on wall)"/>		weight="10.0"		npcvalue="0"		npcprice="-1"/>&#xd;
+ 		<item id="2656" name="tapestry (red, not on wall)"/>		weight="10.0"		npcvalue="0"		npcprice="-1"/>&#xd;
+ 		<item id="2659" name="tapestry (blue, not on wall)"/>		weight="10.0"		npcvalue="0"		npcprice="-1"/>&#xd;
+ 		<item id="5615" name="tapestry (pirate, not on wall)"/>		weight="10.0"		npcvalue="0"		npcprice="-1"/>&#xd;
+		<item npcvalue="0" weight="95.0" id="0" name="telescope" npcprice="-1"/>
+ <item npcvalue="800" weight="10.0" id="8923" name="velvet tapestry (not on wall)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="2638" name="wall mirror" npcprice="-1"/>
+ <item npcvalue="0" weight="65.0" id="2974" name="water pipe" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="0" name="water pipe (deluxe)" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="2397" name="yellow pillow" npcprice="-1"/>
+ <category name="tools"/>
+ <item npcvalue="0" weight="8.0" id="939" name="bait" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="5942" name="blessed wooden stake" npcprice="-1"/>
+ <item npcvalue="0" weight="11.0" id="3454" name="broom" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="5479" name="cat's paw" npcprice="-1"/>
+ <item npcvalue="75" weight="21.0" id="3482" name="closed trap" npcprice="-1"/>
+ <item npcvalue="50" weight="21.0" id="3304" name="crowbar" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="646" name="elvenhair rope" npcprice="-1"/>
+ <item npcvalue="0" weight="30.5" id="5467" name="fire bug" npcprice="-1"/>
+ <item npcvalue="40" weight="8.5" id="3483" name="fishing rod" npcprice="150"/>
+ <item npcvalue="0" weight="11.5" id="3460" name="hammer" npcprice="-1"/>
+ <item npcvalue="90" weight="18.4" id="3330" name="heavy machete" npcprice="-1"/>
+ <item npcvalue="0" weight="28.0" id="3455" name="hoe" npcprice="15"/>
+ <item npcvalue="8" weight="2.0" id="3509" name="inkwell" npcprice="-1"/>
+ <item npcvalue="100" weight="15.0" id="5865" name="juice squeezer" npcprice="-1"/>
+ <item npcvalue="300" weight="15.0" id="5710" name="light shovel" npcprice="-1"/>
+ <item npcvalue="0" weight="0.85" id="7889" name="lock pick" npcprice="50"/>
+ <item npcvalue="6" weight="16.5" id="3308" name="machete" npcprice="35"/>
+ <item npcvalue="0" weight="9.2" id="9306" name="mechanical fishing rod" npcprice="-1"/>
+ <item npcvalue="10" weight="9.5" id="3463" name="mirror" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="5908" name="obsidian knife" npcprice="-1"/>
+ <item npcvalue="15" weight="45.0" id="3456" name="pick" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="3451" name="pitchfork" npcprice="25"/>
+ <item npcvalue="0" weight="15.0" id="3452" name="rake" npcprice="-1"/>
+ <item npcvalue="15" weight="18.0" id="3003" name="rope" npcprice="50"/>
+ <item npcvalue="0" weight="10.0" id="3461" name="saw" npcprice="-1"/>
+ <item npcvalue="8" weight="35.0" id="3457" name="shovel" npcprice="10"/>
+ <item npcvalue="0" weight="20.0" id="3462" name="small axe" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="9594" name="sneaky stabber of eliteness" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="9107" name="special polish" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="9596" name="squeezing gear of girlpower" npcprice="-1"/>
+ <item npcvalue="0" weight="21.0" id="3481" name="trap" npcprice="-1"/>
+ <item npcvalue="0" weight="8.3" id="6118" name="treasure map" npcprice="-1"/>
+ <item npcvalue="0" weight="8.3" id="5706" name="treasure map (pirate)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="0" name="very noble-looking watch" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="2906" name="watch" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="650" name="watering can" npcprice="50"/>
+ <item npcvalue="0" weight="3.0" id="9598" name="whacking driller of fate" npcprice="-1"/>
+ <item npcvalue="0" weight="11.0" id="3211" name="witchesbroom" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="3459" name="wooden hammer" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="5941" name="wooden stake" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9114" name="wooden ties" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="3492" name="worm" npcprice="-1"/>
+ <category name="kitchen tools"/>
+ <item npcvalue="0" weight="12.0" id="3464" name="baking tray" npcprice="-1"/>
+ <item npcvalue="0" weight="3.8" id="2902" name="bowl" npcprice="-1"/>
+ <item npcvalue="0" weight="18.5" id="0" name="bowl (pirate)" npcprice="-1"/>
+ <item npcvalue="0" weight="6.6" id="3471" name="cleaver" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="2881" name="cup" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="2883" name="cup (pirate)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="3467" name="fork" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="2882" name="jug" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="3469" name="kitchen knife" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="2880" name="mug" npcprice="-1"/>
+ <item npcvalue="0" weight="14.0" id="3472" name="oven spatula" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="3466" name="pan" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="2902" name="plate" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3473" name="rolling pin" npcprice="12"/>
+ <item npcvalue="0" weight="1.0" id="3468" name="spoon" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="3470" name="wooden spoon" npcprice="-1"/>
+ <category name="food"/>
+ <item npcvalue="0" weight="12.0" id="8020" name="baking tray (with dough)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="3587" name="banana" npcprice="2"/>
+ <item npcvalue="0" weight="0.1" id="6574" name="bar of chocolate" npcprice="-1"/>
+ <item npcvalue="0" weight="1.3" id="8017" name="beetroot" npcprice="2"/>
+ <item npcvalue="0" weight="0.2" id="3588" name="blueberry" npcprice="1"/>
+ <item npcvalue="2" weight="5.0" id="3600" name="bread" npcprice="3"/>
+ <item npcvalue="0" weight="4.0" id="3602" name="brown bread" npcprice="3"/>
+ <item npcvalue="0" weight="0.2" id="3725" name="brown mushroom" npcprice="10"/>
+ <item npcvalue="0" weight="1.4" id="8197" name="bulb of garlic" npcprice="3"/>
+ <item npcvalue="0" weight="5.0" id="6277" name="cake" npcprice="-1"/>
+ <item npcvalue="0" weight="0.05" id="6569" name="candy" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="3599" name="candy cane" npcprice="-1"/>
+ <item npcvalue="0" weight="1.6" id="3595" name="carrot" npcprice="2"/>
+ <item npcvalue="0" weight="4.0" id="3607" name="cheese" npcprice="5"/>
+ <item npcvalue="0" weight="0.2" id="3590" name="cherry" npcprice="1"/>
+ <item npcvalue="0" weight="5.0" id="8019" name="chocolate cake" npcprice="-1"/>
+ <item npcvalue="0" weight="4.8" id="3589" name="coconut" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="6543" name="coloured egg (blue)" npcprice="2"/>
+ <item npcvalue="0" weight="0.3" id="6544" name="coloured egg (green)" npcprice="2"/>
+ <item npcvalue="0" weight="0.3" id="6545" name="coloured egg (purple)" npcprice="2"/>
+ <item npcvalue="0" weight="0.3" id="6542" name="coloured egg (red)" npcprice="2"/>
+ <item npcvalue="0" weight="0.3" id="6541" name="coloured egg (yellow)" npcprice="2"/>
+ <item npcvalue="0" weight="0.1" id="3598" name="cookie" npcprice="2"/>
+ <item npcvalue="0" weight="3.5" id="3597" name="corncob" npcprice="3"/>
+ <item npcvalue="0" weight="5.0" id="904" name="cream cake" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="8014" name="cucumber" npcprice="3"/>
+ <item npcvalue="0" weight="0.1" id="3728" name="dark mushroom" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="6278" name="decorated cake" npcprice="-1"/>
+ <item npcvalue="0" weight="30.0" id="3583" name="dragon ham" npcprice="25"/>
+ <item npcvalue="0" weight="0.3" id="3606" name="egg" npcprice="2"/>
+ <item npcvalue="0" weight="0.1" id="3731" name="fire mushroom" npcprice="-1"/>
+ <item npcvalue="0" weight="5.2" id="3578" name="fish" npcprice="5"/>
+ <item npcvalue="0" weight="5.0" id="6500" name="gingerbreadman" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="3592" name="grapes" npcprice="3"/>
+ <item npcvalue="0" weight="0.1" id="3732" name="green mushroom" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="7159" name="green perch" npcprice="-1"/>
+ <item npcvalue="4" weight="20.0" id="3582" name="ham" npcprice="5"/>
+ <item npcvalue="0" weight="14.0" id="12310" name="haunch of boar" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="ice cream cone (blue-barian)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="7375" name="ice cream cone (chilly cherry)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="7372" name="ice cream cone (crispy chocolate chips)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="7373" name="ice cream cone (venorean dream)" npcprice="10"/>
+ <item npcvalue="0" weight="0.2" id="8013" name="lemon" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="6276" name="lump of cake dough" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="8018" name="lump of chocolate dough" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="3604" name="lump of dough" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="5096" name="mango" npcprice="10"/>
+ <item npcvalue="0" weight="18.0" id="901" name="marlin" npcprice="-1"/>
+ <item npcvalue="2" weight="13.0" id="3577" name="meat" npcprice="3"/>
+ <item npcvalue="0" weight="9.5" id="3593" name="melon" npcprice="8"/>
+ <item npcvalue="0" weight="8.3" id="3580" name="northern pike" npcprice="-1"/>
+ <item npcvalue="0" weight="1.4" id="8015" name="onion" npcprice="2"/>
+ <item npcvalue="0" weight="1.1" id="3586" name="orange" npcprice="5"/>
+ <item npcvalue="0" weight="0.3" id="3726" name="orange mushroom" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="841" name="peanut" npcprice="-1"/>
+ <item npcvalue="0" weight="1.4" id="3584" name="pear" npcprice="4"/>
+ <item npcvalue="0" weight="1.3" id="8011" name="plum" npcprice="3"/>
+ <item npcvalue="0" weight="1.7" id="8010" name="potato" npcprice="4"/>
+ <item npcvalue="0" weight="13.5" id="3594" name="pumpkin" npcprice="10"/>
+ <item npcvalue="0" weight="12.0" id="7158" name="rainbow trout" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="8012" name="raspberry" npcprice="1"/>
+ <item npcvalue="0" weight="1.5" id="3585" name="red apple" npcprice="3"/>
+ <item npcvalue="0" weight="0.5" id="3724" name="red mushroom" npcprice="12"/>
+ <item npcvalue="0" weight="0.3" id="10329" name="rice ball" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="3601" name="roll" npcprice="2"/>
+ <item npcvalue="0" weight="3.2" id="3579" name="salmon" npcprice="4"/>
+ <item npcvalue="0" weight="4.0" id="0" name="scarab cheese" npcprice="100"/>
+ <item npcvalue="0" weight="0.5" id="3581" name="shrimp" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="3730" name="some mushrooms" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="3729" name="some mushrooms (brown)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="3591" name="strawberry" npcprice="1"/>
+ <item npcvalue="0" weight="1.0" id="3596" name="tomato" npcprice="5"/>
+ <item npcvalue="0" weight="0.3" id="5678" name="tortoise egg" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="6125" name="tortoise egg from nargor" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="6392" name="valentine's cake" npcprice="100"/>
+ <item npcvalue="0" weight="0.1" id="836" name="walnut" npcprice="-1"/>
+ <item npcvalue="0" weight="0.4" id="3723" name="white mushroom" npcprice="6"/>
+ <item npcvalue="0" weight="0.3" id="0" name="wood mushroom" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="8177" name="yummy gummy worm" npcprice="-1"/>
+ <category name="rubbish"/>
+ <item npcvalue="0" weight="0.0" id="0" name="ball on chains" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="3104" name="banana skin" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="3116" name="big bone" npcprice="-1"/>
+ <item npcvalue="0" weight="9.5" id="3115" name="bone" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="2892" name="broken bottle" npcprice="-1"/>
+ <item npcvalue="0" weight="1.7" id="2894" name="broken brown glass" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="3117" name="broken flask" npcprice="-1"/>
+ <item npcvalue="0" weight="1.7" id="3118" name="broken green glass" npcprice="-1"/>
+ <item npcvalue="8000" weight="0.5" id="11652" name="broken key ring" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="2996" name="broken piggy bank" npcprice="-1"/>
+ <item npcvalue="0" weight="1.8" id="3113" name="broken pottery" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="3119" name="broken sword" npcprice="-1"/>
+ <item npcvalue="0" weight="0.4" id="3124" name="burnt scroll" npcprice="-1"/>
+ <item npcvalue="0" weight="4.5" id="0" name="comb" npcprice="-1"/>
+ <item npcvalue="0" weight="29.5" id="3122" name="dirty cape" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="3105" name="dirty fur" npcprice="-1"/>
+ <item npcvalue="5" weight="1.8" id="284" name="empty potion flask (large)" npcprice="-1"/>
+ <item npcvalue="5" weight="1.6" id="283" name="empty potion flask (medium)" npcprice="-1"/>
+ <item npcvalue="5" weight="1.5" id="285" name="empty potion flask (small)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="5951" name="fish tail" npcprice="-1"/>
+ <item npcvalue="0" weight="0.7" id="3111" name="fishbone" npcprice="-1"/>
+ <item npcvalue="0" weight="4.0" id="3120" name="mouldy cheese" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="3106" name="old twig" npcprice="-1"/>
+ <item npcvalue="0" weight="1.1" id="3125" name="remains of a fish" npcprice="-1"/>
+ <item npcvalue="0" weight="0.6" id="3112" name="rotten meat" npcprice="-1"/>
+ <item npcvalue="0" weight="100.0" id="0" name="skeleton" npcprice="-1"/>
+ <item npcvalue="0" weight="21.8" id="3114" name="skull" npcprice="-1"/>
+ <item npcvalue="0" weight="0.8" id="3129" name="some leaves" npcprice="-1"/>
+ <item npcvalue="0" weight="0.4" id="3107" name="some wood" npcprice="-1"/>
+ <item npcvalue="0" weight="11.0" id="3121" name="torn book" npcprice="-1"/>
+ <item npcvalue="0" weight="25.0" id="0" name="trashed draken boots" npcprice="-1"/>
+ <item npcvalue="0" weight="2.1" id="3130" name="twigs" npcprice="-1"/>
+ <item npcvalue="0" weight="45.0" id="2913" name="used candelabrum" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="2919" name="used candlestick" npcprice="-1"/>
+ <item npcvalue="0" weight="5.7" id="0" name="wooden trash" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="9020" name="worn firewalker boots" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="3123" name="worn leather boots" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="6530" name="worn soft boots" npcprice="-1"/>
+ <category name="legs"/>
+ <item npcvalue="750" weight="3.5" id="3560" name="bast skirt" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="645" name="blue legs" npcprice="-1"/>
+ <item npcvalue="49" weight="38.0" id="3372" name="brass legs" npcprice="-1"/>
+ <item npcvalue="25" weight="35.0" id="3558" name="chain legs" npcprice="80"/>
+ <item npcvalue="12000" weight="65.0" id="3382" name="crown legs" npcprice="-1"/>
+ <item npcvalue="0" weight="70.0" id="3389" name="demon legs" npcprice="-1"/>
+ <item npcvalue="0" weight="48.0" id="3363" name="dragon scale legs" npcprice="-1"/>
+ <item npcvalue="0" weight="49.0" id="3398" name="dwarven legs" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3401" name="elven legs" npcprice="-1"/>
+ <item npcvalue="11000" weight="19.0" id="823" name="glacier kilt" npcprice="-1"/>
+ <item npcvalue="120" weight="56.0" id="3364" name="golden legs" npcprice="-1"/>
+ <item npcvalue="5000" weight="70.0" id="3371" name="knight legs" npcprice="-1"/>
+ <item npcvalue="0" weight="12.0" id="9014" name="leaf legs" npcprice="-1"/>
+ <item npcvalue="1" weight="18.0" id="3559" name="leather legs" npcprice="10"/>
+ <item npcvalue="11000" weight="19.0" id="822" name="lightning legs" npcprice="-1"/>
+ <item npcvalue="11000" weight="19.0" id="821" name="magma legs" npcprice="-1"/>
+ <item npcvalue="850" weight="1.5" id="7464" name="mammoth fur shorts" npcprice="-1"/>
+ <item npcvalue="200" weight="12.0" id="5918" name="pirate knee breeches" npcprice="-1"/>
+ <item npcvalue="115" weight="50.0" id="3557" name="plate legs" npcprice="-1"/>
+ <item npcvalue="0" weight="35.0" id="8095" name="ranger legs" npcprice="-1"/>
+ <item npcvalue="15" weight="26.0" id="3362" name="studded legs" npcprice="60"/>
+ <item npcvalue="11000" weight="19.0" id="812" name="terra legs" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="9383" name="trousers of the ancients" npcprice="-1"/>
+ <item npcvalue="0" weight="65.0" id="8863" name="yalahari leg piece" npcprice="-1"/>
+ <item npcvalue="14000" weight="66.0" id="10387" name="zaoan legs" npcprice="-1"/>
+ <category name="trophies"/>
+ <item npcvalue="20000" weight="5.0" id="7396" name="behemoth trophy" npcprice="-1"/>
+ <item npcvalue="6000" weight="5.0" id="10244" name="bonebeast trophy" npcprice="-1"/>
+ <item npcvalue="500" weight="5.0" id="7398" name="cyclops trophy" npcprice="-1"/>
+ <item npcvalue="3000" weight="5.0" id="7397" name="deer trophy" npcprice="-1"/>
+ <item npcvalue="40000" weight="5.0" id="7393" name="demon trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="10421" name="disgusting trophy" npcprice="-1"/>
+ <item npcvalue="10000" weight="5.0" id="7399" name="dragon lord trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="10398" name="draken trophy" npcprice="-1"/>
+ <item npcvalue="3000" weight="5.0" id="7400" name="lion trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="5.5" id="10419" name="lizard trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="902" name="marlin trophy" npcprice="-1"/>
+ <item npcvalue="500" weight="5.0" id="7401" name="minotaur trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="7395" name="orc trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="9613" name="sea serpent trophy" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="11679" name="souleater trophy" npcprice="-1"/>
+ <item npcvalue="3000" weight="5.0" id="7394" name="wolf trophy" npcprice="-1"/>
+ <category name="documents and papers"/>
+ <item npcvalue="0" weight="1.5" id="3216" name="bill" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="2817" name="blank poetry parchment" npcprice="-1"/>
+ <item npcvalue="0" weight="13.0" id="0" name="book (cgb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="0" name="building plans for a ship" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="11544" name="faded last will" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="0" name="fan club membership card" npcprice="-1"/>
+ <item npcvalue="0" weight="24.0" id="8153" name="golden newspaper" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="9247" name="golem blueprint" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="0" name="julius' map" npcprice="-1"/>
+ <item npcvalue="0" weight="6.8" id="10011" name="map to the unknown" npcprice="650"/>
+ <item npcvalue="0" weight="1.5" id="7873" name="note" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="641" name="old piece of paper" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="parchment (poetry)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="9696" name="plans for a strange device" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="research notes" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="10028" name="soul contract" npcprice="666"/>
+ <item npcvalue="0" weight="1.5" id="0" name="suspicious documents" npcprice="-1"/>
+ <category name="game tokens"/>
+ <item npcvalue="0" weight="5.0" id="3544" name="black bishop token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3542" name="black castle token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3546" name="black king token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3543" name="black knight token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3541" name="black pawn token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3545" name="black queen token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3533" name="black token" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5792" name="dice (1)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5793" name="dice (2)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5794" name="dice (3)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5795" name="dice (4)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5796" name="dice (5)" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5697" name="dice (6)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2990" name="football" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="10340" name="heavy ball" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3548" name="o tic-tac-toe token" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="0" name="waterball" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3538" name="white bishop token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3536" name="white castle token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3540" name="white king token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3537" name="white knight token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3535" name="white pawn token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3539" name="white queen token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3534" name="white token" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="3547" name="x tic-tac-toe token" npcprice="-1"/>
+ <category name="light sources"/>
+ <item npcvalue="0" weight="22.0" id="0" name="black candle" npcprice="-1"/>
+ <item npcvalue="0" weight="50.0" id="0" name="candelabrum" npcprice="-1"/>
+ <item npcvalue="0" weight="3.0" id="0" name="candlestick" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="3249" name="frozen starlight" npcprice="-1"/>
+ <item npcvalue="0" weight="30.0" id="0" name="lamp" npcprice="-1"/>
+ <item npcvalue="35" weight="15.0" id="3046" name="magic light wand" npcprice="120"/>
+ <item npcvalue="35" weight="15.0" id="3046" name="magic light wand (off)" npcprice="120"/>
+ <item npcvalue="35" weight="15.0" id="3047" name="magic light wand (on)" npcprice="120"/>
+ <item npcvalue="0" weight="15.0" id="9042" name="magical torch" npcprice="-1"/>
+ <item npcvalue="0" weight="22.0" id="5812" name="skull candle" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="0" name="torch" npcprice="2"/>
+ <category name="valuables"/>
+ <item npcvalue="280" weight="0.2" id="3027" name="black pearl" npcprice="-1"/>
+ <item npcvalue="5000" weight="0.3" id="3041" name="blue gem" npcprice="-1"/>
+ <item npcvalue="0" weight="0.05" id="6526" name="christmas token" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="6536" name="countess sorrow's frozen tear" npcprice="-1"/>
+ <item npcvalue="0" weight="19.0" id="3011" name="crown" npcprice="-1"/>
+ <item npcvalue="10000" weight="0.1" id="3043" name="crystal coin" npcprice="-1"/>
+ <item npcvalue="0" weight="28.0" id="3068" name="crystal wand" npcprice="-1"/>
+ <item npcvalue="1000" weight="8.5" id="9028" name="crystal of balance" npcprice="-1"/>
+ <item npcvalue="2000" weight="8.0" id="9027" name="crystal of focus" npcprice="-1"/>
+ <item npcvalue="3000" weight="8.5" id="9067" name="crystal of power" npcprice="-1"/>
+ <item npcvalue="800" weight="1.7" id="3010" name="emerald bangle" npcprice="-1"/>
+ <item npcvalue="3000" weight="0.8" id="282" name="giant shimmering pearl (gold)" npcprice="-1"/>
+ <item npcvalue="3000" weight="0.8" id="281" name="giant shimmering pearl (blue)" npcprice="-1"/>
+ <item npcvalue="1" weight="0.1" id="3031" name="gold coin" npcprice="1"/>
+ <item npcvalue="5000" weight="18.0" id="9058" name="gold ingot" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3040" name="gold nugget" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11614" name="golden rune emblem (animate dead)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11624" name="golden rune emblem (avalanche)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11634" name="golden rune emblem (chameleon)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11632" name="golden rune emblem (desintegrate)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11640" name="golden rune emblem (destroy field)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11628" name="golden rune emblem (energy bomb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11636" name="golden rune emblem (energy wall)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11608" name="golden rune emblem (explosion)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="0" name="golden rune emblem (fire bomb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11650" name="golden rune emblem (fire field)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11618" name="golden rune emblem (fireball)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11616" name="golden rune emblem (great fireball)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11606" name="golden rune emblem (heavy magic missile)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11626" name="golden rune emblem (holy missile)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11622" name="golden rune emblem (icicle)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11648" name="golden rune emblem (light magic missile)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11612" name="golden rune emblem (magic wall)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11630" name="golden rune emblem (paralyze)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11646" name="golden rune emblem (poison bomb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11638" name="golden rune emblem (soulfire)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11610" name="golden rune emblem (sudden death)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11620" name="golden rune emblem (thunderstorm)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11604" name="golden rune emblem (ultimate healing)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11642" name="golden rune emblem (wild growth)" npcprice="-1"/>
+ <item npcvalue="5000" weight="0.3" id="3038" name="green gem" npcprice="-1"/>
+ <item npcvalue="0" weight="8.7" id="3023" name="holy scarab" npcprice="-1"/>
+ <item npcvalue="0" weight="0.3" id="5021" name="orichalcum pearl" npcprice="80"/>
+ <item npcvalue="0" weight="0.0" id="0" name="overcharged goldstack" npcprice="-1"/>
+ <item npcvalue="100" weight="0.1" id="3035" name="platinum coin" npcprice="-1"/>
+ <item npcvalue="1000" weight="0.3" id="3039" name="red gem" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8894" name="rusty armor (common)" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8896" name="rusty armor (rare)" npcprice="-1"/>
+ <item npcvalue="0" weight="120.0" id="8895" name="rusty armor (semi-rare)" npcprice="-1"/>
+ <item npcvalue="0" weight="70.0" id="8897" name="rusty legs (common)" npcprice="-1"/>
+ <item npcvalue="0" weight="70.0" id="8899" name="rusty legs (rare)" npcprice="-1"/>
+ <item npcvalue="0" weight="70.0" id="8898" name="rusty legs (semi-rare)" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="3042" name="scarab coin" npcprice="-1"/>
+ <item npcvalue="150" weight="1.1" id="3017" name="silver brooch" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11613" name="silver rune emblem (animate dead)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11623" name="silver rune emblem (avalanche)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11633" name="silver rune emblem (chameleon)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11631" name="silver rune emblem (desintegrate)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11639" name="silver rune emblem (destroy field)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11627" name="silver rune emblem (energy bomb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11635" name="silver rune emblem (energy wall)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11607" name="silver rune emblem (explosion)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="0" name="silver rune emblem (fire bomb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11649" name="silver rune emblem (fire field)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11617" name="silver rune emblem (fireball)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11615" name="silver rune emblem (great fireball)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11605" name="silver rune emblem (heavy magic missile)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11625" name="silver rune emblem (holy missile)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11621" name="silver rune emblem (icicle)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11647" name="silver rune emblem (light magic missile)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11611" name="silver rune emblem (magic wall)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11629" name="silver rune emblem (paralyze)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11645" name="silver rune emblem (poison bomb)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11637" name="silver rune emblem (soulfire)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11609" name="silver rune emblem (sudden death)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11619" name="silver rune emblem (thunderstorm)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11603" name="silver rune emblem (ultimate healing)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.2" id="11641" name="silver rune emblem (wild growth)" npcprice="-1"/>
+ <item npcvalue="200" weight="0.1" id="3033" name="small amethyst" npcprice="-1"/>
+ <item npcvalue="300" weight="0.1" id="3028" name="small diamond" npcprice="-1"/>
+ <item npcvalue="250" weight="0.1" id="3032" name="small emerald" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="678" name="small enchanted amethyst" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="677" name="small enchanted emerald" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="676" name="small enchanted ruby" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="675" name="small enchanted sapphire" npcprice="-1"/>
+ <item npcvalue="250" weight="0.1" id="3030" name="small rubies" npcprice="-1"/>
+ <item npcvalue="250" weight="0.1" id="3030" name="small ruby" npcprice="-1"/>
+ <item npcvalue="250" weight="0.1" id="3029" name="small sapphire" npcprice="-1"/>
+ <item npcvalue="200" weight="0.1" id="9057" name="small topaz" npcprice="-1"/>
+ <item npcvalue="0" weight="0.05" id="8192" name="vampire lord token" npcprice="-1"/>
+ <item npcvalue="10000" weight="0.3" id="3036" name="violet gem" npcprice="-1"/>
+ <item npcvalue="160" weight="0.2" id="3026" name="white pearl" npcprice="-1"/>
+ <item npcvalue="1000" weight="0.3" id="3037" name="yellow gem" npcprice="-1"/>
+ <category name="plants and herbs"/>
+ <item npcvalue="0" weight="0.95" id="9241" name="bloodkiss flower" npcprice="-1"/>
+ <item npcvalue="0" weight="11.0" id="8763" name="bowl of evergreen flowers" npcprice="-1"/>
+ <item npcvalue="0" weight="0.30" id="3736" name="star herb" npcprice="21"/>
+ <item npcvalue="28" weight="0.2" id="3735" name="stone herb" npcprice="-1"/>
+ <category name="clothing accessories"/>
+ <item npcvalue="200" weight="5.0" id="5912" name="blue piece of cloth" npcprice="-1"/>
+ <item npcvalue="100" weight="5.0" id="5913" name="brown piece of cloth" npcprice="-1"/>
+ <item npcvalue="0" weight="1.5" id="6098" name="eye patch" npcprice="-1"/>
+ <item npcvalue="0" weight="8.5" id="5903" name="ferumbras' hat" npcprice="-1"/>
+ <item npcvalue="200" weight="5.0" id="5910" name="green piece of cloth" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="6097" name="hook" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="5804" name="nose ring" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="6126" name="peg leg" npcprice="-1"/>
+ <item npcvalue="300" weight="5.0" id="5911" name="red piece of cloth" npcprice="-1"/>
+ <item npcvalue="2000" weight="4.0" id="5875" name="sniper gloves" npcprice="-1"/>
+ <item npcvalue="100" weight="5.0" id="5909" name="white piece of cloth" npcprice="-1"/>
+ <item npcvalue="150" weight="5.0" id="5914" name="yellow piece of cloth" npcprice="-1"/>
+ <category name="boots"/>
+ <item npcvalue="30000" weight="7.5" id="3079" name="boots of haste" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3246" name="boots of waterwalking" npcprice="-1"/>
+ <item npcvalue="0" weight="6.8" id="3553" name="bunnyslippers" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="9017" name="coconut shoes" npcprice="-1"/>
+ <item npcvalue="1000" weight="9.0" id="3556" name="crocodile boots" npcprice="-1"/>
+ <item npcvalue="0" weight="18.5" id="10200" name="crystal boots" npcprice="-1"/>
+ <item npcvalue="0" weight="18.5" id="10201" name="dragon scale boots" npcprice="-1"/>
+ <item npcvalue="40000" weight="25.0" id="4033" name="draken boots" npcprice="-1"/>
+ <item npcvalue="0" weight="9.5" id="9019" name="firewalker boots" npcprice="-1"/>
+ <item npcvalue="0" weight="9.5" id="9018" name="firewalker boots (in use)" npcprice="-1"/>
+ <item npcvalue="2000" weight="12.0" id="7457" name="fur boots" npcprice="-1"/>
+ <item npcvalue="2500" weight="7.5" id="819" name="glacier shoes" npcprice="-1"/>
+ <item npcvalue="0" weight="31.0" id="3555" name="golden boots" npcprice="-1"/>
+ <item npcvalue="35000" weight="22.5" id="10323" name="guardian boots" npcprice="-1"/>
+ <item npcvalue="0" weight="9.0" id="3552" name="leather boots" npcprice="2"/>
+ <item npcvalue="2500" weight="7.5" id="820" name="lightning boots" npcprice="-1"/>
+ <item npcvalue="2500" weight="7.5" id="818" name="magma boots" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="6529" name="soft boots" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="3549" name="soft boots (in use)" npcprice="-1"/>
+ <item npcvalue="2000" weight="10.0" id="3550" name="patched boots" npcprice="-1"/>
+ <item npcvalue="3000" weight="8.0" id="5461" name="pirate boots" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="3551" name="sandals" npcprice="2"/>
+ <item npcvalue="30000" weight="29.0" id="3554" name="steel boots" npcprice="-1"/>
+ <item npcvalue="2500" weight="7.5" id="813" name="terra boots" npcprice="-1"/>
+ <item npcvalue="5000" weight="7.0" id="10386" name="zaoan shoes" npcprice="-1"/>
+ <category name="musical instruments"/>
+ <item npcvalue="0" weight="14.0" id="3103" name="cornucopia" npcprice="-1"/>
+ <item npcvalue="0" weight="42.0" id="2965" name="didgeridoo" npcprice="-1"/>
+ <item npcvalue="0" weight="32.0" id="2952" name="drum" npcprice="-1"/>
+ <item npcvalue="0" weight="23.0" id="2955" name="fanfare" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2963" name="harp" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="3252" name="horn of sundering" npcprice="-1"/>
+ <item npcvalue="0" weight="34.0" id="2950" name="lute" npcprice="-1"/>
+ <item npcvalue="0" weight="12.5" id="2949" name="lyre" npcprice="-1"/>
+ <item npcvalue="0" weight="8.2" id="2953" name="panpipes" npcprice="-1"/>
+ <item npcvalue="0" weight="0.0" id="2959" name="piano" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2957" name="post horn" npcprice="-1"/>
+ <item npcvalue="0" weight="24.0" id="2956" name="royal fanfare" npcprice="-1"/>
+ <item npcvalue="0" weight="22.0" id="2954" name="simple fanfare" npcprice="-1"/>
+ <item npcvalue="0" weight="30.0" id="2951" name="war drum" npcprice="-1"/>
+ <item npcvalue="0" weight="15.0" id="2958" name="war horn" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="2948" name="wooden flute" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="5786" name="wooden whistle" npcprice="-1"/>
+ <category name="party items"/>
+ <item npcvalue="0" weight="8.0" id="0" name="costume bag (common)" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="0" name="bag (deluxe costume)" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="654" name="bag (uncommon costume)" npcprice="-1"/>
+ <item npcvalue="0" weight="1.0" id="6576" name="fireworks rocket" npcprice="-1"/>
+ <item npcvalue="0" weight="0.1" id="0" name="green balloon" npcprice="-1"/>
+ <item npcvalue="0" weight="7.0" id="6279" name="party cake" npcprice="-1"/>
+ <item npcvalue="0" weight="7.5" id="6577" name="party hat" npcprice="-1"/>
+ <item npcvalue="0" weight="0.5" id="6572" name="party trumpet" npcprice="-1"/>
+ <item npcvalue="0" weight="6.0" id="906" name="present (explosive)" npcprice="199"/>
+ <item npcvalue="0" weight="0.1" id="0" name="red balloon" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="651" name="spellwand" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="6570" name="surprise bag (blue)" npcprice="-1"/>
+ <item npcvalue="0" weight="10.0" id="6571" name="surprise bag (red)" npcprice="-1"/>
+ <item npcvalue="0" weight="8.0" id="235" name="suspicious surprise bag" npcprice="-1"/>
+ <item npcvalue="0" weight="16.0" id="900" name="yellow pillow (supersoft)" npcprice="-1"/>
+ <category name="enchanted items"/>
+ <item npcvalue="20000" weight="10.0" id="5891" name="enchanted chicken wing" npcprice="-1"/>
+ <item npcvalue="0" weight="0.7" id="9109" name="fish flakes" npcprice="-1"/>
+ <item npcvalue="10000" weight="3.0" id="5885" name="flask of warrior's sweat" npcprice="-1"/>
+ <item npcvalue="8000" weight="1.0" id="5904" name="magic sulphur" npcprice="-1"/>
+ <item npcvalue="40000" weight="6.0" id="5884" name="spirit container" npcprice="-1"/>
+ <category name="metals"/>
+ <item npcvalue="0" weight="0.05" id="8775" name="gear wheel" npcprice="-1"/>
+ <item npcvalue="0" weight="0.35" id="9233" name="golem part" npcprice="-1"/>
+ <item npcvalue="15000" weight="50.0" id="5892" name="huge chunk of crude iron" npcprice="-1"/>
+ <item npcvalue="0" weight="2.0" id="5880" name="iron ore" npcprice="-1"/>
+ <item npcvalue="0" weight="2.5" id="9115" name="metal fitting" npcprice="-1"/>
+ <item npcvalue="10" weight="0.05" id="953" name="nail" npcprice="-1"/>
+ <item npcvalue="0" weight="5.0" id="5889" name="piece of draconian steel" npcprice="-1"/>
+ <item npcvalue="500" weight="5.0" id="5888" name="piece of hell steel" npcprice="-1"/>
+ <item npcvalue="0" weight="0.2" id="3110" name="piece of iron" npcprice="-1"/>
+ <item npcvalue="10000" weight="5.0" id="5887" name="piece of royal steel" npcprice="-1"/>
+ <item npcvalue="25" weight="0.2" id="5944" name="soul orb" npcprice="-1"/>
+ <category name="rods"/>
+ <item npcvalue="3000" weight="27.0" id="3067" name="hailstorm rod" npcprice="-1"/>
+ <item npcvalue="200" weight="21.0" id="3070" name="moonlight rod" npcprice="-1"/>
+ <item npcvalue="1000" weight="23.0" id="3069" name="necrotic rod" npcprice="-1"/>
+ <item npcvalue="0" weight="29.0" id="8083" name="northwind rod" npcprice="-1"/>
+ <item npcvalue="100" weight="19.0" id="3066" name="snakebite rod" npcprice="-1"/>
+ <item npcvalue="0" weight="27.0" id="8084" name="springsprout rod" npcprice="-1"/>
+ <item npcvalue="2000" weight="25.0" id="3065" name="terra rod" npcprice="-1"/>
+ <item npcvalue="4400" weight="29.0" id="8082" name="underworld rod" npcprice="-1"/>
+ <category name="spellbooks"/>
+ <item npcvalue="0" weight="28.0" id="11691" name="snake god's wristguard" npcprice="-1"/>
+ <item npcvalue="0" weight="18.0" id="3059" name="spellbook" npcprice="-1"/>
+ <item npcvalue="0" weight="28.5" id="8090" name="spellbook of dark mysteries" npcprice="-1"/>
+ <item npcvalue="4000" weight="19.5" id="8072" name="spellbook of enlightenment" npcprice="-1"/>
+ <item npcvalue="19000" weight="25.6" id="8075" name="spellbook of lost souls" npcprice="-1"/>
+ <item npcvalue="13000" weight="24.5" id="8074" name="spellbook of mind control" npcprice="-1"/>
+ <item npcvalue="8000" weight="21.0" id="8073" name="spellbook of warding" npcprice="-1"/>
+ <item npcvalue="0" weight="26.5" id="8076" name="spellscroll of prophecies" npcprice="-1"/>
+ <category name="wands"/>
+ <item npcvalue="2000" weight="25.0" id="3073" name="wand of cosmic energy" npcprice="-1"/>
+ <item npcvalue="1000" weight="23.0" id="3072" name="wand of decay" npcprice="-1"/>
+ <item npcvalue="1500" weight="27.0" id="8093" name="wand of draconia" npcprice="-1"/>
+ <item npcvalue="200" weight="23.0" id="3075" name="wand of dragonbreath" npcprice="-1"/>
+ <item npcvalue="3000" weight="27.0" id="3071" name="wand of inferno" npcprice="-1"/>
+ <item npcvalue="3600" weight="25.5" id="8092" name="wand of starstorm" npcprice="-1"/>
+ <item npcvalue="4400" weight="28.5" id="8094" name="wand of voodoo" npcprice="-1"/>
+ <item npcvalue="100" weight="19.0" id="3074" name="wand of vortex" npcprice="-1"/>
+</items>

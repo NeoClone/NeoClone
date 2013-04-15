@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<libfile>
+   <examples>
+       <category name="Runes">
+           <example name="Advanced Rune Maker">
+               <description>This script will make runes for you while doing all the necessary checks and reporting any problems that it encounters to you. You must have ActiveHotkeys script enabled to see the status. It can be enabled by going to Hud >> DisplaysList >> ActiveHotkeys.</description>
+               <content name="Adv Rune Maker">
+                   <hScript>init start &#xd;    --# Item config&#xd;    local blankRune_ID = 3147 --# Blank Rune&#xd;&#xd;    --# Spell config&#xd;    local manaToRune = !!manarune!! -- Extra 300mp to heal and safety&#xd;    local spellWords = "!!spell!!" --# Icicle&#xd;&#xd;    --# Alert config&#xd;    local alertBlanks = !!alert!! --# Alert when without blanks?&#xd;    local alertSound = "monster.wav"&#xd;init end&#xd;&#xd;--# Every 1~1.5s&#xd;auto(1000, 1500)&#xd;&#xd;listas("Rune Maker")&#xd;listcolor(0x58AFFF)&#xd;&#xd;--# If you have mana &amp; runes&#xd;if (($mp >= manaToRune) and (itemcount(blankRune_ID) >= 1)) then&#xd;    listas("Rune Maker: Creating rune")&#xd;    listcolor(0x56FF3F)&#xd;&#xd;    --# Create the rune&#xd;    cast(spellWords) wait(1500, 2000)&#xd;&#xd;elseif (itemcount(blankRune_ID) == 0) then&#xd;    listas("Rune Maker: No blank runes")&#xd;    listcolor(0xFF3F3F)&#xd;&#xd;    if (alertBlanks) then&#xd;        playsound(alertSound) wait(1000)&#xd;    end&#xd;end  </hScript>
+                   <type>ph</type>
+                   <input var="!!spell!!" default="adori frigo">Spell to cast:</input>
+                   <input var="!!manarune!!" default="760">Mana required to cast spell:</input>
+                   <input var="!!alert!!" default="true">Alert if no blank runes visible (true/false):</input>
+               </content>
+           </example>
+       </category>
+   </examples>
+</libfile>

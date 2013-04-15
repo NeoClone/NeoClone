@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libfile>
+	<help>
+		<title>&lt;u&gt;Raphaels's Functions&lt;/u&gt;</title>
+		<text>Well, this is my library. Here you will find some useful functions developed by me, most time savers. Give me suggestions and ideas if you like it.</text>
+
+
+		<title>General Information Functions</title>
+		<text>Functions that gives you some kind of information about tibia.</text>
+		
+		<function>
+      				<name>boatprice</name>
+				<parameters>string source, stirng destination</parameters>
+				<return>number</return>
+				<description>Returns the cost to travel from &lt;i&gt;source&lt;/i&gt; to &lt;i&gt;destination&lt;/i&gt;.</description>
+		</function>
+
+		<function>
+      				<name>canlevitate</name>
+				<parameters>number x, number y, opt number z</parameters>
+				<return>boolean</return>
+				<description>Returns if the specificed tile has enought crates/boxes etc to levitate.</description>
+		</function>
+
+		<function>
+				<name>flasks</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the number of visible small, medium and large empty flasks</description>
+		</function>
+
+		<function>
+				<name>gold</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the number of visible gold, including platinum and crystal coins</description>
+		</function>
+
+		<function>
+				<name>exptolvl</name>
+				<parameters>opt number baselevel, number level</parameters>
+				<return>int</return>
+				<description>Returns the amount of exp needed to reach level &lt;i&gt;level&lt;/i&gt; from level &lt;i&gt;baselevel&lt;/i&gt;. If you don't specify &lt;i&gt;baselevel&lt;/i&gt; it will be defaulted to 1.</description>
+		</function>
+
+		<function>
+				<name>finditem</name>
+				<parameters>number id, opt number index</parameters>
+				<return>number</return>
+				<description>Returns the location of the first item of id &lt;i&gt;id&lt;/i&gt; in the screen. If you don't want to get the first one, specify &lt;i&gt;index&lt;/i&gt;.</description>
+		</function>
+
+		<function>
+				<name>listversion</name>
+				<parameters></parameters>
+				<return>number</return>
+				<description>Returns Item ID List version.</description>
+		</function>
+
+		<function>
+				<name>getcont</name>
+				<parameters>opt string location, opt boolean bpsonly, opt number index</parameters>
+				<return>number/table</return>
+				<description>Returns all visible containers. Optionally, you can specify the &lt;i&gt;location&lt;/i&gt; for it to search. If you don't want the script to consider any container, you can specify &lt;i&gt;bpsonly&lt;/i&gt; to true, and it will only look for backpacks. Also, you can choose to get only one id, using the &lt;i&gt;index&lt;/i&gt; parameter.</description>
+		</function>
+    
+		<function>
+				<name>iscursonin</name>
+				<parameters>number sx, number sy, number fx, number fy, opt boolean area</parameters>
+				<return>bool</return>
+				<description>Returns true if mouse is inside the area specified by &lt;i&gt;sx, sy, fx, fy&lt;/i&gt;, Optionally, you can specify area as true to make &lt;i&gt;fx&lt;/i&gt; and &lt;i&gt;fy&lt;/i&gt; the side of the rectangle, instead of the other point of it. Example: iscursorin(30, 25, 60, 45) = iscursorin(30, 25, 30, 20, true)</description>
+		</function>
+
+		<function>
+				<name>sstime</name>
+				<parameters>string world</parameters>
+				<return>int</return>
+				<description>Returns the time to the next server save on world &lt;i&gt;world&lt;/i&gt;, in seconds. Example: sstime('pacera')</description>
+		</function>
+
+		<title>Scripting Help Functions</title>
+		<text>Here are some functions that might help you to write your own scripts. That doesn't mean the other ones might not.</text>
+
+		<function>
+      				<name>beep</name>
+				<parameters></parameters>
+				<return></return>
+				<description>Simply plays a beep.</description>
+		</function>
+
+		<function>
+				<name>cettime</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns current time in CET, in seconds.</description>
+		</function>
+
+		<function>
+				<name>cetoffset</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the offset from your current timezone to CET, in seconds.</description>
+		</function>
+		
+		<function>
+				<name>distto</name>
+				<parameters>int fx, int fy, int fz, int sx, int sy, int sz, bool anyfloor</parameters>
+				<return>int</return>
+				<description>Returns the first distance between the two group of coordinates. Optinally set &lt;i&gt;anyfloor&lt;/i&gt; to true in order to make it accept any floor, instead of only the current one. If &lt;i&gt;anyfloor&lt;/i&gt; is not true and the character isn't in the same floor, it will return -1.</description>
+		</function>
+		
+		<function>
+				<name>dropflasks</name>
+				<parameters></parameters>
+				<return></return>
+				<description>Simply moves all flask to ground.</description>
+		</function>
+
+		<function>
+				<name>exec</name>
+				<parameters>string execstring</parameters>
+				<return></return>
+				<description>Executes the code inside the string &lt;i&gt;execstring&lt;/i&gt;. Example: local command = 'say("wassup dude")' exec(command)</description>
+		</function>
+
+		<function>
+				<name>findrope</name>
+				<parameters></parameters>
+				<return>string</return>
+				<description>Looks for any rope in the characters inventory/hotkeys, and return its name.</description>
+		</function>
+
+		<function>
+				<name>findshovel</name>
+				<parameters></parameters>
+				<return>string</return>
+				<description>Looks for any shovel in the characters inventory/hotkeys, and return its name.</description>
+		</function>
+
+		<function>
+				<name>get</name>
+				<parameters>string setting</parameters>
+				<return>string</return>
+				<description>Returns the value of the setting &lt;i&gt;setting&lt;/i&gt;. Uses &lt;i&gt;getpath&lt;/i&gt; function to get the full path.</description>
+		</function>
+
+		<function>
+				<name>getpath</name>
+				<parameters>string setting</parameters>
+				<return>string</return>
+				<description>Returns the full path to the setting &lt;i&gt;setting&lt;/i&gt;. If it can't be found, returns nil.</description>
+		</function>
+
+		<function>
+				<name>math.format</name>
+				<parameters>number n, string pattern</parameters>
+				<return>str</return>
+				<description>Returns a string representation of the number &lt;i&gt;n&lt;/i&gt;, matching the specified &lt;i&gt;pattern&lt;/i&gt;. Example: math.format(30, "000.0") --> 030.0			math.format(30, "0.00") --> 30.00			math.format(30.25, "0.0") --> 30.25</description>
+		</function>
+
+		<function>
+				<name>moveitemlist</name>
+				<parameters>string locationto, string locationfrom, string/number item1, string/number item2, ...</parameters>
+				<return></return>
+				<description>Moves all items written in &lt;i&gt;itemlist&lt;/i&gt; to &lt;i&gt;locationto&lt;/i&gt;. If you specify &lt;i&gt;locationfrom&lt;/i&gt; it will get only items from that location. Example: moveitemlist('brocade backpack', 'red backpack', 'cyclops trophy', 'halberd', 'cyclops toe')</description>
+		</function>
+
+		<function>
+				<name>movewhilemoveable</name>
+				<parameters>number x, number y, number z, opt number dx, opt number dy, opt number dz</parameters>
+				<return></return>
+				<description>Moves all items from location &lt;i&gt;x&lt;/i&gt;, &lt;i&gt;y&lt;/i&gt;, &lt;i&gt;z;/i&gt;, while it's moveable. Optinally, you can specify &lt;i&gt;dx&lt;/i&gt;, &lt;i&gt;dy&lt;/i&gt;, &lt;i&gt;dz;/i&gt; as destination. Example: movewhilemoveable(1234, 4567, 9)</description>
+		</function>
+
+		<function>
+				<name>npctalk</name>
+				<parameters>string say1, string say2, ...</parameters>
+				<return></return>
+				<description>Will make your character say all text parameters given, in NPC channel. If it's not open, it will say the first phrase in default chuannel, and wait until it opens. Example: npctalk('hi', 'deposit all', 'yes', 'balance')</description>
+		</function>
+
+		<function>
+				<name>pm</name>
+				<parameters>string message, string player1, string player2, ...</parameters>
+ 				<return></return>
+				<description>Will message all players. First it will check if the correspondent channel is open, if it's not it will pm the player using '* playername * message' format.</description>
+		</function>
+
+		<function>
+				<name>set</name>
+				<parameters>string setting, string value, opt bool updategui</parameters>
+				<return>string</return>
+				<description>Sets any setting of the bot to the value specified by value. The full path will be get using &lt;i&gt;getpath&lt;/i&gt; function and value must be one of the possible values for that field typed in exactly as it appears in the settings. Optionally, you can pass false as the third paramater to prevent the value from updating in the GUI until you move your mouse over the setting. This is to speed things up since redrawing GUIs can be expensive on the CPU.</description>
+		</function>
+
+		<function>
+				<name>sethealrule</name>
+				<parameters>string rulename, opt string hprange, opt string mprange, opt string method, opt string condition, opt string spam</parameters>
+				<return></return>
+				<description>Simply set all settings of a HealRule. If any setting is not specified or empty, this one will not be modified. Examples: sethealrule('HealRule1', '300-900', '0-50%', '', 'if paralyze')		 sethealrule('HealRule1', '', '', 'health potion', 'paralyzed')		 sethealrule('HealRule1, '300 to 900', '0 to 15%', '', 'none', '200-400')</description>
+		</function>
+
+		<function>
+				<name>sethotkey</name>
+				<parameters>string hkname, string state</parameters>
+				<return></return>
+				<description>Sets the hotkey &lt;i&gt;hkname&lt;/i&gt; to state &lt;i&gt;state&lt;/i&gt;. &lt;i&gt;state&lt;/i&gt; will be converted using &lt;i&gt;toyesno()&lt;/i&gt; function.</description>
+		</function>
+
+		<function>
+				<name>string.at</name>
+				<parameters>string text, int n</parameters>
+				<return>str</return>
+				<description>Returns the &lt;i&gt;n&lt;/i&gt;th chracter inside string &lt;i&gt;text&lt;/i&gt;.</description>
+		</function>
+
+		<function>
+				<name>string.cap</name>
+				<parameters>string text</parameters>
+				<return>str</return>
+				<description>Returns the string &lt;i&gt;text&lt;/i&gt; with first letter in upper case and all others in lower case. Example: string.capitalize('this is A TEST') --> 'This is a test'.</description>
+		</function>
+
+		<function>
+				<name>string.capall</name>
+				<parameters>string text</parameters>
+				<return>str</return>
+				<description>Returns the string &lt;i&gt;text&lt;/i&gt; with the first letter of each word in upper case and all others in lower case. Example: string.capitalizeall('this is A TEST') --> 'This Is A Test'.</description>
+		</function>
+
+		<function>
+				<name>string.capitalize</name>
+				<parameters>string text</parameters>
+				<return>str</return>
+				<description>Returns the string &lt;i&gt;text&lt;/i&gt; with first letter in upper case and all others in lower case. Example: string.capitalize('this is A TEST') --> 'This is a test'.</description>
+		</function>
+
+		<function>
+				<name>string.capitalizeall</name>
+				<parameters>string text</parameters>
+				<return>str</return>
+				<description>Returns the string &lt;i&gt;text&lt;/i&gt; with the first letter of each word in upper case and all others in lower case. Example: string.capitalizeall('this is A TEST') --> 'This Is A Test'.</description>
+		</function>
+
+		<function>
+				<name>string.end</name>
+				<parameters>string text, string substr</parameters>
+				<return>bool</return>
+				<description>Returns wheter &lt;i&gt;text&lt;/i&gt; last characters are lt;i&gt;substr&lt;/i&gt;.</description>
+		</function>
+
+		<function>
+				<name>string.explode</name>
+				<parameters>string text, string separator</parameters>
+				<return>str</return>
+				<description>Returns a table with all sub-strings split by &lt;i&gt;separator&lt;/i&gt;. Example: string.explode('Hello # My # Name # Is # Anonymickey', '#') --> table = {'Hello', 'My', 'Name', 'Is', 'Anonymickey'}. Credits to Socket and Hardek for this one.</description>
+		</function>
+
+		<function>
+				<name>string.starts</name>
+				<parameters>string text, string substr</parameters>
+				<return>bool</return>
+				<description>Returns wheter &lt;i&gt;text&lt;/i&gt; first characters are lt;i&gt;substr&lt;/i&gt;.</description>
+		</function>
+
+		<function>
+				<name>string.sub2</name>
+				<parameters>string s, number i, opt number l</parameters>
+				<return>string</return>
+				<description>Returns the substring of &lt;i&gt;s&lt;/i&gt; that starts at &lt;i&gt;i&lt;/i&gt; and continues for &lt;i&gt;l&lt;/i&gt; characters.</description>
+		</function>
+
+		<function>
+				<name>sqmWidth</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the width of each sqm in your screen.</description>
+		</function>
+
+		<function>
+				<name>table.find2</name>
+				<parameters>table, value, arg, notable, argonly</parameters>
+				<return>int</return>
+				<description>Returns the index of &lt;i&gt;value&lt;/i&gt; inside &lt;i&gt;table&lt;/i&gt;, nil if it can't be found. If you don't specify &lt;i&gt;notable&lt;/i&gt; as true it will search inside any table in the main one and return the index inside that secondary table also, as a secondary parameter. Optionally, you can specify &lt;i&gt;arg&lt;/i&gt; if your main table is filled with other tables, and the function will look only on this index. You can also set &lt;i&gt;argonly&lt;/i&gt; if you don't want to search for values outside secondary tables. Examples: table.find2(t, 'distance')			table.find2(t, 'distance', 'type')			table.find2(t, 'distance', 'type', false, true)			table.find2(t, 'distance', '', true)</description>
+		</function>
+
+		<function>
+				<name>table.isempty</name>
+				<parameters>table t</parameters>
+				<return>bool</return>
+				<description>Returns true if table &lt;i&gt;t&lt;/i&gt; is empty.</description>
+		</function>
+
+		<function>
+				<name>table.random</name>
+				<parameters>table t, number start, number finish, opt number count, opt number step</parameters>
+				<return>tab</return>
+				<description>Returns a table filled with random numbers between &lt;i&gt;start&lt;/i&gt; and &lt;i&gt;finish&lt;/i&gt;. If &lt;i&gt;count&lt;/i&gt; is specified, it's the maximum length of the table, meaning it will return only &lt;i&gt;count&lt;/i&gt; random numbers inside the given range. You can also specify &lt;i&gt;step&lt;/i&gt;, wich means it will count only multiples. Example: table.random(5, 10) --> {7, 10, 9, 8, 5, 6}			table.random(5, 10, 3) --> {7, 10, 9}			table.random(5, 10, 0, 2) --> {7, 9, 5}</description>
+		</function>
+
+		<function>
+				<name>table.size</name>
+				<parameters>table t</parameters>
+				<return>int</return>
+				<description>Returns the number of components inside the table.</description>
+		</function>
+
+		<function>
+				<name>time</name>
+				<parameters>number n, opt string pattern</parameters>
+				<return>str</return>
+				<description>Returns a string representation of a second time interval &lt;i&gt;n&lt;/i&gt; in the format "dd:hh:mm:ss" depending on lenght. Optionally, you can set the format by specifying &lt;i&gt;pattern&lt;/i&gt; parameter. Examples: time(5000) --> 01:23:20			time(5000, 'hh:mm') --> 01:23			time(30) --> 00:30</description>
+		</function>
+
+		<function>
+				<name>timezone</name>
+				<parameters></parameters>
+				<return>str</return>
+				<description>Returns a string with your time zone based on your current location. Example: timezone() --> GMT -2 (If you are from Brazil)</description>
+		</function>
+
+		<function>
+				<name>toyesno</name>
+				<parameters>str/bool/num arg</parameters>
+				<return>str</return>
+				<description>Converts the argument in 'yes' or 'no'. &lt;i&gt;arg&lt;/i&gt; can be a boolean value, a string (which will be always 'yes', unless it's 'no' or empty), or a number (which will be always 'yes', unless it's 0).</description>
+		</function>
+
+		<title>Character Info Functions</title>
+		<text>Functions that can give you information about your character.</text>
+
+		<function>
+				<name>bestskill</name>
+				<parameters></parameters>
+				<return>tab</return>
+				<description>Returns a table with type, skill and skillpc of the your highest skill.</description>
+		</function>
+
+		<function>
+				<name>levelpc</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the percent missing for you to advance a level.</description>
+		</function>
+
+		<function>
+				<name>maxcap</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the estimated maximun capacity of your character, based on vocation() function.</description>
+		</function>
+
+		<function>
+				<name>skilltime</name>
+				<parameters>string skilltype</parameters>
+				<return>int</return>
+				<description>Returns estimated time to advance in skill &lt;i&gt;skilltype&lt;/i&gt; in seconds. &lt;i&gt;skilltype&lt;/i&gt; can be: 'magic', 'fist', 'club', 'sword', 'axe', 'distance', 'shielding and 'fishing. Note: It will only start to 'analyze' when you run it for the first time. Example: skilltime('sword')</description>
+		</function>
+
+		<function>
+				<name>utctime</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns current time in UTC, in seconds.</description>
+		</function>
+
+		<function>
+				<name>utcoffset</name>
+				<parameters></parameters>
+				<return>int</return>
+				<description>Returns the offset from your current timezone to UTC, in seconds.</description>
+		</function>
+
+		<function>
+				<name>vocation</name>
+				<parameters></parameters>
+				<return>str</return>
+				<description>Returns your character vocation. It will try to differ druid from sorcerer checking if it's wearing any rod/wand, if it's not it will return only 'mage'. Also, if it's not possible to determinate your character vocation by any method, it will return 'unknown'.</description>
+		</function>
+
+		<function>
+				<name>weaponskill</name>
+				<parameters></parameters>
+				<return>tab</return>
+				<description>Returns a table with type, skill and skillpc of the your current weapon skill.</description>
+		</function>
+
+		<title>File Handling Functions</title>
+
+		<text>These functions will help you when working with files, reading, writing, anything related to it.</text>
+		<function>
+				<name>clearfile</name>
+				<parameters>string filename</parameters>
+				<return></return>
+				<description>Erases all the content inside file &lt;i&gt;filename&lt;/i&gt;. Example: clearfile('test.txt')</description>
+		</function>
+
+		<function>
+				<name>createfile</name>
+				<parameters>string filename</parameters>
+				<return></return>
+				<description>Creates a file with the name &lt;i&gt;filename&lt;/i&gt;, if it doesn't exist. Example: createfile('test.txt')</description>
+		</function>
+
+		<function>
+				<name>execfile</name>
+				<parameters>string filename</parameters>
+				<return></return>
+				<description>Executes the code inside the file &lt;i&gt;filename&lt;/i&gt;. Example: exec('test.txt')</description>
+		</function>	
+
+		<function>
+				<name>isfileline</name>
+				<parameters>string filename, string text</parameters>
+				<return>bool</return>
+				<description>If &lt;i&gt;text&lt;/i&gt; is a line inside file &lt;i&gt;filename&lt;/i&gt;, returns line number, false otherwise. Example: isfileline('test.txt', 'test')</description>
+		</function>
+
+		<function>
+				<name>createfile</name>
+				<parameters>string filename</parameters>
+				<return></return>
+				<description>Creates a file with the name &lt;i&gt;filename&lt;/i&gt;, if it doesn't exist. Example: createfile('test.txt')</description>
+		</function>
+
+		<function>
+				<name>filecontent</name>
+				<parameters>string filename</parameters>
+				<return>string</return>
+				<description>Returns the content of the whole file &lt;i&gt;filename&lt;/i&gt;. Example: filecontent('test.txt')</description>
+		</function>
+
+		<function>
+				<name>fileexists</name>
+				<parameters>string filename</parameters>
+				<return>bool</return>
+				<description>Returns true if the file &lt;i&gt;filename&lt;/i&gt; exists, false otherwise. Example: fileexists('test.txt')</description>
+		</function>
+
+		<function>
+				<name>fileline</name>
+				<parameters>string filename, number linenum</parameters>
+				<return>str</return>
+				<description>Returns line of number &lt;i&gt;linenum&lt;/i&gt; of the file &lt;i&gt;filename&lt;/i&gt;. Example: fileline('test.txt', 10)</description>
+		</function>
+
+		<function>
+				<name>filelinescount</name>
+				<parameters>string filename</parameters>
+				<return>int</return>
+				<description>Returns number of lines of file &lt;i&gt;linenum&lt;/i&gt;. Returns 0 if it doesn't exists, or if it's empty. Example: filelinescount('test.txt')</description>
+		</function>
+
+		<function>
+				<name>filewrite</name>
+				<parameters>string filename, string text</parameters>
+				<return></return>
+				<description>Writes &lt;i&gt;text&lt;/i&gt; in the file &lt;i&gt;filename&lt;/i&gt;. Example: filewrite('test.txt', 'This is my test.')</description>
+		</function>
+
+		<function>
+				<name>filewriteline</name>
+				<parameters>string filename, string text</parameters>
+				<return></return>
+				<description>Writes &lt;i&gt;text&lt;/i&gt; in the file &lt;i&gt;filename&lt;/i&gt;. Example: filewriteline('test.txt', 'This is my test.')</description>
+		</function>
+
+		<function>
+				<name>filerewrite</name>
+				<parameters>string filename, string text</parameters>
+				<return></return>
+				<description>Clears the file &lt;i&gt;filename&lt;/i&gt; and writes &lt;i&gt;text&lt;/i&gt; in it . Example: filerewrite('test.txt', 'This is my test.')</description>
+		</function>
+
+		<title>Input Functions</title>
+
+		<text>Here are some general functions, I will probably organize it better later.</text>
+		<function>
+				<name>keyid</name>
+				<parameters>string/number key</parameters>
+				<return>hex</return>
+				<description>Returns the correspondent hexadecimal code of key &lt;i&gt;key&lt;/i&gt;. Useful if you don't want to keep looking at internet lists while using keyevent(..) function. Example: keyevent(keyid('tab')) or keyevent(keyid('a'))</description>
+		</function>
+
+		<function>
+				<name>press</name>
+				<parameters>string keys</parameters>
+				<return></return>
+				<description>Presses the keys inside the string &lt;i&gt;keys&lt;/i&gt;. Special keys MUST be inside [brackets]. Example: press('account[tab]password[enter]')</description>
+		</function>
+
+
+	</help>
+</libfile>

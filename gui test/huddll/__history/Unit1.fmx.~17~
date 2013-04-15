@@ -1,0 +1,22 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Mo'#39'bot HUD'
+  BorderStyle = bsNone
+  ClientHeight = 400
+  ClientWidth = 600
+  Transparency = True
+  TopMost = True
+  Visible = False
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnCloseQuery = FormCloseQuery
+  StyleLookup = 'backgroundstyle'
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 252
+    Top = 108
+  end
+end

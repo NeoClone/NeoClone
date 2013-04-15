@@ -1,0 +1,416 @@
+object healerForm: ThealerForm
+  Left = 0
+  Top = 0
+  BorderStyle = bsToolWindow
+  Caption = 'Healer'
+  ClientHeight = 323
+  ClientWidth = 394
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 394
+    Height = 323
+    ActivePage = TabSheet2
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    MultiLine = True
+    ParentFont = False
+    TabOrder = 0
+    object TabSheet2: TTabSheet
+      Caption = 'heal rules'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ImageIndex = 1
+      ParentFont = False
+      object Label2: TLabel
+        Left = 180
+        Top = 52
+        Width = 61
+        Height = 13
+        Caption = 'health range'
+      end
+      object Label1: TLabel
+        Left = 239
+        Top = 74
+        Width = 10
+        Height = 13
+        Caption = 'to'
+      end
+      object Label6: TLabel
+        Left = 180
+        Top = 147
+        Width = 59
+        Height = 13
+        Caption = 'heal method'
+      end
+      object Label3: TLabel
+        Left = 239
+        Top = 122
+        Width = 10
+        Height = 13
+        Caption = 'to'
+      end
+      object Label4: TLabel
+        Left = 180
+        Top = 100
+        Width = 57
+        Height = 13
+        Caption = 'mana range'
+      end
+      object Label5: TLabel
+        Left = 178
+        Top = 195
+        Width = 72
+        Height = 13
+        Caption = 'extra condition'
+      end
+      object Label8: TLabel
+        Left = 178
+        Top = 241
+        Width = 48
+        Height = 13
+        Caption = 'spam rate'
+      end
+      object Label7: TLabel
+        Left = 237
+        Top = 263
+        Width = 10
+        Height = 13
+        Caption = 'to'
+      end
+      object Label14: TLabel
+        Left = 313
+        Top = 263
+        Width = 13
+        Height = 13
+        Caption = 'ms'
+      end
+      object ListBox1: TListBox
+        Left = 12
+        Top = 20
+        Width = 157
+        Height = 209
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ItemHeight = 13
+        ParentFont = False
+        TabOrder = 0
+        OnClick = ListBox1Click
+      end
+      object Edit1: TEdit
+        Left = 180
+        Top = 20
+        Width = 194
+        Height = 21
+        Enabled = False
+        TabOrder = 1
+      end
+      object healthFrom: TSpinEdit
+        Left = 180
+        Top = 71
+        Width = 53
+        Height = 22
+        Enabled = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 2
+        Value = 0
+      end
+      object healthTo: TSpinEdit
+        Left = 256
+        Top = 71
+        Width = 53
+        Height = 22
+        Enabled = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 3
+        Value = 0
+      end
+      object healthType: TComboBox
+        Left = 315
+        Top = 71
+        Width = 61
+        Height = 21
+        Style = csDropDownList
+        Enabled = False
+        ItemIndex = 0
+        TabOrder = 4
+        Text = 'exact'
+        Items.Strings = (
+          'exact'
+          'percent')
+      end
+      object manaFrom: TSpinEdit
+        Left = 180
+        Top = 119
+        Width = 53
+        Height = 22
+        Enabled = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 5
+        Value = 0
+      end
+      object manaTo: TSpinEdit
+        Left = 256
+        Top = 119
+        Width = 53
+        Height = 22
+        Enabled = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 6
+        Value = 0
+      end
+      object manaType: TComboBox
+        Left = 315
+        Top = 119
+        Width = 61
+        Height = 21
+        Style = csDropDownList
+        Enabled = False
+        ItemIndex = 0
+        TabOrder = 7
+        Text = 'exact'
+        Items.Strings = (
+          'exact'
+          'percent')
+      end
+      object healMethod: TComboBox
+        Left = 178
+        Top = 166
+        Width = 196
+        Height = 21
+        Style = csDropDownList
+        Enabled = False
+        TabOrder = 8
+        Items.Strings = (
+          'Light Healing')
+      end
+      object extraCondition: TComboBox
+        Left = 178
+        Top = 214
+        Width = 196
+        Height = 21
+        Style = csDropDownList
+        Enabled = False
+        ItemIndex = 0
+        TabOrder = 9
+        Text = 'no condition'
+        Items.Strings = (
+          'no condition'
+          'if paralyzed'
+          'if strengthened'
+          'if not strengthened')
+      end
+      object spamRateFrom: TSpinEdit
+        Left = 178
+        Top = 260
+        Width = 53
+        Height = 22
+        Enabled = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 10
+        Value = 200
+      end
+      object spamRateTo: TSpinEdit
+        Left = 254
+        Top = 260
+        Width = 53
+        Height = 22
+        Enabled = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 11
+        Value = 400
+      end
+      object Button2: TButton
+        Left = 112
+        Top = 235
+        Width = 57
+        Height = 21
+        Caption = 'delete'
+        Enabled = False
+        TabOrder = 12
+      end
+      object Button1: TButton
+        Left = 12
+        Top = 235
+        Width = 94
+        Height = 21
+        Caption = 'new'
+        TabOrder = 13
+        OnClick = Button1Click
+      end
+      object methodPriority: TButton
+        Left = 12
+        Top = 262
+        Width = 157
+        Height = 21
+        Caption = 'method priority'
+        Enabled = False
+        TabOrder = 14
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'mana training'
+      ImageIndex = 1
+      object Label9: TLabel
+        Left = 12
+        Top = 12
+        Width = 63
+        Height = 13
+        Caption = 'mana missing'
+      end
+      object Label10: TLabel
+        Left = 71
+        Top = 34
+        Width = 10
+        Height = 13
+        Caption = 'to'
+      end
+      object Label11: TLabel
+        Left = 184
+        Top = 12
+        Width = 46
+        Height = 13
+        Caption = 'train spell'
+      end
+      object Label12: TLabel
+        Left = 12
+        Top = 64
+        Width = 48
+        Height = 13
+        Caption = 'spam rate'
+      end
+      object Label13: TLabel
+        Left = 71
+        Top = 86
+        Width = 10
+        Height = 13
+        Caption = 'to'
+      end
+      object Label15: TLabel
+        Left = 147
+        Top = 86
+        Width = 13
+        Height = 13
+        Caption = 'ms'
+      end
+      object mtManaMissingFrom: TSpinEdit
+        Left = 12
+        Top = 31
+        Width = 53
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 0
+        Value = 5
+      end
+      object mtManaMissingTo: TSpinEdit
+        Left = 88
+        Top = 31
+        Width = 53
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 1
+        Value = 40
+      end
+      object mtTrainSpell: TComboBox
+        Left = 182
+        Top = 31
+        Width = 196
+        Height = 21
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object mtSpamRateFrom: TSpinEdit
+        Left = 12
+        Top = 83
+        Width = 53
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 3
+        Value = 500
+      end
+      object mtSpamRateTo: TSpinEdit
+        Left = 88
+        Top = 83
+        Width = 53
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 4
+        Value = 1000
+      end
+      object Button4: TButton
+        Left = 232
+        Top = 268
+        Width = 146
+        Height = 21
+        Caption = 'spell priority'
+        TabOrder = 5
+      end
+      object mtActive: TCheckBox
+        Left = 12
+        Top = 268
+        Width = 113
+        Height = 17
+        Caption = 'mana training active'
+        TabOrder = 6
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'settings'
+      ImageIndex = 2
+      object Label16: TLabel
+        Left = 12
+        Top = 12
+        Width = 89
+        Height = 13
+        Caption = 'ping compensation'
+      end
+      object CheckBox2: TCheckBox
+        Left = 12
+        Top = 268
+        Width = 85
+        Height = 17
+        Caption = 'healing active'
+        TabOrder = 0
+      end
+      object SpinEdit11: TSpinEdit
+        Left = 12
+        Top = 31
+        Width = 53
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 1
+        Value = 30
+      end
+    end
+  end
+end

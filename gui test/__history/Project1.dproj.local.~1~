@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\windows.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\chat.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\unitLoadDLL.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\featuresForms\healer.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\Memory.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\unitLoadDLL.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\GDIPOBJ.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\settingsForm.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\log.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\addresses.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\Inputer.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dproj,C:\Users\Ja\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\Ja\Desktop\Projekty\delphi\gui test\Project1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\gamewindow.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\containerWindows.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\gui.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\lua\LuaClass.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\containers.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\map.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\mobot.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\xml\configXML.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dfm,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.dfm=C:\Users\Ja\Desktop\Projekty\delphi\gui test\featuresForms\healer.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\settingsForm.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\mobot.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\xml\configXML.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dfm,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.dfm=C:\Users\Ja\Desktop\Projekty\delphi\gui test\settingsForm.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.602,C:\Users\Ja\Desktop\Projekty\delphi\gui test\gdiplus\GdiPlus.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\GDIPUTIL.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dfm,C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit2.dfm=C:\Users\Ja\Desktop\Projekty\delphi\gui test\log.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dfm,C:\Users\Ja\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Ja\Desktop\Projekty\delphi\gui test\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\GDIPAPI.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\xml\configXML.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\xml\settingsXML.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\gui.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\gui\guiclass.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dfm,C:\Users\Ja\Desktop\Projekty\delphi\gui test\settingsForm.dfm=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\xml\configXML.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\luas.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,C:\Users\Ja\Desktop\Projekty\delphi\gui test\ClassMemory.pas=C:\Users\Ja\Desktop\Projekty\delphi\gui test\Memory.pas</Transaction>
+    <Transaction>2012-01-01 20:10:41.367,=C:\Users\Ja\Desktop\Projekty\delphi\clean\displayUnit.pas</Transaction>
+    <Transaction>2012-01-01 20:11:17.671,C:\Users\Ja\Desktop\Projekty\delphi\clean\displayUnit.pas=</Transaction>
+    <Transaction>2012-01-01 20:13:12.809,=C:\Users\Ja\Desktop\Projekty\delphi\clean\displayUnit.pas</Transaction>
+  </Transactions>
+</BorlandProject>

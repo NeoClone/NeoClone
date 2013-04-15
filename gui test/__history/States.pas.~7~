@@ -1,0 +1,62 @@
+unit States;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,settingsFormUnit,
+  Vcl.ExtCtrls;
+
+type
+  TEStates = class(TForm)
+    Cavebot: TCheckBox;
+    Healer: TCheckBox;
+    Looting: TCheckBox;
+    ManaTraining: TCheckBox;
+    Targeting: TCheckBox;
+    Timer1: TTimer;
+    procedure HealerClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+
+  end;
+
+var
+  EStates: TEStates;
+  tree: TsettingsForm;
+
+implementation
+
+{$R *.dfm}
+     uses Unit1;
+
+
+procedure TEStates.HealerClick(Sender: TObject);
+begin
+Timer1.Enabled:= False;
+if (tree.getsetting('Healer/HealerEnabled') = 'yes') and not EStates.healer.Checked then
+begin
+tree.setsetting('Healer/HealerEnabled','no');
+EStates.healer.Checked:= False;
+end
+else if (tree.getsetting('Healer/HealerEnabled') = 'no') and EStates.healer.Checked then
+begin
+tree.setsetting('Healer/HealerEnabled','yes');
+EStates.healer.Checked:= True;
+end;
+Timer1.Enabled:= True;
+end;
+
+procedure TEStates.Timer1Timer(Sender: TObject);
+begin
+  if (tree.getsetting('Healer/HealerEnabled') = 'yes') and not EStates.Healer.Checked then
+       EStates.healer.Checked:= True
+  else if (tree.getsetting('Healer/HealerEnabled') = 'no') and EStates.Healer.Checked then
+  EStates.healer.Checked:= False;
+end;
+
+end.

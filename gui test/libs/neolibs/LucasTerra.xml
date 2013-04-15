@@ -1,0 +1,3124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libfile>
+  <help>
+    <title>&lt;u&gt;Lucas Terra's Functions&lt;/u&gt;</title>
+    <text>This is my library file which contains useful functions that enhance the basic functions of Neobot or use them to create additional functionality.</text>
+    <title>Alert Functions</title>
+    <text>The following functions are related with alarms on bot.</text>
+    <function>
+      <name>addtosafelist</name>
+      <parameters>string alarmtype, string playername1, string playername2, ...</parameters>
+      <return></return>
+      <description>Adds players to safe list.</description>
+    </function>
+    <function>
+      <name>playsoundflash</name>
+      <parameters>string soundname</parameters>
+      <return></return>
+      <description>Plays a sound and flashes the client.</description>
+    </function>
+    <function>
+      <name>removefromsafelist</name>
+      <parameters>string alarmtype, string playername1, string playername2, ...</parameters>
+      <return></return>
+      <description>Remove players to safe list.</description>
+    </function>
+    <function>
+      <name>setalarm</name>
+      <parameters>string alarmtype, string playsound, string pausebot, string logout</parameters>
+      <description>Changes the activity of an alarm. &lt;i&gt;alarmtype&lt;/i&gt; can be: 'playeronscreen', 'playerattacking', 'defaultmessage', 'privatemessage', 'gmdetected', 'disconnected', 'crashfrozed'. If you activate or deactivate playsound it will automatically do the same for FlashClient. Example:
+setalarm('playeronscreen','on','off','off') -- Will enable playing sound and flashing client, disable pausing cavebot and disable auto-logout when player on screen.</description>
+    </function>
+    <title>Creature Functions</title>
+    <text>The following functions issue an event related with creature manipulation.</text>
+    <function>
+      <name>castspell</name>
+      <parameters>string name, optional pointer creature</parameters>
+      <return></return>
+      <description>Casts the spell if you have enough mana, level, soul, etc. needed for the spell. If you pass a &lt;i&gt;complement&lt;/i&gt; it will check if you can cast the spell on creature &lt;i&gt;complement&lt;/i&gt;. Example: castspell('exevo vis hur', $attacked), casts energy wave only if your current attacked creature is on spell range.</description>
+    </function>
+    <function>
+      <name>castspellarea</name>
+      <parameters>string name, int amount, optional bool ignoreplayers, string monstername1, string monstername2, ...</parameters>
+      <return></return>
+      <description>Casts the spell &lt;u&gt;name&lt;/u&gt; if more than &lt;u&gt;amount&lt;/u&gt; monsters will get damage because of it, it won't cast if there is a player on the spell area, unless you pass &lt;u&gt;ignoreplayers&lt;/u&gt; as true. If you don't pass any monster, it will consider all monsters, so you can optionally choose which monsters you want to consider.</description>
+    </function>
+    <function>
+      <name>caststrike</name>
+      <parameters>int a, int b</parameters>
+      <return></return>
+      <description>Will cast the best strike spell on current attacked monster. The &lt;i&gt;a, b&lt;/i&gt; is the delay between each strike spell.</description>
+    </function>
+    <function>
+      <name>caststrongstrike</name>
+      <parameters>int a, int b, optional int minimumpc</parameters>
+      <return></return>
+      <description>Will cast the best strong strike spell on current attacked monster. The &lt;i&gt;a, b&lt;/i&gt; is the delay between each strike spell. Minimum pc is the minimum damage mod to cast a strong strike spell.</description>
+    </function>
+    <function>
+      <name>cancastspell</name>
+      <parameters>string name, optional pointer creature</parameters>
+      <return>bool</return>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if you have enough mana and soul points, if you have level and mlevel high enough to cast spell &lt;u&gt;spellname&lt;/u&gt;, false otherwise. Case the spell you're trying to cast needs a target, you can pass the target as an optional creature, so it will tell if target is on spell range. You can pass 'strike' or 'strong strike' as &lt;u&gt;spellname&lt;/u&gt;, to check if you're able to cast the best strong/strike spell.</description>
+    </function>
+    <function>
+      <name>cooleddown</name>
+      <parameters>string spellname</parameters>
+      <return>bool</return>
+      <description>Returns &lt;i&gt;true&lt;/i&gt; if the cooldown for spell &lt;i&gt;spellname&lt;/i&gt; is 0, false otherwise.</description>
+    </function>
+    <function>
+      <name>findcreature</name>
+      <parameters>string creaturename</parameters>
+      <return>pointer</return>
+      <description>Will search for every creature on screen, and check if a creature called by &lt;i&gt;creaturename&lt;/i&gt; is on screen, if so, it will return this creature're informations, else, it will return nil. Example:
+local v = findcreature('Bubble')
+print(v.id) -- Will print Bubble's ID if she was found on screen</description>
+    </function>
+    <function>
+      <name>findmonstersonspellrange</name>
+      <parameters>string spelltype, direction</parameters>
+      <return>pointer1, pointer2, ...</return>
+      <description>Will iterate trought all monsters on screen and check which of these are on spell range of spell &lt;i&gt;spelltype&lt;/i&gt;. Check &lt;u&gt;cancastspell&lt;/u&gt; function for more information about &lt;i&gt;spelltype&lt;/i&gt;. The function returns pointers for all monsters. You can create a table with these by doing: &lt;u&gt;local monsters = {findmonstersonspellrange('6x6')}&lt;/u&gt;.</description>
+    </function>
+    <function>
+      <name>findplayersonspellrange</name>
+      <parameters>string spelltype, direction</parameters>
+      <return>pointer1, pointer2, ...</return>
+      <description>Will iterate trought all players on screen and check which of these are on spell range of spell &lt;i&gt;spelltype&lt;/i&gt;. Check &lt;u&gt;cancastspell&lt;/u&gt; function for more information about &lt;i&gt;spelltype&lt;/i&gt;. The function returns pointers for all monsters. You can create a table with these by doing: &lt;u&gt;local players = {findplayersonspellrange('bigwave')}&lt;/u&gt;.</description>
+    </function>
+    <function>
+      <name>findcreatureontile</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>pointer</return>
+      <description>Returns the first creature found on tile &lt;i&gt;x,y,z&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>getbestspell</name>
+      <parameters>string monstername, string type</parameters>
+      <return>string</return>
+      <description>Returns the best strike spell to shoot in a monster. It will check for the best strike spell (exori frigo, exori flam...) to shoot in a &lt;i&gt;monstername&lt;/i&gt;. Example: getbestspell('rat', 'strong strike') or getbestspell('demon', 'strike')</description>
+    </function>
+    <function>
+      <name>getplayerteam</name>
+      <parameters>string playername</parameters>
+      <return>int</return>
+      <description>Returns the player's team: TEAM_SELF or TEAM_FRIEND or TEAM_ENEMY or TEAM_LEADER or TEAM_NOTEAM</description>
+    </function>
+    <function>
+      <name>iscreaturereachable</name>
+      <parameters>pointer creaturename</parameters>
+      <return>bool</return>
+      <description>Returns true if a creature is reachable, false otherwise.</description>
+    </function>
+    <function>
+      <name>isonspellarea</name>
+      <parameters>pointer creature, string spelltype, optional string direction</parameters>
+      <return>bool</return>
+      <description>Returns true if you can cast a spell of type &lt;i&gt;spelltype&lt;/i&gt; on the creature &lt;i&gt;creature&lt;/i&gt;, false otherwise. &lt;i&gt;spelltype&lt;/i&gt; can be: 'smallwave', 'bigwave', 'smallbeam', 'bigbeam', 'strike', '1x1', '2x2', '3x3', '5x5' and '6x6'. The &lt;i&gt;direction&lt;/i&gt; can be passed to tell if you can cast spell by turning to some direction. &lt;i&gt;direction&lt;/i&gt; can be: 'w', 'e', 's', 'n', 'any' or &lt;u&gt;nil&lt;/u&gt;.</description>
+    </function>
+    <function>
+      <name>ispk</name>
+      <parameters>pointer creature</parameters>
+      <return>bool</return>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if &lt;i&gt;creature&lt;/i&gt; has a white, red, yellow or orange, false otherwise.</description>
+    </function>
+    <function>
+      <name>maroundignore</name>
+      <parameters>int monsterdist, string monster1, string monster2...</parameters>
+      <return>int</return>
+      <description>Returns how many monsters on your screen which are not on the parameters list. Example: maroundignore(7, 'Rat', 'Bug') will return how many monsters that aren't Rat nor Bug are on your screen.</description>
+    </function>
+    <function>
+      <name>maroundfloor</name>
+      <parameters>int monsterdist, int or string floordifference, string monster1, string monster2...</parameters>
+      <return>int</return>
+      <description>Returns how many monsters, considering all the visible floors. You may specify the monster distance on &lt;i&gt;monsterdist&lt;/i&gt;. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2.</description>
+    </function>
+    <function>
+      <name>maroundfloorignore</name>
+      <parameters>int monsterdist, int or string floordifference, string monstertoignore1, string monstertoignore2...</parameters>
+      <return>int</return>
+      <description>Returns how many monsters, considering all the visible floors. You may specify the monster distance on &lt;i&gt;monsterdist&lt;/i&gt;. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2. It will ignore the monsters you specify, it's like a safe list.</description>
+    </function>
+    <function>
+      <name>maroundspell</name>
+      <parameters>string spelltype, optional string direction, string monstername1, string monstername2, ...</parameters>
+      <return>int</return>
+      <description>Returns in how many monsters you can cast the spell that has area of &lt;i&gt;spelltype&lt;/i&gt;. If no monsters was specified, then it will consider all monsters. To check the possible spelltypes check the function &lt;i&gt;cancastspell&lt;/i&gt;. Optionally you can pass a direction, to tell how many monsters would recieve your spell if you turned in to direction &lt;i&gt;direction&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>maroundspellignore</name>
+      <parameters>string spelltype, optional string direction, string monstername1, string monstername2, ...</parameters>
+      <return>int</return>
+      <description>Same as &lt;i&gt;maroundspell&lt;/i&gt; but instead of considering monsters on table it will ignore monsters on table.</description>
+    </function>
+    <function>
+      <name>massheal</name>
+      <parameters>int hppc, int amount, optional bool considerenemies, optional table enemylist, optional friendname1, optional friendname2, ...</parameters>
+      <return></return>
+      <description>Casts 'exura gran mas res' if there are more than &lt;i&gt;amount&lt;/i&gt; players with less than &lt;i&gt;hppc&lt;/i&gt;% of health and on spell range. You can optionally pass an enemy list, and if you want to consider enemies, it won't cast the spell if there is any enemy on the spell range. If you don't pass any friend, it will consider every player as friend. You can also make monsters as by passing its IDs.</description>
+    </function>
+    <function>
+      <name>mounting</name>
+      <parameters>pointer creature</parameters>
+      <return></return>
+      <description>Returns true if creature is currently mounting a monster, false otherwise. If you don't pass a creature it will consider yourself.</description>
+    </function>
+    <function>
+      <name>movecreature</name>
+      <parameters>pointer creature, optional string direction</parameters>
+      <return></return>
+      <description>Will push the creature &lt;i&gt;creature&lt;/i&gt; to direction &lt;i&gt;direction&lt;/i&gt;. If you don't pass a direction it will try to push the creature to the first pushable spot.</description>
+    </function>
+    <function>
+      <name>mwall</name>
+      <parameters>pointer creature, optional dist</parameters>
+      <return></return>
+      <description>Shoots a magic wall rune &lt;i&gt;dist&lt;/i&gt; sqms in front of &lt;i&gt;creature&lt;/i&gt;'s current position. You can shoot it in your back by doing: &lt;i&gt;mwall($self, -1)&lt;/i&gt;</description>
+    </function>
+    <function>
+      <name>paroundfloor</name>
+      <parameters>int playerdist, int or string floordifference, string player1, string player2...</parameters>
+      <return>int</return>
+      <description>Returns how many players, considering all the visible floors. You may specify the players distance on &lt;i&gt;playerdist&lt;/i&gt;. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2.</description>
+    </function>
+    <function>
+      <name>paroundfloorignore</name>
+      <parameters>int playerdist, int or string floordifference, string playertoignore1, string playertoignore2...</parameters>
+      <return>int</return>
+      <description>Returns how many players, considering all the visible floors. You may specify the players distance on &lt;i&gt;playerdist&lt;/i&gt;. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2. It will ignore the players you specified, like a safe list.</description>
+    </function>
+    <function>
+      <name>paroundignore</name>
+      <parameters>int playerdist, string name1, string name2...</parameters>
+      <return>int</return>
+      <description>Returns how many players on your screen which are not on the parameters list. Example: paroundignore(7, 'Bubble', 'Eternal Oblivion') will return how many players that aren't Bubble nor Eternal Oblivion are on your screen.</description>
+    </function>
+    <function>
+      <name>paroundspell</name>
+      <parameters>string spelltype, optional string direction, string playername1, string playername2, ...</parameters>
+      <return>int</return>
+      <description>Returns in how many players you can cast the spell that has area of &lt;i&gt;spelltype&lt;/i&gt;. If no players was specified, then it will consider all players. To check the possible spelltypes check the function &lt;i&gt;cancastspell&lt;/i&gt;. Optionally you can pass a direction, to tell how many players would recieve your spell if you turned in to direction &lt;i&gt;direction&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>paroundspellignore</name>
+      <parameters>string spelltype, optional string direction, string playername1, string playername2, ...</parameters>
+      <return>int</return>
+      <description>Same as &lt;i&gt;paroundspell&lt;/i&gt; but instead of considering players on table it will ignore players on table.</description>
+    </function>
+    <function>
+      <name>potionfriend</name>
+      <parameters>optional int id, int pc, int dist, string friendname1, string friendname2, ...</parameters>
+      <return></return>
+      <description>Will iterate trought the friends you have choosen and check which one has the lowest HP%, then it will use a potion with id &lt;i&gt;id&lt;/i&gt; on the friend. Only friends with HP lower than &lt;i&gt;pc&lt;/i&gt; and &lt;i&gt;dist&lt;/i&gt; sqms closer to you will be considered.</description>
+    </function>
+    <function>
+      <name>sio</name>
+      <parameters>int hppc, string playername1, string playername2</parameters>
+      <return></return>
+      <description>Will iterate trought the friends you have choosen and check which one has the lowest HP%, then it will use 'heal friend' spell on him. Only friends with HP lower than &lt;i&gt;hppc&lt;/i&gt; will be considered.</description>
+    </function>
+    <function>
+      <name>spellinfo</name>
+      <parameters>string spellname</parameters>
+      <return>table</return>
+      <description>Returns a table containing the following informations of a spell: name, words, mp, level, mlevel, soul, price, needpremium, condition, mindmg, maxdmg.</description>
+    </function>
+    <function>
+      <name>stopattack</name>
+      <parameters></parameters>
+      <return></return>
+      <description>Will make your character stop attack/follow by pressing the ESC key.</description>
+    </function>
+    <function>
+      <name>waitandlogout</name>
+      <parameters></parameters>
+      <return></return>
+      <description>Will wait until your battle sign goes out, killing any reachable monster on your screen and then logout.</description>
+    </function>
+    <function>
+      <name>weaponattack</name>
+      <parameters>int id</parameters>
+      <return>int</return>
+      <description>Returns the attack of an item. If &lt;i&gt;id&lt;/i&gt; wasn't given the weapon you're currently equipped will be considered.</description>
+    </function>
+    <function>
+      <name>wheretoturn</name>
+      <parameters>int m, string spelltype</parameters>
+      <return>string</return>
+      <description>Returns the direction you should turn to cast spell in creature &lt;i&gt;m&lt;/i&gt;.</description>
+    </function>
+    <title>Item Functions</title>
+    <text>The following functions issue an event related with item manipulation.</text>
+    <function>
+      <name>areitemsontile</name>
+      <parameters>int x, int y, int z, optional bool/number considercap, optional bool considermoveable, string item1, string item2, ...</parameters>
+      <return>bool</return>
+      <description>Returns &lt;i&gt;true&lt;/i&gt; if any of the items specified were found on SQM &lt;i&gt;x,y,z&lt;/i&gt;, false otherwise. You may also specify if you want to consider only items you're able to pick up by passing &lt;i&gt;considercap&lt;/i&gt; as &lt;u&gt;true&lt;/u&gt;, or it will only consider the item if you have more than &lt;u&gt;considercap&lt;/u&gt; of capacity. The &lt;i&gt;considermoveable&lt;/i&gt; to only consider the item if there are no unmoveable items above it.</description>
+    </function>
+    <function>
+      <name>bestelementweapon</name>
+      <parameters>name creaturename</parameters>
+      <return>int</return>
+      <description>Returns the ID of the best wand or rod you should equip to do the more damage on monster &lt;i&gt;creaturename&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>closebpcolor</name>
+      <parameters>string bpcolor, optional int indexstart, optional int indexend</parameters>
+      <return></return>
+      <description>Will close all of your opened backpacks with color &lt;i&gt;bpcolor&lt;/i&gt;. It will check from index &lt;i&gt;indexstart&lt;/i&gt; to &lt;i&gt;indexend&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>collecthiddenitems</name>
+      <parameters>string dist, int itemid1, int itemid2...</parameters>
+      <return></return>
+      <description>Will pickup any of the items specified found on screen. If there's an item above it the bot will move it to get your item.</description>
+    </function>
+    <function>
+      <name>collectitems</name>
+      <parameters>string destination, int itemid1, int itemid2...</parameters>
+      <return></return>
+      <description>Will pickup any items around you that has an ID inside table itemids. Example1: collectitems('', 'gold coin', 'platinum coin', 'serpent sword'). Example2: collecitems(''). Will pickup any pickupable items around you.</description>
+    </function>
+    <function>
+      <name>comparecontainers</name>
+      <parameters>pointer container1, pointer container2</parameters>
+      <return>bool</return>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if the &lt;i&gt;container1&lt;/i&gt; is the same as &lt;i&gt;container2&lt;/i&gt;, false otherwise.</description>
+    </function>
+    <function>
+      <name>dropitems</name>
+      <parameters>string destination, int itemid1, int itemid2...</parameters>
+      <return></return>
+      <description>Will drop all the items you selected from your backpacks to the &lt;i&gt;destination&lt;/i&gt;. If &lt;i&gt;destination&lt;/i&gt; is not specified it will be considered as your current position. Examples: dropitems('gold coin','mace','stone skin amulet') or dropitems(ground(32222,32614,7),'gold coin','mace','stone skin amulet')</description>
+    </function>
+    <function>
+      <name>eatfoodfull</name>
+      <parameters>optional string location</parameters>
+      <return></return>
+      <description>Will eat food until you get a 'You are full.' message. You can also eat food from ground. Just pass 'ground' as extra parameter. Or the exactly location: 'ground x y z'.</description>
+    </function>
+    <function>
+      <name>enchantspear</name>
+      <parameters>string handname</parameters>
+      <return></return>
+      <description>If you have enough mana and spears on your backpack it will unequip the weapon that's in &lt;i&gt;handname&lt;/i&gt; and equip you with a spear, then cast 'exeta con'. Then it will unequip your enchanted spear and equip you back with the weapon your were wearing.</description>
+    </function>
+    <function>
+      <name>finditem</name>
+      <parameters>int itemid</parameters>
+      <return>string,int</return>
+      <description>Will look on the inventory where is the item with ID &lt;i&gt;itemid&lt;/i&gt;, the function returns the BP Index if item was found on backpack.</description>
+    </function>
+    <function>
+      <name>findshield</name>
+      <parameters></parameters>
+      <return>string,pointer</return>
+      <description>Will look in which hand you're using a shield or spellbook and return it as a string: 'lhand' or 'rhand' and as a second value will return the hand pointer: $rhand or $lhand. Example: x,y = findshield()</description>
+    </function>
+    <function>
+      <name>findweapon</name>
+      <parameters></parameters>
+      <return>string,pointer</return>
+      <description>Will look in which hand you're using a weapon and return it as a string: 'lhand' or 'rhand', and as a second value will return the hand pointer: $rhand or $lhand. The weapons considered are axes, swords, clubs, wands, rods, distance weapons and bows/crossbows. Example: x,y = findweapon()</description>
+    </function>
+    <function>
+      <name>findweapontouse</name>
+      <parameters></parameters>
+      <return>string,int</return>
+      <description>Will search for a weapon in your containers and the function will return two values, the first one is related to where the item is located, in your containers, in your hand or in your belt. The second value is an integer number, related to the ID of item found.</description>
+    </function>
+    <function>
+      <name>findweapontype</name>
+      <parameters></parameters>
+      <return>string</return>
+      <description>Will look in what kind of weapon you're using and return it as a string: 'axe', 'sword', 'club', 'wand', 'rod', 'bow' or 'distance weapon'.</description>
+    </function>
+    <function>
+      <name>fish</name>
+      <parameters>optional int n</parameters>
+      <return></return>
+      <description>Fishes on empty water spots. If n is not specified, the bot will fish only in spots that contain fish. If n is specified and lower than 100, it will use the rod on water with no fish n% of the time. If n &gt; 100, it specifies an item id to fish on, such as water elemental bodies. Examples:
+fish() -- Uses rod only on water SQMs that contains fish
+fish(30) -- Uses rod on water SQMs with no fish in 30% of the time and on SQMs that contains fish in 70% of the time
+fish(9582) -- Uses rod in a water elemental body</description>
+    </function>
+    <function>
+      <name>fishspots</name>
+      <parameters>optional int n</parameters>
+      <return>int</return>
+      <description>Returns how many fish spots are avaliable on screen. If n is not specified, the bot will look only in spots that contain fish. If n is specified it will look for how many spots has the ID n.</description>
+    </function>
+    <function>
+      <name>foodcount</name>
+      <parameters></parameters>
+      <return>int</return>
+      <description>Returns how many food items can be found on your opened containers.</description>
+    </function>
+    <function>
+      <name>getarearunetile</name>
+      <parameters>bool ignoreplayers, string monstername1, string monstername2...</parameters>
+      <return>table</return>
+      <description>Returns a table with informations where you will damage the more amount of creatures you choosen. The &lt;i&gt;ignoreplayers&lt;/i&gt; is a boolean value for non-pvp worlds. The table is: tile, amount, x, y, z</description>
+    </function>
+    <function>
+      <name>getbpindex</name>
+      <parameters>string bpcolor</parameters>
+      <return>table</return>
+      <description>Will search through your opened backpacks and search for a backpack with color &lt;i&gt;bpcolor&lt;/i&gt;. The function returns a table listing all the BPs index with the color you choosen.</description>
+    </function>
+    <function>
+      <name>isfood</name>
+      <parameters>int id</parameters>
+      <return>bool</return>
+      <description>Returns &lt;i&gt;true&lt;/i&gt; if the item checked is a food, false otherwise.</description>
+    </function>
+    <function>
+      <name>iscontainerfull</name>
+      <parameters>int containerid</parameters>
+      <return>bool</return>
+      <description>Returns &lt;i&gt;true&lt;/i&gt; if the container with ID &lt;i&gt;containerid&lt;/i&gt; is full, &lt;i&gt;false&lt;/i&gt; otherwise.</description>
+    </function>
+    <function>
+      <name>itemcountcorpse</name>
+      <parameters>string corpsename, int itemid1, int itemid2, ...</parameters>
+      <return>int</return>
+      <description>Returns the amount of items inside corpse &lt;i&gt;corpsename&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>moveitemfromcorpse</name>
+      <parameters>string corpsename, string destination, int amount, int itemid1, int itemid2, ...</parameters>
+      <return></return>
+      <description>Moves items from corpse &lt;i&gt;corpsename&lt;/i&gt; to &lt;i&gt;destination&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>moveitemonground</name>
+      <parameters>int xfrom, int yfrom, int zfrom, int xto, int yto, int zto</parameters>
+      <return></return>
+      <description>Moves an item from &lt;i&gt;xfrom&lt;/i&gt; &lt;i&gt;yfrom&lt;/i&gt; &lt;i&gt;zfrom&lt;/i&gt; to &lt;i&gt;xto&lt;/i&gt; &lt;i&gt;yto&lt;/i&gt; &lt;i&gt;zto&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>openbps</name>
+      <parameters>table {int bpid, string location, optional bool opennew, optional int index}, table {int bpid, string location, optional bool opennew, optional int index}, ...</parameters>
+      <return></return>
+      <description>Open backpacks in the order you specified.</description>
+    </function>
+    <function>
+      <name>openbpslogin</name>
+      <parameters>table {int bpid, string location, optional bool opennew, optional int index}, table {int bpid, string location, optional bool opennew, optional int index}, ...</parameters>
+      <return></return>
+      <description>Open backpacks on login in the order you specified.</description>
+    </function>
+    <function>
+      <name>opengrounditem</name>
+      <parameters>int id</parameters>
+      <return></return>
+      <description>Will search for an item with id &lt;i&gt;id&lt;/i&gt; on ground and open it.</description>
+    </function>
+    <function>
+      <name>pick</name>
+      <parameters>int x, int y, int z</parameters>
+      <return></return>
+      <description>Will move any items or creatures above the hole spot and use a pick on it.</description>
+    </function>
+    <function>
+      <name>pickupitems</name>
+      <parameters>optional string direction, optional string destination, optional int amount</parameters>
+      <return></return>
+      <description>Pick up items at the SQM located in the direction you have choosen to the destination you have choosen. If you leave direction empty it will take it as 'c' (center). directions can be: 'sw', 's', 'se', 'w', 'c', e', 'nw', 'n', 'ne'. Amount is 100 by default.</description>
+    </function>
+    <function>
+      <name>refillammo</name>
+      <parameters></parameters>
+      <return></return>
+      <description>Refills ammunition in your inventory. Will check if you are wearing a ammunition, if you are and it has less than 100 it will equip more of the same kind. If you're using an ammunition and it's not restoring it you can add the ID on &lt;u&gt;LucasTerra.lua&lt;/u&gt; file.</description>
+    </function>
+    <function>
+      <name>resetbodylists</name>
+      <parameters></parameters>
+      <return></return>
+      <description>Resets the body lists to the default settings.</description>
+    </function>
+    <function>
+      <name>searchcontainerincontainer</name>
+      <parameters>int containerid</parameters>
+      <return>int</return>
+      <description>Looks for a container inside the container with ID &lt;i&gt;containerid&lt;/i&gt;. If it's found, the function returns its ID, or it will return &lt;i&gt;false&lt;/i&gt; if no container was found.</description>
+    </function>
+    <function>
+      <name>shootarearune</name>
+      <parameters>int runeid, optional int amount, optional bool ignoreplayers, optional string monstername1, optional string monstername2...</parameters>
+      <return></return>
+      <description>Shoots a rune with id &lt;i&gt;runeid&lt;/i&gt; at the sqm which will target more monsters. The minimum amount of monsters can be specified on &lt;i&gt;amount&lt;/i&gt;, if &lt;i&gt;amount&lt;/i&gt; is not specified then amount will be considered as 1. &lt;i&gt;ignoreplayers&lt;/i&gt; is a boolean value for non-pvp worlds.</description>
+    </function>
+    <function>
+      <name>shootbestrune</name>
+      <parameters>int a, int b, optional pointer creature, optional disconsiderrunedamage</parameters>
+      <return></return>
+      <description>Will shoot the best rune (heavy magic missile rune, icicle rune, fireball rune or stalagmite rune) according to the monster you are currently attacking, it will check for the monster's weakness and wait from &lt;i&gt;a&lt;/i&gt; to &lt;i&gt;b&lt;/i&gt;. If you set &lt;i&gt;disconsiderrunedamage&lt;/i&gt; to true it won't consider the rune damage, only the monster's weakness.</description>
+    </function>
+    <function>
+      <name>skin</name>
+      <parameters>int dist, optional bool movebody, optional bool waitfresh</parameters>
+      <return></return>
+      <description>Will look for dead bodies in a range of &lt;i&gt;dist&lt;/i&gt; SQMs and use obsidian knife on it. Optionally, you can make it skin even bodies that are covered with trash above, setting &lt;i&gt;movebody&lt;/i&gt; to &lt;u&gt;true&lt;u&gt;, and you can make it wait until the body becomes skinnable by setting &lt;i&gt;waitfresh&lt;/i&gt; to true.
+To manage the skin bodies' list you can use the following function:
+SKINLIST:add(string monstername, ...), to add a monster, example: SKINLIST:add('minotaur', 'minotaur archer')
+SKINLIST:remove(string monstername, ...), to remove a monster, example: SKINLIST:remove('dragon', 'dragon lord', 'lizard highguard')
+SKINLIST:clear(), to delete all monsters
+To see your current skin list you can do:
+print(SKINLIST)</description>
+    </function>
+    <function>
+      <name>skinspots</name>
+      <parameters>int dist, optional bool movebody, optional bool waitfresh</parameters>
+      <return>int</return>
+      <description>Returns how many "skinnable" dead bodies are in a range of &lt;i&gt;dist&lt;/i&gt; SQMs on screen.</description>
+    </function>
+    <function>
+      <name>skinkitchenknife</name>
+      <parameters>int dist, optional bool movebody, optional bool waitfresh</parameters>
+      <return></return>
+      <description>Will look for dead bodies in a range of &lt;i&gt;dist&lt;/i&gt; SQMs and use a kitchen knife on it. Optionally, you can make it skin even bodies that are covered with trash above, setting &lt;i&gt;movebody&lt;/i&gt; to &lt;u&gt;true&lt;u&gt;, and you can make it wait until the body becomes skinnable by setting &lt;i&gt;waitfresh&lt;/i&gt; to true. It only considers dead rabbits.</description>
+    </function>
+    <function>
+      <name>skinkitchenknifespots</name>
+      <parameters>int dist, optional bool movebody, optional bool waitfresh</parameters>
+      <return>int</return>
+      <description>Returns how many "skinnable" dead rabbits are in a range of &lt;i&gt;dist&lt;/i&gt; SQMs on screen.</description>
+    </function>
+    <function>
+      <name>stake</name>
+      <parameters>int dist, optional bool movebody, optional bool waitfresh</parameters>
+      <return></return>
+      <description>Will look for dead bodies in a range of &lt;i&gt;dist&lt;/i&gt; SQMs and use blessed wooden stake on it. Optionally, you can make it stake even bodies that are covered with trash above, setting &lt;i&gt;movebody&lt;/i&gt; to &lt;u&gt;true&lt;u&gt;, and you can make it wait until the body becomes stakeable by setting &lt;i&gt;waitfresh&lt;/i&gt; to true.
+To manage the skin bodies' list you can use the following function:
+STAKELIST:add(string monstername, ...), to add a monster, example: STAKELIST:add('vampire', 'demon')
+STAKELIST:remove(string monstername, ...), to remove a monster, example: STAKELIST:remove('vampire', 'demon')
+STAKELIST:clear(), to delete all monsters
+To see your current stake list you can do:
+print(STAKELIST)</description>
+    </function>
+    <function>
+      <name>stakespots</name>
+      <parameters>int dist, optional bool movebody, optional bool waitfresh</parameters>
+      <return>int</return>
+      <description>Returns how many "stakeable" dead bodies are in a range of &lt;i&gt;dist&lt;/i&gt; SQMs on screen.</description>
+    </function>
+    <function>
+      <name>trueitemproperties</name>
+      <parameters>int itemid</parameters>
+      <return>string</return>
+      <description>Returns all the item properties enabled on item &lt;i&gt;itemid&lt;/i&gt;. For example: trueitemproperties(3031) returns: ""</description>
+    </function>
+    <function>
+      <name>usegrounditem</name>
+      <parameters>int itemid</parameters>
+      <return></return>
+      <description>Will search for an item with ID &lt;i&gt;itemid&lt;/i&gt; and use it. You can also do: usegrounditem(x,y,z), to use a coordinate.</description>
+    </function>
+    <function>
+      <name>usedoor</name>
+      <parameters>int x, int y, int z, optional string mode</parameters>
+      <return></return>
+      <description>Will use open or close a door, if you don't specify the mode ('open' or 'close') it will just switch the door. If there's an item above the door it will just move it.</description>
+    </function>
+    <function>
+      <name>waitcontainer</name>
+      <parameters>string containername</parameters>
+      <return></return>
+      <description>Will wait until a container is opened.</description>
+    </function>
+    <function>
+      <name>wheretomoveitem</name>
+      <parameters>int x, int y, int z, optional int id</parameters>
+      <return>string</return>
+      <description>Returns a direction to move an item or creature. It's useful if you want to take an item off a hole or something.</description>
+    </function>
+    <title>Food Timer Functions</title>
+    <text>The following functions are used to handle food timers.</text>
+    <function>
+      <name>getfoodtime</name>
+      <parameters>int id</parameters>
+      <return>int</return>
+      <description>Returns how long in miliseconds the food with id &lt;i&gt;id&lt;/i&gt; will make you regenerate.</description>
+    </function>
+    <function>
+      <name>gethungrytime</name>
+      <parameters></parameters>
+      <return>int</return>
+      <description>Returns how long in miliseconds you will be regenarating mana/health by food.</description>
+    </function>
+    <function>
+      <name>increasehungrytime</name>
+      <parameters>int amount</parameters>
+      <return></return>
+      <description>Increases the hungry timer by amount.</description>
+    </function>
+    <function>
+      <name>resethungrytime</name>
+      <parameters></parameters>
+      <return></return>
+      <description>Resets the hungry timer.</description>
+    </function>
+    <title>Scripting Help Functions</title>
+    <text>The following functions are useful for making some calculations/prodecures easier while scripting.</text>
+    <function>
+      <name>bintonum</name>
+      <parameters>int x</parameters>
+      <return>int</return>
+      <description>Returns the binary number &lt;i&gt;x&lt;/i&gt; wroten in decimal form.</description>
+    </function>
+    <function>
+      <name>color</name>
+      <parameters>int r, int g, int b, optional int transparency</parameters>
+      <return>int</return>
+      <description>Converts a number from RGB (red, blue, green) form to HEX form, the transparaceny is given in percentage. Example: color(255,255,255,50), will return the HEX representation for white color with 50% of transparency.</description>
+    </function>
+    <function>
+      <name>currenttime</name>
+      <parameters></parameters>
+      <return>string</return>
+      <description>Returns your system's current time in the format: 'HH:MM:SS'.</description>
+    </function>
+    <function>
+      <name>math.highest</name>
+      <parameters>int a, int b</parameters>
+      <return>int</return>
+      <description>Returns the highest number between &lt;i&gt;a&lt;/i&gt; and &lt;i&gt;b&lt;/i&gt;</description>
+    </function>
+    <function>
+      <name>math.lowest</name>
+      <parameters>int a, int b</parameters>
+      <return>int</return>
+      <description>Returns the lowest number between &lt;i&gt;a&lt;/i&gt; and &lt;i&gt;b&lt;/i&gt;</description>
+    </function>
+    <function>
+      <name>math.positive</name>
+      <parameters>int number</parameters>
+      <return>int</return>
+      <description>Returns 0 if &lt;i&gt;number&lt;/i&gt; is negative and &lt;i&gt;number&lt;i&gt; if it is positive.</description>
+    </function>
+    <function>
+      <name>randomize</name>
+      <parameters>table values</parameters>
+      <return>int</return>
+      <description>It will return a random value from a table in the format: {a,b}, a random number from a to b. It makes easier to randomize numbers/timers in some scripts.</description>
+    </function>
+    <function>
+      <name>setcavebot</name>
+      <parameters>string onoff</parameters>
+      <description>Turns cavebot on or off. &lt;i&gt;onoff&lt;/i&gt; can be: 'on', 'off', 'yes', 'no'.</description>
+    </function>
+    <function>
+      <name>sethealing</name>
+      <parameters>string onoff</parameters>
+      <description>Turns healing on or off. &lt;i&gt;onoff&lt;/i&gt; can be: 'on', 'off', 'yes', 'no'.</description>
+    </function>
+    <function>
+      <name>setlooting</name>
+      <parameters>string onoff</parameters>
+      <description>Turns looting on or off. &lt;i&gt;onoff&lt;/i&gt; can be: 'on', 'off', 'yes', 'no'.</description>
+    </function>
+    <function>
+      <name>setmanatraining</name>
+      <parameters>string onoff</parameters>
+      <description>Turns mana training on or off. &lt;i&gt;onoff&lt;/i&gt; can be: 'on', 'off', 'yes', 'no'.</description>
+    </function>
+    <function>
+      <name>settargeting</name>
+      <parameters>string onoff</parameters>
+      <description>Turns targeting on or off. &lt;i&gt;onoff&lt;/i&gt; can be: 'on', 'off', 'yes', 'no'.</description>
+    </function>
+    <function>
+      <name>swap</name>
+      <parameters>a, b</parameters>
+      <return></return>
+      <description>The variable &lt;i&gt;b&lt;/i&gt; recieves the value of &lt;i&gt;a&lt;/i&gt; and &lt;i&gt;a&lt;/i&gt; recieves value of &lt;i&gt;b&lt;/i&gt;. You can do: swap(table, a, b) to swap values inside a table.</description>
+    </function>
+    <function>
+      <name>tilehasinfo</name>
+      <parameters>int posx, int posy, int posz</parameters>
+      <return></return>
+      <description>Returns true if the location you passed as parameters are on your screen, false otherwise.</description>
+    </function>
+    <function>
+      <name>timebetween</name>
+      <parameters>string timefrom, string timeto, optional int delay</parameters>
+      <return></return>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if the system clock is between &lt;i&gt;timefrom&lt;/i&gt; and &lt;i&gt;timeto&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>tobin</name>
+      <parameters>int x, optional bool reverse</parameters>
+      <return>string</return>
+      <description>Return the number &lt;i&gt;x&lt;/i&gt; wroten in binary form. If you pass the &lt;i&gt;reverse&lt;/i&gt; value, it will return it wroten in the reverse form.</description>
+    </function>
+    <function>
+      <name>tosec</name>
+      <parameters>string time</parameters>
+      <return>int</return>
+      <description>Returns how many seconds have passed since '0:00' at time &lt;i&gt;time&lt;/i&gt;. Example: tosec('6:32') returns 23520.</description>
+    </function>
+    <function>
+      <name>waitmessage</name>
+      <parameters>string sendername, string msg, optional int maxwaittime, optional bool exactmsg, optional int msgtype</parameters>
+      <return></return>
+      <description>Will wait until a message from sender &lt;i&gt;sendername&lt;/i&gt; containing the message &lt;i&gt;msg&lt;/i&gt; appears. If you don't pass a &lt;i&gt;maxwaittime&lt;/i&gt; it will be considered as 10000 (10 seconds). If you pass &lt;i&gt;exactmsg&lt;/i&gt; as true it will only consider the message if it was sent exactly as you wrotten in the function call, considering lower and upper letters. If you pass a &lt;i&gt;msgtype&lt;/i&gt; it will check if the message type is the same as you passed on parameter.</description>
+    </function>
+    <function>
+      <name>waitping</name>
+      <parameters>optional int a, optional int b</parameters>
+      <return></return>
+      <description>Waits between &lt;i&gt;$pingaverage*a&lt;/i&gt; and &lt;i&gt;$pingaverage*b&lt;/i&gt;. If a,b isn't passed it a,b = 1.6, 2.3</description>
+    </function>
+    <title>Table Manipulation Functions</title>
+    <text>The following functions are used on tables manipulation</text>
+    <function>
+      <name>table.binaryfind</name>
+      <parameters>table tablename, x, optional extraparameter</parameters>
+      <return>int</return>
+      <description>Looks for the a match of value &lt;i&gt;x&lt;/i&gt; in the table &lt;i&gt;tablename&lt;/i&gt;. Returns its position or &lt;b&gt;nil&lt;/b&gt; if no value was found. The &lt;i&gt;extraparameter&lt;/i&gt; is used for strutctured tables, lets say you have a table with players, you want to search the first which has HPPC 30. So: table.binaryfind(table, 30, 'hppc'). BE CAREFUL! This function only works for sorted tables!</description>
+    </function>
+    <function>
+      <name>table.find</name>
+      <parameters>table tablename, x, optional extraparameter</parameters>
+      <return>int</return>
+      <description>Looks for the first match of value &lt;i&gt;x&lt;/i&gt; in the table &lt;i&gt;tablename&lt;/i&gt;. Returns its position or &lt;b&gt;nil&lt;/b&gt; if no value was found. The &lt;i&gt;extraparameter&lt;/i&gt; is used for structured tables, lets say you have a table with players, you want to search the first which has HPPC 30. So: table.find(table, 30, 'hppc')</description>
+    </function>
+    <function>
+      <name>table.insertsorted</name>
+      <parameters>table tablename, value, optional argument, optional string order, optional bool disallowduplicated</parameters>
+      <return></return>
+      <description>Will add a value sorting it. You can choose 'asc' or 'desc' in order. If the value you're inserting is a table you MUST pass an &lt;i&gt;argument&lt;i&gt; to tell the way you want to order it. For example, you're addying players in to a table, so you do: table.insertsorted(playerstable, $followed, 'name', 'asc'), this way it will add a player and sort it according to his name. If you don't pass the order it will insert as 'asc'. The optional bool &lt;i&gt;disallowduplicated&lt;/i&gt; means it won't accept duplicated items, so it will won't add it if the item is already found on the table.
+You can also pass multiple parameters to be ordered as, for example:
+table.insertsorted(monsters, m, {{'dist', 'asc'}, {'hppc', 'desc'}}), will give priority to the closest creatures from you and which has the highest HP%.</description>
+    </function>
+    <function>
+      <name>table.lower</name>
+      <parameters>table tablename</parameters>
+      <return></return>
+      <description>Will look for every &lt;i&gt;string&lt;/i&gt; elements on the table &lt;i&gt;tablename&lt;/i&gt; and transform it all in lower case characters.</description>
+    </function>
+    <function>
+      <name>table.newsort</name>
+      <parameters>table tablename, optional extraparameter, optional order</parameters>
+      <return></return>
+      <description>Sorts a table on desired order, which can be: 'asc' or 'desc'. The &lt;i&gt;extraparameter&lt;/i&gt; is used when you want to sort a structured table, like a players table. table.newsort(players, 'name') will sort the table players according to their names and table.newsort(players, 'id') will sort the table players according to their IDs and so on.</description>
+    </function>
+    <function>
+      <name>table.stringformat</name>
+      <parameters>table tablename, string name</parameters>
+      <return>string</return>
+      <description>Returns a table in the string format: name = {item1, item2, item3, ...}</description>
+    </function>
+    <function>
+      <name>table.upper</name>
+      <parameters>table tablename</parameters>
+      <return></return>
+      <description>Will look for every &lt;i&gt;string&lt;/i&gt; elements on the table &lt;i&gt;tablename&lt;/i&gt; and transform it all in upper case characters.</description>
+    </function>
+    <title>String Manipulation Functions</title>
+    <text>The following functions are used on messages manipulation</text>
+    <function>
+      <name>string.attackername</name>
+      <parameters>string msg</parameters>
+      <return>string, string</return>
+      <description>Returns the name of attacker and the type of an attacker. For example: string.attackername("You lose 3 hitpoints due to an attack by a bug.") returns "bug" and "monster"</description>
+    </function>
+    <function>
+      <name>string.attackmsg</name>
+      <parameters>string msg</parameters>
+      <return>table</return>
+      <description>Returns a table containing information about an attack message. The table has the following info: &lt;i&gt;table.dmg&lt;/i&gt;, &lt;i&gt;table.target.name&lt;/i&gt;, &lt;i&gt;table.target.type&lt;/i&gt;, &lt;i&gt;table.dealer.name&lt;/i&gt;, &lt;i&gt;table.dealer.type&lt;/i&gt;. &lt;i&gt;dmg&lt;/i&gt; returns how many hitpoints or mana points it was dealed. &lt;i&gt;target.name&lt;/i&gt; returns the target's name, &lt;i&gt;target.type&lt;/i&gt; returns the target's type (monster or player). Same for &lt;i&gt;dealer&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>string.concat</name>
+      <parameters>msg1, msg2, msg3...</parameters>
+      <return>string</return>
+      <description>Concatenates words.</description>
+    </function>
+    <function>
+      <name>string.healmsg</name>
+      <parameters>string msg</parameters>
+      <return>table</return>
+      <description>Returns a table containing information about a heal message. The table has the following info: &lt;i&gt;table.dmg&lt;/i&gt;, &lt;i&gt;table.target&lt;/i&gt;, &lt;i&gt;table.healer&lt;/i&gt;. &lt;i&gt;dmg&lt;/i&gt; returns how many hitpoints or was healed. &lt;i&gt;target&lt;/i&gt; returns the target's name, &lt;i&gt;healer&lt;/i&gt; returns the healer's name.</description>
+    </function>
+    <function>
+      <name>string.lootmsg</name>
+      <parameters>string msg</parameters>
+      <return>table</return>
+      <description>Returns a table containing information about a loot message. It has the structures: &lt;i&gt;name&lt;/i&gt;, the name of the creature, &lt;i&gt;items&lt;/i&gt; with the sub-structures: &lt;i&gt;name&lt;/i&gt; and &lt;i&gt;count&lt;/i&gt;. The &lt;i&gt;items&lt;/i&gt; is a table which contains informations about each item looted.</description>
+    </function>
+    <function>
+      <name>string.removews</name>
+      <parameters>string str</parameters>
+      <return>string</return>
+      <description>Removes white spaces from the string &lt;i&gt;str&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>string.token</name>
+      <parameters>string str, int n</parameters>
+      <return>string</return>
+      <description>Returns the &lt;i&gt;n&lt;/i&gt;th token (word/element) of a string &lt;i&gt;str&lt;/i&gt;. Example:
+local word = 'Hey man you rox'
+print(string.token(word,3)) -- Will print the word &lt;i&gt;you&lt;/i&gt;</description>
+    </function>
+    <title>Cavebot functions</title>
+    <text>The following functions are useful for making cavebot Action waypoints</text>
+    <function>
+      <name>allowwalk</name>
+      <parameters>int id1, int id2, ...</parameters>
+      <return></return>
+      <description>Makes cavebot walk trought ids &lt;i&gt;id1&lt;/i&gt;, &lt;i&gt;id2&lt;/i&gt;, ...</description>
+    </function>
+    <function>
+      <name>balance</name>
+      <parameters></parameters>
+      <return>int</return>
+      <description>It will make you say 'balance' in NPC channel and then check if your current account balance. You can use it anywhere to access your account balance once you had used it once.</description>
+    </function>
+    <function>
+      <name>breakdworcwall</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Will use a weapon in a dworc wall until it's broken. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the wall was broken successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>breakspidersilk</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Will use a weapon in a spider silk wall until it's broken. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the wall was broken successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>buyitemsupto</name>
+      <parameters>string itemname, int amount, optional int currentamount</parameters>
+      <description>Buys items up to a certain amount depending on the amount of items currently held. If you don't specify &lt;i&gt;currentamount&lt;/i&gt; value it will, consider only the visible amount.</description>
+    </function>
+    <function>
+      <name>cutgrass</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Will use a machete in a grass until it's broken. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the wall was broken successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>isdistance</name>
+      <parameters>int distx, optional int disty</parameters>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if you are &lt;i&gt;x&lt;/i&gt; sqms close to the action waypoint, &lt;u&gt;false&lt;u&gt; otherwise. You can pass an optional parameter &lt;i&gt;y&lt;/i&gt;, so it will check if you're &lt;i&gt;x&lt;/i&gt; sqms close horizontally and &lt;i&gt;y&lt;/i&gt; sqms close vertically.</description>
+    </function>
+    <function>
+      <name>isposition</name>
+      <parameters>int x, int y, optional int z</parameters>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if you are on tile &lt;i&gt;x,y,z&lt;/i&gt;, if z is not given it considers your current z.</description>
+    </function>
+    <function>
+      <name>isrange</name>
+      <parameters>int x, int y</parameters>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if you are in a range of &lt;i&gt;x&lt;/i&gt; horizontal sqms and if you are in a range of &lt;i&gt;y&lt;/i&gt; vertical sqms, &lt;u&gt;false&lt;/u&gt; otherwise.</description>
+    </function>
+    <function>
+      <name>levitate</name>
+      <parameters>string direction, string updown</parameters>
+      <description>Turns your character to the &lt;i&gt;direction&lt;/i&gt; and then will cast levitate. Example: levitate('w','up')</description>
+    </function>
+    <function>
+      <name>moveitemsdownto</name>
+      <parameters>int itemid, int amountto, string bpfrom, string bpto</parameters>
+      <return></return>
+      <description>Will leave &lt;i&gt;amountto&lt;/i&gt; inside &lt;i&gt;bpfrom&lt;/i&gt; and moves what exceeds &lt;i&gt;amountto&lt;/i&gt; to &lt;i&gt;bpto&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>moveitemsupto</name>
+      <parameters>int itemid, int amountto, string bpto, string bpfrom</parameters>
+      <return></return>
+      <description>Moves up to &lt;i&gt;amountto&lt;/i&gt; items from container &lt;i&gt;bpfrom&lt;/i&gt; to container &lt;i&gt;bpto&lt;/i&gt;.</description>
+    </function>
+    <function>
+      <name>openhole</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Will use the kind of shovel you've choosen in cavebot settings in a closed whole until it becomes a hole. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the hole was opened successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>opensand</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Will use the kind of shovel you've choosen in cavebot settings in a sand until it becomes a hole. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the hole was opened successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>opentrade</name>
+      <parameters>optional int n, optional bool sayhi</parameters>
+      <description>Will try to say 'trade' in NPC channel &lt;i&gt;n&lt;/i&gt; times, until trade window opens. If &lt;i&gt;n&lt;/i&gt; is not specified it will try to open it from 3 to 5 times. If you pass &lt;i&gt;sayhi&lt;/i&gt; as true it will say 'hi' before saying 'trade'.</description>
+    </function>
+    <function>
+      <name>returnwpt</name>
+      <parameters>optional int howmanyback</parameters>
+      <description>Will go to label &lt;i&gt;$wptid-1&lt;/i&gt; or &lt;i&gt;$wptid-howmanyback&lt;/i&gt;</description>
+    </function>
+    <function>
+      <name>sellitemsdownto</name>
+      <parameters>string itemname, int amount, optional int currentamount</parameters>
+      <description>Sells items down to a certain amount depending on the amount of items currently held. If you don't specify &lt;i&gt;currentamount&lt;/i&gt; value, it will consider only the visible amount.</description>
+    </function>
+    <function>
+      <name>sellflasks</name>
+      <parameters></parameters>
+      <return></return>
+      <description>Sells all of your flasks to the NPC.</description>
+    </function>
+    <function>
+      <name>uselever</name>
+      <parameters>int x, int y, int z, int leverid</parameters>
+      <description>Will use a sewer until you go down. If there's a moveable item above the sewer it will move it, if there's a non-moveable item above it the function will return false. If you went down successfully it returns true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>usesewer</name>
+      <parameters>int x, int y, int z</parameters>
+      <description>Will use a sewer until you go down. If there's a moveable item above the sewer it will move it, if there's a non-moveable item above it the function will return false. If you went down successfully it returns true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.</description>
+    </function>
+    <function>
+      <name>travel</name>
+      <parameters>string destination, optional bool havering</parameters>
+      <description>Makes you travel to a certain location. The bot will search for the Boat/Carpet NPC and reach it, then it will say: 'hi', &lt;i&gt;destination&lt;/i&gt;, 'yes'. If the NPC took you to the wrong place, it will repeat the action until you get there. You can write the city name, like "ab'dendriel" or "ab dendriel", the bot will do it anyway. The optional bool &lt;i&gt;havering&lt;/i&gt; is used for when you're travelling with Buddel. If &lt;i&gt;havering&lt;/i&gt; is &lt;b&gt;true&lt;/b&gt; it will say: 'hi', 'okolnir', 'no', 'yes'. If it's false, it will say: 'hi', 'go', 'okolnir', 'yes'. Special Thanks to &lt;u&gt;botterxxx&lt;/u&gt; for getting all the locations.</description>
+    </function>
+    <title>Client Information functions</title>
+    <text>The following functions return information gathered from the client.</text>
+    <function>
+      <name>iscreatureontile</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Returns true if a creature can be found on the tile at given coordinates and false otherwise.</description>
+    </function>
+    <function>
+      <name>cursorinfo</name>
+      <parameters></parameters>
+      <return>table</return>
+      <description>Returns a table containing the informations (x,y,z,id,info) about the tile where your mouse is currently on. Example: cursorinfo().id -&gt; returns the ID where your mouse is currently on.</description>
+    </function>
+    <function>
+      <name>findpixel</name>
+      <parameters>int posx, int posy</parameters>
+      <return>table</return>
+      <description>Returns a table containing the informations (x,y) about the pixel where you can find the location x,y (in Tibia coordinates). Example: findpos($posx,$posy).x -&gt; returns the horizontal pixel where you're located.</description>
+    </function>
+    <function>
+      <name>tilewalkable</name>
+      <parameters>int x, int y, int z</parameters>
+      <return>bool</return>
+      <description>Returns &lt;u&gt;true&lt;/u&gt; if your character can walk in that sqm, &lt;u&gt;false&lt;/u&gt; otherwise.</description>
+    </function>
+    <title>Item Properties</title>
+    <text>&lt;b&gt;ITEM_ACTION&lt;/b&gt; - You can use this to check if an item performs an action or not.</text>
+    <text>&lt;b&gt;ITEM_BIGSPRITE&lt;/b&gt; - You can use this to check if an item has a big sprite or not.</text>
+    <text>&lt;b&gt;ITEM_BLOCKPATHS&lt;/b&gt; - You can use this to check if an item block paths or not.</text>
+    <text>&lt;b&gt;ITEM_BLOCKSHOTS&lt;/b&gt; - You can use this to check if an item block shots or not.</text>
+    <text>&lt;b&gt;ITEM_BLOCKWALK&lt;/b&gt; - You can use this to check if an item block walks or not.</text>
+    <text>&lt;b&gt;ITEM_CONTAINER&lt;/b&gt; - You can use this to check if an item is a container or not.</text>
+    <text>&lt;b&gt;ITEM_CORPSE&lt;/b&gt; - You can use this to check if an item is a corpse or not.</text>
+    <text>&lt;b&gt;ITEM_DIAGONALBORDER&lt;/b&gt; - You can use this to check if an item is a diagonal border or not.</text>
+    <text>&lt;b&gt;ITEM_FLOORCHANGE&lt;/b&gt; - You can use this to check if an item makes you change the floor or not.</text>
+    <text>&lt;b&gt;ITEM_FLUIDCONTAINER&lt;/b&gt; - You can use this to check if an item is a fluid container or not.</text>
+    <text>&lt;b&gt;ITEM_GROUND&lt;/b&gt; - You can use this to check if an item is a ground item or not.</text>
+    <text>&lt;b&gt;ITEM_HANGABLE&lt;/b&gt; - You can use this to check if an item can be hangged on wall or not.</text>
+    <text>&lt;b&gt;ITEM_HEIGHTED&lt;/b&gt; - You can use this to check if an item is heighted or not.</text>
+    <text>&lt;b&gt;ITEM_HORIZONTAL&lt;/b&gt; - You can use this to check if an item is an horizontal wall or not.</text>
+    <text>&lt;b&gt;ITEM_LIGHTFONT&lt;/b&gt; - You can use this to check if an item is a light font or not.</text>
+    <text>&lt;b&gt;ITEM_MINIMAP&lt;/b&gt; - You can use this to check if an item has a color in minimap or not.</text>
+    <text>&lt;b&gt;ITEM_NOTMOVEABLE&lt;/b&gt; - You can use this to check if an item is moveable or not.</text>
+    <text>&lt;b&gt;ITEM_NOTROOFEDGE&lt;/b&gt; - You can use this to check if an item is a roof edge or not.</text>
+    <text>&lt;b&gt;ITEM_OFFSET&lt;/b&gt; - I dont know what this property do.</text>
+    <text>&lt;b&gt;ITEM_PICKUPABLE&lt;/b&gt; - You can use this to check if an item is pickupable or not.</text>
+    <text>&lt;b&gt;ITEM_READABLE&lt;/b&gt; - You can use this to check if an item is readable or not.</text>
+    <text>&lt;b&gt;ITEM_ROTATEABLE&lt;/b&gt; - You can use this to check if an item is rotateable or not.</text>
+    <text>&lt;b&gt;ITEM_SPLASH&lt;/b&gt; - You can use this to check if an item is a fluid splash or not.</text>
+    <text>&lt;b&gt;ITEM_STACKABLE&lt;/b&gt; - You can use this to check if an item is stackable or not.</text>
+    <text>&lt;b&gt;ITEM_TOPORDER1&lt;/b&gt; - You can use this to check if an item is on top order 1 or not.</text>
+    <text>&lt;b&gt;ITEM_TOPORDER2&lt;/b&gt; - You can use this to check if an item is on top order 2 or not.</text>
+    <text>&lt;b&gt;ITEM_TOPORDER3&lt;/b&gt; - You can use this to check if an item is on top order 3 or not.</text>
+    <text>&lt;b&gt;ITEM_USEABLE&lt;/b&gt; - You can use this to check if an item is useable with or not.</text>
+    <text>&lt;b&gt;ITEM_VERTICAL&lt;/b&gt; - You can use this to check if an item is a vertical wall or not.</text>
+    <text>&lt;b&gt;ITEM_WRITEABLE&lt;/b&gt; - You can use this to check if an item is writeable or not.</text>
+    <title>Message Types</title>
+    <text>&lt;b&gt;MSG_CHANNEL&lt;/b&gt; - Any player message in Game/Help/Real/Tutor/Trade channel.</text>
+    <text>&lt;b&gt;MSG_DEFAULT&lt;/b&gt; - Any player/npc message in Default channel.</text>
+    <text>&lt;b&gt;MSG_INFO&lt;/b&gt; - Info messages (green text) in Server Log.</text>
+    <text>&lt;b&gt;MSG_NPC&lt;/b&gt; - Any NPC answers in NPC channel.</text>
+    <text>&lt;b&gt;MSG_PVT&lt;/b&gt; - Private messages from other players.</text>
+    <text>&lt;b&gt;MSG_RAID&lt;/b&gt; - Raid messages.</text>
+    <text>&lt;b&gt;MSG_RED&lt;/b&gt; - Any red alert message.</text>
+    <text>&lt;b&gt;MSG_REPORT&lt;/b&gt; - Report description when reporting somthing to a gamemaster (Ctrl + R).</text>
+    <text>&lt;b&gt;MSG_SENT&lt;/b&gt; - Your sent private messages.</text>
+    <text>&lt;b&gt;MSG_STATUS&lt;/b&gt; - Status messages (In the screen).</text>
+    <text>&lt;b&gt;MSG_STATUSLOG&lt;/b&gt; - Status messages in Server Log.</text>
+    <text>&lt;b&gt;MSG_TUTOR&lt;/b&gt; - Tutor/Senior Tutor saying in Help channel.</text>
+    <text>&lt;b&gt;MSG_WELCOME&lt;/b&gt; - Game/Channel welcome messages.</text>
+    <text>&lt;b&gt;MSG_WHISPER&lt;/b&gt; - Any player whispering.</text>
+    <text>&lt;b&gt;MSG_YELL&lt;/b&gt; - Any player yelling.</text>
+    <title>Skull Types</title>
+    <text>&lt;b&gt;SKULL_BLACK&lt;/b&gt; - Check if player has black skull. Example: if $self.skull == SKULL_BLACK then print('Im black skull') end</text>
+    <text>&lt;b&gt;SKULL_GREEN&lt;/b&gt; - Check if player has green skull.</text>
+    <text>&lt;b&gt;SKULL_ORANGE&lt;/b&gt; - Check if player has orange skull.</text>
+    <text>&lt;b&gt;SKULL_RED&lt;/b&gt; - Check if player has red skull.</text>
+    <text>&lt;b&gt;SKULL_WHITE&lt;/b&gt; - Check if player has white skull.</text>
+    <text>&lt;b&gt;SKULL_YELLOW&lt;/b&gt; - Check if player has yellow skull.</text>
+    <title>Party Types</title>
+    <text>&lt;b&gt;PARTY_EXPSHARE_OK_LEADER&lt;/b&gt; - Check if player is leader of a working exp share party. Example: if $target.party == PARTY_EXPSHARE_OK_LEADER then print('yey') end</text>
+    <text>&lt;b&gt;PARTY_EXPSHARE_OK_MEMBER&lt;/b&gt; - Check if player is a member of a working exp share party.</text>
+    <text>&lt;b&gt;PARTY_EXPSHARE_OFF_LEADER&lt;/b&gt; - Check if player is leader of a disabled exp share party. If it's disabled it might because there's a low level character on your party or he's in a different floor.</text>
+    <text>&lt;b&gt;PARTY_EXPSHARE_OFF_MEMBER&lt;/b&gt; - Check if player is a member of a disabled exp share party. If it's disabled it might because there's a low level character on your party or he's in a different floor.</text>
+    <text>&lt;b&gt;PARTY_EXPSHARE_WAIT_LEADER&lt;/b&gt; - Check if player is leader of a on-standby exp share party.</text>
+    <text>&lt;b&gt;PARTY_EXPSHARE_WAIT_MEMBER&lt;/b&gt; - Check if player is a member of a on-standby exp share party.</text>
+    <text>&lt;b&gt;PARTY_INVITED_LEADER&lt;/b&gt; - Check if player is inviting you to a party.</text>
+    <text>&lt;b&gt;PARTY_INVITED_MEMBER&lt;/b&gt; - Check if player is invited to your party.</text>
+    <text>&lt;b&gt;PARTY_NOPARTY&lt;/b&gt; - Check if player isn't on your party.</text>
+    <text>&lt;b&gt;PARTY_ONPARTY_LEADER&lt;/b&gt; - Check if player is the leader of your party.</text>
+    <text>&lt;b&gt;PARTY_ONPARTY_MEMBER&lt;/b&gt; - Check if player is a member of your party.</text>
+    <title>War Banner Types</title>
+    <text>&lt;b&gt;WAR_BLUE&lt;/b&gt; - Check if player have a blue war banner, means he's in a war you're not in. Example: if $attacked.warbanner == WAR_BLUE then print('attacked player is in a war') end</text>
+    <text>&lt;b&gt;WAR_GREEN&lt;/b&gt; - Check if player have a green war banner, means he's in a war and he's your ally.</text>
+    <text>&lt;b&gt;WAR_RED&lt;/b&gt; - Check if player have a red war banner, means he's in a war and he's your enemy.</text>
+    <text>&lt;b&gt;WAR_NOWAR&lt;/b&gt; - Check if player don't have a war banner.</text>
+    <text>Enjoy!</text>
+  </help>
+  <examples>
+    <category name="Fishing">
+      <example name="Auto Fishing">
+        <description>This script will fish on both water spots with fish on them and water spots with no fish on them according to specified percentage. It won't fish if your cap is lower than 5.</description>
+        <content name="Fishing">
+          <hScript>init start
+   local fishwithnoworms = !!v!!
+init end
+
+auto(400,600) listas('dontlist')
+if $cap &gt; 5 then
+   if itemcount('worms') == 0 and fishwithnoworms then
+      listas('Please, open the backpack containing worms')
+   else
+      fish(!!p!!)
+   end
+end</hScript>
+          <type>ph</type>
+          <input var="!!p!!" default="30">Enter the percentage of fishing on spots which contain no fish:</input>
+          <input var="!!v!!" default="false">Do you want to fish even if you don't have visible worms on your backpack? (true or false)</input>
+        </content>
+      </example>
+      <example name="Auto Fish Water Elementals">
+        <description>This script will use a fishing rod on any water elemental body it finds on screen. I strongly suggest you to turn your mouse movement speed higher. Go to Input -&gt; Mouse -&gt; Movement Speed, and set it atleast to 7.</description>
+        <content name="fishwaterelementals">
+          <hScript>auto(100)
+if $lootbodies == 0 and $targetingtarget.hppc == 0 then
+	if fishspots(9582) &gt; 0 then
+		fish(9582)
+	else
+		while fishspots(4037) &gt; 0 do
+			pausewalking(500)
+			wait(300)
+		end
+		pausewalking(0)
+	end
+end</hScript>
+          <type>phc</type>
+        </content>
+      </example>
+      <example name="Auto Fish Shimmer Swimmer">
+        <description>This script will use a fishing rod to try to catch a shimmer swimmer.</description>
+        <content name="fishshimmerswimmer">
+          <hScript>auto(100)
+if $targetingtarget.hppc == 0 then
+	if fishspots({12561,12562,12563}) &gt; 0 then
+		pausewalking(10000)
+		fish({12561,12562,12563}) waitping()
+		pausewalking(0)
+	end
+end</hScript>
+          <type>phc</type>
+        </content>
+      </example>
+    </category>
+    <category name="Skinning/Staking">
+      <example name="Auto Skinning">
+        <description>This script will use obsidian knife on any skinnable body in a distance of X sqms.</description>
+        <content name="skin">
+          <hScript>auto(1000)
+skin(!!dist!!)</hScript>
+          <type>phc</type>
+          <input var="!!dist!!" default="5">Enter the minimum body's distance to use the obsidian knife:</input>
+        </content>
+      </example>
+      <example name="Auto Stake">
+        <description>This script will use blessed wooden stake on any stakeable body in a distance of X sqms.</description>
+        <content name="stake">
+          <hScript>auto(1000)
+stake(!!dist!!)</hScript>
+          <type>phc</type>
+          <input var="!!dist!!" default="5">Enter the minimum body's distance to use the blessed wooden stake:</input>
+        </content>
+      </example>
+    </category>
+    <category name="Cavebot Actions">
+      <example name="Buy up to x manas and Sell flasks">
+        <description>This action will sell all your flasks and buy up to a certain amount of mana potions. You need a client hotkey with "Use with Crosshair" for the mana potion to obtain the count.</description>
+        <content name="buymanas">
+          <hScript>say('hi') wait(2500,3500)
+opentrade()
+sellflasks()
+buyitemsupto('!!mananame!!',!!amount!!) -- will buy up to !!amount!! mana potions.</hScript>
+          <type>a</type>
+          <input var="!!mananame!!" default="mana potion">Enter name or ID of desired mana potion:</input>
+          <input var="!!amount!!" default="300">Enter total desired amount of manas after purchase:</input>
+        </content>
+      </example>
+      <example name="Buy up to x royal spears">
+        <description>This action will buy the maximum of spears you can carry, and save a certain amount of capacity. For example, you have 530 of cap, you wanna buy royal spears and save 100 of capacity, it will calculate: 530-100=430.. 430/25=17.. So, it will buy 17 royal spears.</description>
+        <content name="buyroyalspears">
+          <hScript>say('default','hi') wait(2000,3000)
+opentrade()
+buyitems('!!spearname!!',math.floor(($cap-!!capsave!!)/!!spearweight!!)) wait(1000,1500)
+local hand = findweapon()
+equipitem('!!spearname!!',hand) wait(500,700)</hScript>
+          <type>a</type>
+          <input var="!!spearname!!" default="royal spear">Enter the spear name:</input>
+          <input var="!!spearweight!!" default="25">Enter the spear's weight:</input>
+          <input var="!!capsave!!" default="100">Enter the amount of capacity you want to save:</input>
+        </content>
+      </example>
+      <example name="Travel">
+        <description>This action will make you travel to somewhere.</description>
+        <content name="travel">
+          <hScript>travel('!!place!!',!!ring!!)</hScript>
+          <type>a</type>
+          <input var="!!place!!" default="okolnir">Enter the place where you want to travel:</input>
+          <input var="!!ring!!" default="false">Do you have a dwarven ring on your backpack? (true/false) If you have, Buddel will ask for it and the bot will say no.</input>
+        </content>
+      </example>
+      <example name="Open Secret Hole">
+        <description>This action will open a secret hole in Ankrahmun's desert. Using the shovel type you've choosen in cavebot settings.</description>
+        <content name="openhole">
+          <hScript>opensand(!!place!!)</hScript>
+          <type>a</type>
+          <input var="!!place!!" default="32222,33356,7">Enter the hole's coordinates:</input>
+        </content>
+      </example>
+      <example name="Cut Grass">
+        <description>This action will use machete in a grass until it's cut.</description>
+        <content name="cutgrass">
+          <hScript>cutgrass(!!place!!)</hScript>
+          <type>a</type>
+          <input var="!!place!!" default="32222,33356,7">Enter the grass' coordinates:</input>
+        </content>
+      </example>
+      <example name="Break Dworc Wall">
+        <description>This action will use weapon on a wall inside the dworc cave until it's broken. If there's an item above it, it will move it, if item isn't moveable it will stop the action.</description>
+        <content name="dworcwall">
+          <hScript>breakdworcwall(!!place!!)</hScript>
+          <type>a</type>
+          <input var="!!place!!" default="32222,33356,7">Enter the wall's coordinates:</input>
+        </content>
+      </example>
+      <example name="Break Spider Silk Wall">
+        <description>This action will use weapon on a spider silk wall until it's broken. If there's an item above it, it will move it, if item isn't moveable it will stop the action.</description>
+        <content name="spiderwall">
+          <hScript>breakspidersilk(!!place!!)</hScript>
+          <type>a</type>
+          <input var="!!place!!" default="32222,33356,7">Enter the silk wall's coordinates:</input>
+        </content>
+      </example>
+    </category>
+    <category name="Strike Script">
+      <example name="Manually">
+        <description>This hotkey will cast the best strike spell (exori frigo, exori flam...) according to your current attacked monster.</description>
+        <content name="strikeaccording">
+          <hScript>if not !!usestrong!! or not caststrongstrike(!!waittime!!) then
+	caststrike(!!waittime!!)
+end</hScript>
+          <type>h</type>
+          <input var="!!waittime!!" default="900,1100">Enter the delay between each strike spell:</input>
+          <input var="!!usestrong!!" default="true">Do you want to use strong strike spells? (true/false)</input>
+        </content>
+      </example>
+      <example name="Automatically">
+        <description>This hotkey will cast the best strike spell (exori frigo, exori flam...) according to your current attacked monster. If you weren't attacking a monster yet, it will wait a time before start casting the spell.</description>
+        <content name="strikeaccording">
+          <hScript>init start
+	local waittime = 0
+init end
+
+auto(10)
+if $attacked.name == '' then
+	waittime = math.random(!!waittime2!!)
+else
+	wait(waittime)
+	if not !!usestrong!! or not caststrongstrike(a,b) then
+		caststrike(!!waittime!!)
+	end
+	waittime = 0
+end</hScript>
+          <type>hpc</type>
+          <input var="!!waittime2!!" default="200,500">Enter the delay to wait before casting the first strike spell:</input>
+          <input var="!!waittime!!" default="900,1100">Enter the delay between each strike spell:</input>
+          <input var="!!usestrong!!" default="true">Do you want to use strong strike spells? (true/false)</input>
+        </content>
+      </example>
+    </category>
+    <category name="UE/Exori Script">
+      <example name="Ultimate Spell Script">
+        <description>This script it will cast your favorite ultimate spell if there are more than X monsters on the spell range.</description>
+        <content name="castue">
+          <hScript>init start
+    local monstersetup = {monsterstoconsider = {!!monsters!!}, minimummonsters = !!minimum!!}
+    local playersetup = {checkplayers = !!checkplayers!!, safelist = {!!safelist!!}}
+    local info = spellinfo(!!spell!!)
+
+    table.lower(monstersetup.monsterstoconsider)
+    table.lower(playersetup.safelist)
+init end
+
+auto(10)
+if maroundspell(info.condition,table.unpack(monstersetup.monsterstoconsider)) &gt;= monstersetup.minimummonsters and (not playersetup.checkplayers or paroundspellignore(info.condition,table.unpack(playersetup.safelist)) == 0) and cancastspell(info) then
+    cast(info.words)
+    wait(400,600)
+end</hScript>
+          <type>chp</type>
+          <input var="!!spell!!" default="'rage of the skies'">Enter your favorite ultimate spell:</input>
+          <input var="!!monsters!!" default="'Frost Dragon', 'Dragon Lord'">Enter the monsters you want to consider on your spell casting (leave it blank to consider all):</input>
+          <input var="!!minimum!!" default="4">Enter the minimum monsters on spell range to cast spell:</input>
+          <input var="!!checkplayers!!" default="true">Do you play in a Open PvP world? (true/false)</input>
+          <input var="!!safelist!!" default="'Bubble', 'Eternal Oblivion'">Enter the players you want to add to your safelist (it will cast if these players are around you): </input>
+        </content>
+      </example>
+      <example name="Berserk Script">
+        <description>This script will cast Berserk if there are more than X monsters around you.</description>
+        <content name="castexori">
+          <hScript>init start
+    --setup start
+    local monstersetup = {monsters = {!!monsters!!}, minimumamount = !!minimum!!}
+    local playersetup = {checkplayers = !!checkplayers!!, checkonlyonfloor = !!checkonlyfloor!!, maxplayerdist = !!maxplayerdist!!, safelist = {!!safelist!!}}
+    local info = spellinfo(!!spell!!)
+    --/setup end
+    local searchtype = 'p'
+    if playersetup.checkonlyfloor then searchtype = 'pf' end
+    table.lower(playersetup.safelist)
+init end
+
+auto(100)
+if (maround(1,table.unpack(monstersetup.monsters)) &gt;= monstersetup.minimumamount) and (cancastspell(info)) then
+    if playersetup.checkplayers then
+        foreach creature p searchtype do
+            if p ~= $self and p.dist &lt;= playersetup.maxplayerdist and not table.find(playersetup.safelist,p.name:lower()) then
+                return
+            end
+        end
+    end
+    cast(info.words)
+    wait(900,1200)
+end</hScript>
+          <type>chp</type>
+          <input var="!!spell!!" default="'berserk'">Enter the spell you want to use:</input>
+          <input var="!!monsters!!" default="'Frost Dragon', 'Dragon Lord'">Enter the monsters you want to consider on your spell casting (leave it blank to consider all):</input>
+          <input var="!!minimum!!" default="4">Enter the minimum monsters on spell range to cast spell:</input>
+          <input var="!!checkplayers!!" default="true">Do you play in a Open PvP world? (true/false)</input>
+          <input var="!!checkonlyfloor!!" default="true">Do you want to consider only players on your current floor? This is useful to prevent players from stairhoping and making you get skulled. (true/false)</input>
+          <input var="!!maxplayerdist!!" default="7">Enter the maximum player's distance from you:</input>
+          <input var="!!safelist!!" default="'Bubble', 'Eternal Oblivion'">Enter the players you want to add to your safelist (it will cast if these players are around you):</input>
+        </content>
+      </example>
+      <example name="Fierce/Berserk/Whirlwind Script">
+        <description>This script will cast Fierce Berserk if there are more than X monsters around you, or Berserk if there are more than Y monsters around you and Exori Hur if target's HP% is lower than Z.</description>
+        <content name="fullexoriscript">
+          <hScript>init start
+    --setup start
+    local monstersetup = {monsters = {!!monsters!!}, exorigranamount = !!exorigran!!, exoriamount = !!exori!!, exorihurhp = !!exorihur!!}
+    local playersetup = {checkplayers = !!checkplayers!!, checkonlyonfloor = !!checkonlyfloor!!, maxplayerdist = !!maxplayerdist!!, safelist = {!!safelist!!}}
+    --/setup end
+    local berserk,fierceberserk,whirlwind = spellinfo('berserk'),spellinfo('fierce berserk'),spellinfo('whirlwind throw')
+    local searchtype = 'p'
+    if playersetup.checkonlyfloor then searchtype = 'pf' end
+    table.lower(playersetup.safelist)
+    table.lower(monstersetup.monsters)
+    local function haveplayer()
+        if playersetup.checkplayers then
+            foreach creature p searchtype do
+                if p ~= $self and p.dist &lt;= playersetup.maxplayerdist and not table.find(playersetup.safelist,p.name:lower()) then
+                    return true
+                end
+            end
+        end
+        return false
+    end
+init end
+
+auto(100)
+local mcount = maround(1,table.unpack(monstersetup.monsters))
+if mcount &gt;= monstersetup.exorigranamount and cancastspell(fierceberserk) and not haveplayer() then
+    cast(fierceberserk.words)
+    wait(900,1200)
+elseif mcount &gt;= monstersetup.exoriamount and cancastspell(berserk) and not haveplayer() then
+    cast(berserk.words)
+    wait(900,1200)
+elseif $attacked.hppc &lt; monstersetup.exorihurhp and table.find(monstersetup.monsters,$attacked.name:lower()) and cancastspell(whirlwind) then
+    cast(whirlwind.words)
+    wait(900,1200)
+end</hScript>
+          <type>chp</type>
+          <input var="!!exorigran!!" default="5">Enter the minimum monsters around you to cast Fierce Berserk:</input>
+          <input var="!!exori!!" default="3">Enter the minimum monsters around you to cast Berserk:</input>
+          <input var="!!exorihur!!" default="15">Enter your target's minimum HP% to cast Whirlwind Throw</input>
+          <input var="!!monsters!!" default="'Frost Dragon', 'Dragon Lord'">Enter the monsters you want to consider on your spell casting (leave it blank to consider all):</input>
+          <input var="!!checkplayers!!" default="true">Do you play in a Open PvP world? (true/false)</input>
+          <input var="!!checkonlyfloor!!" default="true">Do you want to consider only players on your current floor? This is useful to prevent players from stairhoping and making you get skulled. (true/false)</input>
+          <input var="!!maxplayerdist!!" default="7">Enter the maximum player's distance from you:</input>
+          <input var="!!safelist!!" default="'Bubble', 'Eternal Oblivion'">Enter the players you want to add to your safelist (it will cast if these players are around you):</input>
+        </content>
+      </example>
+    </category>
+    <category name="Displays">
+      <example name="Show spent mana">
+        <description>This script will show how many of mana you've spent. Starting count at time you enable the script.</description>
+        <content name="ShowSpentMana">
+          <hScript>init start
+    local manaspent = 0
+init end
+ 
+foreach newmessage m do
+	if m.sender == $name and m.type == MSG_DEFAULT then
+		local info = spellinfo(m.content)
+		if info then
+			manaspent = manaspent + info.mp
+		end
+	end
+end
+ 
+setfontstyle('Tahoma', 10, color(255, 255, 255))
+setposition($clientwin.x + 560, $clientwin.y + 10)
+setfontweight(75)
+addtext('Mana spent: ' .. manaspent, 0, 0)</hScript>
+          <type>d</type>
+        </content>
+      </example>
+      <example name="Show Death Timers">
+        <description>This script will show a timer when a player dies around you, so you will know when a player's skull will go down.</description>
+        <content name="DeathTimers">
+          <hScript>init start
+    local killedplayers = {}
+    local maxplayersdisplay = 10
+
+    local fontsize = 10
+    local fontspacing = fontsize+3
+    setfontstyle("Tahoma", fontsize, 0xEA4D4D)
+    setfontweight(75)
+    setjustify("right")
+init end
+
+auto(100)
+setposition($worldwin.left+110,$worldwin.top+20)
+foreach creature p 'p' do
+    if p.hppc == 0 then
+        if #killedplayers &gt; 0 then
+            local positionplayer = table.find(killedplayers,p.name,'name')
+            if positionplayer or killedplayers[positionplayer].time-15*60 &lt; math.floor($timems/1000) then
+                table.remove(killedplayers,positionplayer)
+            end
+        end
+        table.insert(killedplayers,1,{name = p.name, time = math.floor($timems/1000)+15*60})
+    end
+end
+local row = 0
+for i,j in ipairs(killedplayers) do
+    if j.time &gt; $timems then
+        addtext(j.name..": "..time(j.time-$timems/1000),0,5+row*fontspacing)
+        row = row+1
+    end
+end</hScript>
+          <type>d</type>
+        </content>
+      </example>
+      <example name="Magic Wall Timers">
+        <description>This script will show a 20 seconds countdown when a magic wall appears on your screen.</description>
+        <content name="MagicWallTimer">
+          <hScript>init start
+    local mwalls = {}
+    local ids = {{id = 2128, time=20000},{id = 2129, time=20000},{id = 2130, time=45000},{id = 10181, time=20000},{id = 10182, time=45000}}
+
+    setfontstyle('tahoma', 9, 0xFFFF00)
+    setfontweight(75)
+init end
+auto(200) setposition($clientwin.left,$clientwin.top)
+
+for i=-7,7 do
+    for j=-5,5 do
+        local x,y,z = $posx+i,$posy+j,$posz local topid = topitem(x,y,z).id local pos = table.find(ids,topid,'id')
+        if pos and not table.find(mwalls,ground(x,y,z),'pos') then
+            table.insert(mwalls,{x=x,y=y,z=z,time=ids[pos].time+$timems+200,id=topid,pos=ground(x,y,z)})
+        end
+    end
+end
+for i,j in ipairs(mwalls) do
+    if j.time-$timems &gt; 0 then
+        local pos = getobjectarea(j.x,j.y,j.z)
+        if pos and topitem(j.x,j.y,j.z).id == j.id and j.z == $posz then
+            addtext(timeshort(j.time-$timems),pos.centerx,pos.centery)
+        end
+    else
+        table.remove(mwalls,i)
+    end
+end</hScript>
+          <type>d</type>
+        </content>
+      </example>
+      <example name="Show Tile Information">
+        <description>This script will show information about item IDs on a tile</description>
+        <content name="TileInfo">
+          <hScript>init start
+	local order = {'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th'}
+	local shapecolor = 0x80333333
+	local shapesize = 250
+	local shapestyle = 'roundrect'
+	local fontstyle = 'Verdana'
+	local titlesize = 11
+	local titlecolor = 0xFF6347
+	local infosize = 10
+	local infocolor = 0xFFFFFF
+	local fontspacing = infosize+5
+	local margin = 11
+	if $windowsxp then
+		shapestyle = 'rect'
+	end
+	function string:fitcontent(size,margin,fontsize)
+		local maxletters = math.floor((size-2*(margin+3))/(fontsize-1.5))
+		if self:len() &gt; maxletters then
+			return self:sub(1,maxletters)..'...'
+		end
+		return self
+	end
+init end
+auto(100)
+local info = cursorinfo()
+if info.x == 0 then
+	info = {x = $posx, y = $posy, z = $posz}
+end
+local info2 = gettile(info.x,info.y,info.z)
+
+setposition($worldwin.left,$worldwin.top)
+setfillstyle("color", shapecolor)
+local ty = titlesize+14+margin
+addshape(shapestyle, 0, 0, shapesize, (info2.itemcount+2)*fontspacing+ty+margin, margin, margin)
+setfontstyle(fontstyle,titlesize,titlecolor) setfontweight(70)
+addtext('Tile Information',shapesize/4.5,margin)
+setfontsize(infosize)
+
+setfontcolor(titlecolor)
+addtext('Position: ', margin+3, ty)
+setfontcolor(infocolor) setfontweight(50)
+local content = (info.x..', '..info.y..', '..info.z):fitcontent(shapesize,margin,infosize)
+addtext(content,infosize*7+3+margin,ty)
+for i=1, info2.itemcount+1 do
+	setfontcolor(titlecolor) setfontweight(70)
+	local id = info2.item[i].id
+	if i &gt; info2.itemcount then
+		id = topitem(info.x,info.y,info.z).id
+		addtext('Top item: ', margin+3, ty+infosize+5+(infosize+5)*(i-1))
+	else
+		addtext(i..order[i].. ' pos: ', margin+3, ty+infosize+5+(infosize+5)*(i-1))
+	end
+	setfontcolor(infocolor) setfontweight(50)
+	if id == 99 then
+		local mtype = 'player'
+		if info2.item[i].count &gt; 0x40000000 then
+			mtype = 'monster'
+		end
+		local content = (mtype..': '..tohex(info2.item[i].count)):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+		addtext(content,infosize*7+3+margin, ty+infosize+5+(infosize+5)*(i-1))
+	elseif itemproperty(id,ITEM_PICKUPABLE) then
+		local name = itemname(id,true)
+		if itemproperty(id,ITEM_STACKABLE) then
+			local content = ''
+			if name == '' then
+				content = (id..', '..'unknown name'):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+			else
+				content = (id..'('..info2.item[i].count..')'..', '..name):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+			end
+			addtext(content,infosize*7+3+margin, ty+infosize+5+(infosize+5)*(i-1))
+		else
+			local content = ''
+			if name == '' then
+				content = (id..', '..'unknown name'):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+			else
+				content = (id..', '..name):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+			end
+			addtext(content,infosize*7+3+margin, ty+infosize+5+(infosize+5)*(i-1))
+		end
+	elseif itemproperty(id,ITEM_GROUND) then
+		content = (id..', '..'ground'):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+		addtext(content,infosize*7+3+margin, ty+infosize+5+(infosize+5)*(i-1))
+	elseif itemproperty(id,ITEM_SPLASH) then
+		content = (id..'('..info2.item[i].count..')'..', '..'splash'):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+		addtext(content,infosize*7+3+margin, ty+infosize+5+(infosize+5)*(i-1))
+	else
+		content = (tostring(id)):fitcontent(shapesize-(infosize*7+3)+margin,margin,infosize)
+		addtext(content,infosize*7+3+margin, ty+infosize+5+(infosize+5)*(i-1))
+	end
+end
+</hScript>
+          <type>d</type>
+        </content>
+      </example>
+      <example name="Arc HP/MP/Exp/Hungry Bars">
+        <description>This script will show your char's HP/MP bar. Also shows your Hungry Timer and Exp Percent.
+You can modify the bars size by changing the variables: arcsize, barweightfactor.
+You can modify the transparency by changing the variable: transparency factor.</description>
+        <content name="HPMPBar">
+          <hScript>init start
+    local hpcolor = color(56, 195, 34)
+    local mpcolor = color(55, 49, 219)
+    local expcolor = color('white')
+    local hungrycolor = color('orange')
+    local transparencyfactor = 0 -- this will set a transparency percentage to use on your bars
+    local arcsize = 5 -- this is the arcsize
+    local barweightfactor = 6.6 -- this is the bar weight
+    local bkgcolor = color(30, 30, 30, 80)
+    local bordercolor = color(0, 0, 0)
+    local windowsxp = !!windowsxp!! -- set this to true if you're using windows xp
+    local showexphungrybars = !!expbar!! -- set this to false if you don't want to see your exp/hungry bars
+    --dont change things below
+    hpcolor,mpcolor,bordercolor,barweightfactor = hpcolor+math.floor(2.55*transparencyfactor)*16777216, mpcolor+math.floor(2.55*transparencyfactor)*16777216, bordercolor+math.floor(2.55*transparencyfactor)*16777216, barweightfactor/100
+    if windowsxp then
+        setmaskcolorxp(0)
+        setantialiasing(false)
+    else
+        setantialiasing(true)
+    end
+init end
+ 
+auto(100)
+local temp = getobjectarea($self)
+local size = sqmWidth()*arcsize
+local barweight = size*barweightfactor
+setposition($clientwin.left+temp.centerx-size/2-2, $clientwin.top+temp.centery-size/2)
+setbordercolor(bordercolor)
+ 
+setfillstyle('color', bkgcolor)
+addshape('pie', 2, 0, size, size, 230, -100)
+setfillstyle('color', hpcolor)
+addshape('pie', 2, 0, size, size, 230, -$hppc)
+ 
+setfillstyle('color', bkgcolor)
+addshape('pie', 2, 0, size, size, 310, 100)
+setfillstyle('color', mpcolor)
+addshape('pie', 2, 0, size, size, 310, $mppc)
+
+if showexphungrybars then
+    size = size-2*barweight
+    temp = 2+barweight
+    setfillstyle('color', bkgcolor)
+    addshape('pie', temp, barweight, size, size, 230, -100)
+    setfillstyle('color', expcolor)
+    addshape('pie', temp, barweight, size, size, 230, -levelpc())
+
+    setfillstyle('color', bkgcolor)
+    addshape('pie', temp, barweight, size, size, 310, 100)
+    setfillstyle('color', hungrycolor)
+    addshape('pie', temp, barweight, size, size, 310, gethungrytime()/12000)
+
+    size = size-barweight
+    temp = 1.5*barweight
+else
+    size = size-2*barweight
+    temp = barweight
+end
+
+setfillstyle('color', 0xFF000000)
+setbordercolor(-1)
+local temp2 = 2+temp
+addshape('pie', temp2, temp, size, size, 0, 360)
+setbordercolor(bordercolor)
+addshape('arc', temp2, temp, size, size, 230, -100)
+addshape('arc', temp2, temp, size, size, 310, 100)</hScript>
+          <type>d</type>
+          <input var="!!windowsxp!!" default="false">Do you use Windows XP? (true/false)</input>
+          <input var="!!expbar!!" default="false">Do you want to have exp/hungry bars? (true/false)</input>
+        </content>
+      </example>
+      <example name="HP/MP Bars">
+        <description>This script will show your char's HP/MP bar.</description>
+        <content name="HPMPBar">
+          <hScript>init start
+	local bkgcolor = color(60,60,60,60)
+	local textcolor = color('white',30)
+	local shapestyle = 'roundrect'
+	if $windowsxp then
+		bkgcolor = bkgcolor % 16777216
+		textcolor = textcolor % 16777216 
+	end
+	local height = 50
+	local margin = 3
+	local fontsize = 8
+init end
+ 
+local sizex,sizey = math.floor(($worldwin.right-$worldwin.left-margin*3)/2), math.floor(($worldwin.bottom-$worldwin.top)/height)
+ 
+auto(100)
+setposition($worldwin.left+margin,$worldwin.bottom-margin-sizey)
+setfontstyle('Verdana',fontsize,textcolor)
+setfillstyle("color", bkgcolor)
+--bars
+addshape(shapestyle, 0, 0, sizex, sizey, sizey/3, sizey/3)
+addshape(shapestyle, sizex+margin, 0, sizex, sizey, sizey/3, sizey/3)
+--hp
+setfillstyle("gradient", "linear", 2, 0, 0, 0, sizey+3)
+addgradcolors(0.0, 0x6CFF0000, 0.33, 0x6CBD0000, 0.66, 0x6C8F0000)
+addshape(shapestyle, (100-$hppc)*sizex/100, 0, sizex*$hppc/100, sizey, sizey/3, sizey/3)
+addtext($hppc..'%',sizex/2-6,sizey/5)
+--mp
+setfillstyle("gradient", "linear", 2, 0, 0, 0, sizey+3)
+addgradcolors(0.0, 0x6C0000FF, 0.33, 0x6C0000BD, 0.66, 0x6C00008F)
+addshape(shapestyle, sizex+margin, 0, sizex*$mppc/100, sizey, sizey/3, sizey/3)
+addtext($mppc..'%',1.5*sizex-1,sizey/5)</hScript>
+          <type>d</type>
+        </content>
+      </example>
+      <example name="MP Bar Near Name">
+        <description>This script will show a MP Bar near your name, just like the HP Bar</description>
+        <content name="MPBar">
+          <hScript>--some credits goes to Hardek, as he also did this script.
+local selfpos = getobjectarea($self)
+
+auto(100)
+setposition($clientwin.left+selfpos.centerx-13,$clientwin.top+selfpos.top-1)
+
+setfillstyle("color", 0)
+addshape("rect", 0, 0, 25, 2)
+
+setfillstyle("color", 255)
+addshape("rect", 0, 0, $mppc/4, 2)</hScript>
+          <type>d</type>
+        </content>
+      </example>
+      <example name="Show Move Item Tiles">
+        <description>This script is used to test wheretomoveitem and wheretomovecreature.</description>
+        <content name="ShowMoveItemsTiles">
+          <hScript>auto(200)
+setposition($clientwin.left,$clientwin.top)
+local temp = cursorinfo()
+if temp.x &gt; 0 then
+	local p = wheretomoveitemtable(temp.x,temp.y,temp.z)
+	local a = wheretomovecreaturetable(temp.x,temp.y,temp.z)
+	for i=1, #p do
+		local movecreature = false
+		if table.find(a,p[i][1],1) then
+			movecreature = true
+		end
+		p[i] = getobjectarea(p[i][2]+temp.x,p[i][3]+temp.y,temp.z)
+		if p[i].left ~= -1 then
+			if not movecreature then
+				setfillstyle('color', color('yellow', 70))
+				addshape('rect',p[i].left,p[i].top, p[i].right-p[i].left,p[i].bottom-p[i].top)
+			else
+				local size = (p[i].right-p[i].left)/2
+				setfillstyle('color', color('yellow', 70))
+				addshape('rect',p[i].left,p[i].top, size,p[i].bottom-p[i].top)
+				setfillstyle('color', color('red', 70))
+				addshape('rect',p[i].left+size,p[i].top, size,p[i].bottom-p[i].top)
+			end
+		end
+	end
+	p = getobjectarea(temp.x,temp.y,temp.z)
+	if p.left &gt;= -1 and tilewalkable(temp.x,temp.y,temp.z) then
+		setfillstyle('color', color('green', 70))
+		addshape('rect',p.left,p.top, p.right-p.left,p.bottom-p.top)
+	end
+	setfontstyle('Tahoma', 10, 0xFFFFFF)
+end</hScript>
+          <type>d</type>
+        </content>
+      </example>
+    </category>
+    <category name="Changing Weapons">
+      <example name="Change Distance Weapon for Melee Weapon (Hunting Train)">
+        <description>If you have enough health and mana, and you have enough distance items to train for a while, the bot will equip you with that distance item, if you are in danger (low health or low mana) or you have no more distance items it will equip you with a melee weapon.</description>
+        <content name="weaponswitcher">
+          <hScript>init start
+    local weapon = {id = !!weapon!!, mode = {!!attackmode1!!}} --this is the weapon you want to use on low health or low mana, or no dist items
+    local distweapon = {id = !!distweapon!!, mode = {!!attackmode2!!}} --this is the weapon you want to use for training
+    local bloodhit = {id = !!weapon!!, mode = {'defensive', 'chase'}, hittime = {15000, 25000}} -- this is the weapon you want to use if you haven't dealed any hit to a creature in the last 15-25 seconds (default time)
+    local amounttotrain = {!!amount!!} --this is the minimum amount you must have on your backpack to equip the dist weapon, randomized
+    local safe = {hp = {!!hp!!}, mp = {!!mp!!}} --it's a precaution, it will equip the weapon if you have less than this hp or mp. You may choose 'hppc' or 'hp' and 'mppc' or 'mp'
+    --dont change things below
+    weapon.id,distweapon.id = itemid(weapon.id), itemid(distweapon.id)
+    local nhp,nmp = safe.hp[1],safe.mp[1]
+    safe = {hp = safe.hp[2], mp = safe.mp[2]}
+    local randamount = math.random(table.unpack(amounttotrain))
+init end
+ 
+auto(300,700) listas('Paladin Hunting Trainer')
+foreach newmessage m do
+    if m.type == MSG_STATUSLOG then
+        if m.content:attackmsg().dealer.name == $name then
+            lasthittime = $timems+math.random(table.unpack(bloodhit.hittime))
+        end
+    end
+end
+local cur = {hppc = $hppc, mppc = $mppc, hp = $hp, mp = $mp}
+if $rhand.id == distweapon.id then
+    if cur[nhp] &lt; safe.hp or cur[nmp] &lt; safe.mp then
+        setattackmode(table.unpack(weapon.mode))
+        equipitem(weapon.id, 'rhand', 'backpack', 100) waitping()
+    elseif $timems &gt; lasthittime then
+        if itemcount(distweapon.id) &gt;= randamount then
+            setattackmode(table.unpack(bloodhit.mode))
+            equipitem(bloodhit.id, 'rhand', 'backpack', 100) waitping()
+        else
+            setattackmode(table.unpack(weapon.mode))
+            equipitem(weapon.id, 'rhand', 'backpack', 100) waitping()
+        end
+    elseif itemcount(distweapon.id, 'backpack') &gt; 0 and math.random(0,100) &lt;= 2 then
+        setattackmode(table.unpack(distweapon.mode))
+        equipitem(distweapon.id, 'rhand', 'backpack', 100) waitping()
+    end
+elseif $rhand.id == 0 then
+    if cur[nhp] &gt;= safe.hp and cur[nmp] &gt;= safe.mp and itemcount(distweapon.id, 'backpack') &gt;= randamount then
+        if $timems &lt;= lasthittime then
+            setattackmode(table.unpack(distweapon.mode))
+            equipitem(distweapon.id, 'rhand', 'backpack', 100) waitping()
+            randamount = math.random(table.unpack(amounttotrain))
+        else
+            setattackmode(table.unpack(bloodhit.mode))
+            equipitem(bloodhit.id, 'rhand', 'backpack', 100) waitping()
+        end
+    else
+        setattackmode(table.unpack(weapon.mode))
+        equipitem(weapon.id, 'rhand', 'backpack', 100) waitping()
+    end
+elseif $rhand.id == bloodhit.id then
+    if cur[nhp] &lt; safe.hp or cur[nmp] &lt; safe.mp or itemcount(distweapon.id, 'backpack') &lt; randamount then
+        setattackmode(table.unpack(weapon.mode))
+        equipitem(weapon.id, 'rhand', 'backpack', 100) waitping()
+    elseif $timems &lt;= lasthittime then
+        setattackmode(table.unpack(distweapon.mode))
+        equipitem(distweapon.id, 'rhand', 'backpack', 100) waitping()
+        randamount = math.random(table.unpack(amounttotrain))
+    end
+elseif $rhand.id == weapon.id then
+    if cur[nhp] &gt;= safe.hp and cur[nmp] &gt;= safe.mp and itemcount(distweapon.id, 'backpack') &gt;= randamount then
+        if $timems &lt;= lasthittime then
+            setattackmode(table.unpack(distweapon.mode))
+            equipitem(distweapon.id, 'rhand', 'backpack', 100) waitping()
+            randamount = math.random(table.unpack(amounttotrain))
+        else
+            setattackmode(table.unpack(bloodhit.mode))
+            equipitem(bloodhit.id, 'rhand', 'backpack', 100) waitping()
+        end
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!weapon!!" default="'serpent sword'">Enter the weapon's ID or its name (Example: 3297 or 'serpent sword'):</input>
+          <input var="!!attackmode1!!" default="'offensive chase'">Enter the attack mode to be used while using the weapon: </input>
+          <input var="!!distweapon!!" default="'small stone'">Enter the distance weapon's ID or its name (Example: 1781 or 'small stone'):</input>
+          <input var="!!attackmode2!!" default="'defensive chase'">Enter the attack mode to be used while using the distance weapon: </input>
+          <input var="!!amount!!" default="10,15">Enter the amount needed to equip distance items (default is 10):</input>
+          <input var="!!hp!!" default="'hppc',70">This will check if you have more than 70% of HP, if you are below it, it will equip you with the distance weapon. If you are below it, it will equip you with the melee weapon.</input>
+          <input var="!!mp!!" default="'mp', 40">This will check if you have more than 40 of MP, if you are below it, it will equip you with the distance weapon. If you are below it, it will equip you with the melee weapon.</input>
+        </content>
+      </example>
+      <example name="Change one Weapon for other according to attacked monster">
+        <description>If you are attacking determined monsters, the bot will equip you with a weapon, if you are attacking any other monster the bot will equip you with another weapon</description>
+        <content name="weaponswitcher">
+          <hScript>init start
+    local weapons = {
+                        {id = !!weapon1!!, mode = {!!attackmode1!!}, monsters = {!!monsters!!}},
+                        {id = !!weapon2!!, mode = {!!attackmode2!!}, monsters = {'all'}},
+                    }
+    --dont change things below
+    for i,j in ipairs(weapons) do
+        table.lower(weapons[i].monsters)
+        weapons[i].id = itemid(weapons[i].id)
+        if j.monsters[1] == 'all' then
+            weapons[i].monsters = nil
+        end
+    end
+init end
+auto(300,700) listas('Change Weapon According to Monster')
+if $attacked.id &gt; 0 then
+    local pos = 1
+    while pos &lt;= #weapons do
+        if not weapons[pos].monsters or table.find(weapons[pos].monsters, $attacked.name:lower()) then
+            break
+        end
+        pos = pos+1
+    end
+    if $rhand.id ~= weapons[pos].id then
+        setattackmode(table.unpack(weapons[pos].mode))
+        equipitem(weapons[pos].id, 'rhand', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!monsters!!" default="'Ghost', 'Pirate Ghost'">Enter the monster names to use a determined weapon as in the example below:</input>
+          <input var="!!weapon1!!" default="'wand of inferno'">Enter the weapon's ID or its name to use when attacking the monsters you've choosen (Example: 3071 or 'wand of inferno'):</input>
+          <input var="!!attackmode1!!" default="'defensive', 'stand'">Enter the attack mode to use when attacking the monsters you've choosen:</input>
+          <input var="!!weapon2!!" default="'sword of valor'">Enter the weapon's ID or its name to use when attacking any other monster (Example: 3288 or 'sword of valor'):</input>
+          <input var="!!attackmode2!!" default="'offensive', 'stand'">Enter the attack mode to use when attacking any other monster:</input>
+        </content>
+      </example>
+      <example name="Change One Handed to Two Handed">
+        <description>If there are more than X monsters disting Y sqms from you the bot will change your two handed weapon for a one handed weapon and shield. When there are less than X monsters again the bot will equip you back with your two handed weapon.</description>
+        <content name="weaponswitcher">
+          <hScript>init start
+    local monsters = {name = {!!monsters!!}, amount = !!amount!!, dist = !!dist!!}
+    local mode = 'one handed' -- on too many monsters around use: 'one handed' or 'two handed'
+    local onehanded = {id = !!weapon1!!, shieldid = !!shield!!, mode = {!!mode1!!}}
+    local twohanded = {id = !!weapon2!!, mode = {!!mode2!!}}
+    --dont change things below
+    table.lower(monsters.name)
+    twohanded.id,onehanded.id,onehanded.shieldid = itemid(twohanded.id),itemid(onehanded.id),itemid(onehanded.shieldid)
+    if mode == 'one handed' then
+        mode = true
+    else
+        mode = false
+    end
+init end
+auto(300,700) listas('One Handed to Two Handed')
+local temp = maround(monsters.dist, table.unpack(monsters.name)) &gt;= monsters.amount
+if not mode then
+    temp = not temp
+end
+if temp then
+    if $rhand.id ~= onehanded.id or $lhand.id ~= onehanded.shieldid then
+        setattackmode(table.unpack(twohanded.mode))
+        equipitem(onehanded.id, 'rhand', 'backpack', 100) waitping()
+        equipitem(onehanded.shieldid, 'lhand', 'backpack', 100) waitping()
+    end
+else
+    if $rhand.id ~= twohanded.id then
+        setattackmode(table.unpack(onehanded.mode))
+        moveitems(onehanded.shieldid, 'backpack', 'lhand', 100) waitping()
+        equipitem(twohanded.id, 'rhand', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!weapon1!!" default="'assassin star'">Enter the one handed weapon's name or ID: </input>
+          <input var="!!shield!!" default="'mastermind shield'">Enter the shield's name or ID: </input>
+          <input var="!!mode1!!" default="'offensive', 'stand'">Enter the attack mode to use with shield and weapon:</input>
+          <input var="!!weapon2!!" default="'royal crossbow'">Enter the two handed weapon's name or ID: </input>
+          <input var="!!mode2!!" default="'offensive', 'stand'">Enter the attack mode to use with two handed weapon:</input>
+          <input var="!!monsters!!" default="'Dragon', 'Hydra'">Enter the monsters you want to consider (leave it blank to consider all):</input>
+          <input var="!!dist!!" default="5">Enter the monsters' distance to consider: </input>
+          <input var="!!amount!!" default="3">Enter the monsters' amount to equip one handed weapon: </input>
+        </content>
+      </example>
+      <example name="Change Weapon if too many monsters around">
+        <description>If there are more than X monsters around you, the bot will equip a strong weapon, if there are less than X monsters the bot will equip the weak weapon back.</description>
+        <content name="weaponswitcher">
+          <hScript>init start
+    local monsters = {name = {!!monsters!!}, amount = !!amount!!, dist = !!dist!!}
+    local weapon1 = {id = !!weapon1!!, mode = {!!mode1!!}} -- weapon to equip on too many monsters around
+    local weapon2 = {id = !!weapon2!!, mode = {!!mode2!!}} -- weapon to equip on not too many monsters around
+    --dont change things below
+    table.lower(monsters.name)
+    weapon1.id,weapon2.id = itemid(weapon1.id),itemid(weapon2.id)
+init end
+auto(300,700) listas('Change Weapon if too many monsters around')
+if maround(monsters.dist, table.unpack(monsters.name)) &gt;= monsters.amount then
+    if $rhand.id ~= weapon1.id then
+        setattackmode(table.unpack(weapon1.mode))
+        equipitem(weapon1.id, 'rhand', 'backpack', 100) waitping()
+    end
+else
+    if $rhand.id ~= weapon2.id then
+        setattackmode(table.unpack(weapon2.mode))
+        equipitem(weapon2.id, 'rhand', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!weapon1!!" default="'magic sword'">Enter the one handed weapon's name or ID: </input>
+          <input var="!!mode1!!" default="'offensive', 'stand'">Enter the attack mode to use with shield and weapon:</input>
+          <input var="!!weapon2!!" default="'royal crossbow'">Enter the two handed weapon's name or ID: </input>
+          <input var="!!mode2!!" default="'offensive', 'stand'">Enter the attack mode to use with two handed weapon:</input>
+          <input var="!!monsters!!" default="'Dragon', 'Hydra'">Enter the monsters you want to consider (leave it blank to consider all):</input>
+          <input var="!!dist!!" default="5">Enter the monsters' distance to consider: </input>
+          <input var="!!amount!!" default="3">Enter the monsters' amount to equip one handed weapon: </input>
+        </content>
+      </example>
+      <example name="Equip best wand or rod according to attacked monster">
+        <description>If you are not wearing your best wand or rod which will deal more damage on the creature you're currently attacking the bot will change it for you, equipping you with your best weapon.</description>
+        <content name="weaponswitcher">
+          <hScript>init start
+    local lastattackedname = ''
+    local bestid = 0
+init end
+ 
+auto(100)
+if $attacked.id &gt; 0 and lastattacked ~= $attacked.name then
+    lastattacked = $attacked.name
+    bestid = bestelementweapon(lastattacked)
+end
+if bestid ~= 0 and $rhand.id ~= bestid then
+    equipitem(bestid, 'rhand', 'backpack', 100) waitping()
+end</hScript>
+          <type>phc</type>
+        </content>
+      </example>
+      <example name="Swap from Rod to Weapon on low mana">
+        <description>If your mana goes below X% the bot will equip you with a weapon, when your mana is higher than Y% the bot will equip you back with a wand or rod.</description>
+        <content name="weaponswitcher">
+          <hScript>init start
+    local weapon = {id = !!weapon1!!, mode = {!!weapon1mode!!}}
+    local manasetup = {usewand = {!!rodmp!!}, useweapon = {!!weaponmp!!}, consider = '!!consider!!'} -- these are the MP% to use wand and MP% to use weapon. It's randomized
+    --dont change things below
+    local lastattackedname = ''
+    local bestid = 0
+    weapon.id = itemid(weapon.id)
+    local randwand, randweapon, ntype = math.random(table.unpack(manasetup.usewand)), math.random(table.unpack(manasetup.useweapon)), manasetup.consider
+init end
+ 
+auto(300,700) listas('Equip Weapon on Low Mana')
+local cur = {mppc = $mppc, mp = $mp}
+if cur[ntype] &lt; randweapon then
+    if $rhand.id ~= weapon.id then
+        setattackmode(table.unpack(weapon.mode))
+        equipitem(weapon.id, 'rhand', 'backpack', 100) waitping()
+        randweapon = math.random(table.unpack(manasetup.useweapon))
+    end
+else
+    if $attacked.id &gt; 0 and lastattacked ~= $attacked.name then
+        lastattacked = $attacked.name
+        bestid = bestelementweapon(lastattacked)
+    end
+    if bestid ~= 0 and (($rhand.id ~= weapon.id or cur[ntype] &gt;= randwand) and $rhand.id ~= bestid) then
+        setattackmode('defensive', 'stand')
+        equipitem(bestid, 'rhand', 'backpack', 100) waitping()
+        randwand = math.random(table.unpack(manasetup.usewand))
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!weapon1!!" default="'magic sword'">Enter you weapon's name or ID:</input>
+          <input var="!!weapon1mode!!" default="'offensive', 'chase'">Enter the attack mode to use with weapon:</input>
+          <input var="!!consider!!" default="mppc">Enter what to consider: (mp,mppc,hp or hppc)</input>
+          <input var="!!weaponmp!!" default="35,45">Enter the amount to equip weapon: </input>
+          <input var="!!rodmp!!" default="75,85">Enter the amount to equip rod: </input>
+        </content>
+      </example>
+    </category>
+    <category name="Changing Rings">
+      <example name="Dwarven Ring">
+        <description>When you get drunk, the bot will equip you with a dwarven ring, after X seconds it will take off the dwarven ring and check if you are still drunk, if you are, it will put the dwarven ring again, if you are not, it will leave you with no ring.</description>
+        <content name="dwarvenringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the dwarven ring
+    local timetocheck = {!!timetocheck!!} --Time in seconds to check if you are still drunk
+    -- dont change things below
+    local rings = {id = 3097, use = 3099}
+    timetocheck[1], timetocheck[2] = timetocheck[1]*1000, timetocheck[2]*1000
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+init end
+auto(300,700) listas('Dwarven Ring Changer')
+if $finger.id == rings.use then
+    wait(table.unpack(timetocheck))
+    if itemcount(otherring.id, 'backpack') == 0 then
+        moveitems(3099, 'backpack', 'finger', 100) waitping()
+    else
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == 0 then
+    if $drunk and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if $drunk and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!timetocheck!!" default="8,12">Time in seconds to check if you are still drunk, it's randomized:</input>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses (set it to 0 if you don't use any): </input>
+        </content>
+      </example>
+      <example name="Life Ring (Mana Based)">
+        <description>When your mana or health goes under X and you're not inside a protection zone, it will equip you with a life ring, when your mana or health goes above Y again or you get in to a protection zone, it will remove the life ring</description>
+        <content name="liferingchanger">
+          <hScript>init start
+    local healring = !!ring!! --change this to the ring you want to use (life ring or ring of healing)
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the life ring
+    local numbers = {consider = !!consider!!, equip = {!!equip!!}, unequip = {!!unequip!!}} -- it will equip you if you have less than 60-70 of mppc, and unequip if you have more than 80-90 again.
+    -- dont change things below
+    local rings = {life_ring = {id = 3052, use = 3089}, ring_of_healing = {id = 3098, use = 3100}}
+    healring = (healring:gsub(' ','_')):lower()
+    rings = rings[healring]
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    local nequip, nunequip, ntype = math.random(table.unpack(numbers.equip)), math.random(table.unpack(numbers.unequip)), numbers.consider
+init end
+auto(300,700) listas('Healing Ring Changer')
+local cur = {mppc = $mppc, hppc = $hppc, hp = $hp, mp = $mp}
+if $finger.id == rings.use then
+    if ($pzone or cur[ntype] &gt; nunequip) then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems($finger.id, 'backpack', 'finger', 100) waitping()
+        end
+        nunequip = math.random(table.unpack(numbers.unequip))
+    end
+elseif $finger.id == 0 then
+    if not $pzone and cur[ntype] &lt; nequip and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+        nequip = math.random(table.unpack(numbers.equip))
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        nunequip = math.random(table.unpack(numbers.unequip))
+    end
+elseif $finger.id == otherring.use then
+    if not $pzone and cur[ntype] &lt; nequip and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+        nequip = math.random(table.unpack(numbers.equip))
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!ring!!" default="'life ring'">Enter the ring you want to use ('life ring' or 'ring of healing'): </input>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses (set it to 0 if you don't use any): </input>
+          <input var="!!consider!!" default="'mppc'">Choose 'mppc', 'hppc', 'mp' or 'hp':</input>
+          <input var="!!equip!!" default="50,60">Enter the amount to equip the life ring (randomized):</input>
+          <input var="!!unequip!!" default="80,90">Enter the amount to unequip the life ring (randomized):</input>
+        </content>
+      </example>
+      <example name="Energy Ring (Health Based)">
+        <description>When your health goes under X% and you're not inside a protection zone, it will equip you with a energy ring, after Z seconds it will check if your health is above Y%, if it's or you got in to a protection zone, it will remove the energy ring.</description>
+        <content name="energyringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the enery ring
+    local numbers = {equip = {!!equip!!}, unequip = {!!unequip!!}} -- it will equip you if you have less than 60-70 of hppc, and unequip if you have more than 80-90 again.
+    local timetocheck = {!!timetocheck!!} --time in seconds to check if you have enough life
+    -- dont change things below
+    local rings = {id = 3051, use = 3088}
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    timetocheck[1],timetocheck[2] = timetocheck[1]*1000,timetocheck[2]*1000
+    local nequip, nunequip = math.random(table.unpack(numbers.equip)), math.random(table.unpack(numbers.unequip))
+init end
+auto(300,700) listas('Energy Ring Changer')
+if $finger.id == rings.use then
+    local time = $timems+math.random(table.unpack(timetocheck))
+    while $timems &lt; time and not $pzone do
+        wait(100)
+    end
+    if $hppc &gt; nunequip or $pzone then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            while $finger.id ~= otherring.use and itemcount(otherring.id, 'backpack') &gt; 0 do equipitem(otherring.id, 'finger', 'backpack', 100) waitping() end
+        else
+            while $finger.id == rings.use do moveitems(rings.use, 'backpack', 'finger', 100) waitping() end
+        end
+        nunequip = math.random(table.unpack(numbers.unequip))
+    end
+elseif $finger.id == 0 then
+    if $hppc &lt; nequip and not $pzone and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if $hppc &lt; nequip and not $pzone and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses:</input>
+          <input var="!!equip!!" default="40,50">Enter the percentage of health to equip an energy ring (randomized):</input>
+          <input var="!!unequip!!" default="85,95">Enter the percentage of health to unequip the energy ring (randomized):</input>
+          <input var="!!timetocheck!!" default="2,3">Time in seconds to check if you have health enough to unequip the energy ring (randomized):</input>
+        </content>
+      </example>
+      <example name="Energy Ring (Monsters Based)">
+        <description>When there is more than X dangerous monters and you're not mana shielded it will equip you with an energy ring, when the monsters dies or leaves the screen it will unequip your energy ring.</description>
+        <content name="energyringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the energy ring
+    local monsters = {!!monsters!!} -- the monsters you want to consider to equip energy ring or not
+    local dist = !!dist!! -- the distance maximum of the monsters
+    local amount = !!amount!! -- the amount of monsters to equip energy ring
+    -- dont change things below
+    local rings = {id = 3051, use = 3088}
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    table.lower(monsters)
+init end
+auto(300,700) listas('Energy Ring Changer')
+local tequip = maround(dist, table.unpack(monsters)) &gt;= amount
+if $finger.id == rings.use then
+    if not tequip then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems(rings.use, 'backpack', 'finger', 100) waitping()
+        end
+    end
+elseif $finger.id == 0 then
+    if tequip and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if tequip and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses:</input>
+          <input var="!!monsters!!" default="'Dragon', 'Demon', 'Dragon Lord'">Enter the dangerous monster names as in the example below:</input>
+          <input var="!!dist!!" default="7">Enter the monsters' range to be considered as dangerous:</input>
+          <input var="!!amount!!" default="3">Enter the amount of monsters on screen to equip the energy ring:</input>
+        </content>
+      </example>
+      <example name="Stealth Ring (Monsters Based)">
+        <description>When there is more than X dangerous monters and you're not invisible it will equip you with a stealth ring, when the monsters dies or leaves the screen it will unequip your stealth ring</description>
+        <content name="stealthringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the stealth ring
+    local monsters = {!!monsters!!} -- the monsters you want to consider to equip stealth ring or not
+    local dist = !!mrange!! -- the distance maximum of the monsters
+    local amount = !!mamount!! -- the amount of monsters to equip stealth ring
+    -- dont change things below
+    local rings = {id = 3049, use = 3086}
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    table.lower(monsters)
+init end
+auto(300,700) listas('Energy Ring Changer')
+local tequip = maround(dist, table.unpack(monsters)) &gt;= amount
+if $finger.id == rings.use then
+    if not tequip then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems(rings.use, 'backpack', 'finger', 100) waitping()
+        end
+    end
+elseif $finger.id == 0 then
+    if tequip and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if tequip and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses:</input>
+          <input var="!!monsters!!" default="'Cyclops', 'Cyclops Smith'">Enter the dangerous monster names as in the example below:</input>
+          <input var="!!mrange!!" default="7">Enter the monsters' range to be considered as dangerous:</input>
+          <input var="!!mamount!!" default="3">Enter the amount of monsters on screen to equip the stealth ring:</input>
+        </content>
+      </example>
+      <example name="Time Ring">
+        <description>If you cast haste and your health is higher than X%, it will equip you with a time ring, when your haste goes out, it will remove the time ring.</description>
+        <content name="timeringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the time ring
+    local timetocheck = {!!checktime!!} --time in seconds to check if you are still hasted
+    -- dont change things below
+    local rings = {id = 3053, use = 3090}
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    timetocheck[1],timetocheck[2] = timetocheck[1]*1000,timetocheck[2]*1000
+init end
+auto(300,700) listas('Time Ring Changer')
+if $finger.id == rings.use then
+    local time = $timems+math.random(table.unpack(timetocheck))
+    while $timems &lt; time and not $pzone do
+        wait(100)
+    end
+    if not $hasted or $pzone then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems(rings.use, 'backpack', 'finger', 100) waitping()
+        end
+        nunequip = math.random(table.unpack(numbers.unequip))
+    end
+elseif $finger.id == 0 then
+    if $hasted and not $pzone and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if $hasted and not $pzone and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id, 'finger', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses:</input>
+          <input var="!!checktime!!" default="10">Enter the time in seconds to check if you are still hasted:</input>
+        </content>
+      </example>
+      <example name="Skill Rings (Attacking Based)">
+        <description>The bot will check what kind of weapon you're using. When you attack something or someone, the bot will equip you with a skill ring, when you stop to attack it, it will wait for X seconds and check if you're still not attacking something and then remove your ring.</description>
+        <content name="skillringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the skill ring
+    local timetocheck = {!!timecheck!!} --Time in seconds to check if you are still attacking a monster
+    --dont change things below
+    local weapontype = findweapontype()
+    local rings = {id = 0, use = 0}
+    if (weapontype == 'axe') then
+        rings = {id = 3092, use = 3095}
+    elseif (weapontype == 'sword') then
+        rings = {id = 3091, use = 3094}
+    elseif (weapontype == 'club') then
+        rings = {id = 3093, use = 3096}
+    end
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    timetocheck[1], timetocheck[2] = timetocheck[1]*1000, timetocheck[2]*1000
+    local timecheckrand = math.random(table.unpack(timetocheck))
+    local notattackingtime = 0
+init end
+ 
+auto(300,700) listas('Skill Ring Changer')
+if $attacked.id &gt; 0 then
+    notattackingtime = 0
+    timecheckrand = math.random(table.unpack(timetocheck))
+else
+    notattackingtime = notattackingtime + 100
+end
+if $finger.id == rings.use then
+    if $pzone or notattackingtime &gt; timecheckrand then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems(rings.use, 'backpack', 'finger', 100) waitping()
+        end
+    end
+elseif $finger.id == 0 then
+    if not $pzone and $attacked.id &gt; 0 and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if not $pzone and $attacked.id &gt; 0 and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses: </input>
+          <input var="!!timecheck!!" default="10">Enter the time in seconds to check if you are still attacking a monster:</input>
+        </content>
+      </example>
+      <example name="Skill Rings (Always Wearing)">
+        <description>The bot will check what kind of weapon you're using. When you are not wearing an skill ring, and you're not inside a protection zone the bot will equip you with a skill ring, when you get in to a protection zone, remove your ring.</description>
+        <content name="skillringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the skill ring
+    --dont change things below
+    local weapontype = findweapontype()
+    local rings = {id = 0, use = 0}
+    if (weapontype == 'axe') then
+        rings = {id = 3092, use = 3095}
+    elseif (weapontype == 'sword') then
+        rings = {id = 3091, use = 3094}
+    elseif (weapontype == 'club') then
+        rings = {id = 3093, use = 3096}
+    end
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+init end
+ 
+auto(300,700) listas('Skill Ring Changer')
+if $finger.id == rings.use then
+    if $pzone then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems(rings.use, 'backpack', 'finger', 100) waitping()
+        end
+    end
+elseif $finger.id == 0 then
+    if not $pzone and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if not $pzone and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses: </input>
+        </content>
+      </example>
+      <example name="Skill Rings (Monsters Based)">
+        <description>The bot will check what kind of weapon you're using. When you are attacking the desired monsters and you're not inside a protection zone the bot will equip you with a skill ring, When you're not attacking the desired monsters or you get in to a protection zone, remove your ring.</description>
+        <content name="skillringchanger">
+          <hScript>init start
+    local otherring = !!otherring!! --change this to the ring you usually uses, set it to 0 (zero) to make bot just remove the skill ring
+    local monsters = {!!monsters!!} --this is the monsters you want to use skill ring
+    local timetocheck = {!!timecheck!!} --Time in seconds to check if you are still attacking a monster
+    --dont change things below
+    local weapontype = findweapontype()
+    local rings = {id = 0, use = 0}
+    if (weapontype == 'axe') then
+        rings = {id = 3092, use = 3095}
+    elseif (weapontype == 'sword') then
+        rings = {id = 3091, use = 3094}
+    elseif (weapontype == 'club') then
+        rings = {id = 3093, use = 3096}
+    end
+    otherring = itemid(otherring.id)
+    otherring = {id = otherring, use = ringinuse(otherring)}
+    timetocheck[1], timetocheck[2] = timetocheck[1]*1000, timetocheck[2]*1000
+    local timecheckrand = math.random(table.unpack(timetocheck))
+    local notattackingtime = 0
+init end
+ 
+auto(300,700) listas('Skill Ring Changer')
+local found = table.find(monsters, $attacked.name)
+if not found then
+    notattackingtime = 0
+    timecheckrand = math.random(table.unpack(timetocheck))
+else
+    notattackingtime = notattackingtime + 100
+end
+if $finger.id == rings.use then
+    if $pzone or notattackingtime &gt; timecheckrand or (not found and $attacked.id &gt; 0) then
+        if itemcount(otherring.id, 'backpack') &gt; 0 then
+            equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+        else
+            moveitems(rings.use, 'backpack', 'finger', 100) waitping()
+        end
+    end
+elseif $finger.id == 0 then
+    if not $pzone and found and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id) waitping()
+    elseif itemcount(otherring.id, 'backpack') &gt; 0 then
+        equipitem(otherring.id, 'finger', 'backpack', 100) waitping()
+    end
+elseif $finger.id == otherring.use then
+    if not $pzone and found and itemcount(rings.id, 'backpack') &gt; 0 then
+        equipitem(rings.id) waitping()
+    end
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherring!!" default="'ring of the sky'">Enter the ring you usually uses: </input>
+          <input var="!!monsters!!" default="'Dragon', 'Demon'">Enter the monsters you want to use skill ring as in the example below: </input>
+          <input var="!!timecheck!!" default="8,12">Enter the time in seconds to check if you are still attacking a monster from the monsters list: </input>
+        </content>
+      </example>
+    </category>
+    <category name="Changing Boots">
+      <example name="Firewalker Boots">
+        <description>When your firewalker boots becomes worn the bot will unequip it and use an enchanted small ruby on it. Then it will equip your firewalker boots back.</description>
+        <content name="firewalkerbootschanger">
+          <hScript>auto(100)
+if $feet.id == 9020 then
+    moveitems(9020,'backpack','feet') wait($pingaverage*1.6,$pingaverage*2.3)
+elseif itemcount(9020) &gt; 0 then
+    useitemon(676,9020,'backpack') wait($pingaverage*1.6,$pingaverage*2.3)
+    equipitem('firewalker boots','feet')
+end </hScript>
+          <type>phc</type>
+        </content>
+      </example>
+      <example name="Soft Boots">
+        <description>When your health or mana goes under X or the time of the soft boots you were wearing went out, and you're not inside a protection zone, it will equip you with a soft boots, when your health or mana goes above Y again or you get in to a protection zone or you have no more soft boots, it will equip you with a boots of haste.</description>
+        <content name="softbootschanger">
+          <hScript>init start
+    local boots = !!otherboots!! -- this is the alternative boots, to equip while you are in pz, or you have enough mana
+    local softnumbers = {consider = !!consider!!, equip = {!!equip!!}, unequip = {!!unequip!!}} -- check this, it's randomized, in this example it will equip soft if you have less than 40~60% of MP, and equip soft boots if you have more than 80~90% of MP.
+    local alertifnosoft = !!alert!! -- this will play an alert if a soft wasn't found on your backpacks.
+    local soundfile = !!soundfile!! -- this is the sound you want to use play when you have no soft
+    -- dont change things below.
+    local soft = {id = 6529, use = 3549, worn = 6530}
+    local firewalker = {id = 9019, use = 9018, worn = 9020, enchantid = 676}
+    boots = itemid(boots)
+    if boots == 6529 then
+        boots = {id = boots, use = 3549, worn = 6530}
+    elseif boots == 9019 then
+        boots = {id = boots, use = 9018, worn = 9020}
+    else
+        boots = {id = boots, use = boots, worn = boots}
+    end
+    local ntype,nequip,nunequip = softnumbers.consider:lower(), math.random(table.unpack(softnumbers.equip)), math.random(table.unpack(softnumbers.unequip))
+    local warningmsgtime = 0
+    if getsetting('Input/Mouse/MouseMode') == 'Simulate mouse' then
+        warningmsgtime = $timems+20000
+    end
+init end
+ 
+auto(300,700)
+if $timems &lt; warningmsgtime then
+    listas('BE CAREFUL!! If you do a right click on your screen while the script is trying to move the boots you may lose your item!')
+else
+    listas('Soft Boots Changer')
+end
+local cur = {mppc = $mppc, hppc = $hppc, mp = $mp, hp = $hp}
+if $feet.id == soft.use then
+    if $pzone or cur[ntype] &gt; nunequip then
+        if itemcount(boots.id, 'backpack') &gt; 0 then
+            equipitem(boots.id, 'feet', 'backpack', 100) waitping()
+        else
+            moveitems(soft.use, 'backpack', 'feet', 100) waitping()
+        end
+        nunequip = math.random(table.unpack(softnumbers.unequip))
+    end
+elseif $feet.id == soft.worn or $feet.id == 0 then
+    if cur[ntype] &lt; nequip and not $pzone and itemcount(soft.id, 'backpack') &gt; 0 then
+        equipitem(soft.id, 'feet', 'backpack', 100) waitping()
+        nequip = math.random(table.unpack(softnumbers.equip))
+    else
+        if itemcount(boots.id) &gt; 0 then
+            equipitem(boots.id, 'feet', 'backpack', 100) waitping()
+        elseif $feet.id &gt; 0 then
+            moveitems(soft.worn, 'backpack', 'feet', 100) waitping()
+        end
+        nunequip = math.random(table.unpack(softnumbers.unequip))
+    end
+elseif $feet.id == boots.id then
+    if cur[ntype] &lt; nequip and not $pzone and itemcount(soft.id, 'backpack') &gt; 0 then
+        equipitem(soft.id, 'feet', 'backpack', 100) waitping()
+        nequip = math.random(table.unpack(softnumbers.equip))
+    end
+end
+if alertifnosoft and $feet.id ~= soft.use and itemcount(soft.id) == 0 and itemcount(soft.worn) &gt; 0 then
+    playsoundflash(soundfile) 
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherboots!!" default="'boots of haste'">Enter the boots you usually uses: </input>
+          <input var="!!consider!!" default="'mppc'">Choose 'mppc', 'hppc', 'hp' or 'mp': </input>
+          <input var="!!equip!!" default="65,75">Enter the number to equip a soft boots:</input>
+          <input var="!!unequip!!" default="85,95">Enter the number to equip an ordinary boots back:</input>
+          <input var="!!alert!!" default="true">Do you want the bot to alert you if you have no softs? (true or false)</input>
+          <input var="!!soundfile!!" default="'monster.wav'">Enter the sound name to play the sound:</input>
+        </content>
+      </example>
+      <example name="Firewalker and Soft Boots">
+        <description>If there are more than X of Y kind of monsters on your screen, the bot will equip you with a firewalker boots, else it will check if your mana or health is lower than Z, if it's, it will equip you with a soft boots, if it's not it will equip you with a boots of haste. Also, the bot will refill your firewalker boots with an enchanted small ruby.</description>
+        <content name="firewalkersoftbootschanger">
+          <hScript>init start
+    local boots = !!otherboots!! -- this is the alternative boots, to equip while you are in pz, or you have enough mana
+    local softnumbers = {consider = !!consider!!, equip = {!!equip!!}, unequip = {!!unequip!!}} -- check this, it's randomized, in this example it will equip soft if you have less than 40~60% of MP, and equip soft boots if you have more than 80~90% of MP.
+    local alertifnosoft = !!alert!! -- this will play an alert if a soft wasn't found on your backpacks.
+    local soundfile = !!soundfile!! -- this is the sound you want to use play when you have no soft
+    -- dont change things below.
+    local soft = {id = 6529, use = 3549, worn = 6530}
+    local firewalker = {id = 9019, use = 9018, worn = 9020, enchantid = 676}
+    boots = itemid(boots)
+    if boots == 6529 then
+        boots = {id = boots, use = 3549, worn = 6530}
+    elseif boots == 9019 then
+        boots = {id = boots, use = 9018, worn = 9020}
+    else
+        boots = {id = boots, use = boots, worn = boots}
+    end
+    local ntype,nequip,nunequip = softnumbers.consider:lower(), math.random(table.unpack(softnumbers.equip)), math.random(table.unpack(softnumbers.unequip))
+    local warningmsgtime = 0
+    if getsetting('Input/Mouse/MouseMode') == 'Simulate mouse' then
+        warningmsgtime = $timems+20000
+    end
+init end
+ 
+auto(300,700)
+if $timems &lt; warningmsgtime then
+    listas('BE CAREFUL!! If you do a right click on your screen while the script is trying to move the boots you may lose your item!')
+else
+    listas('Soft Boots Changer')
+end
+local cur = {mppc = $mppc, hppc = $hppc, mp = $mp, hp = $hp}
+if $feet.id == soft.use then
+    if $pzone or cur[ntype] &gt; nunequip then
+        if itemcount(boots.id, 'backpack') &gt; 0 then
+            equipitem(boots.id, 'feet', 'backpack', 100) waitping()
+        else
+            moveitems(soft.use, 'backpack', 'feet', 100) waitping()
+        end
+        nunequip = math.random(table.unpack(softnumbers.unequip))
+    end
+elseif $feet.id == soft.worn or $feet.id == 0 then
+    if cur[ntype] &lt; nequip and not $pzone and itemcount(soft.id, 'backpack') &gt; 0 then
+        equipitem(soft.id, 'feet', 'backpack', 100) waitping()
+        nequip = math.random(table.unpack(softnumbers.equip))
+    else
+        if itemcount(boots.id) &gt; 0 then
+            equipitem(boots.id, 'feet', 'backpack', 100) waitping()
+        elseif $feet.id &gt; 0 then
+            moveitems(soft.worn, 'backpack', 'feet', 100) waitping()
+        end
+        nunequip = math.random(table.unpack(softnumbers.unequip))
+    end
+elseif $feet.id == boots.id then
+    if cur[ntype] &lt; nequip and not $pzone and itemcount(soft.id, 'backpack') &gt; 0 then
+        equipitem(soft.id, 'feet', 'backpack', 100) waitping()
+        nequip = math.random(table.unpack(softnumbers.equip))
+    end
+end
+if alertifnosoft and $feet.id ~= soft.use and itemcount(soft.id) == 0 and itemcount(soft.worn) &gt; 0 then
+    playsoundflash(soundfile) 
+end</hScript>
+          <type>phc</type>
+          <input var="!!otherboots!!" default="'boots of haste'">Enter the boots you usually uses: </input>
+          <input var="!!consider!!" default="'mppc'">Choose 'mppc', 'hppc', 'hp' or 'mp': </input>
+          <input var="!!equip!!" default="65,75">Enter the number to equip a soft boots:</input>
+          <input var="!!unequip!!" default="85,95">Enter the number to equip an ordinary boots back:</input>
+          <input var="!!alert!!" default="true">Do you want the bot to alert you if you have no softs? (true or false)</input>
+          <input var="!!soundfile!!" default="'monster.wav'">Enter the sound name to play the sound:</input>
+          <input var="!!monsters!!" default="'Dragon', 'Demon', 'Dragon Lord'">Enter the monsters you want to consider, as in the example below:</input>
+          <input var="!!amount!!" default="1">Enter the amount of monsters to use a firewalker boots: </input>
+          <input var="!!dist!!" default="5">Enter the monsters' distance to consider: </input>
+        </content>
+      </example>
+    </category>
+    <category name="Changing Amulets">
+      <example name="Amulet Changer (Mana Based)">
+        <description>When your mana goes below X% and you're not inside a protection zone, it will be always equipping you with the amulet you choose, if your mana goes above Y% again or you get in to a protection zone, it will stop to equip you with stone skin amulets.</description>
+        <content name="ssachanger">
+          <hScript>init start
+    local mppctoequip = !!pctoequip!!
+    local mppctounequip = !!pctounequip!!
+    local ammyid = !!ammyid!!
+	if type(ammyid) == 'string' then ammyid = itemid(ammyid) end
+init end
+
+auto(100) listas('dontlist')
+if ($mppc &lt;= mppctoequip) and not $pzone then
+    while ($mppc &lt; mppctounequip) and not $pzone do
+        if $neck.id ~= ammyid then
+            equipitem(ammyid,'neck')
+        end
+    end
+elseif (($mppc &gt;= mppctounequip) or $pzone) and $neck.id == ammy.id then
+    moveitems(ammyid,'backpack','neck')
+end</hScript>
+          <type>phc</type>
+          <input var="!!pctoequip!!" default="60">Enter the percentage of mana to start equipping amulets:</input>
+          <input var="!!pctounequip!!" default="95">Enter the percentage of mana to stop equipping amulets:</input>
+          <input var="!!ammyid!!" default="'stone skin amulet'">Enter the amulet's ID or the amulet's name (Example: 3081 or 'stone skin amulet'):</input>
+        </content>
+      </example>
+      <example name="Amulet Changer (Health Based)">
+        <description>When your health goes below X% and you're not inside a protection zone, it will be always equipping you with the amulet you choose, if your health goes above Y% again or you get in to a protection zone, it will stop to equip you with stone skin amulets.</description>
+        <content name="ssachanger">
+          <hScript>init start
+    local hppctoequip = !!pctoequip!!
+    local hppctounequip = !!pctounequip!!
+    local ammyid = !!ammyid!!
+	if type(ammyid) == 'string' then ammyid = itemid(ammyid) end
+init end
+
+auto(100) listas('dontlist')
+if ($hppc &lt;= hppctoequip) and not $pzone then
+    while ($hppc &lt; hppctounequip) and not $pzone do
+        if $neck.id ~= ammyid then
+            equipitem(ammyid,'neck')
+        end
+    end
+elseif (($hppc &gt;= hppctounequip) or $pzone) and $neck.id == ammyid then
+    moveitems(ammyid,'backpack','neck')
+end</hScript>
+          <type>phc</type>
+          <input var="!!pctoequip!!" default="60">Enter the percentage of health to start equipping amulets:</input>
+          <input var="!!pctounequip!!" default="95">Enter the percentage of health to stop equipping amulets:</input>
+          <input var="!!ammyid!!" default="'stone skin amulet'">Enter the amulet's ID or the amulet's name (Example: 3081 or 'stone skin amulet'):</input>
+          <input var="!!fastequip!!" default="false">(true/false) Enter if you want to fast equip amulets. If you choose true, it will equip amulets even if you're already wearing one, if you choose false it will only equip amulets if you your amulet slot is empty:</input>
+        </content>
+      </example>
+    </category>
+    <category name="Training">
+      <example name="Gargoyle Trainer">
+        <description>This script kills any monster around you, but will always keep 2 gargoyles hitting and training you. It also kills the gargoyles if your life goes under X or its hitting more than Y</description>
+        <content name="gargoyletrainer">
+          <hScript>init start
+    local weapons = {
+       train = {id = 'dagger', mode = {'defensive', 'stand'}}, --the weapon you want to use to train
+       bloodhit = {id = 'serpent sword', mode = {'defensive', 'stand'}, hittime = {15000, 25000}}, --the weapon you want to use to deal a small hit to the train monster when you are a long time without deal a hit, by default from 15 seconds to 25 seconds (randomized)
+       semistrong = {id = 'magic sword', mode = {'offensive', 'stand'}, monsters = {'Troll', 'Rotworm', 'Wolf'}}, -- the weapon you want to use to kill these monsters on the monsters table
+       strong = {id = 'magic sword', mode = {'offensive', 'stand'}}, -- the weapon you want to use to kill any other monster that appears on your screen and try to kill you, or you want to use when you are in danger
+                    } 
+    local monstersetup = {name = 'Gargoyle', minimumhp = {40, 50}} -- minimum hp is the HP% to stop attacking the training monster, it's randomized, in the example it's from 30 to 40
+    local trainpos = {12345, 54321, 7} --this is the location where you want to train, so the bot will kill a monster that appears on the screen and then get back to this position
+    local getbacktotrainpos = true --set it to false if you don't want to get back to your train position
+    local safekill = {hppc = 40, dmg = 300, food = 2, logout = false} -- it will kill the gargoyles if it's hitting more than 60 or you have less than 40% of HP or you have less than 2 foods, it will also logout after killing everything
+    --setup end, dont change things below
+    monstersetup.name = monstersetup.name:capitalizeall()
+    local killeverything = false
+    local trainnamelower = monstersetup.name:lower()
+    if not getbacktotrainpos or math.abs(trainpos[1]-$posx) &gt; 10 or math.abs(trainpos[2]-$posy) &gt; 8 or $posz-trainpos[3] ~= 0 then
+        trainpos = nil
+    end
+    for i,j in pairs(weapons) do
+        weapons[i].id = itemid(weapons[i].id)
+    end
+    local curpos, timepos
+    local lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+    local trainhppc = math.random(table.unpack(monstersetup.minimumhp))
+init end
+ 
+auto(1500,2500)
+local monsters = {training = {}, others = {}}
+foreach creature m 'ms' do
+    if m.name == monstersetup.name then
+        table.insertsorted(monsters.training,m,{{'dist', 'asc'}, {'hppc','desc'}})
+    elseif m.lastattacked &lt; 3000 then
+        table.insertsorted(monsters.others,m,{{'dist', 'asc'}, {'hppc','asc'}})
+    end
+end
+while monsters.training[3] do
+    if monsters.training[3].dist &lt;= 1 then
+        table.insertsorted(monsters.others, monsters.training[3],{{'dist', 'asc'}, {'hppc','asc'}})
+    end
+    table.remove(monsters.training, 3)
+end
+if not killeverything then
+    if $hppc &lt; safekill.hppc or foodcount() &lt; safekill.food then
+        killeverything = true
+    else
+        foreach newmessage m do
+            if m.type == MSG_STATUSLOG then
+                local temp = m.content:attackmsg()
+                if temp.dealer.name == trainnamelower and temp.target.name == $name and temp.dmg &gt; safekill.dmg then
+                    killeverything = true
+                end
+                if temp.dealer.name == $name then
+                    lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+                end
+            end
+        end
+    end
+elseif safekill.logout and not $battlesigned then
+    logout() waitping()
+    closeclient()
+    os.exit()
+end
+local toattack, waitingheal
+local temp
+if #monsters.others &gt; 0 then
+    for i,j in ipairs(monsters.others) do
+        if j.dist &lt;= 1 or iscreaturereachable(j) then
+            toattack = j
+            temp = 'strong'
+            if table.find(weapons.semistrong.monsters, j.name:lower()) then
+                temp = 'semistrong'
+            end
+            listas('Killing a danger monster')
+            break
+        end
+    end
+end
+if not toattack and #monsters.training &gt; 0 then
+    if not killeverything then
+        if monsters.training[1].hppc &gt; trainhppc then
+            toattack = monsters.training[1]
+            if lasthittime &gt; $timems then
+                temp = 'train'
+            else
+                temp = 'bloodhit'
+            end
+            if not trainpos and getbacktotrainpos then
+                curpos = curpos or {$posx, $posy, $posz}
+                if curpos[1] == $posx and curpos[2] == $posy and curpos[3] == $posz then
+                    timepos = timepos or $timems
+                    if $timems-timepos &gt; 60000 then
+                        trainpos = curpos
+                    end
+                else
+                    curpos = nil
+                end
+            end
+            listas('Training with a '..trainnamelower)
+        else
+            listas('Waiting for the '..trainnamelower..' to heal his life up')
+            waitingheal = true
+        end
+    else
+        for i,j in ipairs(monsters.training) do
+            if j.dist &lt;= 1 or iscreaturereachable(j) then
+                toattack = j
+                temp = 'strong'
+                listas('Killing the '..trainnamelower..', as you are in danger')
+                break
+            end
+        end
+    end
+end
+if $attacked.name == monstersetup.name and $attacked.hppc &lt; trainhppc then
+    stopattack()
+end
+if toattack then
+    setattackmode(table.unpack(weapons[temp].mode))
+    for i=1, 5 do
+        if $rhand.id ~= weapons[temp].id then
+            equipitem(weapons[temp].id, 'rhand', 'backpack', 100) waitping()
+        end
+    end
+    if $attacked ~= toattack then attack(toattack) trainhppc = math.random(table.unpack(monstersetup.minimumhp)) end
+    if temp ~= 'train' and temp ~= 'bloodhit' then
+        local time = $timems
+        while $attacked.hppc &gt; 0 and $timems-time &lt; 20000 do
+            pausewalking(1000)
+            wait(500)
+        end
+        if $timems-time &gt; 20000 then
+            playsoundflash('playeronscreen.wav')
+        end
+    elseif trainpos and $posz == trainpos[3] and (trainpos[1] ~= $posx or trainpos[2] ~= $posy) then
+        moveto(table.unpack(trainpos))
+    end
+elseif not waitingheal then
+    listas('Waiting for a '..trainnamelower)
+end</hScript>
+          <type>phc</type>
+          <input var="!!weakweapon!!" default="'hand axe'">Enter the weak weapon's name or its ID:</input>
+          <input var="!!weakweaponmode!!" default="'defensive', 'stand'">Enter the weak weapon's mode:</input>
+          <input var="!!bloodhit!!" default="15000, 25000">Enter the maximum time (in miliseconds) to equip strong weapon to deal a bloodhit</input>
+          <input var="!!bloodhitweapon!!" default="'serpent sword'">Enter the weapon to use to deal a bloodhit:</input>
+          <input var="!!bloodhitmode!!" default="'defensive', 'stand'">Enter the bloodhit weapon's mode:</input>
+          <input var="!!semistrongmonsters!!" default="'wolf', 'troll', 'rotworm'">Enter the monsters to kill with a weaker weapon, useful for paladins that don't want to waste your assassin stars.</input>
+          <input var="!!semistrong!!" default="'serpent sword'">Enter the semi-strong weapon's name or its ID:</input>
+          <input var="!!semistrongmode!!" default="'offensive', 'stand'">Enter the semi-strong weapon's name or its ID:</input>
+          <input var="!!strongweapon!!" default="'noble axe'">Enter the strong weapon's name or its ID:</input>
+          <input var="!!strongweaponmode!!" default="'defensive', 'stand'">Enter the strong weapon's mode:</input>
+          <input var="!!trainingmonster!!" default="'Gargoyle'">Enter the monster's name:</input>
+          <input var="!!monsterhppc!!" default="40,50">Enter the monster's minimum HPPC to keep training (it's randomized): </input>
+          <input var="!!logout!!" default="false">Do you want to logout if you get in danger? (true or false)</input>
+          <input var="!!safehp!!" default="40">Enter your minimum HP%:</input>
+          <input var="!!safedmg!!" default="60">Enter the maximum monster's damage, if it starts hitting more than this it will kill the monsters: </input>
+          <input var="!!food!!" default="2">Enter the food amount to kill monsters: </input>
+        </content>
+      </example>
+      <example name="Monk Trainer">
+        <description>This script will attack any monk with HP% higher than X and stop attack if its HP% is lower than Y.</description>
+        <content name="monktrainer">
+          <hScript>init start
+    local monster = {dist = !!monkdist!!, hptostop = !!monkstop!!, hptoattack = !!monkstart!!, name = !!monkname!!}
+    local weapons = {
+                        train = {id = !!trainweapon!!, mode = {!!trainweaponmode!!}}, -- this is the weapon you want to use while you train with the monk
+                        bloodhit = {id = !!bloodhitweapon!!, mode = {!!bloodhitmode!!}, hittime = {!!bloodhittime!!}}, -- this is the weapon you want to use if you haven't dealed any hit to the monk in the last 15-25 seconds (default time)
+                    }
+    --dont change things below
+    local lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+    for i,j in pairs(weapons) do
+        weapons[i].id = itemid(weapons[i].id)
+    end
+init end
+ 
+auto(1500,2500)
+listas("Monk Trainer Enabled.")
+foreach newmessage m do
+    if m.type == MSG_STATUSLOG then
+        if m.content:attackmsg().dealer.name == $name then
+            lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+        end
+    end
+end
+local highest,toattack = 0
+if not toattack then
+    foreach creature m 'ms' do
+        if m.hppc &gt; highest and m.name == monster.name and m.dist &lt;= monster.dist and m.hppc &gt; monster.hptostop and m.isshootable then
+            highest = m.hppc
+            toattack = m
+        end
+    end
+end
+if toattack then
+    local temp = 'train'
+    if $timems &gt; lasthittime then
+        temp = 'bloodhit'
+    end
+    setattackmode(table.unpack(weapons[temp].mode))
+    for i=1,5 do
+        if $rhand.id ~= weapons[temp].id then
+            equipitem(weapons[temp].id, 'rhand', 'backpack', 100) waitping()
+        end
+    end
+    if ($attacked.hppc == 0 and toattack.hppc &gt;= monster.hptoattack) or (($attacked.hppc &lt;= monster.hptostop or $attacked.dist &gt; monster.dist or not $attacked.isshootable) and $attacked.name == monster.name) then
+        if $attacked ~= toattack then attack(toattack) wait(500,1000) end
+    end
+elseif $attacked.id ~= 0 then
+    stopattack()
+end</hScript>
+          <type>phc</type>
+          <input var="!!monkname!!" default="'Monk'">Enter the monster's name:</input>
+          <input var="!!monkdist!!" default="1">Enter the monster's minimum range to attack:</input>
+          <input var="!!monkstart!!" default="80">Enter the minimum monster's HP% to train:</input>
+          <input var="!!monkstop!!" default="30">Enter the monk's HP% to stop training:</input>
+          <input var="!!trainweapon!!" default="'dagger'">Enter the weapon you want to use to train:</input>
+          <input var="!!trainweaponmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to train:</input>
+          <input var="!!bloodhittime!!" default="15000, 25000">Enter the weapon you want to use to deal bloodhits:</input>
+          <input var="!!bloodhitweapon!!" default="'dagger'">Enter the weapon you want to use to deal bloodhits:</input>
+          <input var="!!bloodhitmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to deal bloodhits:</input>
+        </content>
+      </example>
+      <example name="PvP Train">
+        <description>This script will stop attacking player if his HP% is less than X and back attacking if the HP% is higher than Y.</description>
+        <content name="pvptrain">
+          <hScript>init start
+    local trainplayer = '!!playername!!'
+    local hptostart = {!!hptostart!!}
+    local hptostop = {!!hptostop!!}
+    local weapons = {
+                        train = {id = !!trainweapon!!, mode = {!!trainweaponmode!!}}, -- this is the weapon you want to use while you train with the monk
+                        bloodhit = {id = !!bloodhitweapon!!, mode = {!!bloodhitmode!!}, hittime = {!!bloodhittime!!}}, -- this is the weapon you want to use if you haven't dealed any hit to the monk in the last 15-25 seconds (default time)
+                    }
+    --dont change things below
+    local lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+    for i,j in pairs(weapons) do
+        weapons[i].id = itemid(weapons[i].id)
+    end
+	local hpattack,hpstop = randomize(hptostart),randomize(hptostop)
+init end
+ 
+auto(100)
+if type(trainplayer) == 'userdata' then
+	if trainplayer.party &lt; 3 then
+		listas("Player is not on party.")
+	elseif $pzone then
+		listas("You are inside a protection zone.")
+	else
+	   foreach newmessage m do
+		  if m.type == MSG_STATUSLOG then
+			 if m.content:attackmsg().dealer.name == $name then
+				lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+			 end
+		  end
+	   end
+	   if $attacked == trainplayer then
+		  listas('Training with: '..trainplayer.name..' ('..trainplayername.hppc..'%)')
+		  if trainplayer.hppc &lt; hpstop then
+			 stopattack()
+			 hpstart = randomize(hptostart)
+		  end
+	   else
+		  if trainplayer.hppc &gt;= hpattack then
+			attack(trainplayer)
+			hpstop = randomize(hptostop)
+		  else
+		    listas('Waiting: '..trainplayer.name..' ('..trainplayername.hppc..'%) to get more healthy')
+		  end
+		  local temp = 'train'
+		  if lasthittime &lt; $timems then
+			 temp = 'bloodhit'
+		  end
+		  setattackmode(table.unpack(weapons[temp].mode))
+		  for i=1,5 do
+			  if $rhand.id ~= weapons[temp].id then
+				  equipitem(weapons[temp].id, 'rhand', 'backpack', 100) waitping()
+			  end
+		  end
+	   end
+	end
+else
+   local t = findcreature(trainplayer)
+   if t then
+       trainplayer = t
+   else
+       listas('Didn\'t find player to train, change the player name in script setup.')
+   end
+end</hScript>
+          <type>phc</type>
+          <input var="!!playername!!" default="Bubble">Enter the player's name</input>
+          <input var="!!hptostart!!" default="75,85">Enter the player's HP percent to start the train (randomized)</input>
+          <input var="!!hptostop!!" default="35,45">Enter the player's HP percent to stop the train (randomized)</input>
+          <input var="!!trainweapon!!" default="'dagger'">Enter the weapon you want to use to train:</input>
+          <input var="!!trainweaponmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to train:</input>
+          <input var="!!bloodhittime!!" default="15000, 25000">Enter the weapon you want to use to deal bloodhits:</input>
+          <input var="!!bloodhitweapon!!" default="'dagger'">Enter the weapon you want to use to deal bloodhits:</input>
+          <input var="!!bloodhitmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to deal bloodhits:</input>
+        </content>
+      </example>
+      <example name="Slime Trainer">
+        <description>This script will ignore the mother slime and attack the others.</description>
+        <content name="slimetrainer">
+          <hScript>init start
+    local trainname = !!monstername!!
+    local amount = !!mamount!! -- this is the amount of mother slimes you want to use
+    local dist = !!mdist!! -- it will only consider slimes in this distance range. Useful for paladins, lets say you are training with small stones, so you should set this distance to 3.
+    local weapons = {
+       train = {id = !!trainweapon!!, mode = {!!trainweaponmode!!}}, -- this is the weapon you want to use while you train with the slime
+       bloodhit = {id = !!bloodhitweapon!!, mode = {!!bloodhitmode!!}, hittime = {!!bloodhittime!!}}, -- this is the weapon you want to use to deal a bloodhit when you are more than 15-25 (default, you may change) seconds without dealing any damage
+       strong = {id = !!strongweapon!!, mode = {!!strongweaponmode!!}},
+                    }
+    local killmother = {hppc = !!hppc!!, dmg = !!dmg!!, food = !!food!!, logout = !!logout!!} -- it will kill the mother if you have 40% of HP or the slimes are dealing more than 50 or your food amount is lower than 3. It will also logout after killing the mother
+    local trainpos = {12345, 54321, 7} -- this is the location where you want to stay to train
+    local getbacktotrainpos = true -- set it to false if you don't want the bot to send you back to your train position if you got moved
+    --dont change things below
+    local mothers = {}
+    local danger,trainstarted = false,false
+    local trainnamelower = trainname:lower()
+    for i,j in pairs(weapons) do
+        weapons[i].id = itemid(weapons[i].id)
+    end
+    if not getbacktotrainpos or math.abs(trainpos[1]-$posx) &gt; 10 or math.abs(trainpos[2]-$posy) &gt; 8 or $posz-trainpos[3] ~= 0 then
+        trainpos = nil
+    end
+    local lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+    local curpos, timepos
+init end
+auto(400,700)
+if #mothers &lt; amount and not danger then
+    listas('Follow the mother '..trainnamelower..' to start training')
+    if $followed.id &gt; 0 and not table.find(mothers, $followed) then
+        table.insert(mothers, $followed)
+    end
+    if trainstarted then
+        playsoundflash('monster.wav')
+    end
+else
+    trainstarted = true
+    local i = 1
+    while (i &lt;= #mothers) do
+        if (mothers[i].hppc == 0) then
+            table.remove(mothers, i)
+        else
+            i = i+1
+        end
+    end
+    local others = {}
+    local slimesclose = {}
+    foreach creature m 'ms' do
+        if not table.find(mothers, m) then
+            if m.name == trainname then
+                if m.dist &lt;= dist then
+                    table.insertsorted(slimesclose, m, {{'hppc', 'asc'}})
+                end
+            elseif m.lastattacked &lt;= 3000 then
+                table.insertsorted(others, m, {{'dist', 'asc'}, {'hppc', 'asc'}})
+            end
+        end
+    end
+    local toattack, temp
+    if danger and #mothers &gt; 0 then
+        listas('Killing the mother '..trainnamelower..', as you are in danger')
+        toattack = mothers[1]
+        temp = 'strong'
+    elseif #others &gt; 0 or maround(1) &gt;= 3 then
+        for i,j in ipairs(others) do
+            if j.dist &lt;= 1 or iscreaturereachable(j) then
+                toattack = j
+                temp = 'strong'
+                break
+            end
+        end
+        if not toattack and maround(1) &gt;= 3 then
+            for i,j in ipairs(slimesclose) do
+                if j.dist &lt;= 1 or iscreaturereachable(j) then
+                    toattack = j
+                    temp = 'strong'
+                    break
+                end
+            end
+        end
+        if not toattack then
+            playsoundflash('playeronscreen.wav')
+        end
+    else
+        toattack = slimesclose[1]
+        if $timems &gt; lasthittime then
+            temp = 'bloodhit'
+        else
+            temp = 'train'
+        end
+        if not trainpos and getbacktotrainpos then
+            curpos = curpos or {$posx, $posy, $posz}
+            if curpos[1] == $posx and curpos[2] == $posy and curpos[3] == $posz then
+                timepos = timepos or $timems
+                if $timems-timepos &gt; 60000 then
+                    trainpos = curpos
+                end
+            else
+                curpos = nil
+            end
+        end
+        listas('Training with a '..trainnamelower)
+    end
+    if toattack then
+        setattackmode(table.unpack(weapons[temp].mode))
+        for i=1, 5 do
+            if $rhand.id ~= weapons[temp].id then
+                equipitem(weapons[temp].id, 'rhand', 'backpack', 100) waitping()
+            end
+        end
+        if $attacked ~= toattack then attack(toattack) end
+        if temp == 'strong' then
+            local time = $timems
+            while $attacked.hppc &gt; 0 and $timems-time &lt; 20000 do
+                pausewalking(1000)
+                wait(500)
+            end
+            if $timems-time &gt; 20000 then
+                playsoundflash('playeronscreen.wav')
+            end
+        elseif trainpos and $posz == trainpos[3] and (trainpos[1] ~= $posx or trainpos[2] ~= $posy) then
+            moveto(table.unpack(trainpos))
+        end
+    else
+        listas('Waiting for a '..trainnamelower)
+    end
+end
+if not danger then
+    if $hppc &lt; killmother.hppc or foodcount() &lt; killmother.food then
+        danger = true
+    else
+        foreach newmessage m do
+            if m.type == MSG_STATUSLOG then
+                local t = m.content:attackmsg()
+                if t.dealer.name:lower() == trainnamelower and t.target.name == $name and t.dmg &gt; killmother.dmg then
+                    danger = true
+                end
+                if t.dealer.name == $name then
+                    lasthittime = $timems+math.random(table.unpack(weapons.bloodhit.hittime))
+                end
+            end
+        end
+    end
+elseif killmother.logout and not $battlesigned then
+    logout() waitping()
+    closeclient()
+    os.exit()
+end</hScript>
+          <type>phc</type>
+          <input var="!!monstername!!" default="'Slime'">Enter the monster name: </input>
+          <input var="!!mamount!!" default="1">How many monsters you want to set as mother: </input>
+          <input var="!!mdist!!" default="1">Set the maximum monster distance to attack it: </input>
+          <input var="!!hppc!!" default="40">Set your HP% to kill the mother and every other monster on your screen: </input>
+          <input var="!!dmg!!" default="60">Set the maximum damage a slime may deal, if it hits more than X the bot will kill all the slimes.</input>
+          <input var="!!food!!" default="2">Set the amount of food to kill slimes and monsters, if you have less than Y food it will kill all the slimes: </input>
+          <input var="!!logout!!" default="false">Do you want to logout if you are in danger? (true or false)</input>
+          <input var="!!trainweapon!!" default="'dagger'">Enter the weapon you want to use to train:</input>
+          <input var="!!trainweaponmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to train:</input>
+          <input var="!!bloodhittime!!" default="15000, 25000">Enter the weapon you want to use to deal bloodhits:</input>
+          <input var="!!bloodhitweapon!!" default="'dagger'">Enter the weapon you want to use to deal bloodhits:</input>
+          <input var="!!bloodhitmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to deal bloodhits:</input>
+          <input var="!!strongweapon!!" default="'dagger'">Enter the weapon you want to use to kill mother slimes or other danger creatures:</input>
+          <input var="!!strongweaponmode!!" default="'defensive', 'stand'">Enter the attack mode you want to use to kill mother slimes or other danger creatures:</input>
+        </content>
+      </example>
+    </category>
+    <category name="Other Stuff">
+      <example name="Anti-Idle">
+        <description>Will keep your char on.</description>
+        <content name="antiidle">
+          <hScript>auto(60000,14*60000)
+local p = {'w','e','n','s'}
+local selfdir = $self.dir
+table.remove(p,table.find(p,selfdir))
+turn(p[math.random(1,3)]) waitping()
+turn(selfdir)</hScript>
+          <type>hpc</type>
+        </content>
+      </example>
+      <example name="Loot Counter">
+        <description>Will check each loot message in Server Log and will store how much money have you done so far. You will need to edit the items in script. name is item's name, price is item's price, drops is if the item will be dropped on floor, so you can see how much money you have dropped on floor.</description>
+        <content name="lootcounter">
+          <hScript>init start
+    loottotal = loottotal or 0
+    droptotal = droptotal or 0
+    local lootcheck = {
+                        {name = 'halberd', price = 400, drops = true},
+                        {name = 'orc tooth', price = 150, drops = true},
+                        {name = 'skull belt', price = 80, drops = true},
+                        {name = 'warrior helmet', price = 5000, drops = false},
+                        {name = 'wand of decay', price = 1000, drops = false},
+                        {name = 'crusader helmet', price = 6000, drops = false},
+                        {name = 'orc leather', price = 30, drops = false},
+                        {name = 'orcish gear', price = 85, drops = false},
+                        {name = 'shamanic hood', price = 45, drops = false},
+                        {name = 'gold coin', price = 1, drops = false},
+                        {name = 'chain armor', price = 70, drops = true}
+                      }
+    --Dont change nothing below
+    for i=1, #lootcheck do
+        lootcheck[i]['counter'] = lootcheck[i]['counter'] or 0
+    end
+    qs2(lootcheck,1,#lootcheck,'price')
+init end
+
+auto(200)
+foreach newmessage m do
+    if m.type == MSG_INFO and m.content:sub(1,8) == 'Loot of ' then
+        local content = (m.content:match('Loot of .-: (.+)')):token(nil,', ')
+        for i,j in ipairs(content) do
+            local a = 1
+            while a &lt;= #lootcheck and not j:find(lootcheck[a].name) do a = a+1 end
+            if a &lt;= #lootcheck then
+                local amount = tonumber(j:match('(%d-) .-')) or 1
+                lootcheck[a].counter = lootcheck[a].counter + amount
+                if lootcheck[a].drops then
+                    droptotal = droptotal + amount*lootcheck[a].price
+                else
+                    loottotal = loottotal + amount*lootcheck[a].price
+                end
+            end
+        end
+    end
+end
+if droptotal &gt; 0 then
+    listas('Loot Counter: '.. num(loottotal+droptotal).. ' GPs (' ..num(math.floor(((loottotal+droptotal)*60*60*1000)/$exptime+1))..' GPs/h) ... Loot on Floor: ' ..num(droptotal))
+else
+    listas('Loot Counter: '.. num(loottotal+droptotal).. ' GPs (' ..num(math.floor(((loottotal+droptotal)*60*60*1000)/$exptime+1))..' GPs/h)')
+end  </hScript>
+          <type>pc</type>
+        </content>
+      </example>
+      <example name="Pause CaveBot/Targeting">
+        <description>When you press the desired key, it will pause cavebot/targeting, when you press it again, it will resume it.</description>
+        <content name="pausehotkey">
+          <hScript>if not $cavebot or not $targeting then
+    listas('Enabling Cavebot and Targeting')
+    setcavebot('on')
+    settargeting('on')
+    wait(1000)
+else
+    listas('Disabling Cavebot and Targeting')
+    setcavebot('off')
+    settargeting('off')
+    stopattack()
+    wait(1000)
+end</hScript>
+          <type>h</type>
+        </content>
+      </example>
+      <example name="Toggle Mouse/Keyboard mode">
+        <description>When you press the desired key, it will set mouse/keyboard mode to simulated, when you press it again, it will change it back to control.</description>
+        <content name="keyboardmouse">
+          <hScript>if getsetting('Input/Keyboard/KeyboardMode') == 'Control keyboard' then
+    listas("Changing Keyboard/Mouse to 'Simulated Mode'")
+    setsetting('Input/Keyboard/KeyboardMode','Simulate keyboard')
+    setsetting('Input/Keyboard/TypeWaitTime','30 to 50')
+    setsetting('Input/Keyboard/PressWaitTime','30 to 50')
+    setsetting('Input/Mouse/MouseMode','Simulate mouse')
+    setsetting('Input/Mouse/ScrollMode','Use mouse wheel')
+    setsetting('Input/Mouse/MoveSpeed','9')
+    setsetting('Input/Mouse/ClickWaitTime','30 to 50')
+else
+    listas("Changing Keyboard/Mouse to 'Control Mode'")
+    setsetting('Input/Keyboard/KeyboardMode','Control keyboard')
+    setsetting('Input/Keyboard/TypeWaitTime','100 to 250')
+    setsetting('Input/Keyboard/PressWaitTime','150 to 300')
+    setsetting('Input/Mouse/MouseMode','Control mouse/permit')
+    setsetting('Input/Mouse/ScrollMode','Use mouse wheel')
+    setsetting('Input/Mouse/MoveSpeed','3')
+    setsetting('Input/Mouse/ClickWaitTime','150 to 300')
+end
+wait(2000)</hScript>
+          <type>h</type>
+        </content>
+      </example>
+      <example name="Trade Helper">
+        <description>It will send a message in Trade from time to time.</description>
+        <content name="tradehelper">
+          <hScript>auto(100)
+setlifetime(60000)
+say('Advertising', '!!message!!')
+wait(2*60*1000,!!delay!!*60*1000)</hScript>
+          <type>phc</type>
+          <input var="!!message!!" default="SELLING Lots of Stuff!">Enter the message you would like to say in Trade:</input>
+          <input var="!!delay!!" default="4">Enter the maximum time in minutes to send a message in trade.</input>
+        </content>
+      </example>
+    </category>
+  </examples>
+</libfile>

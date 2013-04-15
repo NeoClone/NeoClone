@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.settingsFormUnit" Type="System.String" Value="settingsFormUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.parserThreadHelper" Type="System.String" Value="parserThreadHelper" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.settingsHelper" Type="System.String" Value="settingsHelper" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.settingsTemplates" Type="System.String" Value="settingsTemplates" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Unit1" Type="System.String" Value="Unit1" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uAStar" Type="System.String" Value="uAStar" Category="General" IsBrowsable="False" />
+</TgConfig>
