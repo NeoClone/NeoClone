@@ -83,8 +83,9 @@ begin
 
           try
   begin
-    spamRate := 100;
+    spamRate := 100;                   //canCast(spell, MYping*(pingCon/100))
     pingCon := strtoint(FXml.Find('sSettings').Find('iPingCompensation').Text);
+                                       //canCast('exura', 200ms*(30%))
     if  assigned(FXml)
      and (GUI.Player.OnLine) and (tree.getsetting('Healer/HealerEnabled') = 'yes') then
     // and //((GUI.Player.HealingEx-pingCon) = 0) then
@@ -106,6 +107,7 @@ begin
 
             value := tnode.Find('rManaMissing').Text;    //r like the rSpamRate
             ManaMissing.from:= strtoint(copy(value, 1, pos(' ', value) - 1));
+              if (pos('above', value) > 0) then ManaMissing.too:= (mpMax -1) else
             ManaMissing.too:= strtoint(copy(value, pos('to ', value) + 3, length(value)));
             if (mpMax-mp >= ManaMissing.from) and (mpMax-mp <= ManaMissing.too) then //now WHILE cause if it bugs he will says the whole time the TrainSpell!
              begin
@@ -119,6 +121,7 @@ begin
 
               tmp[0] := copy(value, 1, pos(' ', value) - 1);
               tmp[1] := copy(value, pos('to ', value) + 3, length(value));
+
               randomize();
               spamRate := RandomRange( StrToInt(tmp[0]), StrToInt(tmp[1]) );
 
@@ -128,7 +131,7 @@ begin
               event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
               event.eventType := StrToEventType(mNode.Find('cEventType').Text);
 
-              if CD.canCast(TrainSpell) then
+              if CD.canCast(TrainSpell, Round(Ping*(pingCon/100))) then
                 event.script := 'cast("'+ TrainSpell +'")'
               else event.script:= '';
 
@@ -218,7 +221,7 @@ begin
               event.eventType := StrToEventType(mNode.Find('cEventType').Text);
               if useSpell then
               begin
-                if CD.canCast(spell) then
+                if CD.canCast(spell, Round(Ping*(pingCon/100))) then
                 event.script := 'cast("'+ spell +'")' else event.script:= '';
                // GUI.Player.setHealingEx(1000);
               //  inc(z);
@@ -248,7 +251,7 @@ begin
      except
         on exception: Exception do
         begin
-  //    showmessage(exception.ToString);
+      //  showmessage(exception.ToString);
         end;
     end;
 

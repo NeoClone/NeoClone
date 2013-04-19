@@ -8,7 +8,7 @@ uses
   Menus, luaClass, Vcl.ExtCtrls, Winapi.GDIPOBJ, EventQueue, PriorityQueue,
   Xml.VerySimple, parserThreadUnit, healerThreadUnit, settingsTemplates, hotkey,
   netmsg, datReader, afxCodeHook, PetriW.Pipes, player, VirtualTrees, chat,Equipment,
-   gamewindow, containers,cooldown, Vcl.DBCtrls;
+   gamewindow, containers,cooldown, Vcl.DBCtrls, sockets;
 
 type
   TMain = class(TForm)
@@ -64,6 +64,7 @@ type
     tibiaExeDialog: TOpenDialog;
     checkiflogged: TTimer;
     Label1: TLabel;
+    Pings: TTimer;
     procedure Button1Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Console1Click(Sender: TObject);
@@ -82,6 +83,7 @@ type
     procedure checkifloggedTimer(Sender: TObject);
     procedure Findnewclient1Click(Sender: TObject);
     procedure Enginestates1Click(Sender: TObject);
+    procedure PingsTimer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,6 +92,7 @@ type
 
     procedure InitAll();
     procedure loadTibia();
+    function getPing(): integer;
     procedure PipeDataReceived(AData: string; RawData: TBytes; len: integer);
   end;
 
@@ -115,10 +118,11 @@ var
   pipeServer: TPBPipeServer;
   pipeClient: TPBPipeClient;
 
+  Player: TPlayer;
   Equipment: TGUIEquipment;
   GameWindow: TGameWindow;
   ADDR_BASE: pointer;          //if we declare this here we will be able
-                              //to use it aaaaanywhere :DD:D:D
+  Ping: integer = 0;              //to use it aaaaanywhere :DD:D:D
 
 implementation
 
@@ -151,6 +155,22 @@ begin
       end;
     end;
   end;
+end;
+
+function TMain.getPing(): integer;
+
+begin
+if player.OnLine then        //each 10sec we check if player online
+  begin                         //if we are logged we take the ping
+  Ping := Memory.ReadInteger(Integer(ADDR_BASE) + addresses.Ping);
+  end                           //else we OVERWRITE that value to 0, cause the address
+  else Ping:= 0;               // will keep the last non-zero value
+end;
+
+
+procedure TMain.PingsTimer(Sender: TObject);
+begin
+Main.getPing();
 end;
 
 procedure TMain.PipeDataReceived(AData: string; RawData: TBytes; len: integer);
@@ -299,12 +319,12 @@ var
     chattext,ss: string;
   Hotkey: TTibiaHotkey;
 hp: integer;
-player: Tplayer;
 containers: Tcontainers;
 CD: TCooldown;
   r: TRect;
   chat:TChat;
 begin
+
 player.AntiIdle();
 //if CD.canCast('exevo vis hur') then
 //  showmessage('si')
@@ -434,7 +454,6 @@ end;
 procedure TMain.checkifloggedTimer(Sender: TObject);
 var
 Sname: string;
-Player: TPlayer;
   busc: boolean;
 begin
  // comprobamos que se ha cargado  (debug mode xD)

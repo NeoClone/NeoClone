@@ -19,8 +19,8 @@ type
   TCooldown = class
   private
 
-  public
-function canCast(spell: string): boolean;// TCD_Results;
+  public                       //for Ping Compensation purpose
+function canCast(spell: string; time_before: integer=0): boolean;// TCD_Results;
 //function canCast(spell: string): boolean;
   end;
 
@@ -32,7 +32,8 @@ uses
 //we just check each 1sec if Cancast(cooldownid) and yea, that's all lol xD
 // why 1sec? cause is the minimun for everything (runes,heal,etc)
 
-function TCooldown.canCast(spell: string): boolean;
+                                  //for Ping Compensation purpose
+function TCooldown.canCast(spell: string; time_before: integer=0): boolean;
 var
 num,num2,num3,num4,num5,num7,num8,num9,num10,i,Tibiatime: integer;
 CategoryAttackTimeStart,CategoryAttackTimeEnd,
@@ -42,6 +43,8 @@ CategorySpecialTimeStart,CategorySpecialTimeEnd,
 CoolDownID,CooldownTimeStart,CooldownTimeEnd: integer;
 CoolDownCategory : string;
 begin
+if not player.OnLine then exit; //if we aren't logged it could crash!
+
     Tibiatime := Memory.ReadInteger(Integer(ADDR_BASE) + clientTibiaTime);
     num := Memory.ReadInteger(Integer(ADDR_BASE) + coolDownCategoryStart);
     num2 := Memory.ReadInteger((num));
@@ -84,8 +87,12 @@ begin
                 CooldownTimeStart := num9;
                 CooldownTimeEnd := num10;
                // showmessage(inttostr(Tibiatime div 10000));
-               result:= False;
-                exit;           //if we got our spell CD end this function bro
+                if (CooldownTimeEnd - time_before) >= Tibiatime then
+                  begin
+                    result:= False;
+                    exit;         //if we got our spell CD end this function False
+                  end
+                else break;       //if we got our spell CD and it has ended--> exit loop
             end;
         inc(i);
     end;
@@ -94,22 +101,22 @@ begin
 CoolDownCategory:= (xmlSpellList.Root.FindEx2('words',lowercase(spell)).Attribute['group1']);
 
          //if category is this             //it hasn't finished yet
-  if (CoolDownCategory = 'attack') and (CategoryAttackTimeEnd > Tibiatime) then
+  if (CoolDownCategory = 'attack') and ((CategoryAttackTimeEnd - time_before) >= Tibiatime) then
       begin
           result:= False;
           exit; //so we don't get the last part of this function which sets result:= True.
       end       //if category is this             //it hasn't finished yet
-  else if (CoolDownCategory = 'healing') and (CategoryHealingTimeEnd > Tibiatime) then
+  else if (CoolDownCategory = 'healing') and ((CategoryHealingTimeEnd - time_before) >= Tibiatime) then
       begin
           result:= False;
           exit; //so we don't get the last part of this function which sets result:= True.
       end       //if category is this             //it hasn't finished yet
-  else if (CoolDownCategory = 'support') and (CategorySupportTimeEnd > Tibiatime) then
+  else if (CoolDownCategory = 'support') and ((CategorySupportTimeEnd - time_before) >= Tibiatime) then
       begin
           result:= False;
           exit; //so we don't get the last part of this function which sets result:= True.
       end       //if category is this             //it hasn't finished yet
-  else if (CoolDownCategory = 'special') and (CategorySpecialTimeEnd > Tibiatime) then
+  else if (CoolDownCategory = 'special') and ((CategorySpecialTimeEnd - time_before) >= Tibiatime) then
       begin
           result:= False;
           exit; //so we don't get the last part of this function which sets result:= True.

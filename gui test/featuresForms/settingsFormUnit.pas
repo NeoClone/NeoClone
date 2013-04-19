@@ -68,8 +68,11 @@ type
     procedure newItemClick(Sender: TObject);
     procedure deleteItemClick(Sender: TObject);
     procedure EditSpinChange(Sender: TObject);
-    procedure aaa1Click(Sender: TObject);
+    procedure Save(Sender: TObject);
+    procedure Load(Sender: TObject);
     procedure Close(Sender: TObject);
+    procedure Clear(Sender: TObject);
+    procedure ClearHealRules(Sender: TObject);
   private
     { Private declarations }
   public
@@ -275,6 +278,56 @@ begin
   result := settingsForm.FindSettingValue( arr, settingsForm.PropTree.RootNode.FirstChild)
 end;
 
+
+procedure TsettingsForm.Clear(Sender: TObject);
+begin                            //we have to delete  NeoSettings (first child)
+  settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
+  settings := TVerySimpleXML.Create;   //create new settingsXML
+  settings.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
+              //apply that XML to the new Tree
+  settingsForm.RecursivePropTree(settingsForm.PropTree.RootNode, settings.Root, true);
+  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
+end;
+
+
+procedure TsettingsForm.ClearHealRules(Sender: TObject);
+var
+Node1: PVirtualNode;
+  node: PVirtualNode;
+  xmlItem: TVerySimpleXML;
+  pList: TExplodeArray;
+  xmlNode: TXmlNode;
+  nodeData: ^TTreeData;
+  i: integer;
+begin
+              // NeoSettings=(first child)    -->Node1= parent of our node
+Node1:= settingsForm.PropTree.RootNode.FirstChild.FirstChild.NextSibling.NextSibling;
+            {
+  settings := TVerySimpleXML.Create;   //create new settingsXML
+      }
+//kk, we take the Node wich we are going to remove -->Node1 is parent!
+  node := Node1.Firstchild;
+//  nodedata:= proptree.GetNodeData(node);
+//  showmessage(nodedata.name);
+  pList := settingsForm.parentList( node ); //now we do shit to get it in Xml yo!
+  xmlNode := settingsForm.findXmlNode( pList );
+               //we delete the visual Tree
+  PropTree.DeleteNode( Node1.FirstChild, false );
+
+//  showmessage(inttostr(xmlNode.Parent.ChildNodes.IndexOf(xmlNode)));
+  i:= xmlNode.Parent.ChildNodes.IndexOf(xmlNode);
+  xmlNode.Parent.ChildNodes.Delete(i);   //Delete Xml
+
+  settings.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
+              //apply that XML to the new Tree
+  settingsForm.RecursivePropTree(Node1, settings.Root.Find('sHealer').Find('lHealRules'));
+                     //now we move it to first position as before
+  proptree.MoveTo(Node1.LastChild, Node1,amAddChildFirst,false);
+
+    PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
+
+  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
+end;
 
 procedure TsettingsForm.Close(Sender: TObject);
 begin
@@ -592,7 +645,7 @@ begin
             OnClick := settingsForm.newItemClick;
           end;
         end;
-
+                                  //we have to add "case" String: for scripts etc
       xdSubitem:
         begin
           FEditCount := 1;
@@ -687,13 +740,33 @@ end;
 
 //----------------------------------------------------------------------------------------------------------------------
 
-procedure TsettingsForm.aaa1Click(Sender: TObject);
+procedure TsettingsForm.Save(Sender: TObject);
 var
 Path: string;
 begin
   Path := IncludeTrailingPathDelimiter( extractFilePath(paramstr(0)));
   settings.SaveToFile( Path +'\Settings.xml' ); //mmm... we have to improve this shit bro xD
   showmessage('Saved in your NeoClone folder as "Settings.xml"');
+end;
+
+procedure TsettingsForm.Load(Sender: TObject);
+var
+Path: string;
+Node1: PVirtualNode;
+state: TEStates;
+begin
+//showmessage(settings.Root.NodeName);
+ Node1:= settingsForm.PropTree.RootNode;
+  Path := IncludeTrailingPathDelimiter( extractFilePath(paramstr(0)));
+  settings.LoadFromFile( Path +'\Settings.xml' ); //mmm... we have to improve this shit bro xD
+ // showmessage('Loaded Settings.xml succesfully');
+  states.EStates.Timer1.enabled:= false;
+  tree.setsetting('Healer/HealerEnabled','no');
+
+              //apply that XML to the new Tree
+  settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
+  settingsForm.RecursivePropTree(Node1, settings.Root);
+  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
 end;
 
 function TsettingsForm.check(): boolean;

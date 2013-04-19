@@ -169,6 +169,7 @@ adrSelectedCharIndex=&H7BCD10
 
   FPSPointer = $58d1bc; // 9.83
 
+  Ping = $5DB390;
                   { tibia.DAT INFO (ITEMS) }
   DatPointer = $3C68EC; //9.84
     StepItems = 136;

@@ -64,6 +64,7 @@ object settingsForm: TsettingsForm
       Caption = 'File'
       object Load1: TMenuItem
         Caption = 'Load'
+        OnClick = Load
       end
       object N1: TMenuItem
         Caption = '-'
@@ -77,7 +78,7 @@ object settingsForm: TsettingsForm
       end
       object Save1: TMenuItem
         Caption = 'Save'
-        OnClick = aaa1Click
+        OnClick = Save
       end
     end
     object Slot1: TMenuItem
@@ -127,11 +128,42 @@ object settingsForm: TsettingsForm
     end
     object Clear1: TMenuItem
       Caption = 'Clear'
+      object ClearCavebotHotkeys1: TMenuItem
+        Caption = 'Clear Cavebot Hotkeys...'
+      end
+      object ClearDisplays1: TMenuItem
+        Caption = 'Clear Displays...'
+      end
+      object ClearHealrules1: TMenuItem
+        Caption = 'Clear Heal Rules...'
+        OnClick = ClearHealRules
+      end
+      object ClearHotkeys1: TMenuItem
+        Caption = 'Clear Hotkeys...'
+      end
+      object ClearLoot1: TMenuItem
+        Caption = 'Clear Loot Items...'
+      end
+      object ClearPersistent1: TMenuItem
+        Caption = 'Clear Persistent...'
+      end
+      object ClearTrageting1: TMenuItem
+        Caption = 'Clear Targeting Monsters...'
+      end
+      object ClearWaypoints1: TMenuItem
+        Caption = 'Clear Waypoints...'
+      end
+      object blank: TMenuItem
+        Caption = '----------------------------'
+      end
+      object ClearAll1: TMenuItem
+        Caption = 'Clear All...'
+        OnClick = Clear
+      end
     end
     object aaa1: TMenuItem
       Caption = 'aaa'
       Visible = False
-      OnClick = aaa1Click
     end
   end
 end

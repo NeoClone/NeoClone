@@ -33,7 +33,6 @@ object Main: TMain
     Height = 25
     Caption = 'helper button'
     TabOrder = 0
-    Visible = False
     OnClick = Button1Click
   end
   object Button2: TButton
@@ -1229,7 +1228,7 @@ object Main: TMain
     Interval = 5000
     OnTimer = hudSetupTimer
     Left = 8
-    Top = 104
+    Top = 96
   end
   object tibiaExeDialog: TOpenDialog
     DefaultExt = 'exe'
@@ -1241,5 +1240,11 @@ object Main: TMain
     OnTimer = checkifloggedTimer
     Left = 64
     Top = 120
+  end
+  object Pings: TTimer
+    Interval = 10000
+    OnTimer = PingsTimer
+    Left = 88
+    Top = 112
   end
 end
