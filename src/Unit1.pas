@@ -283,9 +283,7 @@ loadTibia();    //find window etc...
   // zrobiæ sprawdzanie     -- check itans plx  (doors,items,etc,caracteristics...)
  // loadTibiaDat(GetEnvironmentVariable('Programfiles') + '\Tibia\Tibia.dat');
 
-  HealerThread := THealerThread.Create(true);
-  HealerThread.FXml := settings.Root.Find('sHealer'); //active Healer!
-  HealerThread.Start();
+  settingsForm.initHealer();   //we initiate Healer Thread
 
   // this takes some info from Packets, not all from Addresses!)
   {but idk how it works!

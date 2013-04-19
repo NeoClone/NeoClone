@@ -76,6 +76,8 @@ type
   private
     { Private declarations }
   public
+    function initHealer(): boolean;
+
     function check(): boolean;
     procedure RecursiveXmlTree( pNode, node: TXmlNode );
     procedure RecursivePropTree( node: PVirtualNode; xmlNode: TXmlNode; first: boolean = false );
@@ -101,7 +103,7 @@ implementation
 {$R *.dfm}
 
 uses
-  unit1, States;
+  unit1, States,healerThreadUnit;
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -739,34 +741,62 @@ begin
 end;
 
 //----------------------------------------------------------------------------------------------------------------------
+                         //we have created this here cause we will use it a lot while loading stuff
+function TsettingsForm.initHealer(): boolean;
+begin
+  HealerThread:= THealerThread.Create(true);
+  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
+  HealerThread.Start();
+end;
+             //here will go the other Threads initiations
 
 procedure TsettingsForm.Save(Sender: TObject);
 var
+OpenDlg : TOpenDialog;
 Path: string;
 begin
   Path := IncludeTrailingPathDelimiter( extractFilePath(paramstr(0)));
-  settings.SaveToFile( Path +'\Settings.xml' ); //mmm... we have to improve this shit bro xD
-  showmessage('Saved in your NeoClone folder as "Settings.xml"');
+
+  OpenDlg := TOpenDialog.Create(Self);
+    OpenDlg.InitialDir:= Path + 'Scripts\';
+    OpenDlg.Filter:= 'Scripts (*.xml)|*.xml';
+    OpenDlg.Options:= [ofPathMustExist];
+
+  if OpenDlg.Execute then begin    //we add the '.xml' if it isn't written
+    if (pos('.xml', OpenDlg.Filename) = 0) then OpenDlg.FileName:=OpenDlg.FileName+ '.xml';
+    settings.SaveToFile( OpenDlg.FileName );
+  end;
+ OpenDlg.Free;
 end;
 
 procedure TsettingsForm.Load(Sender: TObject);
 var
+OpenDlg : TOpenDialog;
 Path: string;
 Node1: PVirtualNode;
 state: TEStates;
 begin
 //showmessage(settings.Root.NodeName);
- Node1:= settingsForm.PropTree.RootNode;
   Path := IncludeTrailingPathDelimiter( extractFilePath(paramstr(0)));
-  settings.LoadFromFile( Path +'\Settings.xml' ); //mmm... we have to improve this shit bro xD
- // showmessage('Loaded Settings.xml succesfully');
-  states.EStates.Timer1.enabled:= false;
-  tree.setsetting('Healer/HealerEnabled','no');
 
-              //apply that XML to the new Tree
-  settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
-  settingsForm.RecursivePropTree(Node1, settings.Root);
-  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
+  OpenDlg := TOpenDialog.Create(Self);
+    OpenDlg.InitialDir:= Path + 'Scripts\';
+    OpenDlg.Filter:= 'Scripts (*.xml)|*.xml';
+    OpenDlg.Options:= [ofPathMustExist,ofFileMustExist];
+
+  if OpenDlg.Execute then begin
+    HealerThread.Terminate;
+    Node1:= settingsForm.PropTree.RootNode;
+       settings.LoadFromFile( OpenDlg.FileName );
+     // showmessage('Loaded Settings.xml succesfully');
+
+                  //apply that XML to the new Tree
+      settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
+      settingsForm.RecursivePropTree(Node1, settings.Root);
+      settingsForm.initHealer();   //restart Healer
+//      settingsForm.initTargeting/Cavebot/etc();   //restart other parts (Threads)
+  end;
+ OpenDlg.Free;
 end;
 
 function TsettingsForm.check(): boolean;

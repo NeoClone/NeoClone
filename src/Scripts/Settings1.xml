@@ -121,20 +121,6 @@
           <cEventType>Normal Event</cEventType>
         </sMethodPriority>
       </eNewRule1>
-      <eNewRule2>
-        <xHealthRange>11111110 to 222222220</xHealthRange>
-        <xManaRange>0 to 0</xManaRange>
-        <cHealMethod>Light Healing</cHealMethod>
-        <cExtraCondition>No condition</cExtraCondition>
-        <rSpamRate>200 to 400</rSpamRate>
-        <sMethodPriority>
-          <iPriority>80</iPriority>
-          <iOverridePriority>65</iOverridePriority>
-          <iExpireTime>1000</iExpireTime>
-          <iLifeTime>3000</iLifeTime>
-          <cEventType>Normal Event</cEventType>
-        </sMethodPriority>
-      </eNewRule2>
     </lHealRules>
     <sManaTraining>
       <rManaMissing>4 to 30</rManaMissing>
