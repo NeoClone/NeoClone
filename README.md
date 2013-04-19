@@ -27,4 +27,4 @@ NeoClone Bot is a Bot based mostly on Delphi (XE 2). It is completely
 open source, and is community supported.
  If you wish to contribute ideas or code please visit 
 our site linked below or make pull requests to our github repo at 
-https://github.com/hardastyle/NeoClone-Bot/
+https://github.com/NeoClone/NeoClone
