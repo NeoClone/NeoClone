@@ -142,7 +142,7 @@ dist
 build
 eggs
 parts
-#bin
+bin
 var
 sdist
 develop-eggs
