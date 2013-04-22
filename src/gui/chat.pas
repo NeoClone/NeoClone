@@ -156,7 +156,7 @@ begin
                 z:=z-1;            //4msgs left til we begin taking them, 3msgs left, 2msgs,1, ready!
                 end;
 
-                while (addr > 0) do    //now begin taking the last 5 msgs
+                while (addr > 0) do    //now begin taking the last 10 msgs
                 for j:=10 downto 1 do
 
                 begin

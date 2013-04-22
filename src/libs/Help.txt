@@ -1,0 +1,2899 @@
+--------------------------------------------
+---------------HELP FILES INPROGRAM---------
+--------------------------------------------
+
+----------------------NEOBOT SETTINGS-------------------
+
+NeoBot Settings
+
+Every setting in NeoBot is organized in a settings tree, in which you must expand a section to access its subsections and to change values. This form of interface has many benefits to it over a traditional GUI. It is for instance much easier to group and access similar settings together and to have a common way to change a setting for almost anything in the bot. Other benefits include being able to export any selected settings parts to a file for others or yourself to make use of, or changing and accessing any setting of the bot through a script command by providing its tree path. For the developer, me, it is also much easier to add features since an addition won't require a relayout of a dialog window so things can be added more quickly, and a collapsed tree can hold many more settings than a fixed size window. It is also possible to change the order of the sections or items within the entire tree, and to have multiple settings views open and make changes on both of them at once.
+Expanding a section is done by clicking on the small arrows next to the section's name. The top-categories are Alerts, Cavebot, Healer, Hotkeys, Hud, Input and Targeting. They each contain settings and probably other subcategories related to them and will be detailed in the sections that follow. It is recommended that you at least quickly skim through them as it will ensure that you understand the dynamics properly.
+To change the value of a setting, you can double-click on the corresponding value field and a custom editor will pop up allowing you to pick from a set of predefined values for the field or to type your own, depending on the circumstances. Some sections, such as the healer, waypoints or hotkeys, require you to insert additional entries which contain a set of settings of their own. You may tell where you can insert entries by looking for the ".." text (without the quotes) located in a value field. Double-clicking on this field will cause a "New Entry" button to appear which if clicked on creates the desired entry. The entry that you have created will also have a ".." string as it's value, which will cause a "Remove" button to appear if double-clicked on and lets you remove the entry if so is what you wish.
+
+Menu Options
+
+The file menu on a settings window contains options that perform indispensable tasks. They will be outlined here.
+File Menu: Contains methods to save and load setting to the currently selected slot or custom file. The current slot or file is being shown in the window title.
+
+Slot Menu: Contains methods to pick a slot or a custom file to save settings to/from. No actual saving/loading takes place here.
+
+Examples: Contains a growing list of example which are ready to plug and play into your settings. The examples appear in your settings in the corresponding category.
+
+Exchange Menu: Contains methods to export selected settings (press control or shift to select multiple settings) to clipboard/file or to import them back in from the clipboard/file. You can use this for instance to export cavebot and targeting scripts in order to share them. When importing waypoints in, be sure to clear the waypoints list first or the waypoints in the file will be appended. Importing data from ElfBot's cavebot and targeting files can also be done here.
+
+Clear Menu: Contains methods to clear all entries within a certain list. This can be used before importing parts of settings from another file.
+
+
+Input, Events and Priorities
+
+All actions which NeoBot is capable of doing end up being translated into a series of mouse moves, mouse clicks and key presses which get sent to the client. Though unlike the ancient bots which modify the client heavily and send packets which are instantaneous, moving the mouse and pressing keys takes up a significant amount of time to perform which cannot be ignored. Since you cannot do several things at once with the keyboard and mouse (like trying to equip an amulet and attack a monster at the same time), a priority and queue systems need to be introduced to allow an organized and smooth flow of these input methods.
+Each action that the bot wants to perform on the client is called an event. An event has different properties to it which allow it to coexist with other events in harmony. This becomes crucial if for instance you are trying to loot a creature when suddenly your health goes low and you also want to be healing. Even though the bot started to loot the creature first, you still want it to quit doing that immediately and start healing you because staying alive obviously takes priority. This is possible by assigning different priorities to events which will control their importance. A bot with a priority system also has an advantage over bots without one since restoring mana for instance won't cancel the opening of a corpse if executed at the same time and cause your character to miss out on its contents.
+As you might have seen if you have already scouted the settings a little, often times there are priority blocks provided for either entries or categories as a whole which let you specify their importance. This whole notion may seem a bit tricky and confusing at first due to being an innovation, but you need not even worry about it for the time being since all of it is already pre-configured for you for general use.
+A priority block consists of the following fields:
+Priority: Specifies the priority level of the event to be issued. If two or more events are waiting in the event queue and have not started executing yet, the one with the higher priority will start first. An event with a higher priority won't interrupt events with a lower priority that have already started executing.
+
+OverridePriority: Specifies a priority level to override the execution of other running events. If you want the event to run anyway even if another event is currently executing, you can specify an override priority to interrupt a currently running event lower in priority than the override priority of this event. This is crucial in healing for example since you don't want to keep on doing something less important before finally being able to heal.
+
+ExpireTime: Specifies an expire time in milliseconds for the event. If the event has not started executing after this interval of time has elapsed, it will be deleted. An event may have not been able to start if other events are still executing or because more important ones keep coming in.
+
+LifeTime: Specifies a life time in milliseconds for the event. If the event takes more time to execute than this interval of time, it will be terminated and deleted. This is a precautionary measure to end events which may be bugged or defeating their purpose if they take so long to finish. For scripts, this can also be changed for each event by using the 'setlifetime(...)' command.
+
+EventType: Specifies the type for the event. A normal event functions normally and exactly like it was explained so far. An event can also be flagged as urgent. Urgent events are more important that normal events. If an urgent event is placed in queue, it will be picked over normal events even if it's priority is lower and it also cannot be overridden by normal events. Furthermore, other options in the bot may be set up to behave specially when an urgent event occurs. For example, you can setup the bot to force focus on the client when an urgent event gets issued.
+
+
+Client F1-F12 Hotkeys
+
+An important part of interfacing with the client is the use of the client's F1-F12 hotkeys. When the bot does its events, it first looks at all the hotkeys you have defined in the client and presses the hotkey if it finds one compatible with the event it is doing. If a hotkey is not found, it does the action in long, such as typing text into the client or moving the mouse to click on items. This is fine for talking to NPCs for example or for using a rope on a rope spot since these actions aren't time critical. For things like healing or targeting runes on monsters however, it is almost required that you have a hotkey with the action in one of your hotkeys.
+The F hotkeys can also be used in combination with the Shift and Control keys, but there is an additional delay since the bot has to press the control/shift key before it can press the F key, and then release the Ctrl/Shift key. You should therefore have all crucial spells such as healing on regular F hotkeys and less important ones on control/shift F hotkeys. For additional security, you can also set up healing hotkeys on at least the Shift key since if you are holding down the shift key on your keyboard, the bot cannot press the regular F hotkey since the client will press the Shift+Fxx hotkey. You can do so for the Control key aswell, but if both Shift and Control are pressed then the Shift+Fxx hotkey will run on the client.
+
+Alerts Category
+
+The alerts category contains precisely what its name suggests. Several alert mechanisms are provided for you and they each contain a set of actions to perform when the alert triggers.
+
+The different alerts are:
+PlayerOnScreen: Triggers if a player is present on screen on the same level as yourself.
+
+PlayerAttacking: Triggers if a player is currently attacking you.
+
+DefaultMessage: Triggers when a default message other than from yourself gets posted.
+
+PrivateMessage: Triggers when you receive a private message.
+
+GmDetected: Triggers if a GM or CM is detected on any level.
+
+Disconnected: Triggers if you get disconnected from the game.
+
+CrashedFroze: Triggers if the bot is not responding for a long time or if it has crashed.
+
+The options for the alerts are:
+PlaySound: Plays an unique sound file for the alert found in the sounds folder.
+
+FlashClient: Flashes the client window and taskbar icon to let you visually see that the alert is being triggered.
+
+PauseBot: Pauses the bot. The bot can be resumed from the main NeoBot Window or by using the pausebot() script command.
+
+Disconnect: Force closes the TibiaClient so that your character can log off.
+
+SafeList: Ignore the players listed in this list. Only one name must be entered per line.
+
+FreezeTime: The amount of time in milliseconds after which the bot hasn't responded to consider the bot as frozen. For the CrashedFroze alert only.
+
+
+Cavebot Category
+
+The cavebot category contains most of the features related to cavebotting, such as looting and waypoints.
+Looting: This section contains various settings related to the looting of monsters. The looter works in conjunction with the cavebot, but it can also be used if the cavebot is turned off. In that case, it will eat food and move items once a body is opened.
+
+ItemList: This is a list made up of item entries which are used by the looter when looting bodies.
+
+An item entry consists of the following fields:
+
+ItemId: The id of the item to be looted. If you name the looter entry with a valid item name and ItemId is empty or 0, the id will be entered here automatically.
+
+Destination: A string describing the destination of the looted item. If this is left blank, the item is looted to the first empty space found in opened containers. You can specify a designated window id ranging from 0-15 to loot to that window only or one range of windows (ex: 4-6). You can also specify the window name to be looted to(ex: 'key ring' or 'yellow backpack') or a combination of the two options (ex: 'pirate backpack 2-8'). This can also be 'ground' if you wish to drop the item to the ground.
+
+MinQuantity: The quantity of this item a corpse must have at a minimum to be considered for looting. A random value will be picked between this range for each corpse. This only matters if your looting condition is 'Open corpses with listed items'.
+
+OntoContainer: If you want the bot to drop items on containers located in your windows instead of into the windows themselves, specify a container itmeid/name or put 'any' without the quotes to indicate that the item should be dropped on any container. If this option is used, the 'Destination' field of the loot entry will indicate the location of the containers instead. The bot will remember which container was full and will place items in the next container in sequence. If you want the bot to forget which containers were full, which you need to do after you have sold items, changed backpacks layout, or deposited money, you need to call the 'clearlootingonto()' after doing these things in your script. Each item has it's own backpacks fullness memory because you may have different destinations/ontocontainers for each item. However if both of these are exactly the same for two or more items, they will share their memory together in order to avoid unnecessary moves to check for fullness.
+
+AlarmOn: Lets you enable an alarm for the item if it gets announced (ex: 'Loot of a rat: x') or an alarm if it gets announced, but the looter wasn't able to loot it successfully. You must have the 'Show info messages in console' client option enabled for this to work.
+
+OpenBodyPriority: The priority block for the opening of bodies events.
+
+LootBodyPriority: The priority block for looting the contents of bodies.
+
+MoveItemsQuickly: Choose if you want the bot to hold down ctrl when moving stacks of items to move them all without the count menu popping up.
+
+OpenBodyTime: Specifies how long the bot should wait for a body to open after clicking on it before deciding to move on.
+
+LootingCondition: Choose if you want to loot every dead corpse, only those that are chosen to be looted in the targeting settings or only corpses for which at least one of the items in your loot list appears in the corpse contents green announce message. For this to work properly, you must name all your loot entries exactly as they appear in the contents message ('gold coin', 'mace', ...). You also need to have the 'Show Info Messages in Console' option enabled in your client.
+
+LootingPolicy: Choose to either loot the monster right away if he died next to you or to wait until all monsters are dead before commencing the looting process.
+
+LootingFlashOnAlert: Choose if you want the looting alarms to additionally flash the client on top of playing a sound.
+
+LootingRange: Choose how many squares around you to consider dead bodies dropping as being your loot.
+
+LootingEatFood: Choose whether to eat food from the corpses or not.
+
+LootingEnabled: Choose whether looting is enabled or not.
+
+Waypoints: This list contains all the waypoints that were created. It is possible to create waypoints by double clicking on the ".." value where more options will pop up, by using the 'addwaypoint' script command or by using the 'Add Waypoint' view which can be opened from the main bot window. After you have created a waypoint, you can double click on its name to set a label for it which can be referenced via script with the 'gotolabel(...)' command.
+
+The following is a list of waypoint types and properties:
+
+Stand: The bot will try to stand at this position even if it gets interrupted along the way. Make sure to use these when walking on stairs, ramps and holes (by placing the waypoint on those locations by changing the emplacement) because you don't want these key locations to be skipped.
+
+Node: The bot will try to stand at this position, unless it has already walked near this position recently, the near range being specified by the 'NodeRange' setting.
+
+Walk: The bot will try walking towards this position. If it gets interrupted along the way, it will not retry but instead move on to the next waypoint in sequence.
+
+Rope: The bot will move next to this position and use a rope on it, either by a hotkey if present or find it in your container windows. You should not place a stand waypoint near the rope spot preceding the rope waypoint like it was necessary in Elfbot seeing as the bot now automatically does that and does it better.
+
+Shovel: The bot will move next to this position and use a shovel on it if the spot is closed, either by a hotkey if present or find it in your container windows. You should not place a stand waypoint near the shovel spot preceding the shovel waypoint like it was necessary in Elfbot seeing as the bot now automatically does that and does it better.
+
+Ladder: The bot will move next to this position and use the ladder on it. You should not place a stand waypoint near the ladder location preceding the ladder waypoint like it was necessary in Elfbot seeing as the bot now automatically does that and does it better.
+
+Use: The bot will move next to this position and use the topmost item on it. You should not place a stand waypoint near the use location preceding the use waypoint seeing as the bot automatically does that.
+
+Action: The bot will run the supplied action script. You can do stuff such as boating, depositing money and items, buying items, or doing conditional branching by using labels and the 'gotolabel' script command.
+
+Emplacement: Change this if you want the waypoint to be set around your location (ie: north or south of you). This is necessary to place waypoints directly on holes, stairs and ramps. Remember to set this back to normal when placing regular waypoints again.
+
+Pathfinding: This section contains some settings that let you specify how you want the bot to walk your character from waypoint to waypoint.
+
+SpecialAreas: Designates special areas on the map where the bot should apply special handling such as blocking them off from walking or walking slower on them.
+
+Coordinates: Specifies the coordinates for the area. The coordinates are set to your current location when a new entry is made.
+
+Dimensions: Specifies the horizontal and vertical sizes of the area who's top left corner is defined by the coordinates. The horizontal size thus extends to the right and the vertical size extends down. Placing '2, 3' here makes the box 2 tiles wide and 3 tiles tall.
+
+Avoidance: Specifies how many extra squares you're willing to walk at maximum to avoid each square of this area. Set this to 0 to disregard them or to any value higher than 250 to avoid them completely.
+
+WaitTime: Specifies how long you want to wait after walking on each square on this area before moving on.
+
+ConsideredBy: Choose which systems of the bot should consider this special area.
+
+WalkThroughPlayers: Specifies if you want the bot to walk through players like it is possible on non-pvp servers or not.
+
+WalkingMethod: Specifies the preferred method of the bot to perform it's movements. You can choose between walking with arrow keys or map clicks.
+
+MapWalkDistance: Specifies a random range that specifies the distance to perform with every click when moving with the mouse on the minimap.
+
+CreatureMemoryTime: Specifies for how long in milliseconds creatures that leave your field of view are remember as blocking the path at the location they were last seen standing at.
+
+EnergyAvoidance: Specifies how many extra squares you're willing to walk at maximum to avoid an energy field. Set this to 0 to walk through them or to any value higher than 250 to avoid them completely. The first number is for weak fields and the second is for strong fields.
+
+FireAvoidance: Specifies how many extra squares you're willing to walk at maximum to avoid a fire field. Set this to 0 to walk through them or to any value higher than 250 to avoid them completely. The first number is for weak fields and the second is for strong fields.
+
+PoisonAvoidance: Specifies how many extra squares you're willing to walk at maximum to avoid a poison field. Set this to 0 to walk through them or to any value higher than 250 to avoid them completely. The first number is for weak fields and the second is for strong fields.
+
+WalkableIds: Specifies a list of ids which you want the bot to walk through even though auto-walk blocks these on the client. Only one id or range of ids (xxxx-yyyy) should be placed per line.
+
+Settings: This section contains general settings for the cavebot system.
+
+RopeToUse: Select which rope to use with the rope waypoint.
+
+ShovelToUse: Select which shovel to use with the shovel waypoint.
+
+NodeRange: Select the range to skip nearby nodes at.
+
+OpenNextBp: Select if you want the bot to open the next backpack in your open containers if one window is full and has only one container within it. You can also choose for this to be enabled only when the cavebot is enabled to prevent some annoyances.
+
+OpenBpsAtLogin: Select if you want the bot to open all your backpack in the 'back' slot and all the containers within it in new windows when logging in.
+
+PauseBotOnDeath: Select if you want to pause the bot (cavebot and targeting) if your character dies. This has been put in place so that your character doesn't go running out of the temple if he for example sees a targetable monster outside and gets you killed.
+
+RefillAmmoCount: Specify a range to refill ammunition in your hands and belt slot. If you specify a range such as '20 to 65', the bot will pick a random value between this range, let's say 45, and refill ammo when the item count is below 45. After it has refilled ammo successfully, it will pick a different value within that range again.
+
+CavebotPriority: The priority block for all the events issued by the cavebot system such as roping and waypoint actions.
+
+CavebotEnabled: Choose whether the cavebot is enabled or not.
+
+
+Healer Category
+
+The healer category contains settings related to healing and mana training.
+HealRules: This section contains a list of as many healing rules as you want. Entries at the top of the list take priority in that if, for example, a spell is being cast by an item on top, a spell of a lower item will be ignored even if all conditions are satisfied. A potion in a lower item can still be used though since its of a different exhaust category.
+
+A heal rule entry consists of the following fields:
+
+HealthRange: Specifies a health range requirement for this heal rule. A range of '0 to 500' for example will be able to fulfill itself only when your health is below 500. It is also possible to specify a percentage if you select the 'percent' drop-down instead of 'exact' in which case you must input values between 0 and 100.
+
+ManaRange: Specifies a mana range requirement for this heal rule. A range of '25 to 1000' for example will be able to fulfill itself only when your mana is between 25 and 1000. For convenience, it is possible to specify a lower bound and setting the upper bound to 0 (ex: 25 to 0). This will change the field to '25 and above' and indicates that the condition is satisfied if mana is higher than 25. It is also possible to specify a percentage if you select the 'percent' drop-down instead of 'exact' in which case you must input values between 0 and 100.
+
+HealMethod: Lets you choose a heal method for this heal rule. It can either be a spell, a potion or a rune.
+
+ExtraCondition: Lets you choose an extra condition for the heal rule. You can for example add the condition that this heal rule will only work when paralyzed so that you can heal it off. Your hp range in this case might need to be (1 and above), your mana range (25 and above) combined with the spell 'Light Healing'. Placing this entry on the bottom of the list will make sure it will not be issued if other healing spells need to be casted, which will remove the paralysis anyways.
+
+SpamRate: Specifies how often to repeat execution of the heal rule until conditions are no longer satisfied. A random value is picked within the specified range. Setting this too low might prevent you from moving since pressing F hotkeys in the client stops your movement, unless you keep tapping on your arrow keys.
+
+MethodPriority: Specifies the priority for the event created by this heal rule. You don't really need to set a priority setting with a purpose to act over other heal rules, since rules located higher in the list have higher priority in the healer, but more so to describe the priority behavior amongst other events in the bot.
+
+ManaTraining: This section contains a random mana training subsystem that lets you burn mana once it is close to being full.
+
+ManaMissing: Specifies a random range of mana that must at most be missing. If the range is for example '4 to 25', a random value will be obtained from within this range, say 15. Then if you have 15 or less mana missing, the bot will cast the selected spell provided you have enough mana to cast it.
+
+TrainSpell: Pick the spell you want to train your mana with. The bot automatically checks if you have enough mana to cast the spell.
+
+SpamRate: Specifies how often to repeat execution of the spell until conditions are no longer satisfied.
+
+Enabled: Specifies whether the mana trainer is to be enabled or not.
+
+SpellPriority: Specifies the priority of the events issued by the mana trainer.
+
+Settings: This section contains general settings for the healer system.
+
+PingCompensation: This setting specifies which percentage of your ping the healer should account for when casting spells. For example, if ping compensation is at 30% and your average ping is 200, then the healer will cast spells and use potions 60 milliseconds before they appear cooled down. You generally won't want to set this to anything over 50%, which is half of your ping (because ping is the time for the information to be sent to the server and then arrive back, but you only care about the time it takes to arrive to the server). If set too high, you will exhaust more when casting spells.
+
+HealerEnabled: Specifies whether the healer system of the bot is enabled or not.
+
+
+Hotkeys Category
+
+The hotkeys section is where most of the customization takes place. Hotkeys are custom scripts which execute at the press of a button, or actively running scripts that get activated and deactivated at the press of a button if their mode is set to auto.
+HotkeyList: Lists all currently available hotkeys. You can create new hotkeys by doing the usual clicking on the corresponding ".." value.
+
+A hotkey entry consists of the following fields:
+
+Script: Specifies the script for the hotkey. Read the Scripting help sections for more details on how to write these.
+
+MainKey: The key to be pressed for this hotkey to execute, or turn on/off in the case of an auto hotkey.
+
+ComboKey: If you want more than one key to be held to activate this hotkey, specify a second key here. This is irrelevant if you're not working with key combinations.
+
+ComboType: Specifies the type of the combo key. It must either be pressed or unpressed. The combo key 'shift' has to be unpressed if you're for example trying to activate a 'b' only hotkey, and pressed if you are trying to activate the 'shift+b' hotkey. This is irrelevant if you're not working with key combinations.
+
+PersistentList: Lists all currently available persistent hotkeys. They are just like hotkeys, but run continuously without a key being needed to turn them on/off. A persistent script will execute once if it has no auto command inside its body, which is useful for defining global variables and functions.
+
+A persistent entry consists of the following fields:
+
+Script: Specifies the script for the persistent entry. Read the Scripting help sections for more details on how to write these.
+
+Enabled: Specifies whether this script is enabled or disabled.
+
+CavebotList: Lists all currently available cavebot hotkeys. They are just like persistent hotkeys, but will only run when the cavebot is enabled and if the bot is not currently paused.
+
+A cavebot entry consists of the following fields:
+
+Script: Specifies the script for the cavebot entry. Read the Scripting help sections for more details on how to write these.
+
+Enabled: Specifies whether this script is enabled or disabled.
+
+HotkeyCondition: Specifies whether the client needs to be focused or not necessarily for hotkeys to respond to key presses.
+
+DefaultEventPriority: Specifies the default event priority block for all script commands that issue events. This can be changed individually for each script by using the 'setpriority' command.
+
+ChatPopupPriority: Specifies the event priority for messages typed into the chat popup (Enter key). Set the priority to 0 if you want to disable the chat popup.
+
+
+Hud Category
+
+The Hud section deals with all of the on-screen displaying capabilities of NeoBot. Things to display are written in script form, so people can change and improve on their functionality if they can or download modifications.
+DisplaysList: Lists all currently available displays. You can create anew display by doing the usual clicking on the corresponding ".." value. Unfortunately, displays are only transparent on Windows Vista and 7 (possibly Aero must be enabled). Windows Xp users will have a black background in the back of the text. This is a limitation which can't be helped.
+
+A display entry consists of the following fields:
+
+Script: Specifies the script for the display. Read the Scripting help sections for more details on how to write these.
+
+RefreshRate: Specifies how often the script will run and redraw itself. A redraw occurs only if the contents have actually changed. Setting this too low may cause a lot of processing power being used up.
+
+Enabled: Specifies whether this display is enabled or disabled.
+
+HudPolicy: Choose whether you want the Hud to be shown, hidden or shown only when the client or the bot has focus.
+
+Included Huds: The following is a description of the 4 Huds included in NeoBot. You can modify them at will since the changes will only be reflected in the current settings for your character.
+
+GeneralInfo: Displays general information about your character such as ping/latency, experience per hour and time to level in the top left part of the screen.
+
+SpellTimers: Displays remaining spell time when a haste/invisibility/mana shield spell is cast in the top left corner of the screen.
+
+ActiveHotkeys: Displays the active hotkeys or other scripts that are being ran in the bottom left part of the screen.
+
+RecentLoot: Displays the recent loot acquired from monsters in the bottom right part of the screen. Rare loot can be setup to appear in red which can be listed by editing the script following the example format.
+
+
+Input Category
+
+The input section houses all of the settings which define how NeoBot should interface with the client.
+Keyboard: Lists several settings related to issuing keystrokes.
+
+KeyboardMode: Specifies the keyboard mode. If control keyboard is used, the bot will press keys on your keyboard as if you were pressing them yourself and for this the client must have focus. Simulate keyboard will send keystrokes to the client and for this focus is not needed. The window must still however not be minimized. It is recommended that you use the control keyboard method because it is the most natural form of interfacing with the client.
+
+StuckCtrlShiftPolicy: Specifies if and when you want the bot to release stuck control/shift keys should they not have been released properly or promptly.
+
+TypeWaitTime: Specifies a random interval between each character when typing long amounts of text into the client.
+
+PressWaitTime: Specifies a random interval between pressing hotkeys or other buttons.
+
+Mouse: Lists several settings related to mouse control.
+
+MouseMode: Specifies the mouse mode. If control mouse is used, the bot will move the mouse cursor as if you were moving it yourself and for this the client must have focus. The /permit option will not move the mouse if the user is currently trying to position it somewhere while the /resist option will resist the user and forcefully do its work. Simulate mouse will send mouse positioning and clicks to the client and for this focus is not needed. The window must still however not be minimized. It is recommended that you use the control mouse method because it is the most natural form of interfacing with the client.
+
+ScrollMode: Specifies if you want the bot to be clicking on the scroll bars or using the mouse wheel for scrolling.
+
+StuckCursorPolicy: Specifies if you want the bot to restore a cursor being held down or active before starting the next event and when.
+
+MoveSpeed: Specifies the move speed for the mouse.
+
+ClickWaitTime: Specifies the interval of time between mouse clicks.
+
+FocusPolicy: Since the control methods need focus of the client, this designates when the bot should set focus on the client if its not currently in focus. It is possible to do so whenever any event occurs, when any event except for walking occurs or only when an urgent event occurs.
+
+OpenMenuPolicy: Because sometimes the bot can miss click or some unexpected window can pop up, you can set it up to do something in this case. Confirming will press the 'Enter' key while closing will press the 'Esc' key. You can specify the interval of time to wait before performing the closure in case you are the one creating the menus. If you select one of the 'mouse idle' options, it will only close the menu if the user hasn't moved the mouse for more than 4 seconds (if the client isn't focused, it will close/confirm instantly).
+
+
+Navigation Category
+
+The navigation section houses settings which are used by the Navigation feature of NeoBot. To use the Navigation feature, you must first setup and connect to a server, something which can be done from within the Navigation dialog accessible by navigating the menu from the main bot window to 'Options >> Navigation'.
+Lists: Various lists which classify characters into certain categories and store pertinent information about them. These lists are used by the navigation system to colorify these player's location on the minimap, or by the 'isfriend', 'isenemy' and 'isleader' script commands.
+
+Enemies: Lists enemy names. One name must be inserted per line. It is also possible to specify the vocation and level for this name in the following manner: Player 1, 130 EK
+
+Friends: Lists friend names. One name must be inserted per line. It is also possible to specify the vocation and level for this name in the following manner: Player 2, 77 MS
+
+Leaders: Lists leader names. One name must be inserted per line. It is also possible to specify the vocation and level for this name in the following manner: Player 3, 340 P
+
+Settings: This section contains various settings related to the Navigation feature.
+
+AutoConnect: Specifies if you want to automatically connect to the currently setup Navigation server. If this is enabled, NeoBot will automatically connect you when you load settings that have this setting enabled.
+
+
+Targeting Category
+
+The Targeting section defines how the bot should handle attacking monsters. This works regardless of the cavebot being enabled or not.
+Monsters: Lists all currently defined monsters. Only a brief description will be provided here for the time being since it is very similar in functionality to ElfBot. View ElfBot's Targeting tutorial for more details.
+
+A monster entry consists of the following fields:
+
+Name: Name of the monster to be targeted.
+
+Categories: The categories the monster belongs to if you plan on creating categorized entries. In most cases you will be leaving this empty.
+
+Count: How many monsters must be on the screen for this entry to be considered.
+
+Setting1: Additional settings that depend on the monster hp percentage.
+
+Setting2: Additional settings that depend on the monster hp percentage.
+
+Setting3: Additional settings that depend on the monster hp percentage.
+
+Setting4: Additional settings that depend on the monster hp percentage.
+
+Each setting section contains the following entries:
+
+HpRange: The health percentage range for this setting to be chosen. If creating one setting only, this should be '0 to 100'.
+
+Danger: The danger level of the monster. A monster with a higher danger level will be prioritized and stood away from the most. This should remain within the 0 to 10 range.
+
+MonsterAttacks: Choose this accordingly if the monster has a beam or a wave attack and the bot will try situating itself out of the area of effect of such an attack.
+
+DesiredStance: The stance to use for this monster. Stances are what defines how your character will move or position himself to the monster, be it charge at it (reach stance) or stay at a distance.
+
+CustomDistance: Choose if you want this setting to use a custom range distance. If you want to use the default range distance as specified in your Stance Options, set this to 'default'.
+
+DesiredAttack: Choose if you want to attack or follow the monster.
+
+FirstSpell: Choose which spell or rune to cast first on the monster if the spell isn't on cooldown.
+
+SecondSpell: Choose which spell or rune to cast second on the monster if the spell isn't on cooldown.
+
+ThirdSpell: Choose which spell or rune to cast third on the monster if the spell isn't on cooldown.
+
+FourthSpell: Choose which spell or rune to cast fourth on the monster if the spell isn't on cooldown.
+
+SpellRate: Choose how often to cast the desired spell.
+
+SyncSpell: Enabling this will sync spells with attacks. In other words, it will shoot the spell right after you have dealt regular damage.
+
+AttackMode: Choose which attack mode to use when fighting this monster.
+
+LootMonster: Choose if you want the monster to be looted or not. This only has an effect if your LootingCondition is set to 'Open targeting corpses'.
+
+MustAttackMe: Choose if you want to target this monster only if it has attacked you.
+
+OnlyIfTrapped: Choose if you want to target this monster only if you are surrounded and can't move out.
+
+PlayAlarm: Choose if you want to play an alarm if this monster is on screen.
+
+StanceOptions: Lists some stance options.
+
+RangeDistance: The distance to keep from the monster when using the distance stance. It will be possible to set this for each monster in the future.
+
+DiagonalMovement: If enabled, targeting will also consider side steps as possible movements in its calculations. This makes the calculations more CPU intensive so disable it if you have an older computer or are experiencing slowdowns.
+
+LureIntensity: This defines how intensely your character should try to reach the lure location when using one of the lure stances. You should select a value from 0 (favor avoiding monsters) to 100 (favor going to lure location), but you can go higher than 100 too. You can try different values to see what works best for you particular script.
+
+TargetSelection: Defines which creatures the bot should prioritize over others. These should remain within the 0 to 100 range.
+
+ListOrder: Target selection will be favored to the targets appearing the higher on the monster list.
+
+Health: Targets selection will be favored to the targets having the least amount of hp percentage.
+
+Proximity: Target selection will be favored to the targets being the closest to you.
+
+Danger: Target selection will be favored to the targets for which you have specified the highest Danger level.
+
+Random: Target selection will have a random element favoring some targets more than others.
+
+Stick: Target selection will tend to stick on the target it has previously chosen. This is very sensitive and stickiness will be conserved for an even small values.
+
+MustBeReachable: If enabled, targeting will only consider selecting a target if it can be reached by foot.
+
+MustBeShootable: If enabled, targeting will only consider selecting a target if a projectile aimed from you towards it will not be obstructed.
+
+TargetingPriority: The priority block for events issued by the targeting system.
+
+TargetingEnabled: Specifies whether targeting is enabled or not.
+
+
+
+
+
+---------------------SCRIPTING-----------------------------
+
+NeoBot's script system
+
+The scripting system in NeoBot is inspired by ElfBot's hotkeys and script commands. People that have used ElfBot in the past should be able to adapt quickly so long as they pay attention to the subtleties of the new syntax.
+In NeoBot, scripting is implemented through a popular and powerful scripting language called Lua. This upgrade adds additional flexibility and allows you to implement much more powerful and customized scripts. Lua already comes pre-packed with several libraries containing useful general-use functions such as for math or string manipulation, thus much can be done with small amounts of effort.
+This of course does not mean that the simplicity of ElfBot's scripts is gone. On the contrary. It's probably even easier to create scripts now that the format has been thought over. If it seems harder then that's most likely only due to the difference in dynamics of the bot which queues keyboard and mice events instead of instantly sending out packets.
+
+Lua documentation
+
+A comprehensive programming introduction to Lua is available at this link. Please note that some things such as console input from the user or running scripts from the command line is irrelevant, since we don't have a console window to type in input for a running script and since scripts are ran from within NeoBot.
+For a more in depth read, a reference manual which covers some more advanced notions can be viewed here. This reference manual is also available in several other languages such as portuguese and spanish. There you will find everything from the full scripting syntax to all of the library calls included in lua. For anyone wishing to master scripting, that's another read in the right direction.
+The fastest way to learn scripting for NeoBot can probably be achieved by analyzing ready-made scripts made by others or those already included in the bot and trying to modify them slightly without breaking the syntax. Over time, the familiarity will increase.
+
+Lua changes
+
+Several changes have been implemented to Lua in order to make it safe and friendly to use for our purposes.
+In terms of functionality, some of the notable changes are foreach statements which allow you to iterate through all monsters, messages received or other things. For clarity, all native bot variables are prefixed with a $ symbol (such as $hp) and it is not possible to create variables containing the $ symbol. All user-declared variables must start with a letter or underscore. The possibility of defining an init section has also been added, but that will be explained in a later sub-section.
+In terms of safety, several library calls were removed such as access to command line, loading dll files and changing system settings. File access is limited to NeoBot's /neofiles/directory. Accessing any file outside of that directory (other than a temporary file) or creating a file other than with the .txt extension is not possible. This should secure any unwanted things from occurring when downloading scripts made by other users.
+As for functions and variables implemented by NeoBot, you can find a full description of them in the help sections 'Script Variables', 'Script Functions' and 'Script Events'.
+
+Lua Variables
+
+Unlike ElfBot which treats any unknown word with a $ symbol that it encounters as a variable, all additional variables which you intend to use in Lua must be defined before they can be used.
+Two types of variables can be made in Lua: global and local variables. Making a global variable in a script will also make it accessible to any other script within the bot. A local variable will only exist in the script that it is being ran, or to be more precise, as far as only in the block that it has been defined in. If it was defined in an if statement, then it will only exist within that if statement and not beyond it. Always use local variables if you don't need to share values between scripts. Refer to the programming manual for a more detailed explanation.
+Having to define variables causes a small problem for us when we want to store information in a variable across several invocations of a script. For example, the following script resets the variable j every time it is started: 
+
+local j
+print(j)
+j=j+1
+print(j)
+j=j+1
+
+since the local j directive defines and initializes the variable back to nil (or 0) every time the script is ran and will hence output 0, 1, 0, 1... every time. This is fine for most situations where we just want to use a variable for the life time of one script run, such as for loop counts or parameter passing.
+In order to preserve the contents of a variable, the possibility of using an init statement has been provided for you. The script: 
+
+init start
+local j
+init end
+
+print(j)
+j=j+1
+
+will correctly print an incremented count (0, 1, 2...) each time the script is ran, since the code in the init block is ran only once when the script is first created. The init block must be located as the first statement of the script in order to be considered.
+It is also possible to share functions across scripts using the init block. To do so, create a persistent hotkey, call it 'general functions' or anything you like and place any function you want accessible from anywhere between an init block. Don't forget to enable this persistent hotkey and do not set an auto repeat rate for it. Example:
+
+init start
+function openbag() openitem(2853) end
+init end
+
+If a function is not declared within an init block, it will only be accessible in the script it was defined in.
+
+
+--------------------------------SCRIPT VARIABLES-----------------------------------
+
+Stats variables
+
+The following variables return information about your character.
+$name (string): Returns the name of your character.
+$id (int): Returns the creature Id of your character.
+$hp (int): Returns your current amount of hit points.
+$maxhp (int): Returns your maximum amount of hit points.
+$mp (int): Returns your current amout of mana points.
+$maxmp (int): Returns your maximum amount of mana points.
+$cap (int): Returns your remaining capacity.
+$stamina (int): Returns the remaining stamina in minutes.
+$soul (int): Returns the remaining soul points.
+$exp (int): Returns your total amount of experience points.
+$level (int): Returns the level of your character.
+$mlevel (int): Returns the level of your magic skill.
+$mlevelpc (int): Returns the percentage learnt of the magic skill.
+$hppc (int): Returns the percentage of your character's hp.
+$mppc (int): Returns the percentage of your character's mp.
+$posx (int): Returns the x position of your character.
+$posy (int): Returns the y position of your character.
+$posz (int): Returns the z position of your character.
+
+Status effects
+
+The following variables return information on your character's various states.
+$battlesigned (bool): Returns true if your character is battle signed, false otherwise.
+$drunk (bool): Returns true if your character is drunk, false otherwise.
+$hasted (bool): Returns true if your character is hasted, false otherwise.
+$manashielded (bool): Returns true if your character is mana shielded, false otherwise.
+$paralyzed (bool): Returns true if your character is paralyzed, false otherwise.
+$poisoned (bool): Returns true if your character is poisoned, false otherwise.
+$poisondmg (int): Returns the last amount of poison damage incurred.
+$pvpsigned (bool): Returns true if your character is pvp signed, false otherwise.
+$pzone (bool): Returns true if your character is in a protection zone, false otherwise.
+
+Skill variables
+
+The following variables return information pertaining to your character's skills.
+$fist (int): Returns the level of your fist skill.
+$club (int): Returns the level of your club skill.
+$sword (int): Returns the level of your sword skill.
+$axe (int): Returns the level of your axe skill.
+$distance (int): Returns the level of your distance skill.
+$shielding (int): Returns the level of your shielding skill.
+$fishing (int): Returns the level of your fishing skill.
+$fistpc (int): Returns the percentage learnt of the fist skill.
+$clubpc (int): Returns the percentage learnt of the club skill.
+$swordpc (int): Returns the percentage learnt of the swords skill.
+$axepc (int): Returns the percentage learnt of the axe skill.
+$distancepc (int): Returns the percentage learnt of the distance skill.
+$shieldingpc (int): Returns the percentage learnt of the shielding skill.
+$fishingpc (int): Returns the percentage learnt of the fishing skill.
+
+Equipment variables
+
+The following variables return a pointer to an item for which you can access various properties which will be outlined in the next section.
+$head (pointer): Returns the data structure of the item in your head slot.
+$neck (pointer): Returns the data structure of the item in your neck slot.
+$back (pointer): Returns the data structure of the item in your back slot.
+$chest (pointer): Returns the data structure of the item in your chest slot.
+$lhand (pointer): Returns the data structure of the item in your left hand slot (appears on the right side).
+$rhand (pointer): Returns the data structure of the item in your right hand slot (appears on the left side).
+$legs (pointer): Returns the data structure of the item in your legs slot.
+$feet (pointer): Returns the data structure of the item in your feet slot.
+$finger (pointer): Returns the data structure of the item in finger slot.
+$belt (pointer): Returns the data structure of the item in your belt slot.
+
+Item properties
+
+The following properties can be appended to an item pointer (ie: $lhand.id) and return a value as defined.
+.id (int): Returns the id of the item.
+.count (int): Returns the count of the item.
+
+Client info variables
+
+The following variables return various information relating to the game client.
+$battleopen (bool): Returns true if the battle window is open, false otherwise.
+$connected (bool): Returns true if connected to a server, false otherwise.
+$focused (bool): Returns true if client is focused, false otherwise.
+$minimized (bool): Returns true if client is minimized, false otherwise.
+$openmenuname (string): Returns the name of the currently open menu/window or 'Context' if it's a context menu (with options like Attack/Use/Open etc).
+$tradeopen (bool): Returns true if the trade window is open, false otherwise.
+$typedtext (string): Returns the currently typed-in text in the chat window.
+$writtentext (string): Returns the currently written in text in the 'Edit text' window, like for letters or labels.
+$writtentextinfo (string): Returns the author and message date of the currently open 'Edit text' window, like for letters or labels. The information is separated by colons (':').
+
+Bot info variables
+
+The following variables return various information calculated by the bot.
+$balance (int): Returns the last bank balance amount reported by an NPC.
+$cavebot (bool): Returns true if cavebot is enabled, false otherwise.
+$cureventid (int): Returns the internal id of the currently executing event, 0 otherwise.
+$cureventtype (int): Returns the internal type of the currently executing event, 0 otherwise.
+$curevent (int): Returns a table containing internal data about the currently executing event.
+$expgained (int): Returns the exp gained since exp counter has been reset.
+$exphour (int): Returns the average experience per hour since it's been reset.
+$exptime (int): Returns the time in milliseconds that the exp counter has been running.
+$idlerecvtime (int): Returns the time in milliseconds since the last packet was received from the server. Good for detecting connection freezes.
+$lastlabel (string): Returns the last non-empty label name before the current waypoint that the cavebot has went through.
+$lastonto (int): Returns the last container which had space during the last moveitemsonto(...) event. To reset, after you have emptied/shuffled the relevant containers, call 'clearlastonto()'.
+$lootbodies (int): Returns the amount of loot bodies not yet looted being queued up for looting.
+$looting (bool): Returns true if looting is enabled, false otherwise.
+$neoid (int): Returns the id number of the bot as specified if starting the bot using the -id x command line option.
+$openmenutime (int): Returns the time in milliseconds that a menu in the client has been open.
+$openingbps (bool): Returns true if the open backpacks at login or open next backpack system is currently opening backpacks, false otherwise. You can for example avoid doing other events in the meantime or make the bot 'pauswalking(x)' while it is working.
+$ping (int): Returns the last calculated ping value.
+$pingaverage (int): Returns the average of the 6 last obtained ping values.
+$popupchatopen (bool): Returns true if a popup chat box is open, false otherwise.
+$standtime (int): Returns the time in milliseconds that your character has been standing still.
+$targeting (bool): Returns true if targeting is enabled, false otherwise.
+$timems (int): Returns the time in milliseconds since the system has started. Can be used for creating timers.
+$windowsxp (bool): Returns true if the bot is running on windows xp, false otherwise.
+$clientctrltime (int): Returns the time in milliseconds that the control key has been held for in the client.
+$clientshifttime (int): Returns the time in milliseconds that the shift key has been held for in the client.
+$ctrltime (int): Returns the time in milliseconds that the control key was physically held for by the bot.
+$shifttime (int): Returns the time in milliseconds that the shift key was physically held for by the bot.
+$wptid (int): Returns the id of the current waypoint.
+$wpttype (string): Returns the type of the current waypoint.
+$wptx (int): Returns the x position of the current waypoint.
+$wpty (int): Returns the y position of the current waypoint.
+$wptz (int): Returns the z position of the current waypoint.
+
+Navigation variables
+
+The following variables return various information related to your navigation session.
+$navon (bool): Returns true if you are logged into a navigation channel, false otherwise.
+
+Timer variables
+
+The following variables return various timer-related values.
+$hastetime (int): Returns the time in milliseconds remaining on the haste spell.
+$mshieldtime (int): Returns the time in milliseconds remaining on the mana shield spell.
+$invistime (int): Returns the time in milliseconds remaining on the invisibility spell.
+$strenghtentime (int): Returns the time in milliseconds remaining on the strenghten spell.
+
+Creature variables
+
+The following variables return a pointer to a creature for which you can access various properties which will be outlined in the next section.
+$attacked (pointer): Returns the creature data structure of the creature currently red boxed.
+$followed (pointer): Returns the creature data structure of the creature currently green boxed.
+$mattacker (pointer): Returns the creature data structure of the monster that has last attacked you within 3 seconds.
+$pattacker (pointer): Returns the creature data structure of the player that has last attacked you within 3 seconds.
+$self (pointer): Returns the creature data structure of your character.
+$target (pointer): Returns the creature data structure of the last creature you have attacked.
+$targetingtarget (pointer): Returns the target of the targeting system.
+foreach loop (pointer): A special type of loop that cycles through all creatures and lets you script various operations on each one of them.
+
+Example of a creature foreach loop:
+
+foreach creature c "ms" do
+     if c.name == "Rotworm" then
+          say("Rotworm is on screen!")
+          break
+     end
+end
+
+The 2nd parameter (here c) is the name that you wish to give to the local variable which will hold each of the creatures iterated in turn. To make scripts execute faster and for simplicity, the 3rd parameter (optional, and here "ms") is a string which acts as a filter and lists a combination of conditions defined as follows:
+
+p: creature must be a player
+m: creature must be a monster
+f: creature must be on the same floor as you
+s: creature must be on the same floor as you and on the visible portion of the screen
+
+The above loop iterates through all the creatures that are monsters and which appear on your screen. The optionally placed break command exits the loop once one rotworm has been found and the say command has been executed in order to prevent doing so multiple times should there be more than one rotworm on the screen.
+
+Creature properties
+
+The following properties can be appended to a creature pointer (ie: $self.speed) and return a value as defined.
+.name (string): Returns the creature's name.
+.id (int): Returns the unique id of the creature.
+.posx (int): Returns the creature's x coordinate.
+.posy (int): Returns the creature's y coordinate.
+.posz (int): Returns the creature's z coordinate.
+.dir (string): Returns the creature's direction as either 'n', 'e', 's' or 'w'.
+.outfit (int): Returns the creature's outfit id.
+.color1 (int): Returns the creature's head color id.
+.color2 (int): Returns the creature's primary color id.
+.color3 (int): Returns the creature's secondary color id.
+.color4 (int): Returns the creature's detail color id.
+.addons (int): Returns the creature's addons as a number.
+.mount (int): Returns the creature's mount as a number.
+.lightintensity (int): Returns the intensity of the creature's light.
+.lightcolor (int): Returns the color id of the creature's light.
+.hppc (int): Returns the creature's health percentage.
+.speed (int): Returns the creature's speed.
+.updated (int): Returns 1 if the creature is being updated by server.
+.skull (int): Returns the creature's skull type id.
+.party (int): Returns the creature's party type id.
+.warbanner (int): Returns the creature's warbanner type id.
+.walkblock (bool): Returns true if the creature can't be walked through, false otherwise.
+.dist (int): Returns the biggest distance in either x or y between the creature and your character.
+.ignored (bool): Returns true if creature is being ignored by the targeting system (if ignorecreature() was used on it), false otherwise.
+.ismonster (bool): Returns true if creature is a monster, false otherwise.
+.isplayer (bool): Returns true if creature is a player, false otherwise.
+.isshootable (bool): Returns true can be shot from your position, false otherwise.
+.lastattacked (int): Returns the time in milliseconds since the creature last performed any attack on you. Always check if this is smaller than the amount of time you are considering (ex: if m.lastattacked 
+
+Message variables
+
+The following variables return a pointer to a message for which you can access various properties which will be outlined in the next section.
+$lastmsg (pointer): Returns the data structure of the latest message received in the client.
+foreach loop (pointer): A special type of loop that cycles through all newly received messages and lets you script various operations on each one of them.
+
+Example of a message foreach loop:
+
+foreach newmessage m do
+     if m.sender == "Light Princess" then
+          pausebot(true)
+     end
+end
+
+The 2nd parameter (here m) is the name that you wish to give to the local variable which will hold each of the messages iterated in turn. The above loop iterates through all newly received messages and pauses the bot when a message from the character "Light Princess" is received.
+
+Message properties
+
+The following properties can be appended to a message pointer (ie: $lastmsg.content) and return a value as defined.
+.sender (string): Returns the message's sender's name.
+.content (string): Returns the message's content.
+.level (int): Returns the message's sender's level.
+.type (int): Returns the message's channel id.
+
+Position variables
+
+The following variables return a pointer to a window rectangle or point data structure for which you can access various properties which will be outlined in the next two sections.
+$clientwin (pointer): Returns the rectangle containing the measurements of the client window.
+$worldwin (pointer): Returns the rectangle containing the measurements of the world window.
+$cursor (pointer): Returns the point containing the position of the mouse cursor on your monitor screen.
+
+Rectangle properties
+
+The following properties can be appended to a rectangle pointer (ie: $clientwin.left) and return a value as defined.
+.left (int): Returns the rectangle's left x coordinate.
+.right (int): Returns the rectangle's right x coordinate.
+.top (int): Returns the rectangle's top y coordinate.
+.bottom (int): Returns the rectangle's bottom y coordinate.
+.centerx (int): Returns the rectangle's center x coordinate.
+.centery (int): Returns the rectangle's center y coordinate.
+
+Point properties
+
+The following properties can be appended to a point pointer (ie: $cursor.x) and return a value as defined.
+.x (int): Returns the point's x coordinate.
+.y (int): Returns the point's y coordinate.
+
+Tile properties
+
+The following properties can be appended to a tile pointer (ie: gettile(7, 7, 7).itemcount) and return a value as defined.
+.itemcount (int): Returns the count of items on the tile.
+.item (pointer): Returns the data structure for an item on the tile. You must index item with a value ranging from 1 to .itemcount to specify which item you want to access (ex: .item[1]).
+
+Container properties
+
+The following properties can be appended to a container pointer (ie: getcontainer(0).isopen) and return a value as defined.
+.hashigher (bool): Returns true if the container is inside another container and you can press the 'up arrow' button to go back to it, false otherwise.
+.isopen (bool): Returns true if the container is open and false otherwise. Always check if a container is open before accessing it's other elements because values stay in memory even after the container has been closed.
+.item (pointer): Returns the data structure for an item in the container. You must index item with a value ranging from 1 to .itemcount to specify which item you want to access (ex: .item[1]).
+.itemcount (int): Returns the count of items in the container.
+.itemid (int): Returns the item id of the container window.
+.maxcount (int): Returns the maximum count of items that can be stored in the container.
+.name (string): Returns the name of the container window.
+
+
+
+
+-------------------------------SCRIPT FUNCTIONS-----------------------------------
+
+Script functions
+
+The following are functions that either control the bot or aid in scripting. You won't find functions here that interface with the client such as opening an item. Those are categorized as events and you can find them in the 'Script Events' section.
+A general tutorial about this functional reference will however be given here. In Lua, the scripting language that NeoBot utilizes, a function is cast in script by writing down it's name followed by a pair of parentheses. For example: ourfunction(). If the function takes no additional parameters to describe it's behavior, nothing is added in between.
+There are 4 notable parameter types we can pass to functions if required to specify how we want it to behave. For instance, we might want to pass an item id to the openitem() function to specify which item we want it to open; in which case we would write: openitem(3031). The 4 types are: int which is a number, string which is a series of characters like letters and digits, booleans which are either true or false, and pointers which are datastructures containing a specific object.
+As you will notice, the function reference lists the parameters and their types for each function. Some parameters are optional, meaning that they describe a default behavior if not passed as parameters. You can however specify them if you want a different behavior than the default one. A return type preceding the function name may also be specified. This means that the function returns a value of a certain type which you can make use of later on (ex: function "string time(int times) " returns a formatted string for a big amount of seconds).
+
+Functionality functions
+
+The following are fundamental functions that modify the general behavior of scripts.
+auto(int interval)
+
+Puts the script into auto-mode for interval milliseconds. A script that is in auto-mode will execute itself every certain interval of time. If the command is executed in a hotkey, that hotkey, when pressed, will enable the repetitive execution and disable it if pressed again. If 0 is passed for interval and the hotkey is currently running on auto, the hotkey is taken off auto-mode.
+
+Alternate invocations:
+auto(int from, int to): repeats after a random interval between from and to.
+
+table geteventbyid(int eventid)
+
+Returns a table containing information about the input event of id eventid and null if such event was not found.
+
+islocation(optional int range)
+
+Returns true if the action script is executed at the location where the action waypoint was set and false otherwise. If the optional parameter range is specified, return true/false if you are standing within range tiles of the waypoint location in x or y.
+
+iskeypressed(int vkey)
+
+Returns true if virtual key code vkey is pressed (system-wide), and false otherwise.
+
+printerror(optional anytype item1, optional anytype item2, ...)
+
+Prints the arguments specified to the console in red text. The console will also pop out if it is closed.
+
+setlifetime(optional int lifetime)
+
+Sets the lifetime to timems for every subsequent event created by the script. If timems is not provided, the default lifetime is set.
+
+setpriority(int priority, int override, int expiretime, int lifetime, int type)
+
+Sets the priority settings for every subsequent event created by the script. If this function is not called, the default settings defined in the bot apply. type can be 0 (regular event) or 1 (urgent event).
+
+setwarning(int warning, bool enabled)
+
+Sets whether the script will issue warnings and pop-up the console when an error occurs for a particular warning. warning can be WARNING_ITEM and enabled dictates if the warning is enabled or not.
+
+wait(int time)
+
+Pauses execution of the current script for time milliseconds and resumes once that interval has elapsed.
+
+Alternate invocations:
+wait(int from, int to): waits random amount between from and to.
+
+waitforevents(bool wait)
+
+Lets you select if you want to wait until the events you issue finishes, or to continue running the script. If wait is false, the event function will return the event id of the issued event. Remember to change it back afterwards if you don't want all your events in the current script to use that same setting.
+
+
+Bot control functions
+
+The following functions modify settings or behavior of the bot.
+addhotkey(string name, string script, optional string key, optional string combokey, optional string combotype)
+
+Adds a hotkey with name name, script script, optional key key, optional combo key combokey and optional combo key type combotype ('Must be pressed' or 'Must be depressed'). This function is not available in the trial version.
+
+addpersistent(string name, string script, optional bool enabled)
+
+Adds a persistent with name name, script script and enabled state enabled which is either true or false. This function is not available in the trial version.
+
+addwaypoint(string type, optional int offsetx, optional int offsety)
+
+Adds a waypoint of type type ("Stand", "Node", ...) at the location you are currently standing to the end of the list. Optionally, you can specify an offset to your position (1, -1 or so) in parameters offsetx and offsety to make waypoints around your location.
+
+clearlastonto()
+
+Clears the last onto index so that 'moveitemsonto(...)' starts putting items on the first backpack again. See $lastonto for more information.
+
+clearlootingonto()
+
+Clears the remembered onto backpacks (which were full or not) by the looter. You need to call this function in script after you have changed backpack positioning/added new backpacks/sold items/deposited money so that the bot knows some could be empty again.
+
+flashclient()
+
+Flashes the client window for around 5 seconds.
+
+focusclient()
+
+Gives focus to the client window.
+
+string getsetting(string settingpath)
+
+Gets the value of any setting in the bot as a string representation. The string settingpath must contain the full path of the setting such as "Healer/HealerEnabled".
+
+ignorecreature(string or pointer or int creature, optional bool unignore)
+
+Instructs the targeting system to ignore creature creature (name, pointer, or id) completely. Optionally, you can pass true as the second parameter to unignore a creature if it was previously ignored.
+
+importsettings(string name)
+
+Imports the settings file with filename name (ex: MyHotkeys or MyHud) from the '/neoscripts/' folder located in your main NeoBot directory. Importing settings doesn't clear your current settings but rathers adds or overwrites the contents to it. This function is not available in the trial version.
+
+listas(string listname)
+
+Sets the name for the script to listname for appearance when active. To prevent a script from being listed, invoke it as follows: listas('dontlist').
+
+listcolor(int listcolor)
+
+Sets the color for the script to listcolor for appearance when active.
+
+loadsettings(string name)
+
+Loads the settings file with filename name (ex: Charname1 or HydrasHunt) from the '/neosettings/' folder located in your main NeoBot directory. This function is not available in the trial version.
+
+minimizeclient()
+
+Minimized the client.
+
+pausebot()
+
+Toggles pause on both the cavebot and targeting engines of the bot.
+
+Alternate invocations:
+pausebot(bool paused): pauses if paused is true, unpauses if false.
+
+pauseinput(int timems)
+
+Prevents the bot from sending input in the form of mouse clicks/moves and key presses for timems milliseconds. You can use this if the bot is stubbornly trying to do something and you want it to stop while you can do something else. Be careful as this will pause healing aswell! The bot will resume sending input after the specified delay has expired or if 0 is passed as timems.
+
+pausewalking(int timems)
+
+Prevents the bot from walking for timems milliseconds. You can use this for example to skin/stake bodies. This does not pause walking if it was issued by script commands such as reachgrounditem or moveto. The bot will resume walking after the specified delay has expired or if 0 is passed as timems.
+
+popupchat(string channel)
+
+Shows a popup chat box for channel channel so that you can type in text without the bot interrupting you. If channel is 'Navigation', a popup chat for navigation chat is opened and messages will be sent to players present in the currently connected to navigation room. To close the popup chat, call this functional with no parameters.
+
+playsound(string filename)
+
+Plays sound filename (ex: "monster.wav") found in the bot's "\sounds" directory.
+
+resetexph()
+
+Resets the experience per hour counter of the bot.
+
+restoreclient()
+
+Restores the client from its minimized state.
+
+screenshot(optional string filename, optional bool worldonly, optional int quality)
+
+Takes a screenshot of the entire client window. If filename is not specified, a filename with the character name and the current date and time will be created. Optionally, you can pass the worldonly parameter as true to only save the game world portion of the screen. Optionally, you can specify a quality level from 1-99 if you want the screenshot to be saved in JPEG format. On Windows Vista/7, the client does not need focus for the screenshot to work. On Windows Xp, the client is made the topmost window before the screenshot is being taken and then it is returned to normal. In both cases, NeoBot's displays will not be visible on the screenshot and the client must also not be minimized. The screenshot will be stored in the /neofiles/ folder.
+
+setsetting(string settingpath, string value, optional bool updategui)
+
+Sets any setting of the bot to the value specified by value. The string settingpath must contain the full path of the setting such as "Healer/HealerEnabled" and value must be one of the possible values for that field typed in exactly as it appears in the settings, in this case either "yes" or "no". You can copy the complete invocation of this function, including the current value, by right-clicking on any setting of the bot and selecting 'Copy setsetting'. Optionally, you can pass false as the third paramater to prevent the value from updating in the GUI until you move your mouse over the setting. This is to speed things up since redrawing GUIs can be expensive on the CPU.
+
+showbot()
+
+Toggles the display state of the main bot window.
+
+Alternate invocations:
+showbot(bool show): shows if paused is true, hides if false.
+
+showconsoleinput()
+
+Toggles the display state of the console input window.
+
+Alternate invocations:
+showconsoleinput(bool show): shows if shows is true, hides if false.
+
+showsettings()
+
+Toggles the display state of a settings window.
+
+Alternate invocations:
+showsettings(bool show): shows if show is true, hides if false.
+
+bool terminateevent(int eventid)
+
+Terminates input event of id eventid and returns true if successful.
+
+traymessage(string title, string text, optional int timems)
+
+Displays a message in the system tray with title title and text text which causes the bot to show up if clicked on. Title can be an empty string in which case it will take less space. You can specify how long the message should last in milliseconds in the timems parameter. If you don't, the message will last 10000 ms. Tray messages replace each other so only one can be shown at a time.
+
+traytooltip(string text)
+
+Sets NeoBot's tray icon's tooltip to text which will appear when howevered on. This function must be called every 2000 ms or less because the default tooltip takes over after 2 seconds.
+
+
+Access functions
+
+The following functions return values tracked internally by the bot.
+int exptolevel(optional int level)
+
+If level is not specified, returns the amount of exp left for next level. Otherwise, returns the amount of exp left for level level.
+
+int timetolevel(optional int level)
+
+If level is not specified, returns the time left for next level in seconds. Otherwise, returns the amount of time left for level level. Use the time function to convert into a legible time.
+
+int emptycount(optional string locationname)
+
+Returns the count of empty/free slots in your open container windows. Optionally, you can specify which windows to consider by providing the locationname parameter.
+
+int itemcost(string itemname)
+
+Returns the cost of item with name itemname as defined in the '/neolibs/itemlist.txt' file.
+
+Alternate invocations:
+int itemcost(int itemid): returns cost of item with id itemid
+
+int itemcount(int itemid, optional string locationname)
+
+Returns the count of the item with id itemid that is present in your equipment and open windows. The bot counts it instantly by going through all the visible items and returns the count. Optionally, you can specify which windows to consider by providing the locationname parameter.
+
+int itemid(string itemname)
+
+Returns the id of item with name itemname as defined in the '/neolibs/itemlist.txt' file.
+
+Alternate invocations:
+int itemid(int itemid): to simplify scripts which let the user store either an item id or an item name in a variable, this will simply return back the item id if an item id is specified
+
+string itemname(int itemid)
+
+Returns the name of the item with id itemid as defined in the '/neolibs/itemlist.txt' file.
+
+Alternate invocations:
+string itemname(string itemname): to simplify scripts which let the user store either an item id or an item name in a variable, this will simply return back the item name if an item name is specified
+
+int itemvalue(string itemname)
+
+Returns the value of item with name itemname as defined in the '/neolibs/itemlist.txt' file.
+
+Alternate invocations:
+int itemvalue(int itemid): returns value of item with id itemid
+
+float itemweight(string itemname)
+
+Returns the weight of item with name itemname as defined in the '/neolibs/itemlist.txt' file.
+
+Alternate invocations:
+float itemweight(int itemid): returns weight of item with id itemid
+
+int servercount(string itemname)
+
+Returns the count of item with name itemname as seen in the latest 'Using one of itemname...' message. It's called a server count because the server is counting the items for you while they don't have to be visible.
+
+table spellinfo(string spell)
+
+Returns a table containing various information about spell spell which can be the spell name or the incantation words as defined in the '/neolibs/spelllist.txt' file.
+
+int tradecount(string tradetype, string itemname)
+
+Returns the count of item of type tradetype ('buy' or 'sell') with name itemname. This is the count available for purchase (limited by money/cap) or sale (amount carrying) given by the trade items window. If the trade window is closed, the return value is 0.
+
+Alternate invocations:
+int tradecount(string tradetype, int itemid): takes an itemid instead of an item name
+
+int windowcount(optional string locationname)
+
+Returns the count of windows that are currently open. Optionally, you can specify which windows to consider by providing the locationname parameter.
+
+
+Client Information functions
+
+The following functions return information gathered from the client.
+string clientitemhotkey(int itemid, optional string type)
+
+Looks for a hotkey in the game client which is bound to the item with id itemid and returns it as a string representation of the keys in the format 'F1', 'Shift+F5', or 'Ctrl+F12', and 'not found' if there is no such hotkey. Optionally, you can specify a type by passing 'self', 'target' or 'crosshair' as the type paramter if you're looking for a certain type specifically. Otherwise, any type will be looked for.
+
+string clientspellhotkey(string incantation, optional string type)
+
+Looks for a hotkey in the game client which is bound to a spell with incantation similar to incantation and returns it as a string representation of the keys in the format 'F1', 'Shift+F5', or 'Ctrl+F12'. Optionally, you can specify a type by passing 'manual' or 'automatic' as the type paramter if you're looking for a certain type specifically. Otherwise, any type will be looked for.
+
+string clienttexthotkey(string text, optional string type)
+
+Looks for a hotkey in the game client which is bound to text text and returns it as a string representation of the keys in the format 'F1', 'Shift+F5', or 'Ctrl+F12'. Optionally, you can specify a type by passing 'manual' or 'automatic' as the type paramter if you're looking for a certain type specifically. Otherwise, any type will be looked for.
+
+int cooldown(string spell)
+
+Return the amount of time in milliseconds until you can cast spell spell or 0 if you can cast it right away. The spell parameter can be either the spell name or the incantation. It can also be 'attack', 'healing', 'support' or 'special'.
+
+int cooldownmax(string spell)
+
+Return the total cooldown time for spell spell. The spell must be currently cooling down for the bot to be aware of this value. The spell parameter can be either the spell name or the incantation. It can also be 'attack', 'healing', 'support' or 'special'.
+
+pointer getcontainer(int containerid)
+
+Returns a pointer to the container datastructure for the specificed container with id containerid ranging from 0-15.
+
+table getobjectarea(pointer creature)
+
+Returns a table with the coordinates of the rectangular area (.left, .right, .top, .bottom, .centerx and .centery) for the specified creature.
+
+Alternate invocations:
+table getobjectarea(int x, int y, int z): returns the rectangular area of the tile at the specified location.
+
+pointer gettile(int x, int y, int z)
+
+Returns a pointer to the tile datastructure for the following position. Currently, you can only check tiles on the same level as yourself.
+
+Alternate invocations:
+pointer gettile(int rx, int ry, int rz): returns the tile for the relative position to the top left edge of screen for rx (0-17), ry (0-13), rz
+
+bool ischannel(string channelname)
+
+Returns true if channel with name channelname is opened and false otherwise. The channel name must be provided exactly as it appears in the client (ex: 'Bubble's private...').
+
+bool isitemontile(int itemid, int x, int y, int z)
+
+Returns true if item of id itemid can be found on the tile at given coordinates and false otherwise.
+
+int itemflags(int itemid)
+
+Returns bitwise properties of item with id itemid.
+
+bool itemproperty(int itemid, int propertyid)
+
+Returns true if property id propertyid for itemid is set. This is used to see if items can be opened, can stack, etc
+
+int maround(optional int range, optional string name1, optional string name2, ...)
+
+Returns the amount of monsters around you within distance range. If range is 0 or not specified, the entire screen is considered. Optionally, you can specify as many names as you want to only be considered as the following namex parameters.
+
+int paround(optional int range)
+
+Returns the amount of players around you within distance range. If range is 0 or not specified, the entire screen is considered.
+
+bool tilereachable(int x, int y, int z, optional bool FullReach)
+
+Returns true if you are able to reach the specified location by walking there and false otherwise. Only the tiles on screen are considered unless you set the optional parameter FullReach to true in which case the bot will try to find a path trough the tiles in a 256x256 box around your location, which is much slower.
+
+bool tileshootable(int x, int y, int z)
+
+Returns true if nothing is obstructing the throw/shoot path between you and the tile at provided location and false otherwise.
+
+pointer topitem(int x, int y, int z)
+
+Returns the data structure of the tile's top item at given coordinates. You can access its id or count by appending the .id or .count properties. Any information accessing on the item datastructure must be performed right away or stored elsewhere because a call to wait() or any script event may invalidate it.
+
+
+Display functions
+
+The following functions can only be used in HUD displays to print information on the screen.
+addgradcolors(float pos1, int color1, float pos2, int color2, ...)
+
+Adds any amount of ARGB colors to a gradient each at position ranging from (0.0 to 1.0).
+
+setbordercolor(int color)
+
+Sets the ARGB color for the border to be drawn around shapes or as text outline when a border width has been specified in the 'setfontstyle(...)' function. If you don't want a border for shapes, pass -1 as the color.
+
+setcompositionmode(int mode)
+
+Sets the composition mode for blending objects/text. The default composition mode is 3 (Source). You can read more about composition modes here
+
+setfillstyle(string filltype, ...)
+
+Sets the fill style for drawing shapes.
+
+Alternate invocations:
+setfillstyle("color", int color): fill the draw shapes with color color
+setfillstyle("image", string imagename): fills the drawn shapes with image imagename (ex: myimg.png) located in the /neoimages/ folder 
+setfillstyle("map", int startx, int starty, int z, int transparency): fills the draw shapes with minimap data starting at startx, starty and z and transparency level transparency (255 is fully transparent).
+setfillstyle("gradient", "linear", int spreadtype, int startx, int starty, int finalx, int finaly): fills the drawn shapes with a linear gradient. spreadtype can be 0 (PadSpread), 1 (ReflectSpread) or 2 (RepeatSpread).
+setfillstyle("gradient", "radial", int spreadtype, int centerx, int centery, int focalx, int focaly, int radius): fills the drawn shapes with a radial gradient
+setfillstyle("gradient", "conical", int spreadtype, int centerx, int centery, int angle): fills the drawn shapes with a conical gradient
+
+You can read this page for more information on gradients
+
+int addshape(string shapetype, int x, int y, int width, int height, ...)
+
+Adds a shape element with the previously specified color to the current display at position x and y within the display. A unique ElementId for this display is returned which can be compared to the v3 parameter in mouse click input events if the mouse click hits the shape.
+
+Alternate invocations:
+int addshape("rect", int x, int y, int width, int height): creates a rectangle
+int addshape("roundrect", int x, int y, int width, int height, int xRadius, int yRadius): creates a rectangle with rounded corners. xRadius and yRadius specify the radii of the ellipsis defining the corners of the rounded rectangle.
+int addshape("circle", int x, int y, int width, int height): creates a circle (or ellipsis)
+int addshape("line", int x, int y, int width, int height): creates a line
+int addshape("pie", int x, int y, int width, int height, int startangle, int spanangle): creates a pie that starts at startangle and goes for spanangle degrees
+int addshape("chord", int x, int y, int width, int height, int startangle, int spanangle): creates a chord that starts at startangle and goes for spanangle degrees
+int addshape("arc", int x, int y, int width, int height, int startangle, int spanangle): creates an arc that starts at startangle and goes for spanangle degrees
+
+addtext(string text, int x, int y)
+
+Adds a text element with the previously specified font style to the current display at position x and y within the display. The first element should start near position (0,0).
+
+int, int, int, int calcstringsize(string text)
+
+Calculates and returns the size that a text element will take using the currently set font, font size and font width. This returns 4 values: width, height and left, right, because sometimes fonts that are very decorated draw beyond the designated rectangle and at negative values.
+
+table getposition()
+
+Returns a table with the x and y coordinates of the display.
+
+setantialiasing(bool enabled)
+
+Choose whether to enable or disable the anti-aliased painting of rounded shapes to make them appear smoother. Keep in mind that this slows down rendering a little.
+
+setbkgcolorxp(int color)
+
+Sets the background color of the element to color. Values should be passed in hexadecimal format 0x00RRGGBB (0xFF0000 -> red).
+
+setfontcolor(int color)
+
+Sets the color of the font to color. Values should be passed in hexadecimal format 0xAARRGGBB (0xFF0000 -> red).
+
+setfontname(string name)
+
+Sets the name of the font to name.
+
+setfontsize(int size)
+
+Sets the size of the font to size.
+
+setfontstyle(string name, int size, int color, optional int bordersize)
+
+Sets the name, color, size and border size of the font to name, size, color and bordersize.
+
+setfontweight(int weight)
+
+Sets the weight/thickness of the font to weight. A weight of 50 stands for normal thickness while 75 is for bold. Maximum possible weight is 99.
+
+setjustify(string justify)
+
+Sets the justification of the font to justify. Possible values are: 'right' and 'center'. By default, text is positioned at the location provided by the element. If justification is enabled, the x coordinate for the element is ignored and text will appear right-aligned or center-aligned in the display.
+
+setmaskcolorxp(int color)
+
+Makes pixels of color color completely see-through on Windows Xp. This can be used to draw irregular shapes in a display and not make them have a rectangular background covering their whole height and width. Set color to -1 to disable.
+
+setposition(int x, int y)
+
+Sets the top-left corner of the display to position x and y. Use this to define the placement of the display on the screen. All elements added will be situated relative to this position. If justification is enabled, the x coordinate will specify the right side of the display in the case of right-justification or the center of the display in the case of center-justification.
+
+isscript(string scripttype, int index)
+
+Returns true if script of scripttype with index index exists and nil/false otherwise. Possible values for scripttype are: 'hotkey', 'persistent', 'cavebot' and 'display'.
+
+string scriptlistname(string scripttype, int index)
+
+Returns the list name of the script with type scripttype at index index. The list name is the name of the script or the custom string passed to the listas function. If the script is not actively running, "" is returned.
+
+int scriptlistcolor(string scripttype, int index)
+
+Returns the list color of the script with type scripttype at index index.
+
+filterinput(bool keys, bool mouseclicks, bool mousemoves, bool stealfocus)
+
+Enables or disables the filtering of input events through the inputevents(bool type, int v1, int v2, int v3) function which must be defined in the init block of the current script. If keys is set to true, key presses on a HUD will call the input function with type IEVENT_KEYDOWN or IEVENT_KEYUP and v1 set to the virtual key code of the key. If mouseclicks or mousemoves is set to true, mouse clicks or moves on a HUD will call the input function with type IEVENT_LMOUSEDOWN, IEVENT_LMOUSEUP, IEVENT_RMOUSEDOWN, IEVENT_RMOUSEUP, IEVENT_MMOUSEDOWN, IEVENT_MMOUSEUP, IEVENT_MOUSEMOVE, IEVENT_MOUSEENTER or IEVENT_MOUSELEAVE and v1 & v2 will contain the local x & y positions of the event within the HUD, except for the last 2. For mouse clicks, v3 will contain the unique element id hit by the click which is returned by the 'addshape(...)' function for each shape. If type is IEVENT_MOUSEWHEEL, v1 contains packed coordinates of the event and v2 contains a negative or positive delta value of the distance the wheel has traveled in either direction. If stealfocus is true, the HUD window will become focused after being clicked on and the client will lose keyboard focus. Focus is necessary to be able to capture keys.
+
+requestint(int rid, string question, int default)
+
+Requests an integer number from the user. This can only be called from the inputevents(bool type, int v1, int v2) function. The question parameter is the question to ask the user and the defalult parameter is the default value to be shown. A request id can be specified in the rid parameter. This request id will be passed to the inputevents function as the v1 parameter to identify later on what was requested. The type parameter will be IEVENT_REQUESTINT and v2 will represent the chosen integer number.
+
+requestfloat(int rid, string question, float default)
+
+Requests a decimal point number from the user. This can only be called from the inputevents(bool type, int v1, int v2) function. The question parameter is the question to ask the user and the defalult parameter is the default value to be shown. A request id can be specified in the rid parameter. This request id will be passed to the inputevents function as the v1 parameter to identify later on what was requested. The type parameter will be IEVENT_REQUESTFLOAT and v2 will represent the chosen float number.
+
+requesttext(int rid, string question, string default)
+
+Requests a text string from the user. This can only be called from the inputevents(bool type, int v1, int v2) function. The question parameter is the question to ask the user and the defalult parameter is the default value to be shown. A request id can be specified in the rid parameter. This request id will be passed to the inputevents function as the v1 parameter to identify later on what was requested. The type parameter will be IEVENT_REQUESTTEXT and v2 will represent the text string.
+
+requestlist(bool rid, string question, int defaultindex)
+
+Requests a text string out of a list from the user. This can only be called from the inputevents(bool type, int v1, int v2) function. The question parameter is the question to ask the user and the defaultindex parameter is the default index in the list to be shown. A request id can be specified in the rid parameter. This request id will be passed to the inputevents function as the v1 parameter to identify later on what was requested. The type parameter will be IEVENT_REQUESTLIST and v2 will represent the chosen or written text string. List items must be added using the requestlistitem(..) function.
+
+requestlistitem(string text)
+
+Adds the text option to a request list. This must be called after calling requestlist(..).
+
+requestmenu(bool rid)
+
+Requests a text string out of a popum menu from the user. This can only be called from the inputevents(bool type, int v1, int v2) function. A request id can be specified in the rid parameter. This request id will be passed to the inputevents function as the v1 parameter to identify later on what was requested. The type parameter will be IEVENT_REQUESTMENU and v2 will represent the chosen text string. Menu items must be added using the requestmenuitem(..) function.
+
+requestmenuitem(string text)
+
+Adds the text option to a request popup menu. This must be called after calling requestmenu(..).
+
+
+Cavebot functions
+
+The following functions change the behavior of the cavebot in some way.
+gotolabel(string labelname)
+
+Sets the next waypoint to be the waypoint with the label labelname. A label can be created by clicking on a waypoint entry and typing a custom name for it.
+
+Alternate invocations:
+gotolabel(int waypointid): goes to waypoint with id waypointid.
+
+int, int, int getlurelocation()
+
+Returns the current lure location.
+
+setlurelocation(int x, int y, int z)
+
+Sets the current lure location to x, y and z. This is equivalent to having the cavebot traversing a lure waypoint.
+
+
+String functions
+
+The following functions are used for manipulating strings in special ways.
+string ground(int posx, int posy, int posz)
+
+Returns a formatted string for passing a ground location to certain script events. It returns a string in the following format: "ground posx posy posz".
+
+string num(int number)
+
+Returns a string representation of a number number in the format "x,yyy,zzz,www" depending on lenght.
+
+string time(int times)
+
+Returns a string representation of a second time interval times in the format "dd:hh:mm:ss" depending on lenght.
+
+string timeshort(int timems)
+
+Returns a string representation of a millisecond time interval timems in the format "mm:ss.d" depending on lenght.
+
+string tohex(int n)
+
+Returns a string representation of number n in hexadecimal format.
+
+
+Navigation functions
+
+The following functions for navigation related purposes.
+bool isenemy(string name, option bool fullinfo)
+
+Returns true if player named name is in the enemy list, or false otherwise. If fullinfo is true, a table containing the entries 'level', 'vocation' and 'priority' is returned if the player is found to be in the list, nil otherwise.
+
+bool isfriend(string name, option bool fullinfo)
+
+Returns true if player named name is in the friend list, or false otherwise. If fullinfo is true, a table containing the entries 'level', 'vocation' and 'priority' is returned if the player is found to be in the list, nil otherwise.
+
+bool isleader(string name, option bool fullinfo)
+
+Returns true if player named name is in the leader list, or false otherwise. If fullinfo is true, a table containing the entries 'level', 'vocation' and 'priority' is returned if the player is found to be in the list, nil otherwise.
+
+
+
+--------------------------SCRIPT EVENTS-----------------------------------
+
+Script events
+
+Events in NeoBot are operations that ultimately will perform some kind of action in the client be it by mouse or keyboard. The following functions create those events which will control the mouse and keyboard in some way in order to achieve a certain purpose.
+Unlike in packet-based bots, controlling the mouse and keyboard is not instantaneous, but takes time. Moving your mouse to a location and performing a mouse click or pressing and releasing a hotkey takes a few hundred milliseconds at best. Therefore, when calling an event function, the script will pause until the event has finished, either succesfully or has failed, before continuing it's execution further.
+This delay can further be extended if more important events are trying to execute first, such as healing. Events will be executed according to their priority and will time out if their timeout time or lifetime expires. It is possible to set an event's priority properties by calling the setpriority() function before issuing an event.
+
+Item Ids
+
+Every function which accepts an item id as a parameter to it (ex: openitem(int itemid)) also accepts a string with the itemname, which will be converted internally from an item list located in the file /neolibs/itemlist.txt. For example, you can do useitem(3725) or equally as well useitem('brown mushroom') to eat a brown mushroom.
+Some names are written in a special way. For example, the soft boots have 2 different ids. One for when they are worn and another one for when they are not. The respective item names for this are 'Soft Boots(in use)' and 'Soft Boots'. You must use the name of the one you want exactly as it appears by searching in the file if you are unsure.
+
+Location strings
+
+Some events such as those for manipulating items like 'openitem()' or 'moveitems()' will ask you for a location string to specify a source or a destination for the item, or both. This was designed for enhanced flexibility, but also so that you don't need to learn and remember 10 different functions for each similar thing that you want to do.
+To open an item with id 1234 on the ground, you can simply do: openitem(1234, 'ground'), and to open the item located in your backpack slot, you can do: openitem(1234, 'back'). Similarly, to drop all items of id 1234 in your open windows on the ground you would do moveitems(1234, 'ground'), and to drop the item 1234 that is either in your right or left hand you would do moveitems(1234, 'ground', 'lhand rhand').
+Below is the complete possible syntax structure of a location string:
+Empty string '': If nothing is specified, it describes all open windows.
+
+'equip1 equip2 equip3 ...': Describes equipment slots; you can put as many as you want out of the possible values: 'head', 'back', 'neck', 'lhand', 'rhand', 'chest', 'legs', 'feet', 'ring' and 'belt'.
+
+'n': Describes open window with id n.
+
+'n-m': Describes open windows with ids ranging inclusively from n to m.
+
+'name1 name2 name3 ...': Describes all open windows who's name has the specified name parts. For example: 'yellow blue pirate backpack'.
+
+'name1 name2 name3 ... n': Describes open window of id n that must have the specified name parts in its name. For example: 'yellow backpack 5'.
+
+'name1 name2 name3 ... n-m': Describes open windows who's id is between n-m inclusively and that has the specified name parts in its name. For example: 'yellow backpack 1-4'.
+
+'ground': If provided as a source location, describes all tiles right around you and the tile you are standing on.
+
+'ground x y z': Describes the ground tile with the location x, y and z. You can use the 'ground(x, y, z)' script command to quickly create this string.
+
+
+Character events
+
+The following functions issue an event related with control of your character.
+closeclient()
+
+Closes down the client. Same result as xlogging.
+
+connect(string account, string password, string charname)
+
+Connects you to the game world on the specified account, password and charname. Use 'setlifetime(x)' before calling this function to set the timeout time for the 'Connecting' window to establish the connection because the default event timeout might be too short.
+
+dismount()
+
+Dismounts your character from your currently mounted animal.
+
+logout()
+
+Logs you out by pressing Ctrl+L if you are not battlesigned.
+
+mount()
+
+Mounts your character on the creature that is set as your mount in the client.
+
+move(string direction)
+
+Moves your character in the specified direction. direction can be: "n", "e", "s", "w", "ne", "se", "sw" or "nw".
+
+moveto(int x, int y, int z)
+
+Moves your character to the specified coordinates x, y and z.
+
+reachlocation(int x, int y, int z)
+
+Moves your character near the specified coordinates x, y and z without actually stepping on them.
+
+reconnect()
+
+Reonnects you to the game world on last character played. Use 'setlifetime(x)' before calling this function to set the timeout time for the 'Connecting' window to establish the connection because the default event timeout might be too short.
+
+setattackmode(string attackmode, string chasemode)
+
+Sets the attack mode of your character to attackmode which can be 'offensive'/'balanced'/'defensive' and chasemode which can be 'chase'/'stand'.
+
+turn(string direction)
+
+Faces your character to the specified direction. direction can be: "n", "e", "s" or "w".
+
+
+Communication events
+
+The following functions issue an event related with communicating.
+cast(string incantation)
+
+Casts the spell defined by incantation. If a hotkey with a similar incantation exists, that hotkey will be pressed. Otherwise, incantation will by typed in.
+
+navpm(string name, string text)
+
+Says text to channel member with real char name name connected to the navigation server. You may require leader status to say things depending on the channel settings.
+
+navsay(string text)
+
+Says text to all channel members connected to the navigation server. You may require leader status to say things depending on the channel settings.
+
+navquery(string text)
+
+Executes a special query that is defined by a command keyword on the Navigation server and passes up to 10 parameters to it. The query can store or retrieve information in the Navigation server's database. If a result is obtainable, it will be passed to the navmessages callback function with the property isquery set to true.
+
+npcsay(string text)
+
+Says text in the 'NPCs' channel. Same as doing 'say("NPCs", text)'.
+
+say(string channel, string text)
+
+Says text in channel named channel. If a hotkey with text exists, that hotkey will be pressed. Otherwise, text will by typed in. The event will cycle to the requested channel unless it's using a hotkey which has the "Send automatically" option.
+
+Alternate invocations:
+say(string text): says text in the default channel.
+
+
+Defensive spell events
+
+The following functions issue an event to cast a defensive spell if conditions are met.
+haste()
+
+Casts the haste spell if you are not currently hasted or if the time left on your haste is 1 second or lower.
+
+invisibility()
+
+Casts the invisibility spell if you are not currently invisible or if the time left on your invisibility is 5 seconds or lower.
+
+manashield()
+
+Casts the mana shield spell if you are not currently manashielded or if the time left on your mana shield is 5 seconds or lower.
+
+stronghaste()
+
+Casts the strong haste spell if you are not currently hasted or if the time left on your haste is 1 second or lower.
+
+
+Item events
+
+The following functions issue an event related with item manipulation.
+buyitems(string itemname, int count)
+
+Buys count amount of items named itemname, which must be exactly the way it appears in the trade list. A trade window must be open.
+
+Alternate invocations:
+buyitems(int itemid, int count): buys items with id itemid
+
+closewindows(optional string locationtype, optional bool onlyone)
+
+Closes all windows that fit the description of locationtype. If locationtype is not specified, all windows are closed. If onlyone is specified as true, then only one matching window is closed.
+
+countitems(int itemid)
+
+Counts item of id itemid to make it display the 'Using one of xx items...' message. For counting to work, you must have a hotkey with the item setup somewhere within your hotkeys. For items which you can use on other things, you must have a hotkey for the item with the 'With crosshair' type.
+
+eatfood()
+
+Eats a food item available out of one of your open backpacks.
+
+equipitem(int itemid, string locationslot, optional string locationfrom, optional string count)
+
+Equips item of id itemid to inventory slot locationslot. Slot is a location string and can be 'rhand', 'ring', 'belt', etc.. Optionally, you can specify a source for the items in locationfrom if you don't want it to be all open windows. Optionally, you can provide how many items to move by providing the count parameter.
+
+higherwindows(optional string locationtype, optional bool onlyone)
+
+Shows higher window of all windows that fit the description of locationtype. If locationtype is not specified, all windows are shown their higher window. If onlyone is specified as true, then the higher container is shown only once for one window.
+
+minimizewindows(optional string locationtype, optional bool onlyone)
+
+Minimizes all windows that fit the description of locationtype. If locationtype is not specified, all windows are minimized. If onlyone is specified as true, then only one matching window is minimized. You may specify 'equip' as locationtype to indicate that you want the equipment window minimized.
+
+moveitems(int itemid, string locationto, optional string locationfrom, optional int count)
+
+Moves all items of id itemid to location described by locationto. Optionally, you can specify a source for the items in locationfrom if you don't want it to be all open windows. Moveitems will keep moving items as long as they are found in locationfrom and as long as the destination has space. Optionally, you can specify how many items to move by providing the count parameter. If you only want to move one item or one stack of items from the source location, set the count to 100.
+
+moveitemsonto(int itemid, int ontoid, optional int index, optional string locationonto, optional string locationfrom)
+
+Moves all items of id itemid on containers of id ontoid. Optionally, you can specify which container index to start putting items onto if you don't want it to try all the containers from the beginning. For this, you can pass $lastonto to start at the container that was found to be empty from the last operation. Optionally, you can specify the location of the containers of ontoid in the locationonto paramater if you don't want it to be all open windows. Optionally, you can specify a source for the items in locationfrom if you don't want it to be all open windows. Moveitemsonto will keep moving items as long as they are found in locationfrom and as long as the destination containers have space. 
+
+openitem(int itemid, optional string locationfrom, optional bool new, optional int index)
+
+Opens item of id itemid. If you pass 0 for itemid, any openable item will be opened. You can optionally pass a location string for the locationfrom parameter to indicate where to look for the item to be opened if you don't want it to be looked for in all open windows. You can optionally pass true as the new parameter to indicate openening the item in a new window. You can also optionally specify which item to open in sequence by passing the index parameter (1st item, 2nd item... etc).
+
+Alternate invocations:
+openitem("depot"): opens a depot box next of you (since depots have different ids, this will make things easier)
+
+openwindow(string window name, optional bool close)
+
+Opens a utility window in the client. windowname can currently only be 'battle window'. Optionally, you can set close to true if you would like to close the window instead of opening it.
+
+reachgrounditem(int itemid)
+
+Moves your character to stand next to the closest item of id itemid found on the screen.
+
+Alternate invocations:
+reachgrounditem("depot"): reaches the closest depot box of you (since depots have different ids, this will make things easier)
+
+reopenwindows(optional string opentype, optional string mainlocation)
+
+Asks the Open windows at login system to reopen your 'back' item and all openable items within. Optionally, you can specify 'open', 'minimized', 'small' as the opentype parameter to indicate the action to be performed after opening each container. Optionally, you can pass 'belt' as the mainlocation parameter if your main backpack is located in the belt slot. This function returns immediately as it doesn't perform the events itself. To find out if the open backpacks system is currently opening windows, check the $openingbps variable.
+
+resizewindows(optional int size, optional string locationtype, optional bool onlyone)
+
+Resizes all windows that fit the description of locationtype to specified size (can be 0/omitted to be as small as possible, or some big value to be as big as possible). If locationtype is not specified, all windows are resized. If onlyone is specified as true, then only one matching window is resized.
+
+restorewindows(optional string locationtype, optional bool onlyone)
+
+Restores all windows that fit the description of locationtype from their minimized state. If locationtype is not specified, all windows are restored. If onlyone is specified as true, then only one matching window is restored. You may specify 'equip' as locationtype to indicate that you want the equipment window restored.
+
+sellitems(string itemname, int count)
+
+Sells count amount of items named itemname, which must be exactly the way it appears in the trade list. A trade window must be open.
+
+Alternate invocations:
+sellitems(int itemid, int count): sells items with id itemid
+
+useitem(int itemid, optional string locationitem)
+
+Uses item of id itemid at location locationitem. If locationitem is not specified, the item is searched for in all open hotkeys which is pressed if one is found. Otherwise, it will be clicked in the inventory if present. If a location for the item is specified, the item is clicked on at the designated location if found.
+
+useitemon(int idused, int idusedon, optional string locationusedon, optional string locationused)
+
+Uses item with id idused on item with id idusedon, which can be 0 if its location is the ground. If you don't want the usedon item to be looked for in all open backpacks, you can specify its location in the string locationusedon. Same thing for the item being used except that you would do so in the string locationused.
+
+useoncreature(int itemid, pointer creature)
+
+Uses item of id itemid on creature creature. If the item is found in a hotkey with an appropriate action, it will be pressed. Otherwise, it will be clicked in the inventory if present.
+
+writetext(int itemid, string text, optional string locationfrom, optional int index)
+
+Opens item of id itemid for text editing and writes text text into it. To indicate a new line, use the following two characters: '\n' (ex: 'Johnny\nThais'). You can optionally pass a location string for the locationfrom parameter to indicate where to look for the item to be opened if you don't want it to be looked for in all open windows. You can also optionally specify which item to open in sequence by passing the index parameter (1st item, 2nd item... etc).
+
+
+Creature events
+
+The following functions issue an event related with creature manipulation.
+attack(string creaturename)
+
+Attacks creature of name creaturename located on the screen.
+
+Alternate invocations:
+attack(int creatureid): attacks creature with id creatureid
+attack(pointer creature): attacks a designated creature
+
+follow(string creaturename)
+
+Follows creature of name creaturename located on the screen.
+
+Alternate invocations:
+follow(int creatureid): follows creature with id creatureid
+follow(pointer creature): follows a designated creature
+
+reachcreature(string creaturename)
+
+Reaches creature of creaturename located on the screen by walking next to it. Use this if you need to get close to NPCs in order to talk to them.
+
+Alternate invocations:
+reachcreature(int creatureid): follows creature with id creatureid
+reachcreature(pointer creature): follows a designated creature
+
+
+
+
+-----------------------------SCRIPT LIBRARIES - HARDEK-----------------------------------
+
+Creature Functions
+
+The following functions are concerned with creatures information.
+table creatureinfo(string creaturename)
+
+Returns a table with information about a creature, {name, exp, hp, ratio, maxdmg, bestspell}.
+
+int creaturemaxhp(string creaturename)
+
+Returns the maximum amount of HP a creature has.
+
+int creaturehp(string creaturename)
+
+Returns the current amount of HP a creature has.
+
+int creatureexp(string creaturename)
+
+Returns the amount of experience a creature gives.
+
+float expratio(string creaturename)
+
+Returns the reason EXP / HP of the creature.
+
+int maxdamage(optional string creaturename)
+
+Returns the maximum amount of HP you can loose in 1 turn concerning all monsters on your screen, optionally you can pass a creature name to know how much damage that creature can deal in 1 turn.
+
+string bestelement(string creaturename, optional boolean strongonly)
+
+Returns the creature's weakness (fire, ice, earth, energy, death, physical).
+
+string beststrongstrike(string creaturename)
+
+Returns the best STRONG strike spell against the creature.
+
+string beststrike(string creaturename)
+
+Returns the best strike spell against the creature.
+
+string bestspell(string creaturename)
+
+Returns the best strike spell against the creature.
+
+
+Item Functions
+
+The following functions are concerned with items information.
+int itemscosttocap(string itemname, int cap)
+
+Returns cost when BUYING items from NPCs, as much as needed to reach 'cap' cap (use this to withdraw money before using buyitemstocap, for example).
+
+
+Helper Functions
+
+The following functions will help you making everyday scripts.
+waitping(optional int base=200)
+
+Wait based in your average ping, useful for most actions delay.
+
+int timeleft(string t, optional int ctime=currenttime())
+
+Returns the number of seconds left to t. Example: timeleft('6:00') will return the number of seconds from now to 6am
+
+bool tryexec(string cmd, int x, int y, int z, optional int maxtries)
+
+Check if the character is at the desired location, and executes the command, if unable, will try to reach the location x, y, z and try again, returns false if 'maxtries' tries is reached.
+
+dontlist()
+
+Simply an alias for listas('dontlist').
+
+float euclideandist(sx, sy, dx, dy)
+
+Will calculate the euclidean distance between {sx, sy} and {dx, dy}.
+
+
+Cavebot Functions
+
+The following functions are very useful for caveboting, like buying items, refilling supplies depositing loot.
+buyitemstocap(string itemname, int cap)
+
+Will buy items 'itemname' until you reach 'cap' capacity, useful for potions or food, for example.
+
+depositall()
+
+Just deposit all your gold (you must be near a NPC).
+
+bool withdraw(int amount, optional string npc, optional bool sayhi=false)
+
+Safely withdraw the desired amount of gold from your acount by verifying the answer from the NPC, if no npc is passed, it will accept any message as an answer (not a big problem on most of times). The 'sayhi' parameter is for say hi or not before talking to the npc, true for saying and no for not saying.
+
+opendepot()
+
+Reach and open a depot chest.
+
+movetoinsist(int x, int y, int z, optional int maxtries=5)
+
+Tries and retries 'maxtries' times to reach the desired location.
+
+refillsofts()
+
+Repairs all visible worn soft boots, considering visible money, will try getting more money on the bank in case you don't have enough with your character.
+
+deposititems(dest, stack, from, open, item1, item2, ...)
+
+Deposits all {...} items on depot, separating stackables from normal ones, the boolean 'open' parameter is to set if the bot should open the depot chest or not. Parameter dest is the name of the container for normal items, parameter stack is the name of the container for stackable items/
+
+dropitemsex(int cap, string item1, string item2, ...)
+
+Will drop the items described on parameters until you have reached `cap` capacity.
+
+goback()
+
+Simply an alias for gotolabel(0).
+
+
+Player Functions
+
+The following functions are concerned with your characters information.
+string getelementword(string element)
+
+Returns the word for the passed element. (vis, flam, frigo, mort, tera, san)
+
+bool trapped()
+
+Checks if you are trapped, returns true if you are, false if you are not.
+
+table getplayerskill()
+
+Will return the characters skill (sword, club, axe or distance) value on a table {$skill, $skillpc}.
+
+table spelldamage(string spellname, optional level, optional mlevel, optional skill)
+
+Will return the min and max damage you can deal with the spell, pass the spell name, not words, i.e. energy wave or rage of the skies. Returns a table {min_damage, max_damage}.
+
+
+-----------------------------------SCRIPT LIBRARIES - RAPHAEL-------------------------------
+Raphaels's Functions
+
+Well, this is my library. Here you will find some useful functions developed by me, most time savers. Give me suggestions and ideas if you like it.
+
+General Information Functions
+
+Functions that gives you some kind of information about tibia.
+number boatprice(string source, stirng destination)
+
+Returns the cost to travel from source to destination.
+
+boolean canlevitate(number x, number y, opt number z)
+
+Returns if the specificed tile has enought crates/boxes etc to levitate.
+
+int flasks()
+
+Returns the number of visible small, medium and large empty flasks
+
+int gold()
+
+Returns the number of visible gold, including platinum and crystal coins
+
+int exptolvl(opt number baselevel, number level)
+
+Returns the amount of exp needed to reach level level from level baselevel. If you don't specify baselevel it will be defaulted to 1.
+
+number finditem(number id, opt number index)
+
+Returns the location of the first item of id id in the screen. If you don't want to get the first one, specify index.
+
+number listversion()
+
+Returns Item ID List version.
+
+number/table getcont(opt string location, opt boolean bpsonly, opt number index)
+
+Returns all visible containers. Optionally, you can specify the location for it to search. If you don't want the script to consider any container, you can specify bpsonly to true, and it will only look for backpacks. Also, you can choose to get only one id, using the index parameter.
+
+bool iscursonin(number sx, number sy, number fx, number fy, opt boolean area)
+
+Returns true if mouse is inside the area specified by sx, sy, fx, fy, Optionally, you can specify area as true to make fx and fy the side of the rectangle, instead of the other point of it. Example: iscursorin(30, 25, 60, 45) = iscursorin(30, 25, 30, 20, true)
+
+int sstime(string world)
+
+Returns the time to the next server save on world world, in seconds. Example: sstime('pacera')
+
+
+Scripting Help Functions
+
+Here are some functions that might help you to write your own scripts. That doesn't mean the other ones might not.
+beep()
+
+Simply plays a beep.
+
+int cettime()
+
+Returns current time in CET, in seconds.
+
+int cetoffset()
+
+Returns the offset from your current timezone to CET, in seconds.
+
+int distto(int fx, int fy, int fz, int sx, int sy, int sz, bool anyfloor)
+
+Returns the first distance between the two group of coordinates. Optinally set anyfloor to true in order to make it accept any floor, instead of only the current one. If anyfloor is not true and the character isn't in the same floor, it will return -1.
+
+dropflasks()
+
+Simply moves all flask to ground.
+
+exec(string execstring)
+
+Executes the code inside the string execstring. Example: local command = 'say("wassup dude")' exec(command)
+
+string findrope()
+
+Looks for any rope in the characters inventory/hotkeys, and return its name.
+
+string findshovel()
+
+Looks for any shovel in the characters inventory/hotkeys, and return its name.
+
+string get(string setting)
+
+Returns the value of the setting setting. Uses getpath function to get the full path.
+
+string getpath(string setting)
+
+Returns the full path to the setting setting. If it can't be found, returns nil.
+
+str math.format(number n, string pattern)
+
+Returns a string representation of the number n, matching the specified pattern. Example: math.format(30, "000.0") --> 030.0 math.format(30, "0.00") --> 30.00 math.format(30.25, "0.0") --> 30.25
+
+moveitemlist(string locationto, string locationfrom, string/number item1, string/number item2, ...)
+
+Moves all items written in itemlist to locationto. If you specify locationfrom it will get only items from that location. Example: moveitemlist('brocade backpack', 'red backpack', 'cyclops trophy', 'halberd', 'cyclops toe')
+
+movewhilemoveable(number x, number y, number z, opt number dx, opt number dy, opt number dz)
+
+Moves all items from location x, y, z;/i>, while it's moveable. Optinally, you can specify dx, dy, dz;/i> as destination. Example: movewhilemoveable(1234, 4567, 9)
+
+npctalk(string say1, string say2, ...)
+
+Will make your character say all text parameters given, in NPC channel. If it's not open, it will say the first phrase in default chuannel, and wait until it opens. Example: npctalk('hi', 'deposit all', 'yes', 'balance')
+
+pm(string message, string player1, string player2, ...)
+
+Will message all players. First it will check if the correspondent channel is open, if it's not it will pm the player using '* playername * message' format.
+
+string set(string setting, string value, opt bool updategui)
+
+Sets any setting of the bot to the value specified by value. The full path will be get using getpath function and value must be one of the possible values for that field typed in exactly as it appears in the settings. Optionally, you can pass false as the third paramater to prevent the value from updating in the GUI until you move your mouse over the setting. This is to speed things up since redrawing GUIs can be expensive on the CPU.
+
+sethealrule(string rulename, opt string hprange, opt string mprange, opt string method, opt string condition, opt string spam)
+
+Simply set all settings of a HealRule. If any setting is not specified or empty, this one will not be modified. Examples: sethealrule('HealRule1', '300-900', '0-50%', '', 'if paralyze') sethealrule('HealRule1', '', '', 'health potion', 'paralyzed') sethealrule('HealRule1, '300 to 900', '0 to 15%', '', 'none', '200-400')
+
+sethotkey(string hkname, string state)
+
+Sets the hotkey hkname to state state. state will be converted using toyesno() function.
+
+str string.at(string text, int n)
+
+Returns the nth chracter inside string text.
+
+str string.cap(string text)
+
+Returns the string text with first letter in upper case and all others in lower case. Example: string.capitalize('this is A TEST') --> 'This is a test'.
+
+str string.capall(string text)
+
+Returns the string text with the first letter of each word in upper case and all others in lower case. Example: string.capitalizeall('this is A TEST') --> 'This Is A Test'.
+
+str string.capitalize(string text)
+
+Returns the string text with first letter in upper case and all others in lower case. Example: string.capitalize('this is A TEST') --> 'This is a test'.
+
+str string.capitalizeall(string text)
+
+Returns the string text with the first letter of each word in upper case and all others in lower case. Example: string.capitalizeall('this is A TEST') --> 'This Is A Test'.
+
+bool string.end(string text, string substr)
+
+Returns wheter text last characters are lt;i>substr.
+
+str string.explode(string text, string separator)
+
+Returns a table with all sub-strings split by separator. Example: string.explode('Hello # My # Name # Is # Anonymickey', '#') --> table = {'Hello', 'My', 'Name', 'Is', 'Anonymickey'}. Credits to Socket and Hardek for this one.
+
+bool string.starts(string text, string substr)
+
+Returns wheter text first characters are lt;i>substr.
+
+string string.sub2(string s, number i, opt number l)
+
+Returns the substring of s that starts at i and continues for l characters.
+
+int sqmWidth()
+
+Returns the width of each sqm in your screen.
+
+int table.find2(table, value, arg, notable, argonly)
+
+Returns the index of value inside table, nil if it can't be found. If you don't specify notable as true it will search inside any table in the main one and return the index inside that secondary table also, as a secondary parameter. Optionally, you can specify arg if your main table is filled with other tables, and the function will look only on this index. You can also set argonly if you don't want to search for values outside secondary tables. Examples: table.find2(t, 'distance') table.find2(t, 'distance', 'type') table.find2(t, 'distance', 'type', false, true) table.find2(t, 'distance', '', true)
+
+bool table.isempty(table t)
+
+Returns true if table t is empty.
+
+tab table.random(table t, number start, number finish, opt number count, opt number step)
+
+Returns a table filled with random numbers between start and finish. If count is specified, it's the maximum length of the table, meaning it will return only count random numbers inside the given range. You can also specify step, wich means it will count only multiples. Example: table.random(5, 10) --> {7, 10, 9, 8, 5, 6} table.random(5, 10, 3) --> {7, 10, 9} table.random(5, 10, 0, 2) --> {7, 9, 5}
+
+int table.size(table t)
+
+Returns the number of components inside the table.
+
+str time(number n, opt string pattern)
+
+Returns a string representation of a second time interval n in the format "dd:hh:mm:ss" depending on lenght. Optionally, you can set the format by specifying pattern parameter. Examples: time(5000) --> 01:23:20 time(5000, 'hh:mm') --> 01:23 time(30) --> 00:30
+
+str timezone()
+
+Returns a string with your time zone based on your current location. Example: timezone() --> GMT -2 (If you are from Brazil)
+
+str toyesno(str/bool/num arg)
+
+Converts the argument in 'yes' or 'no'. arg can be a boolean value, a string (which will be always 'yes', unless it's 'no' or empty), or a number (which will be always 'yes', unless it's 0).
+
+
+Character Info Functions
+
+Functions that can give you information about your character.
+tab bestskill()
+
+Returns a table with type, skill and skillpc of the your highest skill.
+
+int levelpc()
+
+Returns the percent missing for you to advance a level.
+
+int maxcap()
+
+Returns the estimated maximun capacity of your character, based on vocation() function.
+
+int skilltime(string skilltype)
+
+Returns estimated time to advance in skill skilltype in seconds. skilltype can be: 'magic', 'fist', 'club', 'sword', 'axe', 'distance', 'shielding and 'fishing. Note: It will only start to 'analyze' when you run it for the first time. Example: skilltime('sword')
+
+int utctime()
+
+Returns current time in UTC, in seconds.
+
+int utcoffset()
+
+Returns the offset from your current timezone to UTC, in seconds.
+
+str vocation()
+
+Returns your character vocation. It will try to differ druid from sorcerer checking if it's wearing any rod/wand, if it's not it will return only 'mage'. Also, if it's not possible to determinate your character vocation by any method, it will return 'unknown'.
+
+tab weaponskill()
+
+Returns a table with type, skill and skillpc of the your current weapon skill.
+
+
+File Handling Functions
+
+These functions will help you when working with files, reading, writing, anything related to it.
+clearfile(string filename)
+
+Erases all the content inside file filename. Example: clearfile('test.txt')
+
+createfile(string filename)
+
+Creates a file with the name filename, if it doesn't exist. Example: createfile('test.txt')
+
+execfile(string filename)
+
+Executes the code inside the file filename. Example: exec('test.txt')
+
+bool isfileline(string filename, string text)
+
+If text is a line inside file filename, returns line number, false otherwise. Example: isfileline('test.txt', 'test')
+
+createfile(string filename)
+
+Creates a file with the name filename, if it doesn't exist. Example: createfile('test.txt')
+
+string filecontent(string filename)
+
+Returns the content of the whole file filename. Example: filecontent('test.txt')
+
+bool fileexists(string filename)
+
+Returns true if the file filename exists, false otherwise. Example: fileexists('test.txt')
+
+str fileline(string filename, number linenum)
+
+Returns line of number linenum of the file filename. Example: fileline('test.txt', 10)
+
+int filelinescount(string filename)
+
+Returns number of lines of file linenum. Returns 0 if it doesn't exists, or if it's empty. Example: filelinescount('test.txt')
+
+filewrite(string filename, string text)
+
+Writes text in the file filename. Example: filewrite('test.txt', 'This is my test.')
+
+filewriteline(string filename, string text)
+
+Writes text in the file filename. Example: filewriteline('test.txt', 'This is my test.')
+
+filerewrite(string filename, string text)
+
+Clears the file filename and writes text in it . Example: filerewrite('test.txt', 'This is my test.')
+
+
+Input Functions
+
+Here are some general functions, I will probably organize it better later.
+hex keyid(string/number key)
+
+Returns the correspondent hexadecimal code of key key. Useful if you don't want to keep looking at internet lists while using keyevent(..) function. Example: keyevent(keyid('tab')) or keyevent(keyid('a'))
+
+press(string keys)
+
+Presses the keys inside the string keys. Special keys MUST be inside [brackets]. Example: press('account[tab]password[enter]')
+
+
+------------------------------SCRIPT LIBRARIES - LUCAS TERRA---------------------------------
+
+Lucas Terra's Functions
+
+This is my library file which contains useful functions that enhance the basic functions of Neobot or use them to create additional functionality.
+
+Alert Functions
+
+The following functions are related with alarms on bot.
+addtosafelist(string alarmtype, string playername1, string playername2, ...)
+
+Adds players to safe list.
+
+playsoundflash(string soundname)
+
+Plays a sound and flashes the client.
+
+removefromsafelist(string alarmtype, string playername1, string playername2, ...)
+
+Remove players to safe list.
+
+setalarm(string alarmtype, string playsound, string pausebot, string logout)
+
+Changes the activity of an alarm. alarmtype can be: 'playeronscreen', 'playerattacking', 'defaultmessage', 'privatemessage', 'gmdetected', 'disconnected', 'crashfrozed'. If you activate or deactivate playsound it will automatically do the same for FlashClient. Example: setalarm('playeronscreen','on','off','off') -- Will enable playing sound and flashing client, disable pausing cavebot and disable auto-logout when player on screen.
+
+
+Creature Functions
+
+The following functions issue an event related with creature manipulation.
+castspell(string name, optional pointer creature)
+
+Casts the spell if you have enough mana, level, soul, etc. needed for the spell. If you pass a complement it will check if you can cast the spell on creature complement. Example: castspell('exevo vis hur', $attacked), casts energy wave only if your current attacked creature is on spell range.
+
+castspellarea(string name, int amount, optional bool ignoreplayers, string monstername1, string monstername2, ...)
+
+Casts the spell name if more than amount monsters will get damage because of it, it won't cast if there is a player on the spell area, unless you pass ignoreplayers as true. If you don't pass any monster, it will consider all monsters, so you can optionally choose which monsters you want to consider.
+
+caststrike(int a, int b)
+
+Will cast the best strike spell on current attacked monster. The a, b is the delay between each strike spell.
+
+caststrongstrike(int a, int b, optional int minimumpc)
+
+Will cast the best strong strike spell on current attacked monster. The a, b is the delay between each strike spell. Minimum pc is the minimum damage mod to cast a strong strike spell.
+
+bool cancastspell(string name, optional pointer creature)
+
+Returns true if you have enough mana and soul points, if you have level and mlevel high enough to cast spell spellname, false otherwise. Case the spell you're trying to cast needs a target, you can pass the target as an optional creature, so it will tell if target is on spell range. You can pass 'strike' or 'strong strike' as spellname, to check if you're able to cast the best strong/strike spell.
+
+bool cooleddown(string spellname)
+
+Returns true if the cooldown for spell spellname is 0, false otherwise.
+
+pointer findcreature(string creaturename)
+
+Will search for every creature on screen, and check if a creature called by creaturename is on screen, if so, it will return this creature're informations, else, it will return nil. Example: local v = findcreature('Bubble') print(v.id) -- Will print Bubble's ID if she was found on screen
+
+pointer1, pointer2, ... findmonstersonspellrange(string spelltype, direction)
+
+Will iterate trought all monsters on screen and check which of these are on spell range of spell spelltype. Check cancastspell function for more information about spelltype. The function returns pointers for all monsters. You can create a table with these by doing: local monsters = {findmonstersonspellrange('6x6')}.
+
+pointer1, pointer2, ... findplayersonspellrange(string spelltype, direction)
+
+Will iterate trought all players on screen and check which of these are on spell range of spell spelltype. Check cancastspell function for more information about spelltype. The function returns pointers for all monsters. You can create a table with these by doing: local players = {findplayersonspellrange('bigwave')}.
+
+pointer findcreatureontile(int x, int y, int z)
+
+Returns the first creature found on tile x,y,z.
+
+string getbestspell(string monstername, string type)
+
+Returns the best strike spell to shoot in a monster. It will check for the best strike spell (exori frigo, exori flam...) to shoot in a monstername. Example: getbestspell('rat', 'strong strike') or getbestspell('demon', 'strike')
+
+bool iscreaturereachable(pointer creaturename)
+
+Returns true if a creature is reachable, false otherwise.
+
+bool isonspellarea(pointer creature, string spelltype, optional string direction)
+
+Returns true if you can cast a spell of type spelltype on the creature creature, false otherwise. spelltype can be: 'smallwave', 'bigwave', 'smallbeam', 'bigbeam', 'strike', '1x1', '2x2', '3x3', '5x5' and '6x6'. The direction can be passed to tell if you can cast spell by turning to some direction. direction can be: 'w', 'e', 's', 'n', 'any' or nil.
+
+bool ispk(pointer creature)
+
+Returns true if creature has a white, red, yellow or orange, false otherwise.
+
+int maroundignore(int monsterdist, string monster1, string monster2...)
+
+Returns how many monsters on your screen which are not on the parameters list. Example: maroundignore(7, 'Rat', 'Bug') will return how many monsters that aren't Rat nor Bug are on your screen.
+
+int maroundfloor(int monsterdist, int or string floordifference, string monster1, string monster2...)
+
+Returns how many monsters, considering all the visible floors. You may specify the monster distance on monsterdist. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2.
+
+int maroundfloorignore(int monsterdist, int or string floordifference, string monstertoignore1, string monstertoignore2...)
+
+Returns how many monsters, considering all the visible floors. You may specify the monster distance on monsterdist. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2. It will ignore the monsters you specify, it's like a safe list.
+
+int maroundspell(string spelltype, optional string direction, string monstername1, string monstername2, ...)
+
+Returns in how many monsters you can cast the spell that has area of spelltype. If no monsters was specified, then it will consider all monsters. To check the possible spelltypes check the function cancastspell. Optionally you can pass a direction, to tell how many monsters would recieve your spell if you turned in to direction direction.
+
+int maroundspellignore(string spelltype, optional string direction, string monstername1, string monstername2, ...)
+
+Same as maroundspell but instead of considering monsters on table it will ignore monsters on table.
+
+massheal(int hppc, int amount, optional bool considerenemies, optional table enemylist, optional friendname1, optional friendname2, ...)
+
+Casts 'exura gran mas res' if there are more than amount players with less than hppc% of health and on spell range. You can optionally pass an enemy list, and if you want to consider enemies, it won't cast the spell if there is any enemy on the spell range. If you don't pass any friend, it will consider every player as friend. You can also make monsters as by passing its IDs.
+
+mounting(pointer creature)
+
+Returns true if creature is currently mounting a monster, false otherwise. If you don't pass a creature it will consider yourself.
+
+movecreature(pointer creature, optional string direction)
+
+Will push the creature creature to direction direction. If you don't pass a direction it will try to push the creature to the first pushable spot.
+
+mwall(pointer creature, optional dist)
+
+Shoots a magic wall rune dist sqms in front of creature's current position. You can shoot it in your back by doing: mwall($self, -1)
+
+int paroundfloor(int playerdist, int or string floordifference, string player1, string player2...)
+
+Returns how many players, considering all the visible floors. You may specify the players distance on playerdist. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2.
+
+int paroundfloorignore(int playerdist, int or string floordifference, string playertoignore1, string playertoignore2...)
+
+Returns how many players, considering all the visible floors. You may specify the players distance on playerdist. Floor is how many floors up or down. If you specify a number, like 2, it will consider the floors: -2, -1, 0, +1, +2. If you specify a string, like: '+2', it will consider the floors: 0, +1, +2. It will ignore the players you specified, like a safe list.
+
+int paroundignore(int playerdist, string name1, string name2...)
+
+Returns how many players on your screen which are not on the parameters list. Example: paroundignore(7, 'Bubble', 'Eternal Oblivion') will return how many players that aren't Bubble nor Eternal Oblivion are on your screen.
+
+int paroundspell(string spelltype, optional string direction, string playername1, string playername2, ...)
+
+Returns in how many players you can cast the spell that has area of spelltype. If no players was specified, then it will consider all players. To check the possible spelltypes check the function cancastspell. Optionally you can pass a direction, to tell how many players would recieve your spell if you turned in to direction direction.
+
+int paroundspellignore(string spelltype, optional string direction, string playername1, string playername2, ...)
+
+Same as paroundspell but instead of considering players on table it will ignore players on table.
+
+potionfriend(optional int id, int pc, int dist, string friendname1, string friendname2, ...)
+
+Will iterate trought the friends you have choosen and check which one has the lowest HP%, then it will use a potion with id id on the friend. Only friends with HP lower than pc and dist sqms closer to you will be considered.
+
+sio(int hppc, string playername1, string playername2)
+
+Will iterate trought the friends you have choosen and check which one has the lowest HP%, then it will use 'heal friend' spell on him. Only friends with HP lower than hppc will be considered.
+
+table spellinfo(string spellname)
+
+Returns a table containing the following informations of a spell: name, words, mp, level, mlevel, soul, price, needpremium, condition, mindmg, maxdmg.
+
+stopattack()
+
+Will make your character stop attack/follow by pressing the ESC key.
+
+waitandlogout()
+
+Will wait until your battle sign goes out, killing any reachable monster on your screen and then logout.
+
+int weaponattack(int id)
+
+Returns the attack of an item. If id wasn't given the weapon you're currently equipped will be considered.
+
+string wheretoturn(int m, string spelltype)
+
+Returns the direction you should turn to cast spell in creature m.
+
+
+Item Functions
+
+The following functions issue an event related with item manipulation.
+bool areitemsontile(int x, int y, int z, optional bool/number considercap, optional bool considermoveable, string item1, string item2, ...)
+
+Returns true if any of the items specified were found on SQM x,y,z, false otherwise. You may also specify if you want to consider only items you're able to pick up by passing considercap as true, or it will only consider the item if you have more than considercap of capacity. The considermoveable to only consider the item if there are no unmoveable items above it.
+
+int bestelementweapon(name creaturename)
+
+Returns the ID of the best wand or rod you should equip to do the more damage on monster creaturename.
+
+closebpcolor(string bpcolor, optional int indexstart, optional int indexend)
+
+Will close all of your opened backpacks with color bpcolor. It will check from index indexstart to indexend.
+
+collecthiddenitems(string dist, int itemid1, int itemid2...)
+
+Will pickup any of the items specified found on screen. If there's an item above it the bot will move it to get your item.
+
+collectitems(string destination, int itemid1, int itemid2...)
+
+Will pickup any items around you that has an ID inside table itemids. Example1: collectitems('', 'gold coin', 'platinum coin', 'serpent sword'). Example2: collecitems(''). Will pickup any pickupable items around you.
+
+bool comparecontainers(pointer container1, pointer container2)
+
+Returns true if the container1 is the same as container2, false otherwise.
+
+dropitems(string destination, int itemid1, int itemid2...)
+
+Will drop all the items you selected from your backpacks to the destination. If destination is not specified it will be considered as your current position. Examples: dropitems('gold coin','mace','stone skin amulet') or dropitems(ground(32222,32614,7),'gold coin','mace','stone skin amulet')
+
+eatfoodfull(optional string location)
+
+Will eat food until you get a 'You are full.' message. You can also eat food from ground. Just pass 'ground' as extra parameter. Or the exactly location: 'ground x y z'.
+
+enchantspear(string handname)
+
+If you have enough mana and spears on your backpack it will unequip the weapon that's in handname and equip you with a spear, then cast 'exeta con'. Then it will unequip your enchanted spear and equip you back with the weapon your were wearing.
+
+string,int finditem(int itemid)
+
+Will look on the inventory where is the item with ID itemid, the function returns the BP Index if item was found on backpack.
+
+string,pointer findshield()
+
+Will look in which hand you're using a shield or spellbook and return it as a string: 'lhand' or 'rhand' and as a second value will return the hand pointer: $rhand or $lhand. Example: x,y = findshield()
+
+string,pointer findweapon()
+
+Will look in which hand you're using a weapon and return it as a string: 'lhand' or 'rhand', and as a second value will return the hand pointer: $rhand or $lhand. The weapons considered are axes, swords, clubs, wands, rods, distance weapons and bows/crossbows. Example: x,y = findweapon()
+
+string,int findweapontouse()
+
+Will search for a weapon in your containers and the function will return two values, the first one is related to where the item is located, in your containers, in your hand or in your belt. The second value is an integer number, related to the ID of item found.
+
+string findweapontype()
+
+Will look in what kind of weapon you're using and return it as a string: 'axe', 'sword', 'club', 'wand', 'rod', 'bow' or 'distance weapon'.
+
+fish(optional int n)
+
+Fishes on empty water spots. If n is not specified, the bot will fish only in spots that contain fish. If n is specified and lower than 100, it will use the rod on water with no fish n% of the time. If n > 100, it specifies an item id to fish on, such as water elemental bodies. Examples: fish() -- Uses rod only on water SQMs that contains fish fish(30) -- Uses rod on water SQMs with no fish in 30% of the time and on SQMs that contains fish in 70% of the time fish(9582) -- Uses rod in a water elemental body
+
+int fishspots(optional int n)
+
+Returns how many fish spots are avaliable on screen. If n is not specified, the bot will look only in spots that contain fish. If n is specified it will look for how many spots has the ID n.
+
+int foodcount()
+
+Returns how many food items can be found on your opened containers.
+
+table getarearunetile(bool ignoreplayers, string monstername1, string monstername2...)
+
+Returns a table with informations where you will damage the more amount of creatures you choosen. The ignoreplayers is a boolean value for non-pvp worlds. The table is: tile, amount, x, y, z
+
+table getbpindex(string bpcolor)
+
+Will search through your opened backpacks and search for a backpack with color bpcolor. The function returns a table listing all the BPs index with the color you choosen.
+
+bool isfood(int id)
+
+Returns true if the item checked is a food, false otherwise.
+
+bool iscontainerfull(int containerid)
+
+Returns true if the container with ID containerid is full, false otherwise.
+
+int itemcountcorpse(string corpsename, int itemid1, int itemid2, ...)
+
+Returns the amount of items inside corpse corpsename.
+
+moveitemfromcorpse(string corpsename, string destination, int amount, int itemid1, int itemid2, ...)
+
+Moves items from corpse corpsename to destination.
+
+moveitemonground(int xfrom, int yfrom, int zfrom, int xto, int yto, int zto)
+
+Moves an item from xfrom yfrom zfrom to xto yto zto.
+
+openbps(table {int bpid, string location, optional bool opennew, optional int index}, table {int bpid, string location, optional bool opennew, optional int index}, ...)
+
+Open backpacks in the order you specified.
+
+openbpslogin(table {int bpid, string location, optional bool opennew, optional int index}, table {int bpid, string location, optional bool opennew, optional int index}, ...)
+
+Open backpacks on login in the order you specified.
+
+opengrounditem(int id)
+
+Will search for an item with id id on ground and open it.
+
+pick(int x, int y, int z)
+
+Will move any items or creatures above the hole spot and use a pick on it.
+
+pickupitems(optional string direction, optional string destination, optional int amount)
+
+Pick up items at the SQM located in the direction you have choosen to the destination you have choosen. If you leave direction empty it will take it as 'c' (center). directions can be: 'sw', 's', 'se', 'w', 'c', e', 'nw', 'n', 'ne'. Amount is 100 by default.
+
+refillammo()
+
+Refills ammunition in your inventory. Will check if you are wearing a ammunition, if you are and it has less than 100 it will equip more of the same kind. If you're using an ammunition and it's not restoring it you can add the ID on LucasTerra.lua file.
+
+resetbodylists()
+
+Resets the body lists to the default settings.
+
+int searchcontainerincontainer(int containerid)
+
+Looks for a container inside the container with ID containerid. If it's found, the function returns its ID, or it will return false if no container was found.
+
+shootarearune(int runeid, optional int amount, optional bool ignoreplayers, optional string monstername1, optional string monstername2...)
+
+Shoots a rune with id runeid at the sqm which will target more monsters. The minimum amount of monsters can be specified on amount, if amount is not specified then amount will be considered as 1. ignoreplayers is a boolean value for non-pvp worlds.
+
+shootbestrune(int a, int b, optional pointer creature, optional disconsiderrunedamage)
+
+Will shoot the best rune (heavy magic missile rune, icicle rune, fireball rune or stalagmite rune) according to the monster you are currently attacking, it will check for the monster's weakness and wait from a to b. If you set disconsiderrunedamage to true it won't consider the rune damage, only the monster's weakness.
+
+skin(int dist, optional bool movebody, optional bool waitfresh)
+
+Will look for dead bodies in a range of dist SQMs and use obsidian knife on it. Optionally, you can make it skin even bodies that are covered with trash above, setting movebody to true, and you can make it wait until the body becomes skinnable by setting waitfresh to true. To manage the skin bodies' list you can use the following function: SKINLIST:add(string monstername, ...), to add a monster, example: SKINLIST:add('minotaur', 'minotaur archer') SKINLIST:remove(string monstername, ...), to remove a monster, example: SKINLIST:remove('dragon', 'dragon lord', 'lizard highguard') SKINLIST:clear(), to delete all monsters To see your current skin list you can do: print(SKINLIST)
+
+int skinspots(int dist, optional bool movebody, optional bool waitfresh)
+
+Returns how many "skinnable" dead bodies are in a range of dist SQMs on screen.
+
+skinkitchenknife(int dist, optional bool movebody, optional bool waitfresh)
+
+Will look for dead bodies in a range of dist SQMs and use a kitchen knife on it. Optionally, you can make it skin even bodies that are covered with trash above, setting movebody to true, and you can make it wait until the body becomes skinnable by setting waitfresh to true. It only considers dead rabbits.
+
+int skinkitchenknifespots(int dist, optional bool movebody, optional bool waitfresh)
+
+Returns how many "skinnable" dead rabbits are in a range of dist SQMs on screen.
+
+stake(int dist, optional bool movebody, optional bool waitfresh)
+
+Will look for dead bodies in a range of dist SQMs and use blessed wooden stake on it. Optionally, you can make it stake even bodies that are covered with trash above, setting movebody to true, and you can make it wait until the body becomes stakeable by setting waitfresh to true. To manage the skin bodies' list you can use the following function: STAKELIST:add(string monstername, ...), to add a monster, example: STAKELIST:add('vampire', 'demon') STAKELIST:remove(string monstername, ...), to remove a monster, example: STAKELIST:remove('vampire', 'demon') STAKELIST:clear(), to delete all monsters To see your current stake list you can do: print(STAKELIST)
+
+int stakespots(int dist, optional bool movebody, optional bool waitfresh)
+
+Returns how many "stakeable" dead bodies are in a range of dist SQMs on screen.
+
+string trueitemproperties(int itemid)
+
+Returns all the item properties enabled on item itemid. For example: trueitemproperties(3031) returns: ""
+
+usegrounditem(int itemid)
+
+Will search for an item with ID itemid and use it. You can also do: usegrounditem(x,y,z), to use a coordinate.
+
+usedoor(int x, int y, int z, optional string mode)
+
+Will use open or close a door, if you don't specify the mode ('open' or 'close') it will just switch the door. If there's an item above the door it will just move it.
+
+waitcontainer(string containername)
+
+Will wait until a container is opened.
+
+string wheretomoveitem(int x, int y, int z, optional int id)
+
+Returns a direction to move an item or creature. It's useful if you want to take an item off a hole or something.
+
+
+Food Timer Functions
+
+The following functions are used to handle food timers.
+int getfoodtime(int id)
+
+Returns how long in miliseconds the food with id id will make you regenerate.
+
+int gethungrytime()
+
+Returns how long in miliseconds you will be regenarating mana/health by food.
+
+increasehungrytime(int amount)
+
+Increases the hungry timer by amount.
+
+resethungrytime()
+
+Resets the hungry timer.
+
+
+Scripting Help Functions
+
+The following functions are useful for making some calculations/prodecures easier while scripting.
+int bintonum(int x)
+
+Returns the binary number x wroten in decimal form.
+
+int color(int r, int g, int b, optional int transparency)
+
+Converts a number from RGB (red, blue, green) form to HEX form, the transparaceny is given in percentage. Example: color(255,255,255,50), will return the HEX representation for white color with 50% of transparency.
+
+string currenttime()
+
+Returns your system's current time in the format: 'HH:MM:SS'.
+
+int math.highest(int a, int b)
+
+Returns the highest number between a and b
+
+int math.lowest(int a, int b)
+
+Returns the lowest number between a and b
+
+int math.positive(int number)
+
+Returns 0 if number is negative and number if it is positive.
+
+int randomize(table values)
+
+It will return a random value from a table in the format: {a,b}, a random number from a to b. It makes easier to randomize numbers/timers in some scripts.
+
+setcavebot(string onoff)
+
+Turns cavebot on or off. onoff can be: 'on', 'off', 'yes', 'no'.
+
+sethealing(string onoff)
+
+Turns healing on or off. onoff can be: 'on', 'off', 'yes', 'no'.
+
+setlooting(string onoff)
+
+Turns looting on or off. onoff can be: 'on', 'off', 'yes', 'no'.
+
+setmanatraining(string onoff)
+
+Turns mana training on or off. onoff can be: 'on', 'off', 'yes', 'no'.
+
+settargeting(string onoff)
+
+Turns targeting on or off. onoff can be: 'on', 'off', 'yes', 'no'.
+
+swap(a, b)
+
+The variable b recieves the value of a and a recieves value of b. You can do: swap(table, a, b) to swap values inside a table.
+
+tilehasinfo(int posx, int posy, int posz)
+
+Returns true if the location you passed as parameters are on your screen, false otherwise.
+
+timebetween(string timefrom, string timeto, optional int delay)
+
+Returns true if the system clock is between timefrom and timeto.
+
+string tobin(int x, optional bool reverse)
+
+Return the number x wroten in binary form. If you pass the reverse value, it will return it wroten in the reverse form.
+
+int tosec(string time)
+
+Returns how many seconds have passed since '0:00' at time time. Example: tosec('6:32') returns 23520.
+
+waitmessage(string sendername, string msg, optional int maxwaittime, optional bool exactmsg, optional int msgtype)
+
+Will wait until a message from sender sendername containing the message msg appears. If you don't pass a maxwaittime it will be considered as 10000 (10 seconds). If you pass exactmsg as true it will only consider the message if it was sent exactly as you wrotten in the function call, considering lower and upper letters. If you pass a msgtype it will check if the message type is the same as you passed on parameter.
+
+waitping(optional int a, optional int b)
+
+Waits between $pingaverage*a and $pingaverage*b. If a,b isn't passed it a,b = 1.6, 2.3
+
+
+Table Manipulation Functions
+
+The following functions are used on tables manipulation
+int table.binaryfind(table tablename, x, optional extraparameter)
+
+Looks for the a match of value x in the table tablename. Returns its position or nil if no value was found. The extraparameter is used for strutctured tables, lets say you have a table with players, you want to search the first which has HPPC 30. So: table.binaryfind(table, 30, 'hppc'). BE CAREFUL! This function only works for sorted tables!
+
+int table.find(table tablename, x, optional extraparameter)
+
+Looks for the first match of value x in the table tablename. Returns its position or nil if no value was found. The extraparameter is used for structured tables, lets say you have a table with players, you want to search the first which has HPPC 30. So: table.find(table, 30, 'hppc')
+
+table.insertsorted(table tablename, value, optional argument, optional string order, optional bool disallowduplicated)
+
+Will add a value sorting it. You can choose 'asc' or 'desc' in order. If the value you're inserting is a table you MUST pass an argument to tell the way you want to order it. For example, you're addying players in to a table, so you do: table.insertsorted(playerstable, $followed, 'name', 'asc'), this way it will add a player and sort it according to his name. If you don't pass the order it will insert as 'asc'. The optional bool disallowduplicated means it won't accept duplicated items, so it will won't add it if the item is already found on the table. You can also pass multiple parameters to be ordered as, for example: table.insertsorted(monsters, m, {{'dist', 'asc'}, {'hppc', 'desc'}}), will give priority to the closest creatures from you and which has the highest HP%.
+
+table.lower(table tablename)
+
+Will look for every string elements on the table tablename and transform it all in lower case characters.
+
+table.newsort(table tablename, optional extraparameter, optional order)
+
+Sorts a table on desired order, which can be: 'asc' or 'desc'. The extraparameter is used when you want to sort a structured table, like a players table. table.newsort(players, 'name') will sort the table players according to their names and table.newsort(players, 'id') will sort the table players according to their IDs and so on.
+
+string table.stringformat(table tablename, string name)
+
+Returns a table in the string format: name = {item1, item2, item3, ...}
+
+table.upper(table tablename)
+
+Will look for every string elements on the table tablename and transform it all in upper case characters.
+
+
+String Manipulation Functions
+
+The following functions are used on messages manipulation
+string, string string.attackername(string msg)
+
+Returns the name of attacker and the type of an attacker. For example: string.attackername("You lose 3 hitpoints due to an attack by a bug.") returns "bug" and "monster"
+
+table string.attackmsg(string msg)
+
+Returns a table containing information about an attack message. The table has the following info: table.dmg, table.target.name, table.target.type, table.dealer.name, table.dealer.type. dmg returns how many hitpoints or mana points it was dealed. target.name returns the target's name, target.type returns the target's type (monster or player). Same for dealer.
+
+string string.concat(msg1, msg2, msg3...)
+
+Concatenates words.
+
+table string.healmsg(string msg)
+
+Returns a table containing information about a heal message. The table has the following info: table.dmg, table.target, table.healer. dmg returns how many hitpoints or was healed. target returns the target's name, healer returns the healer's name.
+
+table string.lootmsg(string msg)
+
+Returns a table containing information about a loot message. It has the structures: name, the name of the creature, items with the sub-structures: name and count. The items is a table which contains informations about each item looted.
+
+string string.removews(string str)
+
+Removes white spaces from the string str.
+
+string string.token(string str, int n)
+
+Returns the nth token (word/element) of a string str. Example: local word = 'Hey man you rox' print(string.token(word,3)) -- Will print the word you
+
+
+Cavebot functions
+
+The following functions are useful for making cavebot Action waypoints
+allowwalk(int id1, int id2, ...)
+
+Makes cavebot walk trought ids id1, id2, ...
+
+int balance()
+
+It will make you say 'balance' in NPC channel and then check if your current account balance. You can use it anywhere to access your account balance once you had used it once.
+
+bool breakdworcwall(int x, int y, int z)
+
+Will use a weapon in a dworc wall until it's broken. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the wall was broken successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+bool breakspidersilk(int x, int y, int z)
+
+Will use a weapon in a spider silk wall until it's broken. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the wall was broken successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+buyitemsupto(string itemname, int amount, optional int currentamount)
+
+Buys items up to a certain amount depending on the amount of items currently held. If you don't specify currentamount value it will, consider only the visible amount.
+
+bool cutgrass(int x, int y, int z)
+
+Will use a machete in a grass until it's broken. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the wall was broken successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+isdistance(int distx, optional int disty)
+
+Returns true if you are x sqms close to the action waypoint, false otherwise. You can pass an optional parameter y, so it will check if you're x sqms close horizontally and y sqms close vertically.
+
+isposition(int x, int y, optional int z)
+
+Returns true if you are on tile x,y,z, if z is not given it considers your current z.
+
+isrange(int x, int y)
+
+Returns true if you are in a range of x horizontal sqms and if you are in a range of y vertical sqms, false otherwise.
+
+levitate(string direction, string updown)
+
+Turns your character to the direction and then will cast levitate. Example: levitate('w','up')
+
+moveitemsdownto(int itemid, int amountto, string bpfrom, string bpto)
+
+Will leave amountto inside bpfrom and moves what exceeds amountto to bpto.
+
+moveitemsupto(int itemid, int amountto, string bpto, string bpfrom)
+
+Moves up to amountto items from container bpfrom to container bpto.
+
+bool openhole(int x, int y, int z)
+
+Will use the kind of shovel you've choosen in cavebot settings in a closed whole until it becomes a hole. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the hole was opened successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+bool opensand(int x, int y, int z)
+
+Will use the kind of shovel you've choosen in cavebot settings in a sand until it becomes a hole. If there's a moveable item above it, it will move it. If there's a non-moveable item above it, the function will return false. If the hole was opened successfully the function will return true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+opentrade(optional int n, optional bool sayhi)
+
+Will try to say 'trade' in NPC channel n times, until trade window opens. If n is not specified it will try to open it from 3 to 5 times. If you pass sayhi as true it will say 'hi' before saying 'trade'.
+
+returnwpt(optional int howmanyback)
+
+Will go to label $wptid-1 or $wptid-howmanyback
+
+sellitemsdownto(string itemname, int amount, optional int currentamount)
+
+Sells items down to a certain amount depending on the amount of items currently held. If you don't specify currentamount value, it will consider only the visible amount.
+
+sellflasks()
+
+Sells all of your flasks to the NPC.
+
+uselever(int x, int y, int z, int leverid)
+
+Will use a sewer until you go down. If there's a moveable item above the sewer it will move it, if there's a non-moveable item above it the function will return false. If you went down successfully it returns true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+usesewer(int x, int y, int z)
+
+Will use a sewer until you go down. If there's a moveable item above the sewer it will move it, if there's a non-moveable item above it the function will return false. If you went down successfully it returns true. If the coordinates wasn't given the function will use the coordinates of the waypoints you're currently on.
+
+travel(string destination, optional bool havering)
+
+Makes you travel to a certain location. The bot will search for the Boat/Carpet NPC and reach it, then it will say: 'hi', destination, 'yes'. If the NPC took you to the wrong place, it will repeat the action until you get there. You can write the city name, like "ab'dendriel" or "ab dendriel", the bot will do it anyway. The optional bool havering is used for when you're travelling with Buddel. If havering is true it will say: 'hi', 'okolnir', 'no', 'yes'. If it's false, it will say: 'hi', 'go', 'okolnir', 'yes'. Special Thanks to botterxxx for getting all the locations.
+
+
+Client Information functions
+
+The following functions return information gathered from the client.
+bool iscreatureontile(int x, int y, int z)
+
+Returns true if a creature can be found on the tile at given coordinates and false otherwise.
+
+table cursorinfo()
+
+Returns a table containing the informations (x,y,z,id,info) about the tile where your mouse is currently on. Example: cursorinfo().id -> returns the ID where your mouse is currently on.
+
+table findpixel(int posx, int posy)
+
+Returns a table containing the informations (x,y) about the pixel where you can find the location x,y (in Tibia coordinates). Example: findpos($posx,$posy).x -> returns the horizontal pixel where you're located.
+
+bool tilewalkable(int x, int y, int z)
+
+Returns true if your character can walk in that sqm, false otherwise.
+
+
+Item Properties
+
+ITEM_ACTION - You can use this to check if an item performs an action or not.
+ITEM_BIGSPRITE - You can use this to check if an item has a big sprite or not.
+ITEM_BLOCKPATHS - You can use this to check if an item block paths or not.
+ITEM_BLOCKSHOTS - You can use this to check if an item block shots or not.
+ITEM_BLOCKWALK - You can use this to check if an item block walks or not.
+ITEM_CONTAINER - You can use this to check if an item is a container or not.
+ITEM_CORPSE - You can use this to check if an item is a corpse or not.
+ITEM_DIAGONALBORDER - You can use this to check if an item is a diagonal border or not.
+ITEM_FLOORCHANGE - You can use this to check if an item makes you change the floor or not.
+ITEM_FLUIDCONTAINER - You can use this to check if an item is a fluid container or not.
+ITEM_GROUND - You can use this to check if an item is a ground item or not.
+ITEM_HANGABLE - You can use this to check if an item can be hangged on wall or not.
+ITEM_HEIGHTED - You can use this to check if an item is heighted or not.
+ITEM_HORIZONTAL - You can use this to check if an item is an horizontal wall or not.
+ITEM_LIGHTFONT - You can use this to check if an item is a light font or not.
+ITEM_MINIMAP - You can use this to check if an item has a color in minimap or not.
+ITEM_NOTMOVEABLE - You can use this to check if an item is moveable or not.
+ITEM_NOTROOFEDGE - You can use this to check if an item is a roof edge or not.
+ITEM_OFFSET - I dont know what this property do.
+ITEM_PICKUPABLE - You can use this to check if an item is pickupable or not.
+ITEM_READABLE - You can use this to check if an item is readable or not.
+ITEM_ROTATEABLE - You can use this to check if an item is rotateable or not.
+ITEM_SPLASH - You can use this to check if an item is a fluid splash or not.
+ITEM_STACKABLE - You can use this to check if an item is stackable or not.
+ITEM_TOPORDER1 - You can use this to check if an item is on top order 1 or not.
+ITEM_TOPORDER2 - You can use this to check if an item is on top order 2 or not.
+ITEM_TOPORDER3 - You can use this to check if an item is on top order 3 or not.
+ITEM_USEABLE - You can use this to check if an item is useable with or not.
+ITEM_VERTICAL - You can use this to check if an item is a vertical wall or not.
+ITEM_WRITEABLE - You can use this to check if an item is writeable or not.
+
+Message Types
+
+MSG_CHANNEL - Any player message in Game/Help/Real/Tutor/Trade channel.
+MSG_DEFAULT - Any player/npc message in Default channel.
+MSG_INFO - Info messages (green text) in Server Log.
+MSG_NPC - Any NPC answers in NPC channel.
+MSG_PVT - Private messages from other players.
+MSG_RAID - Raid messages.
+MSG_RED - Any red alert message.
+MSG_REPORT - Report description when reporting somthing to a gamemaster (Ctrl + R).
+MSG_SENT - Your sent private messages.
+MSG_STATUS - Status messages (In the screen).
+MSG_STATUSLOG - Status messages in Server Log.
+MSG_TUTOR - Tutor/Senior Tutor saying in Help channel.
+MSG_WELCOME - Game/Channel welcome messages.
+MSG_WHISPER - Any player whispering.
+MSG_YELL - Any player yelling.
+
+Skull Types
+
+SKULL_BLACK - Check if player has black skull. Example: if $self.skull == SKULL_BLACK then print('Im black skull') end
+SKULL_GREEN - Check if player has green skull.
+SKULL_ORANGE - Check if player has orange skull.
+SKULL_RED - Check if player has red skull.
+SKULL_WHITE - Check if player has white skull.
+SKULL_YELLOW - Check if player has yellow skull.
+
+Party Types
+
+PARTY_EXPSHARE_OK_LEADER - Check if player is leader of a working exp share party. Example: if $target.party == PARTY_EXPSHARE_OK_LEADER then print('yey') end
+PARTY_EXPSHARE_OK_MEMBER - Check if player is a member of a working exp share party.
+PARTY_EXPSHARE_OFF_LEADER - Check if player is leader of a disabled exp share party. If it's disabled it might because there's a low level character on your party or he's in a different floor.
+PARTY_EXPSHARE_OFF_MEMBER - Check if player is a member of a disabled exp share party. If it's disabled it might because there's a low level character on your party or he's in a different floor.
+PARTY_EXPSHARE_WAIT_LEADER - Check if player is leader of a on-standby exp share party.
+PARTY_EXPSHARE_WAIT_MEMBER - Check if player is a member of a on-standby exp share party.
+PARTY_INVITED_LEADER - Check if player is inviting you to a party.
+PARTY_INVITED_MEMBER - Check if player is invited to your party.
+PARTY_NOPARTY - Check if player isn't on your party.
+PARTY_ONPARTY_LEADER - Check if player is the leader of your party.
+PARTY_ONPARTY_MEMBER - Check if player is a member of your party.
+
+War Banner Types
+
+WAR_BLUE - Check if player have a blue war banner, means he's in a war you're not in. Example: if $attacked.warbanner == WAR_BLUE then print('attacked player is in a war') end
+WAR_GREEN - Check if player have a green war banner, means he's in a war and he's your ally.
+WAR_RED - Check if player have a red war banner, means he's in a war and he's your enemy.
+WAR_NOWAR - Check if player don't have a war banner.
+Enjoy!
+
+
+
+
+---------------------------SCRIPT LIBRARIES Anonymickey's (NOT APPEAR IN MENU)---------------------------
+
+Anonymickey's Functions
+
+Well, this is my library. Here you will find some useful functions developed by me, most time savers. Give me suggestions and ideas if you like it.
+
+General Information Functions
+
+Functions that gives you some kind of information about tibia.
+int flasks()
+
+Returns the number of visible small, medium and large empty flasks
+
+int gold()
+
+Returns the number of visible gold, including platinum and crystal coins
+
+int exptolvl(opt number baselevel, number level)
+
+Returns the amount of exp needed to reach level level from level baselevel. If you don't specify baselevel it will be defaulted to 1.
+
+bool iscursonin(number sx, number sy, number fx, number fy, opt boolean area)
+
+Returns true if mouse is inside the area specified by sx, sy, fx, fy, Optionally, you can specify area as true to make fx and fy the side of the rectangle, instead of the other point of it. Example: iscursorin(30, 25, 60, 45) = iscursorin(30, 25, 30, 20, true)
+
+int sstime(string world)
+
+Returns the time to the next server save on world world, in seconds. Example: sstime('pacera')
+
+
+Scripting Help Functions
+
+Here are some functions that might help you to write your own scripts. That doesn't mean the other ones might not.
+int cettime()
+
+Returns current time in CET, in seconds.
+
+int cetoffset()
+
+Returns the offset from your current timezone to CET, in seconds.
+
+dropflasks()
+
+Simply moves all flask to ground.
+
+exec(string execstring)
+
+Executes the code inside the string execstring. Example: local command = 'say("wassup dude")' exec(command)
+
+str math.format(number n, string pattern)
+
+Returns a string representation of the number n, matching the specified pattern. Example: math.format(30, "000.0") --> 030.0 math.format(30, "0.00") --> 30.00 math.format(30.25, "0.0") --> 30.25
+
+moveitemlist(string locationto, string locationfrom, string/number item1, string/number item2, ...)
+
+Moves all items written in itemlist to locationto. If you specify locationfrom it will get only items from that location. Example: moveitemlist('brocade backpack', 'red backpack', 'cyclops trophy', 'halberd', 'cyclops toe')
+
+npctalk(string say1, string say2, ...)
+
+Will make your character say all text parameters given, in NPC channel. If it's not open, it will say the first phrase in default chuannel, and wait until it opens. Example: npctalk('hi', 'deposit all', 'yes', 'balance')
+
+sethealrule(string rulename, opt string hprange, opt string mprange, opt string method, opt string condition, opt string spam)
+
+Simply set all settings of a HealRule. If any setting is not specified or empty, this one will not be modified. Examples: sethealrule('HealRule1', '300-900', '0-50%', '', 'if paralyze') sethealrule('HealRule1', '', '', 'health potion', 'paralyzed') sethealrule('HealRule1, '300 to 900', '0 to 15%', '', 'none', '200-400')
+
+str string.capitalize(string text)
+
+Returns the string text with first letter in upper case and all others in lower case. Example: string.capitalize('this is A TEST') --> 'This is a test'.
+
+str string.capitalizeall(string text)
+
+Returns the string text with the first letter of each word in upper case and all others in lower case. Example: string.capitalizeall('this is A TEST') --> 'This Is A Test'.
+
+str string.explode(string text, string separator)
+
+Returns a table with all sub-strings split by separator. Example: string.explode('Hello # My # Name # Is # Anonymickey', '#') --> table = {'Hello', 'My', 'Name', 'Is', 'Anonymickey'}. Credits to Socket and Hardek for this one.
+
+int table.find2(table, value, arg, notable, argonly)
+
+Returns the index of value inside table, nil if it can't be found. If you don't specify notable as true it will search inside any table in the main one and return the index inside that secondary table also, as a secondary parameter. Optionally, you can specify arg if your main table is filled with other tables, and the function will look only on this index. You can also set argonly if you don't want to search for values outside secondary tables. Examples: table.find2(t, 'distance') table.find2(t, 'distance', 'type') table.find2(t, 'distance', 'type', false, true) table.find2(t, 'distance', '', true)
+
+tab table.random(table t, number start, number finish, opt number count, opt number step)
+
+Returns a table filled with random numbers between start and finish. If count is specified, it's the maximum length of the table, meaning it will return only count random numbers inside the given range. You can also specify step, wich means it will count only multiples. Example: table.random(5, 10) --> {7, 10, 9, 8, 5, 6} table.random(5, 10, 3) --> {7, 10, 9} table.random(5, 10, 0, 2) --> {7, 9, 5}
+
+str time(number n, opt string pattern)
+
+Returns a string representation of a second time interval n in the format "dd:hh:mm:ss" depending on lenght. Optionally, you can set the format by specifying pattern parameter. Examples: time(5000) --> 01:23:20 time(5000, 'hh:mm') --> 01:23 time(30) --> 00:30
+
+str timezone()
+
+Returns a string with your time zone based on your current location. Example: timezone() --> GMT -2 (If you are from Brazil)
+
+
+Character Info Functions
+
+Functions that can give you information about your character.
+tab bestskill()
+
+Returns a table with type, skill and skillpc of the your highest skill.
+
+int levelpc()
+
+Returns the percent missing for you to advance a level.
+
+int maxcap()
+
+Returns the estimated maximun capacity of your character, based on vocation() function.
+
+int skilltime(string skilltype)
+
+Returns estimated time to advance in skill skilltype in seconds. skilltype can be: 'magic', 'fist', 'club', 'sword', 'axe', 'distance', 'shielding and 'fishing. Note: It will only start to 'analyze' when you run it for the first time. Example: skilltime('sword')
+
+int utctime()
+
+Returns current time in UTC, in seconds.
+
+int utcoffset()
+
+Returns the offset from your current timezone to UTC, in seconds.
+
+str vocation()
+
+Returns your character vocation. It will try to differ druid from sorcerer checking if it's wearing any rod/wand, if it's not it will return only 'mage'. Also, if it's not possible to determinate your character vocation by any method, it will return 'unknown'.
+
+tab weaponskill()
+
+Returns a table with type, skill and skillpc of the your current weapon skill.
+
+
+File Handling Functions
+
+These functions will help you when working with files, reading, writing, anything related to it.
+clearfile(string filename)
+
+Erases all the content inside file filename. Example: clearfile('test.txt')
+
+createfile(string filename)
+
+Creates a file with the name filename, if it doesn't exist. Example: createfile('test.txt')
+
+execfile(string filename)
+
+Executes the code inside the file filename. Example: exec('test.txt')
+
+bool isfileline(string filename, string text)
+
+If text is a line inside file filename, returns line number, false otherwise. Example: isfileline('test.txt', 'test')
+
+createfile(string filename)
+
+Creates a file with the name filename, if it doesn't exist. Example: createfile('test.txt')
+
+string filecontent(string filename)
+
+Returns the content of the whole file filename. Example: filecontent('test.txt')
+
+bool fileexists(string filename)
+
+Returns true if the file filename exists, false otherwise. Example: fileexists('test.txt')
+
+str fileline(string filename, number linenum)
+
+Returns line of number linenum of the file filename. Example: fileline('test.txt', 10)
+
+int filelinescount(string filename)
+
+Returns number of lines of file linenum. Returns 0 if it doesn't exists, or if it's empty. Example: filelinescount('test.txt')
+
+filewrite(string filename, string text)
+
+Writes text in the file filename. Example: filewrite('test.txt', 'This is my test.')
+
+filewriteline(string filename, string text)
+
+Writes text in the file filename. Example: filewriteline('test.txt', 'This is my test.')
+
+filerewrite(string filename, string text)
+
+Clears the file filename and writes text in it . Example: filerewrite('test.txt', 'This is my test.')
+
+
+Input Functions
+
+Here are some general functions, I will probably organize it better later.
+hex keyid(string/number key)
+
+Returns the correspondent hexadecimal code of key key. Useful if you don't want to keep looking at internet lists while using keyevent(..) function. Example: keyevent(keyid('tab')) or keyevent(keyid('a'))
+
+press(string keys)
+
+Presses the keys inside the string keys. Special keys MUST be inside [brackets]. Example: press('account[tab]password[enter]')
+
+
+HUD Functions
+
+Functions to help you drawing your HUDs.
+drawline(string dir, number length, opt number x, opt number y)
+
+Draws a line in your HUD, in the direction dir, with length length in pixels. dir can be 'horizontal' or 'vertical'. You can also specify a start point for the line: c and y. (This function needs improvement) Example: drawline('horizontal', 200, 0, 15)
+
+

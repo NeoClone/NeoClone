@@ -11,6 +11,7 @@ type
   private
     FTProc: integer;
   public
+    function ReadBytes(Address: Integer; length: Integer): Tbytes;
     function ReadByte( addr: integer ): byte;
     function ReadWord(addr: Integer): integer;
     function ReadInteger( addr: integer ): integer;
@@ -60,6 +61,27 @@ begin
   end;
 end;
 
+
+
+
+function TMemory.ReadBytes(Address: Integer; length: Integer): Tbytes;
+var
+  NBR: NativeUInt;
+lpBuffer: Tbytes;
+begin
+  FTProc := Main.TProc;
+    setLength(lpBuffer, length);      //we declare the array length
+    try
+        ReadProcessMemory(FTProc, Ptr(Address), lpBuffer, Length, NBR)
+    except
+        on exception: Exception do
+            showMessage(Concat('ReadMemory#13#10', exception.Message))
+    end;
+    begin
+        Result := lpBuffer;
+        exit
+    end
+end;
 
 function TMemory.ReadByte(addr: Integer): byte;
 var
@@ -160,7 +182,5 @@ begin
   len := ReadWord(addr);
   ReadProcessMemory(FTProc, Ptr(Addr), @arr[1], len, NB);
 end;
-
-
 
 end.

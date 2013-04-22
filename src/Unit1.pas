@@ -8,7 +8,7 @@ uses
   Menus, luaClass, Vcl.ExtCtrls, Winapi.GDIPOBJ, EventQueue, PriorityQueue,
   Xml.VerySimple, parserThreadUnit, healerThreadUnit, settingsTemplates, hotkey,
   netmsg, datReader, afxCodeHook, PetriW.Pipes, player, VirtualTrees, chat,Equipment,
-   gamewindow, containers,cooldown, Vcl.DBCtrls, sockets;
+   gamewindow, containers,cooldown, Vcl.DBCtrls, map;
 
 type
   TMain = class(TForm)
@@ -291,7 +291,7 @@ loadTibia();    //find window etc...
                                                                   }
   //now we have to do the cavebot etc? :O
 
-  //hudstart.Enabled := true;
+  //hudstart.Enabled := true;      // this works but we have to improve other things first
 end;
 
 
@@ -321,9 +321,12 @@ containers: Tcontainers;
 CD: TCooldown;
   r: TRect;
   chat:TChat;
+map: TMap;
 begin
+map.Update;
 
-player.AntiIdle();
+// showmessage(booltostr(getItem(3502,isDepot).Flag));     //3502 isDepot
+//player.AntiIdle();
 //if CD.canCast('exevo vis hur') then
 //  showmessage('si')
 //  else showmessage('no');

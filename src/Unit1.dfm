@@ -1196,7 +1196,7 @@ object Main: TMain
     Visible = True
     OnClick = TrayIcon1Click
     Left = 40
-    Top = 108
+    Top = 100
   end
   object PopupMenu1: TPopupMenu
     Left = 120

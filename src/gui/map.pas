@@ -7,7 +7,32 @@ uses
   Dialogs, StdCtrls, Addresses;
 
 type
+
   TMap = class
+
+    GameMap : array[0..8,0..14,0..$12] of record
+      ID: LongWord;
+      Count,
+      Order1,
+      Order2,
+      Order3,
+      Order4,
+      Order5,
+      Order6,
+      Order7,
+      Order8,
+      Order9,
+      Order10: integer;
+
+      Items: array[0..9] of record
+        Index,
+        Volume,
+        Count: integer;
+        Id: LongWord;           //it bugs because of this structure....
+      end;
+
+    end;
+
   public
 
     function tileToAddress( index: integer; address: integer ): integer; overload;
@@ -28,7 +53,12 @@ type
     function localToGlobal( loc: TLocation ): TLocation;
     function toTileNumber( local: TLocation ): integer;
 
+    procedure Update;
   end;
+//var
+
+//  GameMap: array[0..8,0..14,0..$12] of TMap.TGameMap;
+  //Items: array[0..MaxInt] of array[0..8,0..14,0..$12] of TMap.TGameMap.TItems;
 
 implementation
 
@@ -295,6 +325,82 @@ function TMap.toTileNumber( local: TLocation ): integer;
 begin
   result := local.x + local.y * 18 + local.z * 14 * 18;
 end;
+
+              //this is from Ibot
+
+procedure TMap.Update;
+var
+iD, num2,i,j,k,m,num7,num8,playerMapIndex: integer;
+buffer: Tbytes;
+begin               try
+    iD := Player.ID;
+    num2 := ((Memory.ReadInteger(Integer(ADDR_BASE) + addresses.mapStart)) - 4);
+    i := 0;
+    while ((i < 8)) do
+    begin
+        buffer := Memory.Readbytes((num2 + (((i * 14) * $12) * $a8)), $a560);
+//        for i := 0 to $a560 do
+//               showmessage(inttostr( buffer[$2c + (num8 * $a8)]));
+        Sleep(1);
+        j := 0;
+        while ((j < 14)) do
+        begin
+            k := 0;
+            while ((k < $12)) do
+            begin
+                num8 := ((j * $12) + k);
+                GameMap[i, j, k].Id := PlongWord(@(buffer[num8 * $a8]))^;
+                showmessage(inttostr( GameMap[i, j, k].Id));
+                GameMap[i, j, k].Count := PlongInt(@(buffer[4 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Count));
+                GameMap[i, j, k].Order1 := PlongInt(@(buffer[8 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order1));
+                GameMap[i, j, k].Order2 := PlongInt(@(buffer[12 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order2));
+                GameMap[i, j, k].Order3 := PlongInt(@(buffer[$10 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order3));
+                GameMap[i, j, k].Order4 := PlongInt(@(buffer[20 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order4));
+                GameMap[i, j, k].Order5 := PlongInt(@(buffer[$18 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order5));
+                GameMap[i, j, k].Order6 := PlongInt(@(buffer[$1c + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order6));
+                GameMap[i, j, k].Order7 := PlongInt(@(buffer[$20 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order7));
+                GameMap[i, j, k].Order8 := PlongInt(@(buffer[$24 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order8));
+                GameMap[i, j, k].Order9 := PlongInt(@(buffer[40 + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order9));
+                GameMap[i, j, k].Order10 := PlongInt(@(buffer[$2c + (num8 * $a8)]))^;
+//                showmessage(inttostr( GameMap[i, j, k].Order10)+' asf');
+                num7 := (($2c + (num8 * $a8)) + 4);
+                m := 0;
+                while ((m < 10)) do
+                begin
+//                showmessage(inttostr(m));
+                    GameMap[i, j, k].Items[m].Index := m;
+                    GameMap[i, j, k].Items[m].Volume := PlongInt(@(buffer[num7 + (m * 12)]))^;
+                    GameMap[i, j, k].Items[m].Count := PlongInt(@(buffer[(num7 + 4) + (m * 12)]))^;
+                    GameMap[i, j, k].Items[m].ID := PlongInt(@(buffer[(num7 + 8) + (m * 12)]))^;
+
+//                    showmessage(inttostr(PlongInt(@(buffer[(num7 + 8) + (m * 12)]))^)+' '+inttostr(m)); //5396512
+                    if ((m < GameMap[i, j, k].Count) and ((GameMap[i, j, k].Items[m].ID = $63) and (GameMap[i, j, k].Items[m].Count = iD))) then
+                        playerMapIndex := ((((i * 14) * $12) + (j * $12)) + k);
+                    inc(m)
+                end;
+                inc(k)
+            end;
+            inc(j)
+        end;
+        inc(i)
+    end
+    except
+        on exception: Exception do
+            showMessage(Concat('GUI:Map:Update: ', exception.Message))
+    end;
+end;
+
+
 
 
 end.

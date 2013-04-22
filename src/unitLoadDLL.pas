@@ -47,8 +47,8 @@ begin
       @delDisplay := GetProcAddress(DllHandle,'delDisplay');
 
     end
-    else begin
-      MessageDlg('HUD functionality is not available', mtInformation, [mbOK], 0);
+    else begin                     //we will uncomment this once we enable it
+    //  MessageDlg('HUD functionality is not available', mtInformation, [mbOK], 0);
     end;
   end;
   Result := DllHandle <> 0;

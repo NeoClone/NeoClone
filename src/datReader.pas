@@ -18,8 +18,13 @@ type  //there are more in TibiaAPI-->https://code.google.com/p/tibiaapi/source/b
     IsHangableVertical = 524288, IsRotatable = 1048576,
     IsLightSource = 2097152, Floorchange = 4194304, IsShifted = 8388608,
     HasHeight = 16777216, IsLayer = 33554432, IsIdleAnimation = 67108864,
-    HasAutoMapColor = 134217728, HasHelpLens = 268435456, Unknown = 536870912,
-    IgnoreStackpos = 1073741824);
+    HasAutoMapColor = 134217728, HasHelpLens = 268435456, FullBank = 1073741824,
+    Unknown = 536870912, IgnoreStackpos = 1073741824,
+               //Help section in TibiaAPI
+    IsLadder = $44C, IsSewer = $44D, IsDoor = $450, IsDoorWithLock = $451,
+    IsRopeSpot = $44E, IsSwitch = $44F, IsStairs = $452, IsMailbox = $453,
+    IsDepot = $454, IsTrash = $455, IsHole = $456, HasSpecialDescription = $457,
+    IsReadOnly = $458);
 
 type
   Item= record
