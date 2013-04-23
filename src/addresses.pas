@@ -29,12 +29,16 @@ const
             ClientHeight = 32;
 
 
-
+                                        {
   // dialog
   dialogPointer = $3AC5D0; // 9.44 // if value = 0 then "no dialog opened"  // 0x40, 0x24 - name
     contextMenuItemName = 36;
     contextMenuItemHeight = 19;
-    contextMenuSeparatorHeight = 8;
+    contextMenuSeparatorHeight = 8;    }
+  Dialog = $3C8FCC;            //9.85
+    //12-->  Right click (also 1= left pressed; 2= right pressed)
+    //11-->  normal menu        if = 11 then read Title name;
+    DialogPointer = $3BF82C; // + 0x54 = name
 
   // containers
   ContainersAddr = $40958c; // 9.83

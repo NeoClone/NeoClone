@@ -118,9 +118,6 @@ var
   pipeServer: TPBPipeServer;
   pipeClient: TPBPipeClient;
 
-  Player: TPlayer;
-  Equipment: TGUIEquipment;
-  GameWindow: TGameWindow;
   ADDR_BASE: pointer;          //if we declare this here we will be able
   Ping: integer = 0;              //to use it aaaaanywhere :DD:D:D
 
@@ -160,7 +157,7 @@ end;
 function TMain.getPing(): integer;
 
 begin
-if player.OnLine then        //each 10sec we check if player online
+if gui.player.OnLine then        //each 10sec we check if player online
   begin                         //if we are logged we take the ping
   Ping := Memory.ReadInteger(Integer(ADDR_BASE) + addresses.Ping);
   end                           //else we OVERWRITE that value to 0, cause the address
@@ -195,7 +192,7 @@ var
 pid, res: integer;
 begin
   Main.THand := findwindow( 'tibiaclient', nil );
-  GetWindowThreadProcessId(Main.THand, @pid);         //here I should add the MC support: something like "write the PID you took in this .txt, if you open a new bot client check first the .txt so you know which PID you CAN'T take"
+  GetWindowThreadProcessId(Main.THand, @pid);         //here I should add the MC support: something like "write the PID you took in this .txt, if you open a new bot client check first the .txt so you know which PID you CAN'T take" ; or look first for the Tibia window which is maximized, not minimized
   ADDR_BASE := Memory.GetModuleBaseAddress(pid, 'Tibia.exe');
 
   Main.TProc := OpenProcess(PROCESS_ALL_ACCESS, False, pid);
@@ -230,7 +227,7 @@ loadTibia();    //find window etc...
   Memory := TMemory.Create;
   GUI := TGUI.Create;
 
-  TibiaHotKey := TTibiaHotKey.Create;
+//  TibiaHotKey := TTibiaHotKey.Create;
   LuaScript := TLuaScripter.Create( true ); // auto register
   EvtQueue := TEventQueue.Create();
 
@@ -315,16 +312,13 @@ var
   t,tt: TTile;
   l: TLocation;
     chattext,ss: string;
-  Hotkey: TTibiaHotkey;
 hp: integer;
-containers: Tcontainers;
-CD: TCooldown;
   r: TRect;
-  chat:TChat;
-map: TMap;
 begin
-map.Update;
+Gui.Map.Update;
+showmessage(inttostr(Gui.Map.GameMap[0,0,0].Items[0].Id));
 
+//   if gui.Cooldown.canCast('Exura') then showmessage('asdf');
 // showmessage(booltostr(getItem(3502,isDepot).Flag));     //3502 isDepot
 //player.AntiIdle();
 //if CD.canCast('exevo vis hur') then
@@ -466,9 +460,9 @@ begin
   //  busc:= hotkey.find('hola');
 
 
-    if Player.OnLine() then
+    if gui.Player.OnLine() then
     begin
-      Sname:= Player.Name();    //write name
+      Sname:= gui.Player.Name();    //write name
      // Showmessage(Sname);
      Caption:= 'NeoClone v1.0 - ' + Sname;
      TrayIcon1.Hint:= 'NeoClone v1.0 - ' + Sname;

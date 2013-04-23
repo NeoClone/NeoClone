@@ -7,7 +7,7 @@ uses Memory, Types,
   Dialogs, StdCtrls, containers, chat, gamewindow, player, contextmenus, addresses;
 
 type
-  TGUIEquipment = class
+  TEquipment = class
   private
     function GetEquipmentMinimized: Boolean;
     function GetEquipmentPos: TPoint;
@@ -43,7 +43,7 @@ implementation
 
 uses Unit1;
 
-function TGUIEquipment.GetEquipmentMinimized: Boolean;
+function TEquipment.GetEquipmentMinimized: Boolean;
 var
   one: Integer;
 begin
@@ -57,7 +57,7 @@ begin
   end;
 end;
 
-function TGUIEquipment.GetEquipmentPos: TPoint;
+function TEquipment.GetEquipmentPos: TPoint;
 var
   Res: TPoint;
   one: Integer;
@@ -86,7 +86,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetAmuletPos: TPoint;
+function TEquipment.GetAmuletPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -96,7 +96,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetHelmetPos: TPoint;
+function TEquipment.GetHelmetPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -106,7 +106,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetBackpackPos: TPoint;
+function TEquipment.GetBackpackPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -116,7 +116,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetRHandPos: TPoint;
+function TEquipment.GetRHandPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -126,7 +126,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetArmorPos: TPoint;
+function TEquipment.GetArmorPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -136,7 +136,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetLHandPos: TPoint;
+function TEquipment.GetLHandPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -146,7 +146,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetRingPos: TPoint;
+function TEquipment.GetRingPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -156,7 +156,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetLegsPos: TPoint;
+function TEquipment.GetLegsPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -166,7 +166,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetArrowPos: TPoint;
+function TEquipment.GetArrowPos: TPoint;
 var
   Res: TPoint;
 begin
@@ -176,7 +176,7 @@ begin
   Result := Res;
 end;
 
-function TGUIEquipment.GetBootsPos: TPoint;
+function TEquipment.GetBootsPos: TPoint;
 var
   Res: TPoint;
 begin

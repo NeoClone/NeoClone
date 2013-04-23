@@ -5,19 +5,21 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, containers, chat, gamewindow, player, contextmenus, cooldown,
-   addresses, equipment;
+   addresses, equipment, map, hotkey;
 
 type
   TGUI = class
-  private
-
+  private                                 //Declaring everything this way we only have to
+                                          //do this to get info "gui.map.Update" for example
+    FMap: TMap;
+    FCooldown: TCooldown;
     FContainers: TContainers;
     FChat: TChat;
     FGameWindow: TGameWindow;
     FPlayer: TPlayer;
     FContextMenu: TContextMenu;
-    FCooldown: TCooldown;
-    FEquipment: TGUIEquipment;
+    FEquipment: TEquipment;
+    FTibiaHotKey: TTibiaHotkey;
 
     FServerCount: array of TItem;
     function findServerCount( id: integer ): integer;
@@ -47,11 +49,15 @@ type
     function ground( x,y,z: integer ): string;
     function groundToLocation( location: string ): TLocation;
 
+    property Map: TMap read FMap;
+    property CoolDown: TCoolDown read FCoolDown;
     property Containers: TContainers read FContainers;
     property Chat: TChat read FChat;
     property GameWindow: TGameWindow read FGameWindow;
     property Player: TPlayer read FPlayer;
     property ContextMenu: TContextMenu read FContextMenu;
+    property Equipment: TEquipment read FEquipment;
+    property TibiaHotKey: TTibiaHotKey read FTibiaHotKey;
 
   published
     constructor Create; overload;
@@ -66,22 +72,28 @@ uses
 constructor TGUI.Create;
 begin
   inherited;
-
+  FMap := TMap.Create;
+  FCoolDown := TCooldown.Create;
   FContainers := TContainers.Create;
   FChat := TChat.Create;
   FGameWindow := TGameWindow.Create;
   FPlayer := TPlayer.Create;
   FContextMenu := TContextMenu.Create;
+  FEquipment := TEquipment.Create;
+  FTibiaHotKey := TTibiaHotKey.Create;
 end;
 
 destructor TGUI.Destroy;
 begin
+  FMap.Free;
+  FCoolDown.Free;
   FContainers.Free;
   FChat.Free;
   FGameWindow.Free;
   FPlayer.Free;
   FContextMenu.Free;
-
+  FEquipment.Free;
+  FTibiaHotKey.Free;
   inherited;
 end;
 

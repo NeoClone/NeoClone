@@ -11,11 +11,12 @@ type
   private
 
   public
-    function getSize(): TRect;
+//    function getSize(): TRect;
     function isMenu(): boolean;
-    function itemRect( name: string ): TRect;
+    function Name(): string;
+//    function itemRect( name: string ): TRect;
 
-    function contextMenu( menuItem: string; itemId: integer; locationFrom: string; index: integer = 0 ): boolean;
+//    function contextMenu( menuItem: string; itemId: integer; locationFrom: string; index: integer = 0 ): boolean;
   end;
 
 implementation
@@ -23,6 +24,33 @@ implementation
 uses
   unit1;
 
+
+function TContextMenu.isMenu(): boolean;
+var
+value: integer;
+begin
+  result:= False;
+  value:= Memory.ReadInteger(Integer(ADDR_BASE) +  Addresses.Dialog);
+   if (value = 12) or (value = 11) then
+      result :=  True;
+end;
+
+function TContextMenu.Name(): string;
+var
+value: integer;
+begin
+  result:= '';
+  if gui.ContextMenu.isMenu then  //if there is a Menu opened
+    begin
+      value:= Memory.ReadInteger(Integer(ADDR_BASE) +  Addresses.Dialog);
+      if value = 11 then    //only take name if is NOT right click menu (ctrl+R.click also)
+        begin
+        value:= Memory.ReadInteger(Integer(ADDR_BASE) +  Addresses.DialogPointer);
+        result:= Memory.ReadString(value + $54);
+        end;
+    end;
+end;
+                          {
 function TContextMenu.getSize(): TRect;
 var
   addr: integer;
@@ -73,5 +101,5 @@ function TContextMenu.contextMenu( menuItem: string; itemId: integer; locationFr
 begin
 
 end;
-
+      }
 end.

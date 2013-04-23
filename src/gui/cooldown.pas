@@ -43,7 +43,7 @@ CategorySpecialTimeStart,CategorySpecialTimeEnd,
 CoolDownID,CooldownTimeStart,CooldownTimeEnd: integer;
 CoolDownCategory : string;
 begin
-if not player.OnLine then exit; //if we aren't logged it could crash!
+if not gui.player.OnLine then exit; //if we aren't logged it could crash!
 
     Tibiatime := Memory.ReadInteger(Integer(ADDR_BASE) + clientTibiaTime);
     num := Memory.ReadInteger(Integer(ADDR_BASE) + coolDownCategoryStart);
