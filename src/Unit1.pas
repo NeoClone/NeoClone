@@ -315,8 +315,11 @@ var
 hp: integer;
   r: TRect;
 begin
-Gui.Map.Update;
-showmessage(inttostr(Gui.Map.GameMap[0,0,0].Items[0].Id));
+//showmessage(inttostr(Gui.Map.tileground(32344, 31828,7).Items[i].Id));
+showmessage(inttostr(gui.map.toptileitem(32344, 31828,7)));
+//showmessage(inttostr(gui.player.getLocation.x)+' '+inttostr(gui.player.getLocation.y))
+//showmessage(booltostr(getItem(870,TopOrder1).Flag));
+//showmessage(inttostr(Gui.Map.TileGround(32350,32220,7, true).Count));
 
 //   if gui.Cooldown.canCast('Exura') then showmessage('asdf');
 // showmessage(booltostr(getItem(3502,isDepot).Flag));     //3502 isDepot

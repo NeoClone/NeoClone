@@ -4,34 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Addresses;
+  Dialogs, StdCtrls, Addresses, datReader;
 
 type
 
   TMap = class
 
-    GameMap : array[0..7,0..13,0..$11] of record
-      ID: LongWord;
-      Count: integer;
-      Order1: integer;
-      Order2: integer;
-      Order3: integer;
-      Order4: integer;
-      Order5: integer;
-      Order6: integer;
-      Order7: integer;
-      Order8: integer;
-      Order9: integer;
-      Order10: integer;
-
-      Items: array[0..9] of record
-        Index: integer;
-        Volume: integer;
-        Count: integer;
-        Id: integer;           //it bugs because of this structure....
-      end;
-
-    end;
+    GameMap : array[0..7,0..13,0..$11] of TTileMap;
 
   public
 
@@ -54,11 +33,12 @@ type
     function toTileNumber( local: TLocation ): integer;
 
     procedure Update;
+    function TileGround(X: Integer; Y: Integer; Z: Integer; update: boolean= true): TTileMap;
+    function TopTileItem(X: Integer; Y: Integer; Z: Integer; update: boolean=true): Integer;
   end;
-//var
 
-//  GameMap: array[0..8,0..14,0..$12] of TMap.TGameMap;
-  //Items: array[0..MaxInt] of array[0..8,0..14,0..$12] of TMap.TGameMap.TItems;
+var
+playerMapIndex: integer=0;
 
 implementation
 
@@ -330,20 +310,21 @@ end;
 
 procedure TMap.Update;
 var
-iD, num2,i,j,k,m,num7,num8,playerMapIndex: integer;
+iD, num2,i,j,k,m,num7,num8: integer;
 buffer: Tbytes;
 begin               try
+  map.playerMapIndex:=0;
+  FillChar(GameMap,SizeOf(GameMap),0);    //we reset the array
     iD := gui.Player.ID;
     num2 := ((Memory.ReadInteger(Integer(ADDR_BASE) + addresses.mapStart)) - 4);
     i := 0;
     while ((i < 8)) do
-    begin                                                      //not sure if $a560 is right
+    begin
         buffer := Memory.Readbytes((num2 + (((i * 14) * $12) * $a8)), $a560);
 //        for i := 0 to $a560 do
 //               showmessage(inttostr( buffer[$2c + (num8 * addresses.mapStep)]));
         Sleep(1);
         j := 0;
-//        showmessage(inttostr(i));
         while ((j < 14)) do
         begin
             k := 0;
@@ -363,16 +344,18 @@ begin               try
                 GameMap[i, j, k].Order9 := PlongInt(@(buffer[(8*4 + addresses.distMapOrder) + (num8 * addresses.mapStep)]))^;
                 GameMap[i, j, k].Order10 := PlongInt(@(buffer[(9*4 + addresses.distMapOrder) + (num8 * addresses.mapStep)]))^;
                 num7 := (($2c + (num8 * addresses.mapStep)) + 4);
-                m := 0;
-                while ((m < 10)) do
+                m := 0;            //if there aren't any more items stop, or the cache will trick us!!! ;]
+                while ((m < 10) and (m < GameMap[i, j, k].Count)) do
                 begin
                     GameMap[i, j, k].Items[m].Index := m;
                     GameMap[i, j, k].Items[m].Volume := PlongInt(@(buffer[(addresses.distMapItemVolume + num7) + (m * 12)]))^;
                     GameMap[i, j, k].Items[m].Count := PlongInt(@(buffer[(addresses.distMapItemCount + num7) + (m * 12)]))^;
                     GameMap[i, j, k].Items[m].ID := PlongInt(@(buffer[(addresses.distMapItemID + num7) + (m * 12)]))^;
-
+                                            //first ID= ground(and unmovable items above it)/ next ID= creatures/ then all items
                     if ((m < GameMap[i, j, k].Count) and ((GameMap[i, j, k].Items[m].ID = $63) and (GameMap[i, j, k].Items[m].Count = iD))) then
-                        playerMapIndex := ((((i * 14) * $12) + (j * $12)) + k);
+                        begin
+                        map.playerMapIndex := ((((i * 14) * $12) + (j * $12)) + k);
+                        end;
                     inc(m)
                 end;
                 inc(k)
@@ -386,6 +369,83 @@ begin               try
             showMessage(Concat('GUI:Map:Update: ', exception.Message))
     end;
 end;
+
+function TMap.TileGround(X: Integer; Y: Integer; Z: Integer; update: boolean= true): TTileMap;
+var
+num,num1,num2,num3,num4,num5,num6,num7,num8,num9,num10:integer;
+Tile: TTileMap;
+begin
+    if (update) then
+    begin
+        Gui.Map.Update;
+        Sleep(1)
+    end;                           //252
+    num7 := (map.playerMapIndex div $fc);
+    num4 := ((map.playerMapIndex - ((num7 * 14) * $12)) div $12);
+    num6 := ((map.playerMapIndex - ((num7 * 14) * $12)) - (num4 * $12));
+    num8 := (Y - Gui.Player.getLocation.y);
+    num9 := (X - Gui.Player.getLocation.x);
+    num1 := (((map.playerMapIndex + ((0 * 14) * $12)) + (num8 * $12)) + num9);
+    num2 := num7;
+    num3 := 0;
+    num := 0;
+    num5 := (Y - Gui.Player.getLocation.y);
+    num10 := (X - Gui.Player.getLocation.x);
+    num := (num6 + num10);
+    if (num < 0) then
+        num := ($12 + num)
+    else
+        if (num > $11) then
+            dec(num, $12);
+        if (num = $11) then
+            ;
+        if (num6 = $11) then
+            ;
+        inc(num3, (num4 + num5));
+        if (num3 > 13) then
+            dec(num3, 14);
+        if (num3 < 0) then
+            num3 := (14 + num3);
+        if (((num2 >= 0) and (num3 >= 0)) and (num >= 0)) then
+            Tile := Gui.Map.GameMap[num2, num3, num];
+        begin
+            Result := Tile;
+            exit
+        end
+    end;
+
+function TMap.TopTileItem(X: Integer; Y: Integer; Z: Integer; update: boolean=true): Integer;
+var
+j,i: integer;
+XMap: TTileMap;
+begin
+  if (update) then
+    Xmap := Gui.Map.TileGround(X, Y, Z, true)
+  else
+    Xmap := Gui.Map.TileGround(X, Y, Z, false);
+
+  i:= 0 ;
+  j:= Xmap.Items[i].Id;
+
+while j<>0 do
+begin   //this is to get those items which alter ID order (check map.update--> Items.ID)
+  if (not (getItem(j, TopOrder1).Flag or getItem(j, TopOrder2).Flag or getItem(j, TopOrder3).Flag))
+      and (j <> $63)   //if there is a creature
+      and (not getItem(j, IsImmovable).Flag) then //if item is always there (ground, map items, etc)
+      begin
+       result:= Xmap.Items[i].Id;
+       exit;    //we got our item, now end the function
+      end
+  else
+      begin
+        inc(i);
+        j:= Xmap.Items[i].Id;
+        z:= 0;
+      end;
+end;
+result:= z;
+end;
+
 
 
 

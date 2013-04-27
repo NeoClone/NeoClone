@@ -3,7 +3,7 @@ object Main: TMain
   Top = 0
   BorderStyle = bsToolWindow
   Caption = 'NeoClone v1.0'
-  ClientHeight = 93
+  ClientHeight = 153
   ClientWidth = 241
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

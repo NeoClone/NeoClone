@@ -9,17 +9,18 @@ uses
 
 
 type  //there are more in TibiaAPI-->https://code.google.com/p/tibiaapi/source/browse/branches/tibiaapi-current/tags/tibiaapi-971/tibiaapi/Addresses/DatItemAddresses.cs
+                                      //ID(4537)  ID(1296)
   TFlag = (None = 0, IsGround = 1, TopOrder1 = 2, TopOrder2 = 4, TopOrder3 = 8,
     IsContainer = 16, IsStackable = 32, IsCorpse = 64, IsUsable = 128,
     IsWritable = 256, IsReadable = 512, IsFluidContainer = 1024,
     IsSplash = 2048, Blocking = 4096, IsImmovable = 8192,
     BlocksMissiles = 16384, BlocksPath = 32768, IsPickupable = 65536,
     IsHangable = 131072, IsHangableHorizontal = 262144,
-    IsHangableVertical = 524288, IsRotatable = 1048576,
+    IsHangableVertical = 524288, IsRotatable = 1048576, //one more here?
     IsLightSource = 2097152, Floorchange = 4194304, IsShifted = 8388608,
     HasHeight = 16777216, IsLayer = 33554432, IsIdleAnimation = 67108864,
-    HasAutoMapColor = 134217728, HasHelpLens = 268435456, FullBank = 1073741824,
-    Unknown = 536870912, IgnoreStackpos = 1073741824,
+    HasAutoMapColor = 134217728, HasHelpLens = 268435456,
+    Unknown = 536870912, FullBank = 1073741824, IgnoreLook = 2147483648,
                //Help section in TibiaAPI
     IsLadder = $44C, IsSewer = $44D, IsDoor = $450, IsDoorWithLock = $451,
     IsRopeSpot = $44E, IsSwitch = $44F, IsStairs = $452, IsMailbox = $453,

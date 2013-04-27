@@ -302,13 +302,13 @@ adrSelectedCharIndex=&H7BCD10
        playerWhiteSquare = 0;
        playerXGo = $58AEA0;
        playerXor = $3BF1F0;//9.85 same 9.84;
-       playerXPos = $58AEA8;
+       playerYPos = $58AEAC;
+       playerXPos = playerYPos-4;
        playerYGo = $578e98;
-       playerYPos = playerXPos -4;
        playerZGo = 0;
-       playerZPos = playerXPos -8;
+       playerZPos = playerYPos +4;
        TibiaExpHour = $407a8c;
-       Version = $5b06e5;
+       Version = $5B340D;  //9.85
        vipStart = $5501B8;//9.85 same 9.84;
        vipLenght = vipStart +4;
 
@@ -397,6 +397,29 @@ type
     data: integer;
     dataEx: integer;
   end;
+
+  TTileMap = record
+      ID: LongWord;
+      Count: integer;
+      Order1: integer;
+      Order2: integer;
+      Order3: integer;
+      Order4: integer;
+      Order5: integer;
+      Order6: integer;
+      Order7: integer;
+      Order8: integer;
+      Order9: integer;
+      Order10: integer;
+
+      Items: array[0..9] of record
+        Index: integer;
+        Volume: integer;
+        Count: integer;
+        Id: integer;
+      end;
+  end;
+
 
   TTile = record
     itemCount: integer;
