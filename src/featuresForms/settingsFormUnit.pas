@@ -93,10 +93,13 @@ type
 procedure SETsetting( path,value: string );
 function getsetting( path: string ): string;
 
+procedure getWalkableIds();
+
   end;
 
 var
   settingsForm: TsettingsForm;
+  strArray: Tstrings;
 
 implementation
 
@@ -1321,6 +1324,46 @@ begin
       EditNode(HitInfo.HitNode, 1);
     end;
   end;
+end;
+
+procedure TsettingsForm.getWalkableIds();
+var
+WalkableIds: string;
+  AValidChars: TSysCharSet;
+  s: AnsiString;
+  l,j,ValueMin, ValueMax, Counter: integer;
+begin
+
+strArray := TStringList.Create;   //we initialize (load + clean) the list
+WalkableIds:= settings.Root.Find('sCavebot').Find('sPathfinding').Find('uWalkableIds').Text;
+                 //convert the string to TsysCharSet (needed to do the ExtractStrings())
+        AValidChars := [];
+        s := '&#xd;';
+        for l := 1 to Length(s) do
+          Include(AValidChars, s[l]);
+                                       //we add them to the array
+        ExtractStrings(AValidChars, [],PChar(WalkableIds),strArray);
+
+     //what happens if there is something like "9898-9999"? ... let's parse it
+  Counter:= strArray.Count;    //we reset it
+  j:= 0;                       //same ^
+    while (j < (Counter)) do  //for each value of the array
+    begin
+                 // only get those values like "9898-9999"
+      if pos('-', strArray[j]) > 0 then
+      begin
+        valueMin:= strtoint(copy(strArray[j],0, pos('-', strArray[j])-1));
+        valueMax:= strtoint(copy(strArray[j], pos('-', strArray[j])+1, Maxint));
+        strArray.Delete(j);  //if we delete than Index we don't have to "inc(j)" cause there is 1 value less!
+        for valueMin := valueMin to valueMax do
+        begin
+          strArray.Add(inttostr(valueMin));
+        end;
+      end
+      else
+      inc(j);   //else (if we haven't deleted that Index) we inc(j)
+    end;
+
 end;
 
 end.

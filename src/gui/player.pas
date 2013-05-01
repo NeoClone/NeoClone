@@ -774,6 +774,7 @@ var
 str: string;
 num,num2:integer;
 flag: boolean;
+stri: string;
 begin
     flag := false;
     try
@@ -784,8 +785,8 @@ begin
     except
         on exception: Exception do
         begin
-            str := 'Game:Player:IsVisibleXYZ'; //so we know what the fck u did, dumbass
-      log.AddLog(colorRed,Concat(str, ' - ', exception.ToString),true);
+            stri := 'Game:Player:IsVisibleXYZ'; //so we know what the fck u did, dumbass
+            log.AddLog(colorRed,Concat(stri, ' - ', exception.ToString),true);
         end;
     end;
     begin

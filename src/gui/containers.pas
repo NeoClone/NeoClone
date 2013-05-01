@@ -147,6 +147,7 @@ var
   canContinue: boolean;
 player: Tplayer;
 begin
+if not Gui.Player.OnLine then exit;
   result := false;
   if uselocation = '' then uselocation:= 'Self';
 

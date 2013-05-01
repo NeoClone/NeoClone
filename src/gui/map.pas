@@ -4,13 +4,14 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Addresses, datReader;
+  Dialogs, StdCtrls, Addresses, datReader, Xml.VerySimple, log, settingsFormUnit,
+  Math, Player;
 
 type
 
   TMap = class
 
-    GameMap : array[0..7,0..13,0..$11] of TTileMap;
+    GameMap: array[0..7,0..13,0..$11] of TTileMap;
 
   public
 
@@ -35,10 +36,20 @@ type
     procedure Update;
     function TileGround(X: Integer; Y: Integer; Z: Integer; update: boolean= true): TTileMap;
     function TopTileItem(X: Integer; Y: Integer; Z: Integer; update: boolean=true): Integer;
+    function IsWalkeable(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+    function IsTrapped(update: boolean= true): boolean;
+    function IsShootable(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+    function IsPassable(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+    function IsItemOnTile(ID: Integer; X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+    function IsForceUse(X: Integer; Y: Integer; Z: Integer): boolean;
+    function IsCreatureOnTile(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+    function FindTilePlayer(): Integer;
   end;
 
 var
 playerMapIndex: integer=0;
+  tree: TsettingsForm;
+//strArray: self.manager_0.Cavebot.WalkableIds.Split(New(array[1] of Char, ( ( ';' );
 
 implementation
 
@@ -312,6 +323,7 @@ procedure TMap.Update;
 var
 iD, num2,i,j,k,m,num7,num8: integer;
 buffer: Tbytes;
+stri: string;
 begin               try
   map.playerMapIndex:=0;
   FillChar(GameMap,SizeOf(GameMap),0);    //we reset the array
@@ -366,7 +378,10 @@ begin               try
     end
     except
         on exception: Exception do
-            showMessage(Concat('GUI:Map:Update: ', exception.Message))
+          begin
+            stri := 'Gui:Map:Update ';
+            log.AddLog(colorRed,Concat(stri, ' - ', exception.ToString),true);
+          end;
     end;
 end;
 
@@ -419,10 +434,7 @@ var
 j,i: integer;
 XMap: TTileMap;
 begin
-  if (update) then
-    Xmap := Gui.Map.TileGround(X, Y, Z, true)
-  else
-    Xmap := Gui.Map.TileGround(X, Y, Z, false);
+    Xmap := Gui.Map.TileGround(X, Y, Z, update);
 
   i:= 0 ;
   j:= Xmap.Items[i].Id;
@@ -446,8 +458,501 @@ end;
 result:= z;
 end;
 
+function TMap.IsWalkeable(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+var
+flag, flag3, isUnpassable, isAvoid: boolean;
+Xmap: TTileMap;
+i,j, item1: integer;
+begin
+settingsForm.getWalkableIds; //we get the WalkableIDs from list
 
+    flag := true;
+    Xmap := Gui.Map.TileGround(X, Y, Z, update);
+    if (Xmap.Count = 0) then
+        begin
+            Result := false;
+            exit
+        end;
+    i := 1; //first item, not floor
+    while ((i < Xmap.Count)) do
+    begin
+        item1 := Xmap.Items[i].ID;
+        isUnpassable := getItem(item1, Blocking).Flag; //isUnpassable
+        isAvoid := getItem(item1, BlocksPath).Flag;   //isAvoid
+        flag3 := ((Xmap.Items[i].ID = $63) and (Xmap.Items[i].Count <> Gui.Player.ID));
 
+        if (isUnpassable or flag3) then
+            begin
+                Result := false;
+                exit
+            end;
+        if (isAvoid) then
+        begin
+          j := 0;
+              flag:= false;  //we reset this for the avoidable or not
+          while (j < (strArray.Count)) do
+          begin
+                  //checking if is in the list...
+            if (Xmap.Items[i].ID = strtoint(strArray[j])) then
+              begin
+                flag := true;
+                break;
+              end;
+              inc(j)
+          end;
+            
+          if flag = false then   //if we didn't found our ID in the walkableIDs...
+          begin
+              Result := false;
+              exit
+          end; 
+        end;     //end of not isAvoid
+
+        inc(i)
+    end;  //end of while (number of items on tile)
+    
+    begin
+        Result := flag;
+        exit
+    end
+end;
+
+function TMap.IsTrapped(update: boolean= true): boolean;
+var
+flag,flag4,flag6, isUnpassable, isAvoid: boolean;
+num,num2,zPos,i,j,k,item1,m: integer;
+Xmap: TTileMap;
+begin
+    flag := true;
+    num := (Gui.Player.getLocation.X - 1);
+    num2 := (Gui.Player.getLocation.Y - 1);
+    zPos := Gui.Player.getLocation.Z;
+
+    if (update) then
+        Gui.Map.Update;
+
+    settingsForm.getWalkableIds; //we get the WalkableIDs from list
+
+    i := 0;
+    while ((i < 3)) do
+    begin
+        j := 0;
+        while ((j < 3)) do
+        begin
+            Xmap := Gui.Map.TileGround((num + i), (num2 + j), zPos, false);
+            flag4 := false;
+            if (Xmap.Count = 0) then
+                flag4 := true;
+            k := 0;
+            while ((k < Xmap.Count)) do
+            begin
+                item1 := Xmap.Items[k].ID;
+
+                isUnpassable := getItem(item1, Blocking).Flag;
+                isAvoid := getItem(item1, BlocksPath).Flag;
+                flag6 := ((Xmap.Items[k].ID = $63) and (Xmap.Items[k].Count <> Gui.Player.ID));
+                                   //we should add here the IsPassable()
+                if (isUnpassable or flag6) then
+                begin
+                    flag4 := true;
+                    break;
+                end;
+
+                if (isAvoid) then
+                begin
+                    flag4 := true;
+                    m := 0;
+                    while (m < strArray.Count) do  // count = length
+                    begin
+                        if (Xmap.Items[k].ID = strtoint(strArray[m])) then
+                            flag4 := false;
+                        inc(m)
+                    end
+                end;
+                inc(k)
+            end;
+
+            if (((i <> 1) or (j <> 1)) and not flag4) then
+            begin
+                flag := false;
+                begin
+                    Result := false;
+                    exit
+                end
+            end;
+            inc(j)
+        end;
+        inc(i)
+    end;
+    begin
+        Result := flag;
+        exit
+    end
+end;
+
+function TMap.IsShootable(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+var
+flag: boolean;
+max: double;
+XDistance,XSign,num5,YDistance,YSign,num8,num9,num10,zPos,i,j,item1: integer;
+Xmap: TTileMap;
+begin
+
+    if (X > Gui.Player.getLocation.X) then
+    XSign:= 1 else XSign:= -1;
+    if (Y > Gui.Player.getLocation.Y) then
+    YSign:= 1 else YSign:= -1;
+    XDistance := Abs(X - Gui.Player.getLocation.X);
+    YDistance := Abs(Y - Gui.Player.getLocation.Y);
+    max := Sqrt(Sqr(XDistance) + Sqr(YDistance));
+    if (((XDistance > 8) or (YDistance > 5)) or (Z <> Gui.Player.getLocation.Z)) then
+        begin
+            Result := false;
+            exit
+        end;
+    if (update) then
+    begin
+        Gui.Map.Update;
+        Sleep(1)
+    end;
+    i := 1;
+    while (i <= max) do
+    begin
+        num5 := Ceil((i * XDistance) / max) * XSign;  //div
+        num8 := Ceil((i * YDistance) / max) * YSign;  //div
+        num9 := (Gui.Player.getLocation.X + num5);
+        num10 := (Gui.Player.getLocation.Y + num8);
+        zPos := Gui.Player.getLocation.Z;
+        Xmap := Gui.Map.TileGround(num9, num10, zPos, false);
+        if (Xmap.Count = 0) then
+            begin
+                Result := false;
+                exit
+            end;
+        j := 0;
+        while ((j < Xmap.Count)) do
+        begin
+            item1:= Xmap.Items[j].ID;
+            if getItem(item1, BlocksMissiles).Flag then //isUnsight
+            begin
+                    Result := false;
+                    exit
+            end;
+            inc(j)
+        end;
+        inc(i)
+    end;
+    begin
+        Result := true;
+        exit
+    end
+end;
+
+function TMap.IsPassable(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+var
+Xmap: TTileMap;
+i, item1,item1_C: integer;
+flag4, flag5, isUnpassable: boolean;
+begin
+    Xmap := Gui.Map.TileGround(X, Y, Z, update);
+    if (Xmap.Count = 0) then
+        begin
+            Result := false;
+            exit
+        end;
+    i := 0;
+    while ((i < Xmap.Count)) do
+    begin
+        item1:= Xmap.Items[i].ID;
+        item1_C:= Xmap.Items[i].Count;
+        isUnpassable := getItem(item1, Blocking).Flag;
+        flag4 := ((item1 = $63) and (item1_C <> Gui.Player.ID)); //if there is a creature the Item.Count is its ID
+
+        if (Gui.Player.CheckFlag(WithinProtectionZone) or (tree.getsetting('Cavebot/Pathfinding/WalkThroughPlayers') = 'yes')) then
+        begin
+          if flag4 = True then            //is the same as "not flag4"?
+            flag4:= False else flag4:= True   //     ^  I think it should be "flag4:= false"
+        end
+        else flag5:= true;
+                                        // type= monster? idk.. xD
+//        if ((not  flag5) and (Gui.Battlelist.Creature(item1_C).Type <> $40)) then
+//            flag4 := false;          //we will uncomment this once we have the Battlelist
+        if (isUnpassable or flag4) then
+            begin
+                Result := false;
+                exit
+            end;
+        inc(i)
+    end;
+    begin
+        Result := true;
+        exit
+    end
+end;
+
+function TMap.IsItemOnTile(ID: Integer; X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+var
+Xmap: TTileMap;
+Count,i: integer;
+begin
+    Xmap := Gui.Map.TileGround(X, Y, Z, update);
+    Count := Xmap.Count;
+    i := 0;
+    while ((i < Count)) do
+    begin
+        if ((Xmap.Items[i].ID = ID) and (Xmap.Items[i].Count <> Gui.Player.ID)) then
+            begin
+                Result := true;
+                exit
+            end;
+        inc(i)
+    end;
+    begin
+        Result := false;
+        exit
+    end
+end;
+                      //for Corpses (looter) I suppose
+function TMap.IsForceUse(X: Integer; Y: Integer; Z: Integer): boolean;
+var
+Xmap: TTileMap;
+i, item1: integer;
+isForceUse, issContainer: boolean;
+begin
+    Xmap := Gui.Map.TileGround(X, Y, Z, false);
+    i := 0;
+    while ((i < Xmap.Count)) do
+    begin
+        item1 := Xmap.Items[i].ID;
+        isForceUse := getItem(item1, IsCorpse).Flag;
+        issContainer := getItem(item1, IsContainer).Flag;
+        if (not (not isForceUse or issContainer)) then  //isForceUse and not(isContainer), right?
+            begin
+                Result := true;
+                exit
+            end;
+        inc(i)
+    end;
+    begin
+        Result := false;
+        exit
+    end
+end;
+
+function TMap.IsCreatureOnTile(X: Integer; Y: Integer; Z: Integer; update: boolean= true): boolean;
+var
+Xmap: TTileMap;
+Count,i: integer;
+begin
+    Xmap := Gui.Map.TileGround(X, Y, Z, update);
+    Count := Xmap.Count;
+    i := 0;
+    while ((i < Count)) do
+    begin
+        if (Xmap.Items[i].ID = $63) then
+            begin
+                Result := true;
+                exit
+            end;
+        inc(i)
+    end;
+    begin
+        Result := false;
+        exit
+    end
+end;
+
+function TMap.FindTilePlayer(): Integer;
+var
+iD, i,j,k,Count,m: integer;
+begin
+
+  if not gui.Player.OnLine then exit;
+      //not needed gui.map.update? then how do we fill the array?
+    iD := Gui.Player.ID;
+    i := 0;
+    while ((i < 8)) do
+    begin
+        j := 0;
+        while ((j < 14)) do
+        begin
+            k := 0;
+            while ((k < $12)) do
+            begin   //I think we need  "Xmap := Gui.Map.TileGround(X, Y, Z, update);"
+                count := Gui.Map.GameMap[i, j, k].Count;
+                if (count <= 10) then
+                    m := 0;
+                    while ((m < count)) do
+                    begin
+                        if ((Gui.Map.GameMap[i, j, k].Items[m].ID = $63) and (Gui.Map.GameMap[i, j, k].Items[m].Count = iD)) then
+                            begin
+                                Result := ((((i * 14) * $12) + (j * $12)) + k);
+                                exit
+                            end;
+                        inc(m)
+                    end;
+                inc(k)
+            end;
+            inc(j)
+        end;
+        inc(i)
+    end;
+    begin
+        Result := -1;
+        exit
+    end
+end;
 
 
 end.
+                                              {$IFDEF True}
+                //all of this is comented until {$ENDIF}
+
+                public static bool IsShootable(this Location location, Client client)
+{
+    int XSign = (location.X > client.PlayerLocation.X) ? 1 : -1 ;
+    int YSign = (location.Y > client.PlayerLocation.Y) ? 1 : -1;
+    double XDistance = Math.Abs(location.X - client.PlayerLocation.X);
+    double YDistance = Math.Abs(location.Y - client.PlayerLocation.Y);
+    double max = location.Distance();
+    Location check;
+
+    // This checks if location is on viewable screen, someone might to remove that for some reason
+    if (Math.Abs(XDistance) > 8 || Math.Abs(YDistance) > 5)
+    {
+        return false;
+    }
+
+    for (int i = 1; i <= max; i++)
+    {
+        check = client.PlayerLocation.Offset((int)Math.Ceiling(i * XDistance / max) * XSign, (int)Math.Ceiling(i * YDistance / max) * YSign, 0);
+        Tile tile = client.Map.GetTile(check);
+
+        if (tile != null)
+        {
+            if (tile.Ground.GetFlag(Tibia.Addresses.DatItem.Flag.BlocksMissiles))
+            {
+                return false;
+            }
+
+            Item item = tile.Items.FirstOrDefault(tileItem => tileItem.GetFlag(Tibia.Addresses.DatItem.Flag.BlocksMissiles));
+
+            if (item != null)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+------------------------------------------------------------------------------------------
+bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const
+{
+        Position start = fromPos;
+        Position end = toPos;
+
+        int32_t x, y, z;
+        int32_t dx, dy, dz;
+        int32_t sx, sy, sz;
+        int32_t ey, ez;
+
+        dx = abs(start.x - end.x);
+        dy = abs(start.y - end.y);
+        dz = abs(start.z - end.z);
+
+        int32_t max = dx, dir = 0;
+        if(dy > max)
+        {
+                max = dy;
+                dir = 1;
+        }
+
+        if(dz > max)
+        {
+                max = dz;
+                dir = 2;
+        }
+
+        switch(dir)
+        {
+                case 1:
+                        //x -> y
+                        //y -> x
+                        //z -> z
+                        std::swap(start.x, start.y);
+                        std::swap(end.x, end.y);
+                        std::swap(dx, dy);
+                        break;
+                case 2:
+                        //x -> z
+                        //y -> y
+                        //z -> x
+                        std::swap(start.x, start.z);
+                        std::swap(end.x, end.z);
+                        std::swap(dx, dz);
+                        break;
+                default:
+                        //x -> x
+                        //y -> y
+                        //z -> z
+                        break;
+        }
+
+        sx = ((start.x < end.x) ? 1 : -1);
+        sy = ((start.y < end.y) ? 1 : -1);
+        sz = ((start.z < end.z) ? 1 : -1);
+
+        ey = ez = 0;
+        x = start.x;
+        y = start.y;
+        z = start.z;
+
+        int32_t lastrx = x, lastry = y, lastrz = z;
+        for(; x != end.x + sx; x += sx)
+        {
+                int32_t rx, ry, rz;
+                switch(dir)
+                {
+                        case 1:
+                                rx = y; ry = x; rz = z;
+                                break;
+                        case 2:
+                                rx = z; ry = y; rz = x;
+                                break;
+                        default:
+                                rx = x; ry = y; rz = z;
+                                break;
+                }
+
+                if(!(toPos.x == rx && toPos.y == ry && toPos.z == rz) && !(fromPos.x == rx && fromPos.y == ry && fromPos.z == rz))
+                {
+                        if(lastrz != rz && const_cast<Map*>(this)->getTile(lastrx, lastry, std::min(lastrz, rz)))
+                                return false;
+
+                        lastrx = rx; lastry = ry; lastrz = rz;
+                        const Tile* tile = const_cast<Map*>(this)->getTile(rx, ry, rz);
+                        if(tile && tile->hasProperty(BLOCKPROJECTILE))
+                                return false;
+                }
+
+                ey += dy;
+                ez += dz;
+                if(2 * ey >= dx)
+                {
+                        y  += sy;
+                        ey -= dx;
+                }
+
+                if(2 * ez >= dx)
+                {
+                        z  += sz;
+                        ez -= dx;
+                }
+        }
+
+        return true;
+}
+                        //end of commented section
+                            {$ENDIF}

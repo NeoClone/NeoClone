@@ -192,7 +192,7 @@ var
 pid, res: integer;
 begin
   Main.THand := findwindow( 'tibiaclient', nil );
-  GetWindowThreadProcessId(Main.THand, @pid);         //here I should add the MC support: something like "write the PID you took in this .txt, if you open a new bot client check first the .txt so you know which PID you CAN'T take" ; or look first for the Tibia window which is maximized, not minimized
+  GetWindowThreadProcessId(Main.THand, @pid);
   ADDR_BASE := Memory.GetModuleBaseAddress(pid, 'Tibia.exe');
 
   Main.TProc := OpenProcess(PROCESS_ALL_ACCESS, False, pid);
@@ -256,7 +256,7 @@ loadTibia();    //find window etc...
 
         if fileexists( Path + cleanName ) then
         begin
-          // dodac ladowanie pliku xml    -- añadir cargar el archivo xml
+          // add load xml file
           LuaLibs[LuaLibsCount].xmlFile := Path + cleanName;
         end;
 
@@ -315,10 +315,13 @@ var
 hp: integer;
   r: TRect;
 begin
-//showmessage(inttostr(Gui.Map.tileground(32344, 31828,7).Items[i].Id));
-showmessage(inttostr(gui.map.toptileitem(32344, 31828,7)));
+if Gui.Map.IsShootable(32352,31831,7) then
+  showmessage('shottable');
+//showmessage(booltostr(Gui.Map.IsWalkeable(32352,31831,7)));
+//showmessage(inttostr(Gui.Map.tileground(Gui.Player.getLocation.X-1, Gui.Player.getLocation.Y,7).Items[0].Id));
+//showmessage(inttostr(gui.map.toptileitem(32344, 31828,7)));
 //showmessage(inttostr(gui.player.getLocation.x)+' '+inttostr(gui.player.getLocation.y))
-//showmessage(booltostr(getItem(870,TopOrder1).Flag));
+//showmessage(booltostr(getItem(4526,BlocksMissiles).Flag));
 //showmessage(inttostr(Gui.Map.TileGround(32350,32220,7, true).Count));
 
 //   if gui.Cooldown.canCast('Exura') then showmessage('asdf');

@@ -59,6 +59,7 @@ var
   addr,z: integer;
   name: string;
 begin
+ if not Gui.Player.OnLine then exit;
 
   if channel = 'Default' then channel := 'Local Chat';
   if channel = '' then     //for casting and so on :D
