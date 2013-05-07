@@ -11,7 +11,7 @@ type
 
   TPropertyEditLink = class(TInterfacedObject, IVTEditLink)
   private
-    FEdit: array[0..9] of TWinControl;        // One of the property editor classes.
+    FEdit: array[0..7] of TWinControl;        // One of the property editor classes.
     FEditCount: integer;
     FTree: TVirtualStringTree; // A back reference to the tree calling.
     FNode: PVirtualNode;       // The node being edited.
@@ -662,32 +662,6 @@ begin
             Height := Node.NodeHeight;
             Caption := '{ remove }';
             OnClick := settingsForm.deleteItemClick;
-          end;
-        end;
-
-      xdText:                              //Scripts
-        begin
-          FEditCount := 1;
-          FEdit[0] := TEdit.Create(nil);
-          with FEdit[0] as TEdit do
-          begin
-            Visible := False;
-            Parent := Tree;
-            Text := Data.Value;
-            //OnKeyDown := EditKeyDown;
-          end;
-        end;
-
-      xdTextList:                                //WalkableIDs
-        begin
-          FEditCount := 1;
-          FEdit[0] := TEdit.Create(nil);
-          with FEdit[0] as TEdit do
-          begin
-            Visible := False;
-            Parent := Tree;
-            Text := Data.Value;
-            //OnKeyDown := EditKeyDown;
           end;
         end
 

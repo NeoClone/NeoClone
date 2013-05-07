@@ -179,7 +179,7 @@ end;
 
 function TLua.getErrorText(): string;
 begin
-  result := lua_tostring(LuaInstance, 3); // powinno byæ 3 czy 1??
+  result := lua_tostring(LuaInstance, 3); //should be three or one?
 end;
 
 //
