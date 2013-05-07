@@ -17,6 +17,7 @@ type
     function getSize(): TRect;
     function getSize2(): TRect;
     function absoluteToCursor( x,y: integer ): TRect;
+    function map2mouse( x,y,z: integer ): TPoint;
 function GetGameWindow(): TRect;
 
     property Map: TMap read FMap;
@@ -100,8 +101,8 @@ var
 begin
 
   r := getSize();
-  player.X := Memory.ReadInteger(Integer(ADDR_BASE) +  addresses.selfX );
-  player.Y := Memory.ReadInteger(Integer(ADDR_BASE) +  addresses.selfY );
+  player.X := Gui.Player.getLocation.X;
+  player.Y := Gui.Player.getLocation.Y;
 
   tileWidth := round( r.Right / 15 );   // 7 de cada lado + 1 del char
   tileHeight := round( r.Bottom / 11 );   // 5 de cada lado + 1 del char
@@ -117,6 +118,25 @@ begin
   result.Right := tileWidth;
   result.Bottom := tileHeight;
 
+end;
+
+function TGameWindow.map2mouse( x,y,z: integer ): TPoint;
+var
+gLoc: TLocation;
+d,s: TRect;
+begin
+  result.X:=0; result.Y:=0; //we reset them just in case
+
+  gloc := Gui.Player.getLocation();
+             //if not in our visible game window...
+  if (Abs(gLoc.X - X) > 7) or (Abs(gLoc.Y - Y) > 5) or (z <> gLoc.Z) then
+    exit;
+
+  d := GUI.GameWindow.getSize();
+  s := GUI.GameWindow.absoluteToCursor( X, Y );   //Z not needed
+
+  result.X:= d.Left + s.Left + round(s.Right / 2);
+  result.Y:= d.Top  + s.Top  + round(s.Bottom / 2);
 end;
 
 end.

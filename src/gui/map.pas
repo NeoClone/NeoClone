@@ -954,5 +954,179 @@ bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const
 
         return true;
 }
+-------------------------------------------translated to delphi-----------------------------------------
+function TMap.IsShootable(endX: Integer; endY: Integer; endZ: Integer; update: boolean= true): boolean;
+var
+start,fromPos: TLocation;
+X,y,z,dx,dy,dz,sx,sy,sz,ey,ez,
+max,dir, lastrx,lastry, lastrz,
+rx, ry, rz,
+OendX,OendY,OendZ, item1: integer;
+Xmap: TTileMap;
+begin
+        OendX:= endX;    //the toPos (original end x,y,z), which won't change.
+        OendY:= endY;
+        OendZ:= endZ;
+
+        fromPos:= Gui.Player.getLocation;   // the fromPos (original), which won't change.
+        start := fromPos;
+
+//        int32_t x, y, z;
+//        int32_t dx, dy, dz;
+//        int32_t sx, sy, sz;
+//        int32_t ey, ez;
+
+        dx := abs(start.x - endx);
+        dy := abs(start.y - endy);
+        dz := abs(start.z - endz);
+
+        max := dx; dir := 0;
+        if(dy > max)  then
+        begin
+                max := dy;
+                dir := 1;
+        end;
+
+        if(dz > max) then
+        begin
+                max := dz;
+                dir := 2;
+        end;
+
+        Case dir of
+
+                1:
+                  Begin
+                        //x -> y
+                        //y -> x
+                        //z -> z
+//                        std::swap(start.x, start.y);
+                            start.x := start.x xor start.y;
+                            start.y := start.x xor start.y;
+                            start.x := start.x xor start.y;
+
+//                        std::swap(endx, endy);
+                            endx := endx xor endy;
+                            endy := endx xor endy;
+                            endx := endx xor endy;
+
+//                        std::swap(dx, dy);
+                            dx := dx xor dy;
+                            dy := dx xor dy;
+                            dx := dx xor dy;
+//                        break;
+                  End;
+                2:
+                  Begin
+                        //x -> z
+                        //y -> y
+                        //z -> x
+//                        std::swap(start.x, start.z);
+                            start.x := start.x xor start.z;
+                            start.z := start.x xor start.z;
+                            start.x := start.x xor start.z;
+
+//                        std::swap(endx, endz);
+                            endx := endx xor endz;
+                            endz := endx xor endz;
+                            endx := endx xor endz;
+
+//                        std::swap(dx, dz);
+                            dx := dx xor dz;
+                            dz := dx xor dz;
+                            dx := dx xor dz;
+//                        break;
+                  End;
+                0:
+                  Begin
+                        //x -> x
+                        //y -> y
+                        //z -> z
+//                        break;
+                  End;
+        End;
+
+
+//        sx = ((start.x < end.x) ? 1 : -1);
+        if (start.x < endx) then
+        sx:= 1 else sx:= -1;
+
+//        sy = ((start.y < end.y) ? 1 : -1);
+        if (start.y < endy) then
+        sy:= 1 else sy:= -1;
+
+//        sz = ((start.z < end.z) ? 1 : -1);
+        if (start.z < endz) then
+        sz:= 1 else sz:= -1;
+
+        ez := 0;
+        ey := ez;
+        x := start.x;
+        y := start.y;
+        z := start.z;
+
+        lastrx := x; lastry := y; lastrz := z;
+//        for(; x != end.x + sx; x += sx)
+        while (x <> (endx + sx)) do
+        begin
+
+                case dir of
+
+                        1:
+                        begin
+                                rx := y; ry := x; rz := z;
+//                                break;
+                        end;
+                        2:
+                        begin
+                                rx := z; ry := y; rz := x;
+//                                break;
+                        end;
+                        0:
+                        begin
+                                rx := x; ry := y; rz := z;
+//                                break;
+                        end;
+                end;
+
+//                if(!(toPos.x == rx && toPos.y == ry && toPos.z == rz) && !(fromPos.x == rx && fromPos.y == ry && fromPos.z == rz))
+                if ( not((OendX = rx) and (OendY = ry) and (OendZ = rz)) and not((fromPos.x = rx) and (fromPos.y = ry) and (fromPos.Z = rz))) then
+                begin
+                          showmessage('ya');
+//                        if(lastrz != rz && const_cast<Map*>(this)->getTile(lastrx, lastry, std::min(lastrz, rz)))
+                          if ((lastrz <> rz)) then
+                            begin
+                            result:= false;
+                            exit;
+                            end;
+
+                        lastrx := rx; lastry := ry; lastrz := rz;
+//                        const Tile* tile = const_cast<Map*>(this)->getTile(rx, ry, rz);
+                        item1:= gui.map.toptileitem(rx, ry,rz, true);
+                        if getItem(item1, BlocksMissiles).Flag then
+                            begin
+                            result:= false;
+                            exit;
+                            end;
+                end;
+
+                ey := ey + dy;
+                ez := ez + dz;
+                if ((2 * ey) >= dx) then
+                begin
+                        y  := y + sy;
+                        ey := ey - dx;
+                end;
+
+                if ((2 * ez) >= dx) then
+                begin
+                        z  := z + sz;
+                        ez := ez - dx;
+                end;
+          x := x + sx;
+        end;
+
+        result:= true;
+end;
                         //end of commented section
                             {$ENDIF}

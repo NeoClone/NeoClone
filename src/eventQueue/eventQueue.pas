@@ -43,34 +43,32 @@ uses
   unit1;
 
 {
-  Ten sposób zabijania threadu jest totalnie g³upi i powoduje memory leaki...
-  oby to nie przeszkadza³o na d³u¿sz¹ metê...
+   This method of killing is totally g threadu the stupid and causes memory leaks ...
+   This would not prevent the for the long-u ¿s the long run ...
 
-  jak bedzie przeszkadzac, powodowac problemy to oddzielimy eventy na pare threadów
+   as will disturb, cause problems to separate the events for a few threadów
 
-  - leczenie 1 thread
-  - atakowanie 2 thread
-  - lootowanie i skrypty 3 thread...
+   - Treatment with 1 thread
+   - Attacking two thread
+   - Looted and scripts 3 thread ...
 
-  ale to w koniecznosci
+   but it's a necessity
 }
-
 procedure TWatchDog.Execute;
 var
   delCount, item: integer;
 begin
 
   while not Terminated do
-  begin
-    {
-      bo¿e uchroñ nasze systemy. Totalnie g³upie rozwi¹zanie.
-      nierozumiem jak EKX móg³ na takie coœ wpaœæ... przemyœla³ to chocia¿?
+  begin{
+       Save the also because our systems. Totally silly g of Solution.
+       He could not understand how the EKX such wpaœæ something ... the industry although this is?
 
-      oj bêd¹ z tym problemy... mówie Ci bêd¹... wspomnisz me s³owa...
-    }
+       oh the bed of the problems ... I tell you the bed ... my mention of the word ...
+     }
 
-    //sleep(1);
-    // life time czyli jezeli event wykonuje sie za dlugo to zabija thread i tworzy od nowa
+      sleep (1);   //else this it will eat 50% of the CPU
+     // Life time or if the event takes too long to kill the thread and creates anew
     if FQueueExecutor.FRunningEvent then
     begin
       if ( GetTickCount >= (FQueueExecutor.FEvent.startTimeStamp + FQueueExecutor.FEvent.lifeTime)) then
@@ -101,13 +99,13 @@ begin
               end;
             end;
 
-            {
-              chyba da siê to zrobiæ inaczej, np:
-              pobraæ tablice index shuffledDeletion potem
-              z kazdym delete odejmowac -1 do indexu(counta)
+{
+               I think of doing this can be different, for example:
+               retrieve a tables index shuffledDeletion then
+               with each subtract -1 to delete INDEX no (count)
 
-              musze to przemyœleæ
-            }
+               I have this industry
+             }
             delCount := FPriorityQueue.CountShuffledDeletion();
             for i := 0 to delCount-1 do
             begin

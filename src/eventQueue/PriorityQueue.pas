@@ -77,11 +77,11 @@ var
   i: integer;
 begin
 
-  // je¿eli podajemy z³¹ wartoœæ wtedy exit
+  // If the serve of the value then exit the
   if index >= length(FQueue) then exit;
   //if index < 0 then exit;
 
-  // przesuwamy wszystkie obiekty by móc skróciæ tablice
+  // move all objects to be able to shorten the tables
   if index = High(FQueue) then
     SetLength(FQueue, length(FQueue) - 1)
   else

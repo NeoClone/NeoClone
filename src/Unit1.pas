@@ -315,8 +315,9 @@ var
 hp: integer;
   r: TRect;
 begin
-if Gui.Map.IsShootable(32352,31831,7) then
-  showmessage('shottable');
+//if Gui.Map.IsShootable(32352,31831,7) then
+//  showmessage('shottable');
+//Inputer.SendRClickPoint( Gui.GameWindow.map2mouse(32355,32210,7));
 //showmessage(booltostr(Gui.Map.IsWalkeable(32352,31831,7)));
 //showmessage(inttostr(Gui.Map.tileground(Gui.Player.getLocation.X-1, Gui.Player.getLocation.Y,7).Items[0].Id));
 //showmessage(inttostr(gui.map.toptileitem(32344, 31828,7)));
