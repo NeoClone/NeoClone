@@ -4,13 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, XML.VerySimple,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VirtualTrees, XML.VerySimple, Inputer,
   Vcl.StdCtrls, Vcl.Samples.Spin, settingsTemplates, settingsHelper, Vcl.Menus;
 
 type
 
   TPropertyEditLink = class(TInterfacedObject, IVTEditLink)
   private
+    FEdit2: TLabel;
     FEdit: array[0..7] of TWinControl;        // One of the property editor classes.
     FEditCount: integer;
     FTree: TVirtualStringTree; // A back reference to the tree calling.
@@ -24,6 +25,8 @@ type
     function BeginEdit: Boolean; stdcall;
     function CancelEdit: Boolean; stdcall;
     function EndEdit: Boolean; stdcall;
+    procedure EditScript(Sender: TObject);
+    procedure EndEdit2(Sender: TObject;var key: char);
     function GetBounds: TRect; stdcall;
     function PrepareEdit(Tree: TBaseVirtualTree; Node: PVirtualNode; Column: TColumnIndex): Boolean; stdcall;
     procedure ProcessMessage(var Message: TMessage); stdcall;
@@ -113,6 +116,7 @@ uses
 function TsettingsForm.nameToFlagName( name: string; node: PVirtualNode ): string;
 var
   nodeData: ^TTreeData;
+  nodeData2: ^TTreeData;
 begin
 
   nodeData := PropTree.GetNodeData( node );
@@ -171,7 +175,32 @@ begin
 
     xdSubitem:
       begin
+        nodeData2 := PropTree.GetNodeData( node.parent );
+        if nodeData2.name = 'Monsters' then  //if Monsters list
+        begin
+          name:= StringReplace(name,' ','-',[rfReplaceAll]); //we add the "-"
+          if (pos('category',lowercase(nodeData.name)) > 0) then
+           result := 'e' + name +'_8' //eCategory-A_8
+          else
+           result := 'e' + name +'_0' //eMutated-Rat_0
+        end                                 //btw, idk why Neo did it this way lol
+        else
         result := 'e' + name;
+      end;
+
+    xdScript:
+      begin
+        result := 'h' + name;
+      end;
+
+    xdMonster:
+      begin
+        result := 'p' + name;
+      end;
+
+    xdDimension:
+      begin
+        result := 'z' + name;
       end;
 
   end;
@@ -190,7 +219,10 @@ begin
   begin
 
     if assigned( result ) then
+    begin
+//    showmessage(nodeArr[i]);
       result := result.Find( nodeArr[i] )
+    end
     else
       break;
 
@@ -376,6 +408,7 @@ end;
 function TPropertyEditLink.EndEdit: Boolean;
 var
   Data: ^TTreeData;
+  Data2: ^TTreeData;
   P: TPoint;
   Dummy, i: Integer;
   pList: TExplodeArray;
@@ -386,9 +419,23 @@ begin
   GetCursorPos(P);
   P := FTree.ScreenToClient(P);
   Result := FTree.GetNodeAt(P.X, P.Y, True, Dummy) <> FNode;
-
-  // pobieramy liste parentów
+  // Gets the list of Parents
   pList := settingsForm.parentList( FNode );
+  //first we have to replace TreeView names with "spaces" for xml names with "-"
+  for i := 0 to length(pList)-1 do
+    if pos(' ',pList[i]) > 0 then
+      begin
+      pList[i]:= StringReplace(pList[i],' ','-',[rfReplaceAll]);
+      break;
+      end;
+  if (pos('Monsters',pList[length(pList)-2]) > 0) and
+    (pos('_',pList[length(pList)-1]) = 0) then
+      if (pos('category',lowercase(pList[length(pList)-1])) > 0) then
+         pList[length(pList)-1]:= pList[length(pList)-1] +'_8'
+      else
+         pList[length(pList)-1]:= pList[length(pList)-1] +'_0';
+
+  //finish the list of Parents--> xml
   xmlNode := settingsForm.findXmlNode( pList );
 
   if Result then
@@ -396,7 +443,7 @@ begin
 
     Data := FTree.GetNodeData(FNode);
 
-    if FColumn = 1 then
+    if FColumn = 1 then  // Column "Value"
     begin
       case Data.dataType of
 
@@ -413,6 +460,38 @@ begin
         xdComboBox:
           begin
             data.value := (FEdit[0] as TComboBox).Text;
+          end;
+
+        xdText:
+          begin
+            data.value := (FEdit[0] as TEdit).Text;
+          end;
+
+        xdDimension:
+          begin
+            data.value := inttostr((FEdit[0] as TSpinEdit).value);
+            if ((FEdit[0] as TSpinEdit).value < 0) or
+                ((FEdit[1] as TSpinEdit).value < 0)  then
+              data.value:= '0, 0'
+            else
+              data.value := data.value + ', ' + inttostr((FEdit[1] as TSpinEdit).value);
+          end;
+
+        xdMonster:
+          begin
+            data.value := (FEdit[0] as TEdit).Text;
+            if (data.name = 'Name') and (data.value <> '') then //if we wrote a Name
+              begin             //let's update the Monster Node
+                xmlNode.Parent.NodeName := StringReplace( 'e' + data.value, ' ', '-', [rfReplaceAll] );
+                 if pos('category',lowercase(data.value)) > 0 then
+                    xmlNode.Parent.NodeName:= xmlNode.Parent.NodeName + '_8' //sometiems _4, wtf?
+                 else
+                    xmlNode.Parent.NodeName:= xmlNode.Parent.NodeName + '_0';
+
+                Data2 := FTree.GetNodeData(FNode.Parent);
+                Data2.name := data.value;
+                xmlNode.Text := data.value;
+              end;
           end;
 
         xdRange:
@@ -465,18 +544,37 @@ begin
           end;
 
       end;
+    xmlNode.Text := data.value; // copy to the xml the data from "Value" column
     end
-    else
+    else           //Column "Properties" (changing names, etc)
     begin
       data.name := (FEdit[0] as TEdit).Text;
       xmlNode.NodeName := StringReplace( 'e' + data.name, ' ', '-', [rfReplaceAll] );
-    end;
+      if pos('Monsters',pList[length(pList)-2]) > 0 then  //if is from Monsters list
+        begin
+          if pos('category',lowercase(data.name)) > 0 then
+            xmlNode.NodeName:= xmlNode.NodeName + '_8'
+          else
+            xmlNode.NodeName:= xmlNode.NodeName + '_0';
+//           showmessage(xmlNode.NodeName);
+        end;
 
-    xmlNode.Text := data.value;
-
+    xmlNode.Text := '';   // don't copy nothing cause we are editing a Node name!
+    end;                   // like "<eNewRule1>xmlNode.text" == "<eNewRule1>"
     for i := 0 to FEditCount-1 do
       FEdit[i].Hide;
   end;
+end;
+
+procedure TPropertyEditLink.EditScript(Sender: TObject);
+//var
+//  Data: ^TTreeData;
+//  P: TPoint;
+//  Dummy, i: Integer;
+//  pList: TExplodeArray;
+//  xmlNode: TXmlNode;
+begin
+   showmessage('asdf');
 end;
 
 function TPropertyEditLink.GetBounds: TRect;
@@ -504,7 +602,7 @@ begin
 
   Data := FTree.GetNodeData(Node);
 
-  if Column = 1 then
+  if Column = 1 then   //If column= "Value"
   begin
     case Data.dataType of
 
@@ -534,6 +632,33 @@ begin
             Items.Add('no');
             Items.Add('yes');
             ItemIndex := FindIndex( (FEdit[0] as TCombobox), Data.value );
+          end;
+        end;
+
+      xdDimension:
+        begin
+          tmp[0] := copy(Data.value, 1, pos(',', Data.value) - 1);
+          tmp[1] := copy(Data.value, pos(', ', Data.value) + 2, Maxint);
+
+          FEditCount := 2;
+          FEdit[0] := TSpinEdit.Create(nil);
+          with FEdit[0] as TSpinEdit do
+          begin
+            Visible := False;
+            Parent := Tree;
+            Text := tmp[0];
+            width := 60;
+            OnChange := settingsForm.EditSpinChange;
+          end;
+
+          FEdit[1] := TSpinEdit.Create(nil);
+          with FEdit[1] as TSpinEdit do
+          begin
+            Visible := False;
+            Parent := Tree;
+            Text := tmp[1];
+            width := 60;
+            OnChange := settingsForm.EditSpinChange;
           end;
         end;
 
@@ -650,7 +775,30 @@ begin
             OnClick := settingsForm.newItemClick;
           end;
         end;
-                                  //we have to add "case" String: for scripts etc
+
+      xdScript:             //we have to change it, so it opens a Script Editor
+        begin
+          FEditCount := 1;
+          FEdit2 := TLabel.Create(nil);
+          with FEdit2 as TLabel do
+          begin
+            Visible := False;
+            Parent := Tree;
+          end;
+        end;
+
+      xdMonster:
+        begin
+          FEditCount := 1;
+          FEdit[0] := TEdit.Create(nil);
+          with FEdit[0] as TEdit do
+          begin
+            Visible := False;
+            Parent := Tree;
+            Text := Data.Value;
+          end;
+        end;
+
       xdSubitem:
         begin
           FEditCount := 1;
@@ -680,7 +828,7 @@ begin
 
     end;
   end
-  else
+  else  //if column = "Properties"--> so we can change the name of htkeys,healrules,etc :D
   begin
     FEditCount := 1;
     FEdit[0] := TEdit.Create(nil);
@@ -689,7 +837,7 @@ begin
       Visible := False;
       Parent := Tree;
       Text := Data.name;
-      //OnKeyDown := EditKeyDown;
+//      OnKeyPRess := EndEdit2; //EndEdit2 is almost finished
     end;
   end;
 
@@ -760,7 +908,7 @@ Path: string;
 begin
   Path := IncludeTrailingPathDelimiter( extractFilePath(paramstr(0)));
 
-  OpenDlg := TOpenDialog.Create(Self);
+  OpenDlg := TSaveDialog.Create(Self);
     OpenDlg.InitialDir:= Path + 'Scripts\';
     OpenDlg.Filter:= 'Scripts (*.xml)|*.xml';
     OpenDlg.Options:= [ofPathMustExist];
@@ -823,6 +971,13 @@ begin
 //  nodedata:= proptree.GetNodeData(node);
 //  showmessage(nodedata.name);
   pList := settingsForm.parentList( node ); //now we do shit to get it in Xml yo!
+  //first we have to replace TreeView names with "spaces" for xml names with "-"
+  for i := 0 to length(pList)-1 do //begin showmessagE(plist[i]);
+    if pos(' ',pList[i]) > 0 then
+      begin            //BUGGED FOR MONSTER/loot LIST, BUGGED BUGGED BUGGED BUGGED
+      pList[i]:= StringReplace(pList[i],' ','-',[rfReplaceAll]);
+//      break;
+      end; //showmessagE(plist[i]); end;
   xmlNode := settingsForm.findXmlNode( pList );
   PropTree.DeleteNode( PropTree.FocusedNode );//kk, we delete the TreeView(visual GUI nub!)
   PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
@@ -831,6 +986,33 @@ begin
   //here we have to put the number of index (0 first,1 second,etc) that we want deleted
   xmlNode.Parent.ChildNodes.Delete(i);   //now we delete the Xml Code, else if we read it, it will still exist!
 //  showmessage(inttostr(xmlNode.Parent.ChildNodes.Count));
+end;
+
+procedure TPropertyEditLink.EndEdit2(Sender: TObject; var key: char);
+var
+  Data: ^TTreeData;
+  P: TPoint;
+  Dummy, i: Integer;
+  pList: TExplodeArray;
+  xmlNode: TXmlNode;
+begin
+  if not ((key = #27) or (key = #13)) then  //"Esc" or "Enter" key
+    exit;
+
+  Data := FTree.GetNodeData(FNode);
+  // Gets the list of Parents
+  pList := settingsForm.parentList( FNode );
+  xmlNode := settingsForm.findXmlNode( pList );
+
+  data.name := (FEdit[0] as TEdit).Text;
+  xmlNode.NodeName := StringReplace( 'e' + data.name, ' ', '-', [rfReplaceAll] );
+
+
+  xmlNode.Text := '';   // don't copy nothing cause we are editing a Node name!
+                     // like "<eNewRule1>xmlNode.text" == "<eNewRule1>"
+//    for i := 0 to FEditCount-1 do
+    FEdit[0].Hide;
+      // I'm done with this fucking fuction.. already 3.30am and couldn't get it..
 end;
 
 procedure TsettingsForm.newItemClick(Sender: TObject);
@@ -972,7 +1154,7 @@ begin
 
           if not assigned( FindNode( node.FirstChild, name ) ) then
           begin
-            xmlItem.Root.NodeName := 'e' + name;
+            xmlItem.Root.NodeName := 'e' + name+'_0'; //eNewMonster1_0
             break;
           end;
         end;
@@ -1179,6 +1361,12 @@ begin
   delete( nodeData.name, 1, 1 );
 
   case ord(typ) of
+   //(TO DO) rangeDistance -->integer/ looting ItemId->auto update Name  in Itemlist
+    ord('h'): // Scripts
+      begin
+        nodeData.dataType := xdScript;
+        nodeData.value := StringReplace( xmlNode.Text, '&#xd;', ' ', [rfReplaceAll] );
+      end;
 
     ord('s'): // static
       begin
@@ -1198,6 +1386,12 @@ begin
         nodeData.value := xmlNode.Text;
       end;
 
+    ord('z'): // dimension (Special Areas & FireAvoidance,etc)
+      begin
+        nodeData.dataType := xdDimension;
+        nodeData.value := xmlNode.Text;
+      end;
+
     ord('r'): // range
       begin
         nodeData.dataType := xdRange;
@@ -1213,13 +1407,19 @@ begin
 
     ord('u'): // text list
       begin
-        nodeData.dataType := xdTextList;
-        nodeData.value := StringReplace( xmlNode.Text, '&#xd;', #13, [rfReplaceAll] );
+        nodeData.dataType := xdTextList; //I should put xdScript so the Script Editor opens
+        nodeData.value := StringReplace( xmlNode.Text, '&#xd;', ' ', [rfReplaceAll] );
       end;
 
     ord('t'): // text
       begin
         nodeData.dataType := xdText;
+        nodeData.value := xmlNode.Text;
+      end;
+
+    ord('p'): // text--> Monster name and category
+      begin
+        nodeData.dataType := xdMonster;
         nodeData.value := xmlNode.Text;
       end;
 
@@ -1247,6 +1447,7 @@ begin
     ord('e'): // subitem
       begin
         nodeData.dataType := xdSubitem;
+        Delete(nodeData.name,pos('_',nodeData.name),Maxint);
         nodeData.name := StringReplace( nodeData.name, '-', ' ', [rfReplaceAll] );
         nodeData.value := '..';
       end;
@@ -1290,7 +1491,6 @@ begin
   with Sender do
   begin
     Data := GetNodeData(Node);
-
     if (Node.Parent <> RootNode) and (Column = 0) and (Data.dataType in [xdSubitem]) then
       Allowed := true
     else
@@ -1314,12 +1514,24 @@ end;
 
 procedure TsettingsForm.PropTreeNodeDblClick(Sender: TBaseVirtualTree;
   const HitInfo: THitInfo);
+var
+  nodeData: ^TTreeData;
 begin
   with Sender do
   begin
+    if Hitinfo.HitColumn=0 then //if it's column "Property", not "Value"...
+       exit;                    //so we can change the name of Healrules, scripts,etc
     // Start immediate editing as soon as another node gets focused.
     if Assigned(HitInfo.HitNode) and (HitInfo.HitNode.Parent <> RootNode) and not (tsIncrementalSearching in TreeStates) then
     begin
+      nodeData := Sender.GetNodeData(HitInfo.HitNode);
+      if nodeData.dataType = xdScript then       //if we are editing a Script // WalkableIds...
+        begin
+//        ScriptEditor.show();
+//        txt:= ScriptEditor.text;
+//        nodeData.value:= parse(txt);
+        exit;
+        end;
       // Note: the test whether a node can really be edited is done in the OnEditing event.
       EditNode(HitInfo.HitNode, 1);
     end;

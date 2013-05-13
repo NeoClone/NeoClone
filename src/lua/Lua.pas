@@ -119,7 +119,9 @@ begin
 
   // Open Library
   LuaInstance := Lua_Open();
-  luaopen_base(LuaInstance);
+  luaL_openlibs(LuaInstance);
+//  luaopen_base(LuaInstance); //not needed since luaL_openlibs opens everything
+//   luaopen_string (LuaInstance); //btw, fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you... spent 2 days for this, seriously, wtf?
 
   //lua_sethook(LuaInstance, lua_Hook, LUA_MASKCALL, 0);
 
@@ -178,8 +180,18 @@ begin
 end;
 
 function TLua.getErrorText(): string;
+var
+i: integer;
+stri: string;
 begin
-  result := lua_tostring(LuaInstance, 3); //should be three or one?
+for i := 3 to 1000 do //max errors, it doesn't really matter cause we will "Break;" the function
+  begin
+  stri := lua_tostring(LuaInstance, i); //it increases with each bug... like 4h to get
+                                        // this fucking fuction, fuck you, really fuck u!!
+  if stri = '' then
+     break;
+  end;
+result:= lua_tostring(LuaInstance, i-1);  //get the last string with something else than ''
 end;
 
 //

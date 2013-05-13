@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sNeoSettings>
   <sAlerts>
     <sPlayerOnScreen>
@@ -107,10 +106,24 @@
   </sCavebot>
   <sHealer>
     <lHealRules>
-      <eNewRule1>
-        <xHealthRange>0 to 0</xHealthRange>
+      <ea-b>
+        <xHealthRange>1 and above</xHealthRange>
         <xManaRange>0 to 0</xManaRange>
-        <cHealMethod>Light Healing</cHealMethod>
+        <cHealMethod>Intense Wound Cleansing</cHealMethod>
+        <cExtraCondition>No condition</cExtraCondition>
+        <rSpamRate>200 to 400</rSpamRate>
+        <sMethodPriority>
+          <iPriority>79</iPriority>
+          <iOverridePriority>65</iOverridePriority>
+          <iExpireTime>1000</iExpireTime>
+          <iLifeTime>3000</iLifeTime>
+          <cEventType>Normal Event</cEventType>
+        </sMethodPriority>
+      </ea-b>
+      <ep-a>
+        <xHealthRange>1 and above</xHealthRange>
+        <xManaRange>0 to 0</xManaRange>
+        <cHealMethod>Divine Healing</cHealMethod>
         <cExtraCondition>No condition</cExtraCondition>
         <rSpamRate>200 to 400</rSpamRate>
         <sMethodPriority>
@@ -120,7 +133,7 @@
           <iLifeTime>3000</iLifeTime>
           <cEventType>Normal Event</cEventType>
         </sMethodPriority>
-      </eNewRule1>
+      </ep-a>
     </lHealRules>
     <sManaTraining>
       <rManaMissing>4 to 30</rManaMissing>
@@ -192,7 +205,353 @@
     </sSettings>
   </sNavigation>
   <sTargeting>
-    <lMonsters />
+    <lMonsters>
+      <eCategory-A_8>
+        <pName />
+        <pCategories />
+        <cCount>Any</cCount>
+        <sSetting1>
+          <rHpRange>0 to 100</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting1>
+        <sSetting2>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting2>
+        <sSetting3>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting3>
+        <sSetting4>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting4>
+        <bLootMonster>no</bLootMonster>
+        <bMustAttackMe>no</bMustAttackMe>
+        <bOnlyIfTrapped>no</bOnlyIfTrapped>
+        <bPlayAlarm>no</bPlayAlarm>
+      </eCategory-A_8>
+      <eNew-Monster2_0>
+        <pName />
+        <pCategories />
+        <cCount>Any</cCount>
+        <sSetting1>
+          <rHpRange>0 to 100</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting1>
+        <sSetting2>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting2>
+        <sSetting3>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting3>
+        <sSetting4>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting4>
+        <bLootMonster>no</bLootMonster>
+        <bMustAttackMe>no</bMustAttackMe>
+        <bOnlyIfTrapped>no</bOnlyIfTrapped>
+        <bPlayAlarm>no</bPlayAlarm>
+      </eNew-Monster2_0>
+      <eNe-wMonster3_0>
+        <pName />
+        <pCategories />
+        <cCount>Any</cCount>
+        <sSetting1>
+          <rHpRange>0 to 100</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting1>
+        <sSetting2>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting2>
+        <sSetting3>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting3>
+        <sSetting4>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting4>
+        <bLootMonster>no</bLootMonster>
+        <bMustAttackMe>no</bMustAttackMe>
+        <bOnlyIfTrapped>no</bOnlyIfTrapped>
+        <bPlayAlarm>no</bPlayAlarm>
+      </eNe-wMonster3_0>
+      <eNewMons-ter4_0>
+        <pName />
+        <pCategories />
+        <cCount>Any</cCount>
+        <sSetting1>
+          <rHpRange>0 to 100</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting1>
+        <sSetting2>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting2>
+        <sSetting3>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting3>
+        <sSetting4>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting4>
+        <bLootMonster>no</bLootMonster>
+        <bMustAttackMe>no</bMustAttackMe>
+        <bOnlyIfTrapped>no</bOnlyIfTrapped>
+        <bPlayAlarm>no</bPlayAlarm>
+      </eNewMons-ter4_0>
+      <eNewMonster1_0>
+        <pName />
+        <pCategories />
+        <cCount>Any</cCount>
+        <sSetting1>
+          <rHpRange>0 to 100</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting1>
+        <sSetting2>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting2>
+        <sSetting3>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting3>
+        <sSetting4>
+          <rHpRange>0 to 0</rHpRange>
+          <iDanger>0</iDanger>
+          <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+          <cDesiredStance>No Movement</cDesiredStance>
+          <cCustomDistance>Default</cCustomDistance>
+          <cDesiredAttack>No Action</cDesiredAttack>
+          <cFirstSpell>No Action</cFirstSpell>
+          <cSecondSpell>No Action</cSecondSpell>
+          <cThirdSpell>No Action</cThirdSpell>
+          <cFourthSpell>No Action</cFourthSpell>
+          <rSpellRate>2000 to 3000</rSpellRate>
+          <bSyncSpell>no</bSyncSpell>
+          <cAttackMode>No Change</cAttackMode>
+        </sSetting4>
+        <bLootMonster>no</bLootMonster>
+        <bMustAttackMe>no</bMustAttackMe>
+        <bOnlyIfTrapped>no</bOnlyIfTrapped>
+        <bPlayAlarm>no</bPlayAlarm>
+      </eNewMonster1_0>
+    </lMonsters>
     <sStanceOptions>
       <bDiagonalMovement>no</bDiagonalMovement>
       <cRangeDistance>2</cRangeDistance>

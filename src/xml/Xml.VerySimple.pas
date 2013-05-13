@@ -118,8 +118,8 @@ begin
   Header.NodeName := '?xml'; // Default XML Header
   Header.Attribute['version'] := '1.0'; // Default XML Version
   Ident := '  '; // Set Ident:='' if you want a compact output
-  Lines.Clear;
-end;
+  Lines.Clear;      //if we have Ident:=' ' (as Neobot scripts) it will FAIL!
+end;          //Also after loading the first script, if you load a 2nd script it will bug
 
 constructor TVerySimpleXml.Create;
 begin
@@ -388,6 +388,7 @@ begin
   end
   else
   begin
+  if Node <> Header then   //we don't want the '<?xml version="1.0" ?>'
     Lines.Add(S);
     OriginalPrefix := Prefix;
     Prefix := Prefix + Ident;

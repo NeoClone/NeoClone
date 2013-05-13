@@ -1,6 +1,13 @@
 = NeoClone Bot -- General information =
 ==
 
+Follow everyday improvement in:
+https://twitter.com/NeoCloneBot
+
+Bot Direct Download:
+https://github.com/NeoClone/NeoClone/raw/master/bin/NeoClone%20bot.rar
+
+
 Copyright (C) NeoClone Bot 2013
 
   NeoClone Bot is free software; you can redistribute it and/or modify
@@ -28,6 +35,3 @@ open source, and is community supported.
  If you wish to contribute ideas or code please visit 
 our site linked below or make pull requests to our github repo at 
 https://github.com/NeoClone/NeoClone
-
-Follow everyday improvement in:
-https://twitter.com/NeoCloneBot

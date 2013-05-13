@@ -14,7 +14,7 @@ type
 
   TxmlDataType = ( xdStatic, xdBoolean, xdInteger, xdRange, xdList, xdText,
                    xdTextList, xdScript, xdWayPoint, xdComboBox, xdRangePercent,
-                   xdSubitem );
+                   xdSubitem, xdMonster, xdDimension );
   TTreeData = record
     name: string;
     value: string;
