@@ -91,7 +91,9 @@ begin
        'ExtraCondition', 'TrainSpell', 'ComboType', 'HotkeyCondition', 'HudPolicy',
        'KeyboardMode', 'StuckCtrlShiftPolicy', 'MouseMode', 'ScrollMode',
        'StuckCursorPolicy', 'MoveSpeed', 'FocusPolicy', 'OpenMenuPolicy',
-       'Count', 'MonsterAttacks']) of
+       'Count', 'MonsterAttacks', 'DesiredStance', 'CustomDistance', 'DesiredAttack',
+       'FirstSpell', 'SecondSpell', 'ThirdSpell', 'FourthSpell', 'AttackMode',
+       'RangeDistance']) of
 
     0: // AlarmOn
       begin
@@ -231,7 +233,7 @@ begin
     18: // ScrollMode
       begin
         control.Items.Add('Click on scrollbar');
-        //control.Items.Add('Use mouse wheel');
+        control.Items.Add('Use mouse wheel');
       end;
 
     19: // StuckCursorPolicy
@@ -311,6 +313,73 @@ begin
         control.Items.Add('No Avoidance');
         control.Items.Add('Avoid Wave');
         control.Items.Add('Avoid Beam');
+      end;
+
+    25: // DesiredStance
+      begin
+        control.Items.Add('No Movement');
+        control.Items.Add('Keep Away');
+        control.Items.Add('Away in Line');
+        control.Items.Add('Reach');
+        control.Items.Add('Reach & Parry'); // "&amp;"--> Ampersand = "&"
+      end;
+
+    26: // CustomDistance
+      begin
+        control.Items.Add('Default');
+        control.Items.Add('1');
+        control.Items.Add('2');
+        control.Items.Add('3');
+        control.Items.Add('4');
+        control.Items.Add('5');
+        control.Items.Add('6');
+        control.Items.Add('7');
+      end;
+
+    27: // DesiredAttack
+      begin
+        control.Items.Add('Attack');
+      end;
+
+    28: // FirstSpell
+      begin
+        control.Items.Add('No Action');
+        control.Items.Add('No Avoidance');  //Sudden Death, attack spells? same for 2,3,4º
+      end;
+
+    29: // SecondSpell
+      begin
+        control.Items.Add('No Action');
+      end;
+
+    30: // ThirdSpell
+      begin
+        control.Items.Add('No Action');
+      end;
+
+    31: // FourthSpell
+      begin
+        control.Items.Add('No Action');
+      end;
+
+    32: // AttackMode
+      begin
+        control.Items.Add('No Change');
+        control.Items.Add('Chase/Offensive');
+        control.Items.Add('Stand/Offensive');
+        control.Items.Add('Chase/Defensive');
+        control.Items.Add('Stand/Defensive');
+      end;
+
+    33: // RangeDistance
+      begin
+        control.Items.Add('1');
+        control.Items.Add('2');
+        control.Items.Add('3');
+        control.Items.Add('4');
+        control.Items.Add('5');
+        control.Items.Add('6');
+        control.Items.Add('7');
       end;
 
   end;

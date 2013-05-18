@@ -49,7 +49,7 @@ object settingsForm: TsettingsForm
       item
         Position = 0
         Width = 227
-        WideText = 'Property'
+        WideText = 'Name'
       end
       item
         Position = 1

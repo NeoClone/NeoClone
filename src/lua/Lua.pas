@@ -119,9 +119,15 @@ begin
 
   // Open Library
   LuaInstance := Lua_Open();
-  luaL_openlibs(LuaInstance);
-//  luaopen_base(LuaInstance); //not needed since luaL_openlibs opens everything
-//   luaopen_string (LuaInstance); //btw, fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you... spent 2 days for this, seriously, wtf?
+  luaL_openlibs(LuaInstance); //for security reasons we take this out
+//  luaopen_base(LuaInstance);       //ofc needed
+////   luaopen_debug(LuaInstance);  //not used in neo scripts...
+//   luaopen_io(LuaInstance);  //used: open, read, write...
+//   luaopen_math(LuaInstance);    //ofc needed
+//   luaopen_os(LuaInstance);    //used: time, difftime, date, exit
+////   luaopen_package(LuaInstance); //not used in neo scripts...
+//   luaopen_string (LuaInstance);   //ofc needed
+//   luaopen_table(LuaInstance);     //ofc needed
 
   //lua_sethook(LuaInstance, lua_Hook, LUA_MASKCALL, 0);
 
@@ -184,7 +190,7 @@ var
 i: integer;
 stri: string;
 begin
-for i := 3 to 1000 do //max errors, it doesn't really matter cause we will "Break;" the function
+for i := 2 to MaxInt do //max errors, it doesn't really matter cause we will "Break;" the function
   begin
   stri := lua_tostring(LuaInstance, i); //it increases with each bug... like 4h to get
                                         // this fucking fuction, fuck you, really fuck u!!
@@ -201,7 +207,7 @@ end;
 // @return      Integer
 //
 function TLua.DoString(str: String): Integer;
-begin
+begin //if pos('$mppc') > 0 then --> mppc.refresh
   Result := luaL_dostring(LuaInstance, PAnsiChar(AnsiString(str)));
 end;
 

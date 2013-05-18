@@ -8,7 +8,7 @@ uses
   Menus, luaClass, Vcl.ExtCtrls, Winapi.GDIPOBJ, EventQueue, PriorityQueue,
   Xml.VerySimple, parserThreadUnit, healerThreadUnit, settingsTemplates, hotkey,
   netmsg, datReader, afxCodeHook, PetriW.Pipes, player, VirtualTrees, chat,Equipment,
-   gamewindow, containers,cooldown, Vcl.DBCtrls, map;
+   gamewindow, containers,cooldown, Vcl.DBCtrls, map, TextEditor, ScriptEditor;
 
 type
   TMain = class(TForm)
@@ -84,6 +84,7 @@ type
     procedure Findnewclient1Click(Sender: TObject);
     procedure Enginestates1Click(Sender: TObject);
     procedure PingsTimer(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -315,6 +316,7 @@ var
 hp: integer;
   r: TRect;
 begin
+ScriptEditor.Form3.Show;
 //if Gui.Map.IsShootable(32352,31831,7) then
 //  showmessage('shottable');
 //Inputer.SendRClickPoint( Gui.GameWindow.map2mouse(32355,32210,7));
@@ -442,6 +444,11 @@ begin
   end;
 end;
 
+procedure TMain.Button4Click(Sender: TObject);
+begin
+showmessage(Form2.EditText.Lines.GetText)
+end;
+
 procedure TMain.Button5Click(Sender: TObject);
 var
   loc: Tlocation;
@@ -535,7 +542,6 @@ begin
   EvtQueue.Free;
   GUI.Free;
   LuaScript.Free;
-  TibiaHotKey.Free;
   Memory.Free;
 
   HealerThread.Free;
@@ -545,7 +551,7 @@ begin
   xmlSpellList.Free;
   xmlItemList.Free;
 
-  SetLength(DatTiles, 0);
+//  SetLength(DatTiles, 0);
 end;
 
 procedure TMain.HideHUDDisplayfromtaskbar1Click(Sender: TObject);

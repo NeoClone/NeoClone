@@ -62,7 +62,7 @@ object Main: TMain
     Height = 25
     Caption = 'test1'
     TabOrder = 3
-    Visible = False
+    OnClick = Button4Click
   end
   object Button5: TButton
     Left = 148

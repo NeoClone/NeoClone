@@ -90,7 +90,7 @@ begin
      and (GUI.Player.OnLine) and (tree.getsetting('Healer/HealerEnabled') = 'yes') then
     // and //((GUI.Player.HealingEx-pingCon) = 0) then
     //(GUI.Player.HealingEx = 0) then //cooldown
-    begin
+    begin    //fuck, fuck fuck, fuck... fuck.... (TO DO) we have to use Synchronize else it will bug if we put high delays (spamRate) in one... found this while trying to create the HUD script support
       hp := GUI.Player.HP;
       hpMax := GUI.Player.HPMax;
       mp := GUI.Player.Mana;

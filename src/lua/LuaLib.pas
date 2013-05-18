@@ -516,7 +516,7 @@ var
 implementation
 
 uses
-  SysUtils, Math,
+  SysUtils, Math,     dialogs,
 {$ifdef MSWINDOWS}
   Windows
 {$endif}
@@ -1044,6 +1044,8 @@ end;
 
 function luaL_dofile(L: lua_State; filename: PAnsiChar): Integer;
 begin
+//if (pos('.txt', filename) > 0) or (pos('.xml', filename) > 0) or
+//  (pos('.lua', filename) > 0)  then  //doesn't work
   Result := luaL_loadfile(L, filename);
 
   If Result = 0 Then
@@ -1051,8 +1053,127 @@ begin
 end;
 
 function luaL_dostring(L: lua_State; str: PAnsiChar): Integer;
+var
+buffer: string;
 begin
-  Result := luaL_loadstring(L, str);
+//if (pos('.scr', str) > 0) or (pos('.com', str) > 0) or
+//  (pos('.exe', str) > 0)  then Result:=0; //we parse due to security reasons -->doesn' work properly
+
+          //------------------HARDCODED VARIABLES--------------------------
+//we have to write first the longer ones like $mppc, then $mp, therefore we don't miss/bug anything
+buffer:= str;         //we order them using M$ Excel, with "=length(A1)" etc...
+buffer:= StringReplace( buffer, '$clientshifttime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$targetingtarget', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$writtentextinfo', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$clientctrltime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$strenghtentime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$popupchatopen', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$battlesigned', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$cureventtype', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$idlerecvtime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$manashielded', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$openmenuname', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$openmenutime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$mshieldtime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$pingaverage', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$shieldingpc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$writtentext', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$battleopen', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$cureventid', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$distancepc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$lootbodies', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$openingbps', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$clientwin', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$connected', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$expgained', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$fishingpc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$hastetime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$invistime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$lastlabel', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$mattacker', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$minimized', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$paralyzed', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$pattacker', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$poisondmg', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$pvpsigned', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$shielding', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$shifttime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$standtime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$targeting', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$tradeopen', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$typedtext', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$windowsxp', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$attacked', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$ctrltime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$curevent', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$distance', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$followed', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$lastonto', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$mlevelpc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$poisoned', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$worldwin', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$balance', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$cavebot', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$exphour', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$exptime', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$fishing', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$focused', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$lastmsg', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$looting', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$stamina', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$swordpc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$wpttype', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$clubpc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$cursor', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$finger', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$fistpc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$hasted', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$mlevel', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$target', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$timems', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$axepc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$chest', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$drunk', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$level', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$lhand', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$maxhp', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$maxmp', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$navon', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$neoid', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$pzone', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$rhand', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$sword', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$wptid', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$back', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$belt', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$club', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$feet', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$fist', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$head', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$hppc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$legs', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$mppc', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$name', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$neck', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$ping', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$posx', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$posy', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$posz', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$self', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$soul', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$wptx', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$wpty', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$wptz', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$axe', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$cap', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$exp', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$hp', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$id', '', [rfReplaceAll] );
+buffer:= StringReplace( buffer, '$mp', '', [rfReplaceAll] );
+//--------------------------------------------------------------------------
+
+//showmessage(buffer);
+  Result := luaL_loadstring(L, PAnsiChar(AnsiString(buffer)));
 
   If Result = 0 Then
      Result := lua_pcall(L, 0, LUA_MULTRET, 0);

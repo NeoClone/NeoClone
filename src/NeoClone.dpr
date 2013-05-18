@@ -38,7 +38,9 @@ uses
   contextmenus in 'gui\contextmenus.pas',
   States in 'States.pas' {EStates},
   equipment in 'gui\equipment.pas',
-  cooldown in 'gui\cooldown.pas';
+  cooldown in 'gui\cooldown.pas',
+  TextEditor in 'TextEditor.pas' {Form2},
+  ScriptEditor in 'ScriptEditor.pas' {Form3};
 
 {$R *.res}
 
@@ -49,6 +51,8 @@ begin
   Application.CreateForm(TlogForm, logForm);
   Application.CreateForm(TsettingsForm, settingsForm);
   Application.CreateForm(TEStates, EStates);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TForm3, Form3);
   Main.InitAll();
   Application.Run;
 end.

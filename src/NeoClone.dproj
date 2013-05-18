@@ -141,6 +141,14 @@
 			</DCCReference>
 			<DCCReference Include="gui\equipment.pas"/>
 			<DCCReference Include="gui\cooldown.pas"/>
+			<DCCReference Include="TextEditor.pas">
+				<Form>Form2</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="ScriptEditor.pas">
+				<Form>Form3</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
 			<None Include="fmx\readme.txt"/>
 			<None Include="fmx\VPR.INC"/>
 			<BuildConfiguration Include="Debug">

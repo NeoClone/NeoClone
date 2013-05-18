@@ -25,7 +25,6 @@ type
     function BeginEdit: Boolean; stdcall;
     function CancelEdit: Boolean; stdcall;
     function EndEdit: Boolean; stdcall;
-    procedure EditScript(Sender: TObject);
     procedure EndEdit2(Sender: TObject;var key: char);
     function GetBounds: TRect; stdcall;
     function PrepareEdit(Tree: TBaseVirtualTree; Node: PVirtualNode; Column: TColumnIndex): Boolean; stdcall;
@@ -97,19 +96,21 @@ procedure SETsetting( path,value: string );
 function getsetting( path: string ): string;
 
 procedure getWalkableIds();
+function getPathTextEditor(): string; //so we can send this info to the TextEditor
 
   end;
 
 var
   settingsForm: TsettingsForm;
   strArray: Tstrings;
+  pathTextEditor: string;
 
 implementation
 
 {$R *.dfm}
 
 uses
-  unit1, States,healerThreadUnit;
+  unit1, States, healerThreadUnit, TextEditor, ScriptEditor;
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -413,6 +414,9 @@ var
   Dummy, i: Integer;
   pList: TExplodeArray;
   xmlNode: TXmlNode;
+  xmlNodeItem: TXmlNode;
+  ItemID: string;
+  ItemName: string;
 begin
   // Check if the place the user click on yields another node as the one we
   // are currently editing. If not then do not stop editing.
@@ -550,13 +554,30 @@ begin
     begin
       data.name := (FEdit[0] as TEdit).Text;
       xmlNode.NodeName := StringReplace( 'e' + data.name, ' ', '-', [rfReplaceAll] );
-      if pos('Monsters',pList[length(pList)-2]) > 0 then  //if is from Monsters list
+                //if is from Monsters list
+      if pos('Monsters',pList[length(pList)-2]) > 0 then
         begin
-          if pos('category',lowercase(data.name)) > 0 then
+          if pos('category',lowercase(data.name)) > 0 then  //TO DO "_i"...
             xmlNode.NodeName:= xmlNode.NodeName + '_8'
           else
-            xmlNode.NodeName:= xmlNode.NodeName + '_0';
-//           showmessage(xmlNode.NodeName);
+            xmlNode.NodeName:= xmlNode.NodeName + '_0';//'_i' check if name exists, then i+1
+        end
+      else      //if is from Looting List
+        begin
+          Data2 := FTree.GetNodeData(FNode.Parent);
+          if (data.dataType = xdSubitem) and (Data2.name = 'ItemList') then
+            begin    //get name and search for its ID, then paste ItemID
+              ItemName:= data.name;
+              xmlNodeItem:= xmlItemList.Root.FindEx2('name',lowercase(ItemName));
+              if xmlNodeItem <> Nil then //if we have found the Item in the list...
+                begin
+                Data2 := FTree.GetNodeData(FNode.FirstChild);
+                ItemID:= xmlItemList.Root.FindEx2('name',lowercase(ItemName)).Attribute['id'];
+                if Data2.name = 'ItemId' then
+                  Data2.value:= ItemID; //write the Id in its field (TreeView = GUI)
+                  xmlNode.ChildNodes.First.Text:= ItemID; //write in Xml internals (not GUI)
+                end;
+            end;
         end;
 
     xmlNode.Text := '';   // don't copy nothing cause we are editing a Node name!
@@ -564,17 +585,6 @@ begin
     for i := 0 to FEditCount-1 do
       FEdit[i].Hide;
   end;
-end;
-
-procedure TPropertyEditLink.EditScript(Sender: TObject);
-//var
-//  Data: ^TTreeData;
-//  P: TPoint;
-//  Dummy, i: Integer;
-//  pList: TExplodeArray;
-//  xmlNode: TXmlNode;
-begin
-   showmessage('asdf');
 end;
 
 function TPropertyEditLink.GetBounds: TRect;
@@ -771,12 +781,12 @@ begin
             Visible := False;
             Parent := Tree;
             Height := Node.NodeHeight;
-            Caption := '{ new }';
+            Caption := '{ New }';
             OnClick := settingsForm.newItemClick;
           end;
         end;
 
-      xdScript:             //we have to change it, so it opens a Script Editor
+      xdScript:
         begin
           FEditCount := 1;
           FEdit2 := TLabel.Create(nil);
@@ -808,7 +818,7 @@ begin
             Visible := False;
             Parent := Tree;
             Height := Node.NodeHeight;
-            Caption := '{ remove }';
+            Caption := '{ Remove }';
             OnClick := settingsForm.deleteItemClick;
           end;
         end
@@ -947,12 +957,12 @@ begin
       settingsForm.initHealer();   //restart Healer
 //      settingsForm.initTargeting/Cavebot/etc();   //restart other parts (Threads)
   end;
- OpenDlg.Free;
+ OpenDlg.Free; //(TO DO) check and execute scripts with lua_tostring()
 end;
 
 function TsettingsForm.check(): boolean;
 begin
-result:=false;   //the problem is the FindNode (I've checked it)
+result:=false;
 if assigned(Findnode(PropTree.FocusedNode.Parent.FirstChild, 'NewRule1')) then
   result:= true;
 end;
@@ -965,7 +975,7 @@ var                         //shiiiiiiiiit bro, spent like 2 days with this!
   xmlNode: TXmlNode;
   nodeData: ^TTreeData;
   i: integer;
-begin
+begin  //also "Wand Of Cosmic Energy" in lootitems doesn't delete,wtf? maybe the length? that happens also in Healer
 //kk, we take the Node wich we are going to remove (the same as selected)
   node := PropTree.FocusedNode;
 //  nodedata:= proptree.GetNodeData(node);
@@ -1240,12 +1250,22 @@ var
   nodeData: ^TTreeData;
   xarr: array of string;
   i: Integer;
+  pList: TExplodeArray;
+  xmlNode: TXmlNode;
 begin
   if length(arr) = 0 then
-  begin
+  begin    //setsetting('Cavebot/Pathfinding/WalkableIdS','123\n234\n234 434\n2345-23456')
+    pList := settingsForm.parentList( node );
+    xmlNode := settingsForm.findXmlNode( pList ); //parse \n (Enter) to that in xml internals
+     //we have to add the '&amp;' '&lt;' '&#xd;' '&gt;' for the Script Editor Window
+    xmlNode.Text:= StringReplace( value, '&', '&amp;', [rfReplaceAll] ); //this first, else it will parse wrongly
+    xmlNode.Text:= StringReplace( xmlNode.Text, '\n', '&#xd;', [rfReplaceAll] );
+    xmlNode.Text:= StringReplace( xmlNode.Text, '<', '&lt;', [rfReplaceAll] );
+    xmlNode.Text:= StringReplace( xmlNode.Text, '>', '&gt;', [rfReplaceAll] );
+
     nodeData := PropTree.GetNodeData( node );
-    PropTree.BeginUpdate;
-    nodeData.value:= value;
+    PropTree.BeginUpdate;  //parse \n (Enter) to space in GUI TreeView
+    nodeData.value:= StringReplace( value, '\n', ' ', [rfReplaceAll] );
     PropTree.EndUpdate;
     exit;
   end;
@@ -1361,11 +1381,14 @@ begin
   delete( nodeData.name, 1, 1 );
 
   case ord(typ) of
-   //(TO DO) rangeDistance -->integer/ looting ItemId->auto update Name  in Itemlist
+   //(TO DO) add ord('k') combo/mainkey (hotkeys)
     ord('h'): // Scripts
       begin
         nodeData.dataType := xdScript;
         nodeData.value := StringReplace( xmlNode.Text, '&#xd;', ' ', [rfReplaceAll] );
+        nodeData.value := StringReplace( nodeData.value, '&lt;', '<', [rfReplaceAll] );
+        nodeData.value := StringReplace( nodeData.value, '&gt;', '>', [rfReplaceAll] );
+        nodeData.value := StringReplace( nodeData.value, '&amp;', '&', [rfReplaceAll] );
       end;
 
     ord('s'): // static
@@ -1398,7 +1421,6 @@ begin
         nodeData.value := xmlNode.Text;
       end;
 
-     //HealRules is here motherfcker... you said you were in "e", 3h looking for it ¬¬
     ord('l'): // list
       begin
         nodeData.dataType := xdList;
@@ -1407,8 +1429,10 @@ begin
 
     ord('u'): // text list
       begin
-        nodeData.dataType := xdTextList; //I should put xdScript so the Script Editor opens
+        nodeData.dataType := xdTextList;
         nodeData.value := StringReplace( xmlNode.Text, '&#xd;', ' ', [rfReplaceAll] );
+//        nodeData.value := StringReplace( nodeData.value, '&amp;', '&', [rfReplaceAll] );
+//        nodeData.value := StringReplace( nodeData.value, '&lt;', '<', [rfReplaceAll] );
       end;
 
     ord('t'): // text
@@ -1516,21 +1540,65 @@ procedure TsettingsForm.PropTreeNodeDblClick(Sender: TBaseVirtualTree;
   const HitInfo: THitInfo);
 var
   nodeData: ^TTreeData;
+  txt, buffer: string;
+//  node: PVirtualNode;
+  pList: TExplodeArray;
+  pList2: TExplodeArray;
+  xmlNode: TXmlNode;
+  i: integer;
 begin
   with Sender do
   begin
-    if Hitinfo.HitColumn=0 then //if it's column "Property", not "Value"...
+    if Hitinfo.HitColumn=0 then //if it's column "Name", not "Value"...
        exit;                    //so we can change the name of Healrules, scripts,etc
     // Start immediate editing as soon as another node gets focused.
     if Assigned(HitInfo.HitNode) and (HitInfo.HitNode.Parent <> RootNode) and not (tsIncrementalSearching in TreeStates) then
     begin
+      pList := settingsForm.parentList( HitInfo.HitNode );    //Getting the xml path  --> with "-" and so
+      pList2:= settingsForm.parentList( HitInfo.HitNode ); //we copy our array for the pathTextEditor --> we need INTACT!
+        for i := 0 to length(pList)-1 do       //fix those names with spaces
+           if pos(' ',pList[i]) > 0 then
+            pList[i]:= StringReplace(pList[i],' ','-',[rfReplaceAll]);
+      xmlNode := settingsForm.findXmlNode( pList );   //Finish getting the xml path
+
       nodeData := Sender.GetNodeData(HitInfo.HitNode);
-      if nodeData.dataType = xdScript then       //if we are editing a Script // WalkableIds...
-        begin
-//        ScriptEditor.show();
-//        txt:= ScriptEditor.text;
-//        nodeData.value:= parse(txt);
-        exit;
+
+      if nodeData.dataType = xdScript then       //if we are editing a Script
+        begin       showmessage(xmlnode.text);        //we have to replace '&amp;' '&lt;' '&#xd;'
+          txt:= StringReplace( xmlNode.Text, '&#xd;', #13, [rfReplaceAll] ); //replace Enter
+          txt:= StringReplace( txt, '&lt;', '<', [rfReplaceAll] ); //replace minor than
+          txt:= StringReplace( txt, '&gt;', '>', [rfReplaceAll] ); //replace more than
+          txt:= StringReplace( txt, '&amp;', '&', [rfReplaceAll] ); //replace Ampersand
+          showmessage(txt); Form3.EditScript.Lines.SetText(PWideChar(txt));
+          ScriptEditor.Form3.Show();
+
+          for I := 1 to length(pList2)-1 do  //for each parent... (we don't take "sNeoSettings")
+          begin
+            buffer:= pList2[i]; // "sHotkeys"
+            delete(buffer,1,1);// "Hotkeys"
+            if I = 1 then
+              pathTextEditor:=buffer  //we clean the pathTextEditor and don't write '/'
+            else
+              pathTextEditor:= pathTextEditor+'/'+buffer; //"Cavebot/..."
+          end;
+          exit;
+        end
+
+      else if nodeData.dataType = xdTextList then
+        begin                            //showmessage(Form2.EditText.Lines.GetText)
+          txt:= StringReplace( xmlNode.Text, '&#xd;', #13, [rfReplaceAll] ); //replace Enter
+          Form2.EditText.Lines.SetText(PWideChar(txt));
+          TextEditor.Form2.Show();
+          for I := 1 to length(pList2)-1 do  //for each parent... (we don't take "sNeoSettings")
+          begin
+            buffer:= pList2[i]; // "sCavebot"
+            delete(buffer,1,1);// "Cavebot"
+            if I = 1 then
+              pathTextEditor:=buffer  //we clean the pathTextEditor and don't write '/'
+            else
+              pathTextEditor:= pathTextEditor+'/'+buffer; //"Cavebot/..."
+          end;
+          exit;
         end;
       // Note: the test whether a node can really be edited is done in the OnEditing event.
       EditNode(HitInfo.HitNode, 1);
@@ -1576,6 +1644,11 @@ WalkableIds:= settings.Root.Find('sCavebot').Find('sPathfinding').Find('uWalkabl
       inc(j);   //else (if we haven't deleted that Index) we inc(j)
     end;
 
+end;
+
+function TSettingsForm.getPathTextEditor(): string;
+begin
+  result:= pathTextEditor;
 end;
 
 end.

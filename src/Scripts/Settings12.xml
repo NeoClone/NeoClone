@@ -1,0 +1,247 @@
+<sNeoSettings>
+  <sAlerts>
+    <sPlayerOnScreen>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+      <uSafeList />
+    </sPlayerOnScreen>
+    <sPlayerAttacking>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+      <uSafeList />
+    </sPlayerAttacking>
+    <sDefaultMessage>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+      <uSafeList />
+    </sDefaultMessage>
+    <sPrivateMessage>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+      <uSafeList />
+    </sPrivateMessage>
+    <sGmDetected>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+    </sGmDetected>
+    <sDisconnected>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+    </sDisconnected>
+    <sCrashedFroze>
+      <iFreezeTime>3000</iFreezeTime>
+      <bPlaySound>no</bPlaySound>
+      <bFlashClient>no</bFlashClient>
+      <bPauseBot>no</bPauseBot>
+      <bDisconnect>no</bDisconnect>
+    </sCrashedFroze>
+  </sAlerts>
+  <sCavebot>
+    <sLooting>
+      <lItemList />
+      <sOpenBodyPriority>
+        <iPriority>70</iPriority>
+        <iOverridePriority>0</iOverridePriority>
+        <iExpireTime>5000</iExpireTime>
+        <iLifeTime>5000</iLifeTime>
+        <cEventType>Normal Event</cEventType>
+      </sOpenBodyPriority>
+      <sLootBodyPriority>
+        <iPriority>50</iPriority>
+        <iOverridePriority>0</iOverridePriority>
+        <iExpireTime>500</iExpireTime>
+        <iLifeTime>5000</iLifeTime>
+        <cEventType>Normal Event</cEventType>
+      </sLootBodyPriority>
+      <bMoveItemsQuickly>yes</bMoveItemsQuickly>
+      <iOpenBodyTime>600</iOpenBodyTime>
+      <cLootingCondition>Open all corpses</cLootingCondition>
+      <cLootingPolicy>Loot after melee kill</cLootingPolicy>
+      <bLootingFlashOnAlert>yes</bLootingFlashOnAlert>
+      <iLootingRange>10</iLootingRange>
+      <bLootingEatFood>yes</bLootingEatFood>
+      <bLootingEnabled>no</bLootingEnabled>
+    </sLooting>
+    <lWaypoints />
+    <sPathfinding>
+      <lSpecialAreas />
+      <bWalkThroughPlayers>no</bWalkThroughPlayers>
+      <cWalkingMethod>Walk with arrow keys</cWalkingMethod>
+      <rMapWalkDistance>20 to 50</rMapWalkDistance>
+      <iCreatureMemoryTime>20000</iCreatureMemoryTime>
+      <zEnergyAvoidance>15, 20</zEnergyAvoidance>
+      <zFireAvoidance>15, 20</zFireAvoidance>
+      <zPoisonAvoidance>15, 20</zPoisonAvoidance>
+      <uWalkableIds>140
+404
+831-834
+883
+2131-2135
+2314-2316
+2319
+2346-2385
+2418-2426
+2431-2434
+2441-2444
+2469
+2471-2473
+2478
+2480-2486
+2519
+2523
+2775-2812
+2981-2985
+2987-2988
+3503-3504
+3514
+3807
+5086-5088
+6114-6115
+6355-6362
+6371-6372
+7864
+8455
+8763
+9061-9062
+10207
+10209
+10216
+10286
+10287-10288
+11009</uWalkableIds>
+    </sPathfinding>
+    <sSettings>
+      <cRopeToUse>Rope</cRopeToUse>
+      <cShovelToUse>Shovel</cShovelToUse>
+      <iNodeRange>4</iNodeRange>
+      <cOpenNextBp>no</cOpenNextBp>
+      <cOpenBpsAtLogin>no</cOpenBpsAtLogin>
+      <bPauseBotOnDeath>yes</bPauseBotOnDeath>
+      <rRefillAmmoCount>0 to 0</rRefillAmmoCount>
+    </sSettings>
+    <sCavebotPriority>
+      <iPriority>55</iPriority>
+      <iOverridePriority>0</iOverridePriority>
+      <iExpireTime>5000</iExpireTime>
+      <iLifeTime>15000</iLifeTime>
+      <cEventType>Normal Event</cEventType>
+    </sCavebotPriority>
+    <bCavebotEnabled>no</bCavebotEnabled>
+  </sCavebot>
+  <sHealer>
+    <lHealRules>false</lHealRules>
+    <sManaTraining>
+      <rManaMissing>4 to 30</rManaMissing>
+      <cTrainSpell>Light Healing</cTrainSpell>
+      <rSpamRate>500 to 1000</rSpamRate>
+      <bEnabled>no</bEnabled>
+      <sSpellPriority>
+        <iPriority>50</iPriority>
+        <iOverridePriority>0</iOverridePriority>
+        <iExpireTime>1000</iExpireTime>
+        <iLifeTime>3000</iLifeTime>
+        <cEventType>Normal Event</cEventType>
+      </sSpellPriority>
+    </sManaTraining>
+    <sSettings>
+      <iPingCompensation>30</iPingCompensation>
+    </sSettings>
+    <bHealerEnabled>yes</bHealerEnabled>
+  </sHealer>
+  <sHotkeys>
+    <lHotkeyList>
+      <eNewHotkey1>
+        <hScript>i= 0&amp;#xd;while i&lt;10 do&amp;#xd;print(i)&amp;#xd;i=i+1&amp;#xd;end</hScript>
+        <kMainKey />
+        <kComboKey />
+        <cComboType>Must be pressed</cComboType>
+      </eNewHotkey1>
+    </lHotkeyList>
+    <lPersistentList />
+    <lCavebotList />
+    <cHotkeyCondition>Client focus required</cHotkeyCondition>
+    <sDefaultEventPriority>
+      <iPriority>50</iPriority>
+      <iOverridePriority>0</iOverridePriority>
+      <iExpireTime>1000</iExpireTime>
+      <iLifeTime>10000</iLifeTime>
+      <cEventType>Normal Event</cEventType>
+    </sDefaultEventPriority>
+    <sChatPopupPriority>
+      <iPriority>65</iPriority>
+      <iOverridePriority>0</iOverridePriority>
+      <iExpireTime>30000</iExpireTime>
+      <iLifeTime>20000</iLifeTime>
+      <cEventType>Normal Event</cEventType>
+    </sChatPopupPriority>
+  </sHotkeys>
+  <sHud>
+    <lDisplaysList />
+    <cHudPolicy>Show if focused</cHudPolicy>
+  </sHud>
+  <sInput>
+    <sKeyboard>
+      <cKeyboardMode>Simulate keyboard</cKeyboardMode>
+      <cStuckCtrlShiftPolicy>If cavebot on, release after 1 sec</cStuckCtrlShiftPolicy>
+      <rTypeWaitTime>20 to 45</rTypeWaitTime>
+      <rPressWaitTime>45 to 65</rPressWaitTime>
+    </sKeyboard>
+    <sMouse>
+      <cMouseMode>Simulate mouse</cMouseMode>
+      <cScrollMode>Use mouse wheel</cScrollMode>
+      <cStuckCursorPolicy>If cavebot on, release instantly</cStuckCursorPolicy>
+      <cMoveSpeed>Instantaneous</cMoveSpeed>
+      <rClickWaitTime>20 to 35</rClickWaitTime>
+    </sMouse>
+    <cFocusPolicy>Don't auto-focus</cFocusPolicy>
+    <cOpenMenuPolicy>Confirm if cavebotting</cOpenMenuPolicy>
+  </sInput>
+  <sNavigation>
+    <sLists>
+      <uEnemies />
+      <uFriends />
+      <uLeaders />
+    </sLists>
+    <sSettings>
+      <bAutoConnect>no</bAutoConnect>
+    </sSettings>
+  </sNavigation>
+  <sTargeting>
+    <lMonsters />
+    <sStanceOptions>
+      <bDiagonalMovement>no</bDiagonalMovement>
+      <cRangeDistance>2</cRangeDistance>
+      <iLureIntensity>30</iLureIntensity>
+    </sStanceOptions>
+    <sTargetSelection>
+      <iListOrder>0</iListOrder>
+      <iHealth>20</iHealth>
+      <iProximity>30</iProximity>
+      <iDanger>10</iDanger>
+      <iRandom>0</iRandom>
+      <iStick>2</iStick>
+      <bMustBeReachable>yes</bMustBeReachable>
+      <bMustBeShootable>no</bMustBeShootable>
+    </sTargetSelection>
+    <sTargetingPriority>
+      <iPriority>60</iPriority>
+      <iOverridePriority>0</iOverridePriority>
+      <iExpireTime>2000</iExpireTime>
+      <iLifeTime>5000</iLifeTime>
+      <cEventType>Normal Event</cEventType>
+    </sTargetingPriority>
+    <bTargetingEnabled>no</bTargetingEnabled>
+  </sTargeting>
+</sNeoSettings>
