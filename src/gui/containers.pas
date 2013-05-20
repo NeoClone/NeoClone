@@ -153,17 +153,17 @@ if not Gui.Player.OnLine then exit;
 
   if (pos('ground', locationItem) = 0) then
   begin
-    hotkeyId := TibiaHotKey.Find( itemId );
+    hotkeyId := Gui.TibiaHotKey.Find( itemId );
     if hotkeyId > -1 then
     begin
       // znaleziono w hotkeyu --found in hotkeyu
-      TibiaHotKey.ID := hotkeyId;
-      TibiaHotKey.ExecuteHotkey();
+      Gui.TibiaHotKey.ID := hotkeyId;
+      Gui.TibiaHotKey.ExecuteHotkey();
       if (uselocation = 'Self') then
         begin
-        if TibiaHotkey.ObjectType = 2 then
+        if Gui.TibiaHotkey.ObjectType = 2 then
           result := true
-        else if (TibiaHotkey.ObjectType = 1) or (TibiaHotkey.ObjectType = 0) then
+        else if (Gui.TibiaHotkey.ObjectType = 1) or (Gui.TibiaHotkey.ObjectType = 0) then
           begin
           gloc := Player.getLocation();
           d := GUI.GameWindow.getSize();

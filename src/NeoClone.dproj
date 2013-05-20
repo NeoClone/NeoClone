@@ -149,6 +149,7 @@
 				<Form>Form3</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
+			<DCCReference Include="threads\ScriptThreadUnit.pas"/>
 			<None Include="fmx\readme.txt"/>
 			<None Include="fmx\VPR.INC"/>
 			<BuildConfiguration Include="Debug">

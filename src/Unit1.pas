@@ -6,9 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Memory, guiclass, inputer, addresses, lua, lualib,
   Menus, luaClass, Vcl.ExtCtrls, Winapi.GDIPOBJ, EventQueue, PriorityQueue,
-  Xml.VerySimple, parserThreadUnit, healerThreadUnit, settingsTemplates, hotkey,
-  netmsg, datReader, afxCodeHook, PetriW.Pipes, player, VirtualTrees, chat,Equipment,
-   gamewindow, containers,cooldown, Vcl.DBCtrls, map, TextEditor, ScriptEditor;
+  Xml.VerySimple, parserThreadUnit, healerThreadUnit, settingsTemplates,
+  netmsg, datReader, afxCodeHook, PetriW.Pipes, VirtualTrees, Vcl.DBCtrls,
+   TextEditor, ScriptEditor, ScriptThreadUnit;
 
 type
   TMain = class(TForm)
@@ -106,7 +106,7 @@ var
   Memory: TMemory;
   GUI: TGUI;
   EvtQueue: TEventQueue;
-  TibiaHotKey: TTibiaHotkey;
+//  TibiaHotKey: TTibiaHotkey;
   settings, xmlSpellList, xmlItemList: TVerySimpleXML;
 
   LuaScript: TLuaScripter;
@@ -115,6 +115,7 @@ var
 
   ParserThread: TParserThread;
   HealerThread: THealerThread;
+  ScriptThread: TScriptThread;
 
   pipeServer: TPBPipeServer;
   pipeClient: TPBPipeClient;
@@ -205,7 +206,6 @@ var
   Rec : TSearchRec;
   Path, cleanName: string;
 Sname: string;
-Player: TPlayer;
   busc: boolean;
 begin
 
@@ -282,6 +282,7 @@ loadTibia();    //find window etc...
  // loadTibiaDat(GetEnvironmentVariable('Programfiles') + '\Tibia\Tibia.dat');
 
   settingsForm.initHealer();   //we initiate Healer Thread
+  settingsForm.initScript();   //we initiate Script Thread
 
   // this takes some info from Packets, not all from Addresses!)
   {but idk how it works!
@@ -452,9 +453,8 @@ end;
 procedure TMain.Button5Click(Sender: TObject);
 var
   loc: Tlocation;
-player: Tplayer;
 begin
-  loc := Player.getLocation();   //Gui.player.getLocation()
+  loc := Gui.Player.getLocation();   //Gui.player.getLocation()
   loc.y := loc.y - 1;     //my char position.Y -1 (up of my char)
                              //id = 0¿?
   GUI.Containers.useItem( 0, GUI.ground(loc.x, loc.y, loc.z) );
@@ -545,6 +545,7 @@ begin
   Memory.Free;
 
   HealerThread.Free;
+  ScriptThread.Free;
   ParserThread.Free;
 
   settings.Free;

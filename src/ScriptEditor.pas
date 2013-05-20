@@ -30,23 +30,47 @@ uses Unit1;
 procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
 var           //this will add the new info ONLY if we close the window!
 buffer: string;
+flag: boolean;
 res: integer;          //not working properly, neither the filter of $ after closing this.
-begin          //we have to add the '&amp;' '&lt;' '&#xd;' '&gt; for the Script Editor Window
-buffer:= StringReplace( EditScript.GetText, #13, '\n', [rfReplaceAll] ); //parse #13 to \n
+begin
+flag:=false;
+         //we have to add the '&amp;' '&lt;' '&#xd;' '&gt; for the Script Editor Window
+buffer:= EditScript.GetText;
+buffer:= StringReplace( buffer, #13, '\n', [rfReplaceAll] ); //parse #13 to \n
 buffer:= StringReplace( buffer, #10, '\n', [rfReplaceAll] ); //parse #10 to \n
 buffer:= StringReplace( buffer, '\n\n', '\n', [rfReplaceAll] ); //parse doubles (noobie style) xD
 
-settingsForm.SETsetting(settingsForm.getPathTextEditor, buffer); //setsetting(path, parse(txt))
-
-    res := LuaScript.DoString( EditScript.GetText );
-    case res of
-          LUA_ERRSYNTAX: AddLogError( 'console script', LuaScript.getErrorText() );
-          LUA_ERRRUN: AddLogError( 'console script', LuaScript.getErrorText() );
-          LUA_ERRMEM: AddLogError( 'console script', LuaScript.getErrorText() );
-          LUA_ERRERR: AddLogError( 'console script', LuaScript.getErrorText() );
-        end;
-
-//Form3.Destroy; //not sure if this + the "OnShow"--> create, will work :/
+settingsForm.SETsetting(settingsForm.getPathTextEditor+'/Script', buffer); //setsetting(path, parse(txt))
+                           //we set the data.FirstRun to True, with setSetting()
+//buffer:= EditScript.GetText;  //we reset the variable "buffer"
+//if (pos('auto', buffer) = 0) and   //if auto then ScriptThreadUnit.pas will do it...
+//(settingsForm.getsetting(settingsForm.getPathTextEditor+'/Enabled') = 'yes') then
+//begin           //HotkeyList & DisplayList will work inside ScriptThreadUnit.pas
+//  if pos('/CavebotList/', settingsForm.getPathTextEditor) > 0 then
+//    begin                //only if Cavebot is ON
+//      flag:= (settingsForm.getsetting('Cavebot/CavebotEnabled') = 'yes');
+//    end
+//  else
+//  if pos('/PersistentList/', settingsForm.getPathTextEditor) > 0 then
+//    begin                // always ON since it is Enabled (and independent)
+//      flag:= true;
+//    end;
+//
+//
+//  if flag then
+//  begin
+//    buffer:= StringReplace( buffer, 'init start', ' ', [rfReplaceAll] );
+//    buffer:= StringReplace( buffer, 'init end', ' ', [rfReplaceAll] );
+//
+//        res := LuaScript.DoString( buffer );
+//        case res of
+//              LUA_ERRSYNTAX: AddLogError( 'console script', LuaScript.getErrorText() );
+//              LUA_ERRRUN: AddLogError( 'console script', LuaScript.getErrorText() );
+//              LUA_ERRMEM: AddLogError( 'console script', LuaScript.getErrorText() );
+//              LUA_ERRERR: AddLogError( 'console script', LuaScript.getErrorText() );
+//            end;
+//  end;
+//end;
 end;
 
 procedure TForm3.FormCreate(Sender: TObject);

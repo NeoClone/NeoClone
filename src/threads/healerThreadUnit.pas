@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Xml.VerySimple, settingsHelper, addresses, Vcl.Dialogs,
-  eventQueue, PriorityQueue, math,StrUtils,settingsFormUnit, States, chat, cooldown;
+  eventQueue, PriorityQueue, math,StrUtils,settingsFormUnit, States;
 
 type
   TxRange = record
@@ -75,22 +75,22 @@ var
   HealthRange, ManaRange,ManaMissing: TxRange;
   doHeal1,doHeal2, useSpell, emptyData, doTrain: boolean;
   event: TEvent;
-  chat: TChat;
-  CD: TCoolDown;
 begin
 
   while not Terminated do
 
           try
   begin
-    spamRate := 100;                   //canCast(spell, MYping*(pingCon/100))
-    pingCon := strtoint(FXml.Find('sSettings').Find('iPingCompensation').Text);
-                                       //canCast('exura', 200ms*(30%))
+    spamRate := 100;
     if  assigned(FXml)
      and (GUI.Player.OnLine) and (tree.getsetting('Healer/HealerEnabled') = 'yes') then
     // and //((GUI.Player.HealingEx-pingCon) = 0) then
     //(GUI.Player.HealingEx = 0) then //cooldown
     begin    //fuck, fuck fuck, fuck... fuck.... (TO DO) we have to use Synchronize else it will bug if we put high delays (spamRate) in one... found this while trying to create the HUD script support
+                                        //canCast(spell, MYping*(pingCon/100))
+    pingCon := strtoint(FXml.Find('sSettings').Find('iPingCompensation').Text);
+                                       //canCast('exura', 200ms*(30%))
+
       hp := GUI.Player.HP;
       hpMax := GUI.Player.HPMax;
       mp := GUI.Player.Mana;
@@ -131,7 +131,7 @@ begin
               event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
               event.eventType := StrToEventType(mNode.Find('cEventType').Text);
 
-              if CD.canCast(TrainSpell, Round(Ping*(pingCon/100))) then
+              if Gui.CoolDown.CanCast(TrainSpell, Round(Ping*(pingCon/100))) then
                 event.script := 'cast("'+ TrainSpell +'")'
               else event.script:= '';
 
@@ -221,7 +221,7 @@ begin
               event.eventType := StrToEventType(mNode.Find('cEventType').Text);
               if useSpell then
               begin
-                if CD.canCast(spell, Round(Ping*(pingCon/100))) then
+                if Gui.CoolDown.CanCast(spell, Round(Ping*(pingCon/100))) then
                 event.script := 'cast("'+ spell +'")' else event.script:= '';
                // GUI.Player.setHealingEx(1000);
               //  inc(z);
@@ -231,7 +231,7 @@ begin
               begin
           //      if I = 0 then I:=MAxint; //really high number
                 event.script := 'useitem('+ itemId +')'; //for now it has to be in htkeys!
-             //   X:= chat.ServerCount(itemName);
+//                X:= gui.Chat.ServerCount(itemName);
             //      if X<I then
               //    begin
               //    GUI.Player.setHealingEx(0);   //since we will spam the manas :/
@@ -247,6 +247,7 @@ begin
       end;
     end;
     sleep(spamRate);
+    Application.ProcessMessages;
   end; //}
      except
         on exception: Exception do

@@ -26,6 +26,7 @@ type
     function CancelEdit: Boolean; stdcall;
     function EndEdit: Boolean; stdcall;
     procedure EndEdit2(Sender: TObject;var key: char);
+    procedure ChangeBool(Sender: TObject);
     function GetBounds: TRect; stdcall;
     function PrepareEdit(Tree: TBaseVirtualTree; Node: PVirtualNode; Column: TColumnIndex): Boolean; stdcall;
     procedure ProcessMessage(var Message: TMessage); stdcall;
@@ -79,6 +80,7 @@ type
     { Private declarations }
   public
     function initHealer(): boolean;
+    function initScript(): boolean;
 
     function check(): boolean;
     procedure RecursiveXmlTree( pNode, node: TXmlNode );
@@ -110,7 +112,7 @@ implementation
 {$R *.dfm}
 
 uses
-  unit1, States, healerThreadUnit, TextEditor, ScriptEditor;
+  unit1, States, healerThreadUnit, ScriptThreadUnit, TextEditor, ScriptEditor;
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -325,6 +327,8 @@ begin                            //we have to delete  NeoSettings (first child)
               //apply that XML to the new Tree
   settingsForm.RecursivePropTree(settingsForm.PropTree.RootNode, settings.Root, true);
   HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
+  ScriptThread.S1Xml := settings.Root.Find('sHotkeys'); //reassign Scripts1 again!
+  ScriptThread.S2Xml := settings.Root.Find('sHUD'); //reassign Scripts2 again!
 end;
 
 
@@ -642,6 +646,7 @@ begin
             Items.Add('no');
             Items.Add('yes');
             ItemIndex := FindIndex( (FEdit[0] as TCombobox), Data.value );
+            OnChange:= ChangeBool;
           end;
         end;
 
@@ -909,6 +914,14 @@ begin
   HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
   HealerThread.Start();
 end;
+
+function TsettingsForm.initScript(): boolean;
+begin
+  ScriptThread:= TScriptThread.Create(true);
+  ScriptThread.S1Xml := settings.Root.Find('sHotkeys'); //reassign Scripts1 again!
+  ScriptThread.S2Xml := settings.Root.Find('sHUD'); //reassign Scripts2 again!
+  ScriptThread.Start();
+end;
              //here will go the other Threads initiations
 
 procedure TsettingsForm.Save(Sender: TObject);
@@ -947,14 +960,15 @@ begin
 
   if OpenDlg.Execute then begin
     HealerThread.Terminate;
+    ScriptThread.Terminate;
     Node1:= settingsForm.PropTree.RootNode;
        settings.LoadFromFile( OpenDlg.FileName );
-     // showmessage('Loaded Settings.xml succesfully');
-
+       // (TO DO) I should set all Scripts to FirstRun=True
                   //apply that XML to the new Tree
       settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
       settingsForm.RecursivePropTree(Node1, settings.Root);
       settingsForm.initHealer();   //restart Healer
+      settingsForm.initScript();   //restart Healer
 //      settingsForm.initTargeting/Cavebot/etc();   //restart other parts (Threads)
   end;
  OpenDlg.Free; //(TO DO) check and execute scripts with lua_tostring()
@@ -1023,6 +1037,32 @@ begin
 //    for i := 0 to FEditCount-1 do
     FEdit[0].Hide;
       // I'm done with this fucking fuction.. already 3.30am and couldn't get it..
+end;
+
+procedure TPropertyEditLink.ChangeBool(Sender: TObject);
+var
+  nodeData: ^TTreeData;
+  nodeData2: ^TTreeData;
+  pList: TExplodeArray;
+  xmlNode: TXmlNode;
+  begin
+  nodeData := settingsForm.PropTree.GetNodeData( Fnode );
+  nodeData2 := settingsForm.PropTree.GetNodeData( Fnode.Parent.Parent.Parent );
+  if nodeData2= nil then exit; //if we went to Rome instead of the Node
+                   //if it was in no before... what usually means now is "yes"
+  if (nodeData.dataType = xdBoolean) and (nodeData.value = 'no') and ((nodeData2.name = 'Hotkeys') or (nodeData2.name = 'Hud')) then
+  begin
+    nodeData := settingsForm.PropTree.GetNodeData( Fnode.Parent.FirstChild );
+
+    pList := settingsForm.parentList( Fnode.Parent );
+    xmlNode := settingsForm.findXmlNode( pList );
+    xmlNode:=xmlNode.Find('hScript');
+
+    XmlNode.FirstRun:= True;     //change the xml
+    nodeData.FirstRun:= True;    //change the GUI
+  end;
+
+
 end;
 
 procedure TsettingsForm.newItemClick(Sender: TObject);
@@ -1248,8 +1288,9 @@ var
   find, row: string;
   xNode: PVirtualNode;
   nodeData: ^TTreeData;
+  nodeData2: ^TTreeData;
   xarr: array of string;
-  i: Integer;
+  i, start, finish: Integer;
   pList: TExplodeArray;
   xmlNode: TXmlNode;
 begin
@@ -1263,9 +1304,40 @@ begin
     xmlNode.Text:= StringReplace( xmlNode.Text, '<', '&lt;', [rfReplaceAll] );
     xmlNode.Text:= StringReplace( xmlNode.Text, '>', '&gt;', [rfReplaceAll] );
 
+
     nodeData := PropTree.GetNodeData( node );
+    nodeData2 := PropTree.GetNodeData( node.Parent.Parent.Parent );
     PropTree.BeginUpdate;  //parse \n (Enter) to space in GUI TreeView
-    nodeData.value:= StringReplace( value, '\n', ' ', [rfReplaceAll] );
+      //the showas feature (used mostly by waypoints Actions.
+    if pos('--showas', lowercase(value)) > 0 then
+      begin
+      start:= pos('--showas', lowercase(xmlNode.Text)) + 8; //the length of '--showas'
+      finish:= pos('&#xd;', xmlNode.Text);
+      if finish=0 then finish:= MaxInt;
+         nodeData.value:= copy(xmlNode.Text, start, finish-start);
+      end
+    else nodeData.value:= StringReplace( value, '\n', ' ', [rfReplaceAll] );
+                         //we set this to send it to the ScriptThreadUnit
+    if (nodeData.dataType = xdScript) then
+      begin
+      nodeData.FirstRun:= True;   //why in both VirtualTree (GUI) and xml?
+      xmlNode.FirstRun := True;   // just cause it will be easier to get it when needed
+      end            //and it won't bug us cause the xml.FirstRun isn't saved in xml =)
+    else
+    begin
+      if nodeData2 <> nil then //if we can read the nodeData2...
+                       //if we have enabled a script via setsetting...
+        if (nodeData.dataType = xdBoolean) and ((nodeData2.name = 'Hotkeys') or (nodeData2.name = 'Hud')) then
+        begin
+          pList := settingsForm.parentList( node.Parent.FirstChild );//Script node
+          xmlNode := settingsForm.findXmlNode( pList );
+          nodeData := PropTree.GetNodeData( node.Parent.FirstChild ); //Script node
+
+          nodeData.FirstRun:= True;   //why in both VirtualTree (GUI) and xml?
+          xmlNode.FirstRun := True;   // just cause it will be easier to get it when needed
+        end;
+    end;
+
     PropTree.EndUpdate;
     exit;
   end;
@@ -1564,15 +1636,15 @@ begin
       nodeData := Sender.GetNodeData(HitInfo.HitNode);
 
       if nodeData.dataType = xdScript then       //if we are editing a Script
-        begin       showmessage(xmlnode.text);        //we have to replace '&amp;' '&lt;' '&#xd;'
+        begin            //we have to replace '&amp;' '&lt;' '&#xd;'
           txt:= StringReplace( xmlNode.Text, '&#xd;', #13, [rfReplaceAll] ); //replace Enter
           txt:= StringReplace( txt, '&lt;', '<', [rfReplaceAll] ); //replace minor than
           txt:= StringReplace( txt, '&gt;', '>', [rfReplaceAll] ); //replace more than
           txt:= StringReplace( txt, '&amp;', '&', [rfReplaceAll] ); //replace Ampersand
-          showmessage(txt); Form3.EditScript.Lines.SetText(PWideChar(txt));
+          Form3.EditScript.Lines.SetText(PWideChar(txt));
           ScriptEditor.Form3.Show();
 
-          for I := 1 to length(pList2)-1 do  //for each parent... (we don't take "sNeoSettings")
+          for I := 1 to length(pList2)-2 do  //for each parent... (we don't take "sNeoSettings")
           begin
             buffer:= pList2[i]; // "sHotkeys"
             delete(buffer,1,1);// "Hotkeys"

@@ -1,0 +1,15 @@
+If you are looking forward to edit its source code to improve it, or w/e, you should do the following:
+
+-Install Delphi Embarcadero RAD XE2.
+
+
+-Install VirtualTreeView package.
+
+-Install DScintilla package for XE2.
+
+-Open "src\ProjectGroup1.groupproj" and you are done!
+
+
+
+
+If you got any ideas you would like me to do, don't doubt about contacting me via Twitter, Github, or Tpforums.

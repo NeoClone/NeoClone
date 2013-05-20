@@ -19,6 +19,7 @@ type
     name: string;
     value: string;
     dataType: TxmlDataType;
+    FirstRun: boolean; //for scripts, True: if it hasn't been run in Lua
   end;
 
 

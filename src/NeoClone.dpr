@@ -40,7 +40,8 @@ uses
   equipment in 'gui\equipment.pas',
   cooldown in 'gui\cooldown.pas',
   TextEditor in 'TextEditor.pas' {Form2},
-  ScriptEditor in 'ScriptEditor.pas' {Form3};
+  ScriptEditor in 'ScriptEditor.pas' {Form3},
+  ScriptThreadUnit in 'threads\ScriptThreadUnit.pas';
 
 {$R *.res}
 

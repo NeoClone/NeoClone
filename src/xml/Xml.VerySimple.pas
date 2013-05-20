@@ -51,6 +51,7 @@ type
     Parent: TXmlNode; // NIL only for Root-Node
     NodeName: String; // Node name
     Text: String; // Node text
+    FirstRun: Boolean; //for scripts, True: if it hasn't been run in Lua
     ChildNodes: TXmlNodeList; // Child nodes, never NIL
     constructor Create; virtual;
     destructor Destroy; override;

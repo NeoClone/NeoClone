@@ -52,14 +52,14 @@ var
 begin
 
   spell := Lua_ToString(LuaState, 1);
-  hkIdent := TibiaHotKey.Find(spell);
+  hkIdent := Gui.TibiaHotKey.Find(spell);
 
   if hkIdent > -1 then
   begin
-    TibiaHotKey.ID := hkIdent;
-    TibiaHotKey.ExecuteHotkey;
+    Gui.TibiaHotKey.ID := hkIdent;
+    Gui.TibiaHotKey.ExecuteHotkey;
     sleep(50);
-    if not TibiaHotKey.SendAutomatically then
+    if not Gui.TibiaHotKey.SendAutomatically then
       inputer.SendKey(VK_RETURN);
   end else
   begin
