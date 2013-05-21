@@ -84,43 +84,7 @@
       <zEnergyAvoidance>15, 20</zEnergyAvoidance>
       <zFireAvoidance>15, 20</zFireAvoidance>
       <zPoisonAvoidance>15, 20</zPoisonAvoidance>
-      <uWalkableIds>140
-404
-831-834
-883
-2131-2135
-2314-2316
-2319
-2346-2385
-2418-2426
-2431-2434
-2441-2444
-2469
-2471-2473
-2478
-2480-2486
-2519
-2523
-2775-2812
-2981-2985
-2987-2988
-3503-3504
-3514
-3807
-5086-5088
-6114-6115
-6355-6362
-6371-6372
-7864
-8455
-8763
-9061-9062
-10207
-10209
-10216
-10286
-10287-10288
-11009</uWalkableIds>
+      <uWalkableIds>140&#xd;404&#xd;831-834&#xd;883&#xd;2131-2135&#xd;2314-2316&#xd;2319&#xd;2346-2385&#xd;2418-2426&#xd;2431-2434&#xd;2441-2444&#xd;2469&#xd;2471-2473&#xd;2478&#xd;2480-2486&#xd;2519&#xd;2523&#xd;2775-2812&#xd;2981-2985&#xd;2987-2988&#xd;3503-3504&#xd;3514&#xd;3807&#xd;5086-5088&#xd;6114-6115&#xd;6355-6362&#xd;6371-6372&#xd;7864&#xd;8455&#xd;8763&#xd;9061-9062&#xd;10207&#xd;10209&#xd;10216&#xd;10286&#xd;10287-10288&#xd;11009</uWalkableIds>
     </sPathfinding>
     <sSettings>
       <cRopeToUse>Rope</cRopeToUse>
@@ -161,15 +125,13 @@
     <bHealerEnabled>yes</bHealerEnabled>
   </sHealer>
   <sHotkeys>
-    <lHotkeyList>
-      <eNewHotkey1>
-        <hScript>i= 0&amp;#xd;while i&lt;10 do&amp;#xd;print(i)&amp;#xd;i=i+1&amp;#xd;end</hScript>
-        <kMainKey />
-        <kComboKey />
-        <cComboType>Must be pressed</cComboType>
-      </eNewHotkey1>
-    </lHotkeyList>
-    <lPersistentList />
+    <lHotkeyList />
+    <lPersistentList>
+      <eNewPersistent1>
+        <hScript>sgsdfg</hScript>
+        <bEnabled>yes</bEnabled>
+      </eNewPersistent1>
+    </lPersistentList>
     <lCavebotList />
     <cHotkeyCondition>Client focus required</cHotkeyCondition>
     <sDefaultEventPriority>

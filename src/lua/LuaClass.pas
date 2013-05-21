@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Memory, guiclass, inputer, addresses, lua, lualib,
-  Menus, log, chat, containers,settingsFormUnit;
+  Menus, log, eventQueue, PriorityQueue,settingsFormUnit;
 
 type
   TLuaScripter = class(TLua)
@@ -23,12 +23,11 @@ type
 
     function getsetting(LuaState: TLuaState): integer;
     procedure setsetting(LuaState: TLuaState);
+    procedure setpriority(LuaState: TLuaState);
     procedure say(LuaState: TLuaState);
   end;
   var
   tree: TsettingsForm;
-  chat: TChat;
-  Container: TContainers;
 
 implementation
 
@@ -63,7 +62,7 @@ begin
       inputer.SendKey(VK_RETURN);
   end else
   begin
-chat.say(spell);
+Gui.Chat.say(spell);
   end;
 
 end;
@@ -83,7 +82,29 @@ begin
   itemlocation := Lua_ToString(LuaState, 2);
   uselocation := Lua_ToString(LuaState, 3);
   //
-  Container.useItem(itemID, itemlocation, uselocation)
+  Gui.Containers.useItem(itemID, itemlocation, uselocation)
+end;
+
+                             //for scripts
+procedure TLuaScripter.setpriority(LuaState: TLuaState);
+var
+Priority, OverridePriority, ExpireTime, LifeTime, EventType: string;
+event: TEvent;
+begin
+  Priority := Lua_ToString(LuaState, 1);
+  OverridePriority := Lua_ToString(LuaState, 2);
+  ExpireTime := Lua_ToString(LuaState, 3);
+  LifeTime := Lua_ToString(LuaState, 4);
+  EventType := Lua_ToString(LuaState, 5);
+  //(TO DO) not sure if this goes here or in ScriptThreadUnit.pas
+//              event.priority := StrToInt(mNode.Find('iPriority').Text);
+//              event.overridePriority := StrToInt(mNode.Find('iOverridePriority').Text);
+//              event.expireTime := StrToInt(mNode.Find('iExpireTime').Text);
+//              event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
+//              event.eventType := StrToEventType(mNode.Find('cEventType').Text);
+//              event.script := 'cast("'+ spell +'")' else event.script:= '';
+//                EvtQueue.insert( event );
+//tree.SETsetting(path,value);
 end;
 
 
@@ -114,7 +135,7 @@ var
 begin
   word := Lua_ToString(LuaState, 1);
   channel := Lua_ToString(LuaState, 2);
-chat.say(word,channel);
+Gui.Chat.say(word,channel);
 end;
 
 

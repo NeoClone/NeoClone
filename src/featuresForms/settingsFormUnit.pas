@@ -320,38 +320,49 @@ end;
 
 
 procedure TsettingsForm.Clear(Sender: TObject);
-begin                            //we have to delete  NeoSettings (first child)
+begin    //we write here the threads which are always running
+
+  Healer.Finish;
+
+  HealerThread.Terminate;
+  ScriptThread.Terminate;
+                        //we have to delete  NeoSettings (first child)
   settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
   settings := TVerySimpleXML.Create;   //create new settingsXML
   settings.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
               //apply that XML to the new Tree
   settingsForm.RecursivePropTree(settingsForm.PropTree.RootNode, settings.Root, true);
-  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
-  ScriptThread.S1Xml := settings.Root.Find('sHotkeys'); //reassign Scripts1 again!
-  ScriptThread.S2Xml := settings.Root.Find('sHUD'); //reassign Scripts2 again!
+
+  settingsForm.initHealer();   //restart Healer
+  settingsForm.initScript();   //restart Scripter
 end;
 
 
 procedure TsettingsForm.ClearHealRules(Sender: TObject);
 var
 Node1: PVirtualNode;
-  node: PVirtualNode;
+  Pnode: PVirtualNode;
   xmlItem: TVerySimpleXML;
   pList: TExplodeArray;
-  xmlNode: TXmlNode;
+  xmlNode, xNode: TXmlNode;
   nodeData: ^TTreeData;
   i: integer;
-begin
+begin  //we write here the threads which are always running
+
+  Healer.Finish;
+
+  HealerThread.Terminate;
+
               // NeoSettings=(first child)    -->Node1= parent of our node
-Node1:= settingsForm.PropTree.RootNode.FirstChild.FirstChild.NextSibling.NextSibling;
+  Node1:= settingsForm.PropTree.RootNode.FirstChild.FirstChild.NextSibling.NextSibling;
             {
   settings := TVerySimpleXML.Create;   //create new settingsXML
       }
 //kk, we take the Node wich we are going to remove -->Node1 is parent!
-  node := Node1.Firstchild;
+  Pnode := Node1.Firstchild;
 //  nodedata:= proptree.GetNodeData(node);
 //  showmessage(nodedata.name);
-  pList := settingsForm.parentList( node ); //now we do shit to get it in Xml yo!
+  pList := settingsForm.parentList( Pnode ); //now we do shit to get it in Xml yo!
   xmlNode := settingsForm.findXmlNode( pList );
                //we delete the visual Tree
   PropTree.DeleteNode( Node1.FirstChild, false );
@@ -368,7 +379,7 @@ Node1:= settingsForm.PropTree.RootNode.FirstChild.FirstChild.NextSibling.NextSib
 
     PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
 
-  HealerThread.FXml := settings.Root.Find('sHealer'); //reassign Healer again!
+  settingsForm.initHealer();   //restart Healer
 end;
 
 procedure TsettingsForm.Close(Sender: TObject);
@@ -949,8 +960,8 @@ OpenDlg : TOpenDialog;
 Path: string;
 Node1: PVirtualNode;
 state: TEStates;
+xNode, node, script: TXmlNode;
 begin
-//showmessage(settings.Root.NodeName);
   Path := IncludeTrailingPathDelimiter( extractFilePath(paramstr(0)));
 
   OpenDlg := TOpenDialog.Create(Self);
@@ -958,18 +969,63 @@ begin
     OpenDlg.Filter:= 'Scripts (*.xml)|*.xml';
     OpenDlg.Options:= [ofPathMustExist,ofFileMustExist];
 
-  if OpenDlg.Execute then begin
-    HealerThread.Terminate;
-    ScriptThread.Terminate;
+  if OpenDlg.Execute then
+  begin
+    HealerThread.Terminate;  //restart Healer
+    ScriptThread.Terminate; //restart Scripter
+
     Node1:= settingsForm.PropTree.RootNode;
        settings.LoadFromFile( OpenDlg.FileName );
-       // (TO DO) I should set all Scripts to FirstRun=True
                   //apply that XML to the new Tree
       settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
       settingsForm.RecursivePropTree(Node1, settings.Root);
-      settingsForm.initHealer();   //restart Healer
-      settingsForm.initScript();   //restart Healer
+
+    settingsForm.initHealer();   //restart Healer
+    settingsForm.initScript();   //restart Scripter
 //      settingsForm.initTargeting/Cavebot/etc();   //restart other parts (Threads)
+
+      begin   // We set all Scripts to FirstRun=True
+        xNode := HealerThread.FXml.Find('lHealRules');  //here we change the value of the NAMES
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            node.FirstRun:=True;
+          end;
+        xNode := HealerThread.FXml.Find('sManaTraining');  //here we change the value of the NAME
+        if xNode <> nil then //if it exists
+          begin
+            node.FirstRun:=True;
+          end;
+        xNode := ScriptThread.S1Xml.Find('lHotkeyList');
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            Script:= node.Find('hScript');       //here we change the value of the SCRIPT
+            Script.FirstRun:=True;
+          end;
+        xNode := ScriptThread.S1Xml.Find('lPersistentList');
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            Script:= node.Find('hScript');
+            Script.FirstRun:=True;
+          end;
+        xNode := ScriptThread.S1Xml.Find('lCavebotList');
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            Script:= node.Find('hScript');
+            Script.FirstRun:=True;
+          end;
+        xNode := ScriptThread.S2Xml.Find('lDisplaysList');//HUD's
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            Script:= node.Find('hScript');
+            Script.FirstRun:=True;
+          end;
+      end;
+
   end;
  OpenDlg.Free; //(TO DO) check and execute scripts with lua_tostring()
 end;
@@ -1007,6 +1063,7 @@ begin  //also "Wand Of Cosmic Energy" in lootitems doesn't delete,wtf? maybe the
   PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
 //  showmessage(inttostr(xmlNode.Parent.ChildNodes.IndexOf(xmlNode)));
   i:= xmlNode.Parent.ChildNodes.IndexOf(xmlNode);
+  xmlNode.TimerStarted:= False;
   //here we have to put the number of index (0 first,1 second,etc) that we want deleted
   xmlNode.Parent.ChildNodes.Delete(i);   //now we delete the Xml Code, else if we read it, it will still exist!
 //  showmessage(inttostr(xmlNode.Parent.ChildNodes.Count));
@@ -1297,6 +1354,10 @@ begin
   if length(arr) = 0 then
   begin    //setsetting('Cavebot/Pathfinding/WalkableIdS','123\n234\n234 434\n2345-23456')
     pList := settingsForm.parentList( node );
+
+    for I := 0 to length(pList)-1 do
+    pList[i]:= StringReplace( pList[i], ' ', '-', [rfReplaceAll] ); //parse spaces
+
     xmlNode := settingsForm.findXmlNode( pList ); //parse \n (Enter) to that in xml internals
      //we have to add the '&amp;' '&lt;' '&#xd;' '&gt;' for the Script Editor Window
     xmlNode.Text:= StringReplace( value, '&', '&amp;', [rfReplaceAll] ); //this first, else it will parse wrongly
@@ -1330,6 +1391,10 @@ begin
         if (nodeData.dataType = xdBoolean) and ((nodeData2.name = 'Hotkeys') or (nodeData2.name = 'Hud')) then
         begin
           pList := settingsForm.parentList( node.Parent.FirstChild );//Script node
+
+          for I := 0 to length(pList)-1 do
+          pList[i]:= StringReplace( pList[i], ' ', '-', [rfReplaceAll] ); //parse spaces
+
           xmlNode := settingsForm.findXmlNode( pList );
           nodeData := PropTree.GetNodeData( node.Parent.FirstChild ); //Script node
 

@@ -115,6 +115,7 @@ var
 
   ParserThread: TParserThread;
   HealerThread: THealerThread;
+  Healer: THealerExecutor;
   ScriptThread: TScriptThread;
 
   pipeServer: TPBPipeServer;
@@ -544,6 +545,7 @@ begin
   LuaScript.Free;
   Memory.Free;
 
+  Healer.Finish;
   HealerThread.Free;
   ScriptThread.Free;
   ParserThread.Free;

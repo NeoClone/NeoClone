@@ -61,7 +61,8 @@ begin
   logForm.ListBox1.Items.Add( colorRed + '|' + FormatDateTime('hh:nn:ss', time()) + '  error in '+ where + ': ' + log );
   logForm.ListBox1.ItemIndex := logForm.ListBox1.Items.Count - 1;
   SetHorizontalScrollBar(logForm.ListBox1);
-  logForm.Show;
+  if not logForm.Visible then
+    logForm.Show;
 end;
 
 function HexToTColor(sColor : string) : TColor;

@@ -20,6 +20,7 @@ type
     value: string;
     dataType: TxmlDataType;
     FirstRun: boolean; //for scripts, True: if it hasn't been run in Lua
+    TimerStarted: boolean; //for scripts, True: we have already created the Timer
   end;
 
 

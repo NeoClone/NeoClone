@@ -52,6 +52,7 @@ type
     NodeName: String; // Node name
     Text: String; // Node text
     FirstRun: Boolean; //for scripts, True: if it hasn't been run in Lua
+    TimerStarted: boolean; //for scripts, True: we have already created the Timer
     ChildNodes: TXmlNodeList; // Child nodes, never NIL
     constructor Create; virtual;
     destructor Destroy; override;

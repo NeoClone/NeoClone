@@ -1044,8 +1044,6 @@ end;
 
 function luaL_dofile(L: lua_State; filename: PAnsiChar): Integer;
 begin
-//if (pos('.txt', filename) > 0) or (pos('.xml', filename) > 0) or
-//  (pos('.lua', filename) > 0)  then  //doesn't work
   Result := luaL_loadfile(L, filename);
 
   If Result = 0 Then
@@ -1056,12 +1054,11 @@ function luaL_dostring(L: lua_State; str: PAnsiChar): Integer;
 var
 buffer: string;
 begin
-//if (pos('.scr', str) > 0) or (pos('.com', str) > 0) or
-//  (pos('.exe', str) > 0)  then Result:=0; //we parse due to security reasons -->doesn' work properly
+//(TO DO) we parse due to security reasons -->how? just stringReplace('os.execute',' ') or ('load','myParsedDelphiFunction.load')
 
           //------------------HARDCODED VARIABLES--------------------------
 //we have to write first the longer ones like $mppc, then $mp, therefore we don't miss/bug anything
-buffer:= str;         //we order them using M$ Excel, with "=length(A1)" etc...
+buffer:= lowercase(str);         //we order them using M$ Excel, with "=length(A1)" etc...
 buffer:= StringReplace( buffer, '$clientshifttime', '', [rfReplaceAll] );
 buffer:= StringReplace( buffer, '$targetingtarget', '', [rfReplaceAll] );
 buffer:= StringReplace( buffer, '$writtentextinfo', '', [rfReplaceAll] );

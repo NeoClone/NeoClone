@@ -14,11 +14,23 @@ type
     percent: boolean;
   end;
 
+  THealerExecutor = class(TThread)
+  public
+//    PNode: PVirtualNode;
+    node: TXmlNode;
+    name: string;
+    procedure Finish;
+  protected
+    procedure Execute; override;
+  end;
+
   THealerThread = class(TThread)
     FXml: TXmlNode;
   tree: TsettingsForm;
   public
 
+  private
+      hp, hpMax, mp, mpMax, pHp, pMp: integer;
   protected
     procedure Execute; override;
   end;
@@ -43,32 +55,30 @@ result.from := 0;
 
   result.from := StrToInt(copy(value, 1, pos(' ', value) - 1));
 
-  if above and percent then //first we have to put above+percent cause 
-      begin                //if we change order it will NOT take "19 and Above %" (4example)     
+  if above and percent then //first we have to put above+percent cause
+      begin                //if we change order it will NOT take "19 and Above %" (4example)
       result.too := 0;
       result.percent:=  percent;
       end
-  else  if percent0 and above0 then  
+  else  if percent0 and above0 then
     result.too := StrToInt(copy(value, pos('to ', value) + 3, length(value)))
-  else if percent then       
+  else if percent then
     begin                                  // "25 to 100 %"
     val:= copy(value, pos('to ', value)+3, Maxint);     // "100 %"
     //         "25..."      "100 %"                 5   -2 ==3-->"100"
-    val:= copy(value, pos('to ', value) + 3, length(val)-2);    
+    val:= copy(value, pos('to ', value) + 3, length(val)-2);
 
     result.too := StrToInt(val);   // "100"
 
   result.percent := percent;
     end
-  else if above then       
+  else if above then
     result.too := 0
 end;
 
-procedure THealerThread.Execute;
-var
-  hp,hpMax, mp,mpMax, i,x,z: integer;
-  pHp, pMp: integer;
-  node, xNode, mNode,tNode: TXmlNode;
+procedure THealerExecutor.Execute;
+var                      //we have to clean this... XD
+   mNode: TXmlNode;
   tmp: array[0..5] of string;
   value,index1, spell,TrainSpell, itemId, itemName,spellCD_ID: string;
   index, spamRate, pingCon: integer;
@@ -76,78 +86,22 @@ var
   doHeal1,doHeal2, useSpell, emptyData, doTrain: boolean;
   event: TEvent;
 begin
-
+  inherited;
+  FreeOnTerminate := True;
   while not Terminated do
-
-          try
+  try
   begin
+	sleep(10); //just in case...
     spamRate := 100;
-    if  assigned(FXml)
+    Application.ProcessMessages;
+    if node.TimerStarted = False then exit;
+
+    if  assigned(HealerThread.FXml)
      and (GUI.Player.OnLine) and (tree.getsetting('Healer/HealerEnabled') = 'yes') then
-    // and //((GUI.Player.HealingEx-pingCon) = 0) then
-    //(GUI.Player.HealingEx = 0) then //cooldown
-    begin    //fuck, fuck fuck, fuck... fuck.... (TO DO) we have to use Synchronize else it will bug if we put high delays (spamRate) in one... found this while trying to create the HUD script support
-                                        //canCast(spell, MYping*(pingCon/100))
-    pingCon := strtoint(FXml.Find('sSettings').Find('iPingCompensation').Text);
-                                       //canCast('exura', 200ms*(30%))
-
-      hp := GUI.Player.HP;
-      hpMax := GUI.Player.HPMax;
-      mp := GUI.Player.Mana;
-      mpMax := GUI.Player.ManaMax;
-      pHp := GUI.Player.HpPerc;//round((hp * 100) / hpMax);
-      pMp := GUI.Player.ManaPerc;//round((mp * 100) / mpMax);
-      if (tree.getsetting('Healer/ManaTraining/Enabled') = 'yes') then
-          begin
-            Gui.Player.EatFood();     //once we've done the scripter we will add this there
-
-            Gui.Player.AntiIdle();    //"NeoSettings--> examples-->antiidle/eatfood/etc"
-
-            tNode := FXml.Find('sManaTraining');  //our tree
-
-            value := tnode.Find('rManaMissing').Text;    //r like the rSpamRate
-            ManaMissing.from:= strtoint(copy(value, 1, pos(' ', value) - 1));
-              if (pos('above', value) > 0) then ManaMissing.too:= (mpMax -1) else
-            ManaMissing.too:= strtoint(copy(value, pos('to ', value) + 3, length(value)));
-            if (mpMax-mp >= ManaMissing.from) and (mpMax-mp <= ManaMissing.too) then //now WHILE cause if it bugs he will says the whole time the TrainSpell!
-             begin
-
-              index1 := tNode.Find('cTrainSpell').Text;
-              TrainSpell := xmlSpellList.Root.FindEx2('name',lowercase(index1)).Attribute['words'];
-
-              mNode := tNode.Find('sSpellPriority');
-
-              value := tNode.Find('rSpamRate').Text;   // "r" cause is a Range
-
-              tmp[0] := copy(value, 1, pos(' ', value) - 1);
-              tmp[1] := copy(value, pos('to ', value) + 3, length(value));
-
-              randomize();
-              spamRate := RandomRange( StrToInt(tmp[0]), StrToInt(tmp[1]) );
-
-              event.priority := StrToInt(mNode.Find('iPriority').Text);
-              event.overridePriority := StrToInt(mNode.Find('iOverridePriority').Text);
-              event.expireTime := StrToInt(mNode.Find('iExpireTime').Text);
-              event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
-              event.eventType := StrToEventType(mNode.Find('cEventType').Text);
-
-              if Gui.CoolDown.CanCast(TrainSpell, Round(Ping*(pingCon/100))) then
-                event.script := 'cast("'+ TrainSpell +'")'
-              else event.script:= '';
-
-              EvtQueue.insert( event );
-             end;
-
-            sleep(spamRate);
-            spamRate := 100;
-          end;
-
-
-      xNode := FXml.Find('lHealRules');   //l because is a list!
-
-      if xNode.ChildNodes.Count > 0 then
-      begin
-        for node in xNode.ChildNodes do
+      begin                              //canCast(spell, MYping*(pingCon/100))
+        pingCon := strtoint(HealerThread.FXml.Find('sSettings').Find('iPingCompensation').Text);
+                                         //canCast('exura', 200ms*(30%))
+        if name = 'HealRule' then
         begin
           doHeal1 := false;
           doHeal2 := false;
@@ -166,22 +120,22 @@ begin
             // omg
             if not HealthRange.percent then     //we have health
             begin
-              if HealthRange.too = 0 then HealthRange.too := hpMax;
-              doHeal1 := (hp >= HealthRange.from) and (hp <= HealthRange.too);
+              if HealthRange.too = 0 then HealthRange.too := HealerThread.hpMax;
+              doHeal1 := (HealerThread.hp >= HealthRange.from) and (HealerThread.hp <= HealthRange.too);
             end else
             begin
               if HealthRange.too = 0 then HealthRange.too := 100;
-              doHeal1 := (pHp >= HealthRange.from) and (pHp <= HealthRange.too);
+              doHeal1 := (HealerThread.pHp >= HealthRange.from) and (HealerThread.pHp <= HealthRange.too);
             end;
 
             if not ManaRange.percent then    //we have mana
             begin
-              if ManaRange.too = 0 then ManaRange.too := mpMax;
-              doHeal2 := (mp >= ManaRange.from) and (mp <= ManaRange.too) and doHeal1;
+              if ManaRange.too = 0 then ManaRange.too := HealerThread.mpMax;
+              doHeal2 := (HealerThread.mp >= ManaRange.from) and (HealerThread.mp <= ManaRange.too) and doHeal1;
             end else
             begin
               if ManaRange.too = 0 then ManaRange.too := 100;
-              doHeal2 := (pMp >= ManaRange.from) and (pMp <= ManaRange.too) and doHeal1;
+              doHeal2 := (HealerThread.pMp >= ManaRange.from) and (HealerThread.pMp <= ManaRange.too) and doHeal1;
             end;
             if doHeal2 then   //we have mana and Health
             begin
@@ -243,7 +197,138 @@ begin
               EvtQueue.insert( event );
             end;
           end;
+        end
+        else if name = 'ManaTrainer' then
+          begin
+            if (tree.getsetting('Healer/ManaTraining/Enabled') = 'yes') then
+              begin
+        //          Gui.Player.EatFood();     //once we've done the scripter we will add this there
+
+                Gui.Player.AntiIdle();    //"NeoSettings--> examples-->antiidle/eatfood/etc"
+
+                value := node.Find('rManaMissing').Text;    //r like the rSpamRate
+
+                ManaMissing.from:= strtoint(copy(value, 1, pos(' ', value) - 1));
+                  if (pos('above', value) > 0) then ManaMissing.too:= (HealerThread.mpMax -1) else
+                ManaMissing.too:= strtoint(copy(value, pos('to ', value) + 3, length(value)));
+                if (HealerThread.mpMax-HealerThread.mp >= ManaMissing.from) and (HealerThread.mpMax-HealerThread.mp <= ManaMissing.too) then //now WHILE cause if it bugs he will says the whole time the TrainSpell!
+                 begin
+
+                  index1 := node.Find('cTrainSpell').Text;
+                  TrainSpell := xmlSpellList.Root.FindEx2('name',lowercase(index1)).Attribute['words'];
+
+                  mNode := node.Find('sSpellPriority');
+
+                  value := node.Find('rSpamRate').Text;   // "r" cause is a Range
+
+                  tmp[0] := copy(value, 1, pos(' ', value) - 1);
+                  tmp[1] := copy(value, pos('to ', value) + 3, length(value));
+
+                  randomize();
+                  spamRate := RandomRange( StrToInt(tmp[0]), StrToInt(tmp[1]) );
+
+                  event.priority := StrToInt(mNode.Find('iPriority').Text);
+                  event.overridePriority := StrToInt(mNode.Find('iOverridePriority').Text);
+                  event.expireTime := StrToInt(mNode.Find('iExpireTime').Text);
+                  event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
+                  event.eventType := StrToEventType(mNode.Find('cEventType').Text);
+
+                  if Gui.CoolDown.CanCast(TrainSpell, Round(Ping*(pingCon/100))) then
+                    event.script := 'cast("'+ TrainSpell +'")'
+                  else event.script:= '';
+
+                  EvtQueue.insert( event );
+                 end;
+              end
+            else  //ManaTrainer not enabled
+              begin
+                node.TimerStarted:= False;
+                Terminate;
+              end;
+          end; //Manatrainer/healrule
+        end
+      else   //if not logged, not enabled, etc
+        begin
+          node.TimerStarted:= False;
+          Terminate;
         end;
+    sleep(spamRate);
+  end;  //try
+    except
+        on exception: Exception do
+        begin
+          node.TimerStarted:= False;
+          Terminate;
+//        showmessage('Healer:  '+exception.ToString);
+        end;
+    end;
+end;
+
+procedure THealerThread.Execute;
+var
+  i,x,z: integer;
+  node, xNode, mNode,tNode: TXmlNode;
+  tmp: array[0..5] of string;
+  value,index1, spell,TrainSpell, itemId, itemName,spellCD_ID: string;
+  index, spamRate, pingCon: integer;
+  HealthRange, ManaRange,ManaMissing: TxRange;
+  doHeal1,doHeal2, useSpell, emptyData, doTrain: boolean;
+  event: TEvent;
+begin
+
+  while not Terminated do
+
+          try
+  begin
+    spamRate := 100;
+    if  assigned(FXml)
+     and (GUI.Player.OnLine) and (tree.getsetting('Healer/HealerEnabled') = 'yes') then
+
+    // and //((GUI.Player.HealingEx-pingCon) = 0) then
+    //(GUI.Player.HealingEx = 0) then //cooldown
+    begin    //fuck, fuck fuck, fuck... fuck.... (TO DO) we have to use Synchronize else it will bug if we put high delays (spamRate) in one... found this while trying to create the HUD script support
+
+
+      hp := GUI.Player.HP;
+      hpMax := GUI.Player.HPMax;
+      mp := GUI.Player.Mana;
+      mpMax := GUI.Player.ManaMax;
+      pHp := GUI.Player.HpPerc;//round((hp * 100) / hpMax);
+      pMp := GUI.Player.ManaPerc;//round((mp * 100) / mpMax);
+
+      tNode := FXml.Find('sManaTraining');  //our tree
+      if (tree.getsetting('Healer/ManaTraining/Enabled') = 'yes') then
+        if not tNode.TimerStarted then
+          begin
+            tNode.TimerStarted:= True;  //change state (control and so)
+
+            Healer := THealerExecutor.Create(True);
+//              Healer.PNode:=PNode;
+              Healer.node:= tNode;
+              Healer.name:= 'ManaTrainer';
+              Healer.Start;
+          end;
+
+
+
+      xNode := FXml.Find('lHealRules');   //l because is a list!
+
+      if xNode.ChildNodes.Count > 0 then
+      begin
+        for node in xNode.ChildNodes do
+        begin
+          if not node.TimerStarted then
+            begin
+              node.TimerStarted:= True;  //change state (control and so)
+
+              Healer := THealerExecutor.Create(True);
+  //              Healer.PNode:=PNode;
+                Healer.node:= node;
+                Healer.name:= 'HealRule';
+                Healer.Start;
+            end;
+        end;
+
       end;
     end;
     sleep(spamRate);
@@ -252,10 +337,22 @@ begin
      except
         on exception: Exception do
         begin
-      //  showmessage(exception.ToString);
+//        showmessage(exception.ToString);
         end;
     end;
 
+end;
+
+procedure THealerExecutor.Finish;
+var
+xNode,node: TXmlNode;
+begin
+  xNode := HealerThread.FXml.Find('lHealRules');  //This will work as Healer.Terminate
+  if xNode.ChildNodes.Count > 0 then              // for every single thread created
+    for node in xNode.ChildNodes do
+    begin
+      node.TimerStarted:= False;
+    end;
 end;
 
 end.
