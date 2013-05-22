@@ -23,7 +23,6 @@ type
 
     function getsetting(LuaState: TLuaState): integer;
     procedure setsetting(LuaState: TLuaState);
-    procedure setpriority(LuaState: TLuaState);
     procedure say(LuaState: TLuaState);
   end;
   var
@@ -84,29 +83,6 @@ begin
   //
   Gui.Containers.useItem(itemID, itemlocation, uselocation)
 end;
-
-                             //for scripts
-procedure TLuaScripter.setpriority(LuaState: TLuaState);
-var
-Priority, OverridePriority, ExpireTime, LifeTime, EventType: string;
-event: TEvent;
-begin
-  Priority := Lua_ToString(LuaState, 1);
-  OverridePriority := Lua_ToString(LuaState, 2);
-  ExpireTime := Lua_ToString(LuaState, 3);
-  LifeTime := Lua_ToString(LuaState, 4);
-  EventType := Lua_ToString(LuaState, 5);
-  //(TO DO) not sure if this goes here or in ScriptThreadUnit.pas
-//              event.priority := StrToInt(mNode.Find('iPriority').Text);
-//              event.overridePriority := StrToInt(mNode.Find('iOverridePriority').Text);
-//              event.expireTime := StrToInt(mNode.Find('iExpireTime').Text);
-//              event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
-//              event.eventType := StrToEventType(mNode.Find('cEventType').Text);
-//              event.script := 'cast("'+ spell +'")' else event.script:= '';
-//                EvtQueue.insert( event );
-//tree.SETsetting(path,value);
-end;
-
 
 procedure TLuaScripter.setsetting(LuaState: TLuaState);
 var

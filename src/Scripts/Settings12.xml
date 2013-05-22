@@ -105,7 +105,7 @@
     <bCavebotEnabled>no</bCavebotEnabled>
   </sCavebot>
   <sHealer>
-    <lHealRules>false</lHealRules>
+    <lHealRules />
     <sManaTraining>
       <rManaMissing>4 to 30</rManaMissing>
       <cTrainSpell>Light Healing</cTrainSpell>
@@ -126,12 +126,7 @@
   </sHealer>
   <sHotkeys>
     <lHotkeyList />
-    <lPersistentList>
-      <eNewPersistent1>
-        <hScript>sgsdfg</hScript>
-        <bEnabled>yes</bEnabled>
-      </eNewPersistent1>
-    </lPersistentList>
+    <lPersistentList />
     <lCavebotList />
     <cHotkeyCondition>Client focus required</cHotkeyCondition>
     <sDefaultEventPriority>

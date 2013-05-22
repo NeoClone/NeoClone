@@ -13,6 +13,7 @@ type
     node: TXmlNode;
     PNode: PVirtualNode;
     name: string;
+    procedure Finish;
   protected
     procedure Execute; override;
   end;
@@ -34,8 +35,16 @@ uses
 
 var
 ress: integer;
-Scripter: TScriptExecutor;
-ScriptThread: TScriptThread;
+
+  //(TO DO) if setPriority(buffer) > 0 then take from script, else:
+//          -    event.priority := StrToInt(mNode.Find('iPriority').Text);
+//          -    event.overridePriority := StrToInt(mNode.Find('iOverridePriority').Text);
+//          -    event.expireTime := StrToInt(mNode.Find('iExpireTime').Text);
+//          -    event.lifeTime := StrToInt(mNode.Find('iLifeTime').Text);
+//          -    event.eventType := StrToEventType(mNode.Find('cEventType').Text);
+//              event.script := 'cast("'+ spell +'")' else event.script:= '';
+//                EvtQueue.insert( event );
+//setPriority(1,2,3,4,5);
 
 procedure TScriptExecutor.Execute;
 var
@@ -47,9 +56,9 @@ begin
   FreeOnTerminate := True;
 while not Terminated do
 begin
-  sleep(10);
-//  Application.ProcessMessages;
-  if node.TimerStarted = null then Terminate;
+  sleep(5);
+  Application.ProcessMessages;
+  if (node.TimerStarted = null) or (node.TimerStarted = False) then exit;// Terminate;
 
   if name = 'Persistent' then
     if (node.Find('bEnabled').Text = 'yes') then
@@ -296,6 +305,36 @@ begin
         end;
     end;
 
+end;
+
+procedure TScriptExecutor.Finish;
+var
+xNode,node, Script: TXmlNode;
+begin
+        xNode := ScriptThread.S1Xml.Find('lHotkeyList'); //This will work as .Terminate
+        if xNode.ChildNodes.Count > 0 then                // for every single thread created
+          for node in xNode.ChildNodes do
+          begin
+            node.TimerStarted:= False;
+          end;
+        xNode := ScriptThread.S1Xml.Find('lPersistentList');
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            node.TimerStarted:= False;
+          end;
+        xNode := ScriptThread.S1Xml.Find('lCavebotList');
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            node.TimerStarted:= False;
+          end;
+        xNode := ScriptThread.S2Xml.Find('lDisplaysList');//HUD's
+        if xNode.ChildNodes.Count > 0 then
+          for node in xNode.ChildNodes do
+          begin
+            node.TimerStarted:= False;
+          end;
 end;
 
 end.

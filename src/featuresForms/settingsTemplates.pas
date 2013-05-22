@@ -16,7 +16,7 @@ function loadCleanNewCavebot(): string;
 function loadCleanNewDisplay(): string;
 function loadCleanNewMonster(): string;
 implementation
-
+                //here is all the info (settings and so), if you want to change them use a Resource Editor (ResEdit)
 {$R settingsTemplates.RES}
 
 function loadCleanSettings(): string;

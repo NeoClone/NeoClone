@@ -117,6 +117,7 @@ var
   HealerThread: THealerThread;
   Healer: THealerExecutor;
   ScriptThread: TScriptThread;
+  Scripter: TScriptExecutor;
 
   pipeServer: TPBPipeServer;
   pipeClient: TPBPipeClient;
@@ -317,8 +318,12 @@ var
     chattext,ss: string;
 hp: integer;
   r: TRect;
+  xmlItems: TVerySimpleXML;
 begin
-ScriptEditor.Form3.Show;
+  xmlItems:= TVerySimpleXML.Create;   //create new settingsXML
+  xmlItems.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
+  showmessage(xmlItems.Root.Find('sHealer').Find('lHealRules').NodeName);
+  xmlItems.Free;
 //if Gui.Map.IsShootable(32352,31831,7) then
 //  showmessage('shottable');
 //Inputer.SendRClickPoint( Gui.GameWindow.map2mouse(32355,32210,7));
@@ -536,7 +541,17 @@ begin
 end;
 
 procedure TMain.FormDestroy(Sender: TObject);
-begin
+begin    //Healer and Scripter use other threads, so first this two.
+  if Healer <> nil then  //if it exists
+    if (not Healer.Finished) then //and it's not finished
+      Healer.Finish;        //in case a rule is working... (timerStarted = true)
+  HealerThread.Free;
+
+  if Scripter <> nil then    //like this it won't bug
+    if (not Scripter.Finished) then
+      Scripter.Finish;     //in case a script is working... (timerStarted = true)
+  ScriptThread.Free;
+
   pipeServer.Free;
   pipeClient.Free;
 
@@ -545,9 +560,6 @@ begin
   LuaScript.Free;
   Memory.Free;
 
-  Healer.Finish;
-  HealerThread.Free;
-  ScriptThread.Free;
   ParserThread.Free;
 
   settings.Free;

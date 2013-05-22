@@ -321,20 +321,24 @@ end;
 
 procedure TsettingsForm.Clear(Sender: TObject);
 begin    //we write here the threads which are always running
-
-  Healer.Finish;
-
-  HealerThread.Terminate;
-  ScriptThread.Terminate;
+  HealerThread.Terminate; //we have to terminate it, why? cause it uses settings (and we have to Free it (new))
+  if Healer <> nil then  //if it exists (avoid AccessViolation)
+    if (not Healer.Finished) then //and it's not finished
+      Healer.Finish;        //in case a rule is working... (timerStarted = true)
+//  if Scripter <> nil then //same
+//  Scripter.Finish;
+//  ScriptThread.Terminate;
                         //we have to delete  NeoSettings (first child)
   settingsForm.PropTree.DeleteNode(settingsForm.PropTree.RootNode.FirstChild, True);
+  if settings <> nil then settings.Free;
+
   settings := TVerySimpleXML.Create;   //create new settingsXML
   settings.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
               //apply that XML to the new Tree
   settingsForm.RecursivePropTree(settingsForm.PropTree.RootNode, settings.Root, true);
-
-  settingsForm.initHealer();   //restart Healer
-  settingsForm.initScript();   //restart Scripter
+//      showmessage('asdf');
+  settingsForm.initHealer();   //restart Healer, and also assign new settings
+//  settingsForm.initScript();   //restart Scripter
 end;
 
 
@@ -342,44 +346,44 @@ procedure TsettingsForm.ClearHealRules(Sender: TObject);
 var
 Node1: PVirtualNode;
   Pnode: PVirtualNode;
-  xmlItem: TVerySimpleXML;
+  xmlItems: TVerySimpleXML;
   pList: TExplodeArray;
   xmlNode, xNode: TXmlNode;
   nodeData: ^TTreeData;
   i: integer;
-begin  //we write here the threads which are always running
-
-  Healer.Finish;
-
-  HealerThread.Terminate;
+begin
+       //we write here the threads which are always running
+  HealerThread.Suspend;   //we pause the thread
+  if Healer <> nil then  //if it exists (avoid AccessViolation)
+    if (not Healer.Finished) then //and it's not finished
+      Healer.Finish;        //in case a rule is working... (timerStarted = true)
 
               // NeoSettings=(first child)    -->Node1= parent of our node
   Node1:= settingsForm.PropTree.RootNode.FirstChild.FirstChild.NextSibling.NextSibling;
-            {
-  settings := TVerySimpleXML.Create;   //create new settingsXML
-      }
+
 //kk, we take the Node wich we are going to remove -->Node1 is parent!
   Pnode := Node1.Firstchild;
-//  nodedata:= proptree.GetNodeData(node);
+//  nodedata:= proptree.GetNodeData(Pnode);
 //  showmessage(nodedata.name);
-  pList := settingsForm.parentList( Pnode ); //now we do shit to get it in Xml yo!
+  pList := settingsForm.parentList( Pnode ); //from GUI VirtualNode to XmlNodes
   xmlNode := settingsForm.findXmlNode( pList );
                //we delete the visual Tree
   PropTree.DeleteNode( Node1.FirstChild, false );
-
 //  showmessage(inttostr(xmlNode.Parent.ChildNodes.IndexOf(xmlNode)));
-  i:= xmlNode.Parent.ChildNodes.IndexOf(xmlNode);
-  xmlNode.Parent.ChildNodes.Delete(i);   //Delete Xml
+  while (xmlNode.ChildNodes.Count > 0) do
+    xmlNode.ChildNodes.Delete(0);   //Delete all the Children from lHealRules
 
-  settings.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
-              //apply that XML to the new Tree
-  settingsForm.RecursivePropTree(Node1, settings.Root.Find('sHealer').Find('lHealRules'));
+  xmlItems:= TVerySimpleXML.Create;   //create new settingsXML
+  xmlItems.LoadFromString( loadCleanSettings() );  //get the xml
+              //apply the following part of the XML to the new TreeView (GUI)
+  settingsForm.RecursivePropTree(Node1, xmlItems.Root.Find('sHealer').Find('lHealRules'));
                      //now we move it to first position as before
   proptree.MoveTo(Node1.LastChild, Node1,amAddChildFirst,false);
 
-    PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
+  PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
 
-  settingsForm.initHealer();   //restart Healer
+  HealerThread.Resume; //now we continue the Healer
+  xmlItems.Free; //we clean the xml Helper
 end;
 
 procedure TsettingsForm.Close(Sender: TObject);
@@ -971,7 +975,9 @@ begin
 
   if OpenDlg.Execute then
   begin
+    Healer.Finish;
     HealerThread.Terminate;  //restart Healer
+    Scripter.Finish;
     ScriptThread.Terminate; //restart Scripter
 
     Node1:= settingsForm.PropTree.RootNode;
@@ -1027,7 +1033,7 @@ begin
       end;
 
   end;
- OpenDlg.Free; //(TO DO) check and execute scripts with lua_tostring()
+ OpenDlg.Free;
 end;
 
 function TsettingsForm.check(): boolean;
@@ -1046,27 +1052,41 @@ var                         //shiiiiiiiiit bro, spent like 2 days with this!
   nodeData: ^TTreeData;
   i: integer;
 begin  //also "Wand Of Cosmic Energy" in lootitems doesn't delete,wtf? maybe the length? that happens also in Healer
-//kk, we take the Node wich we are going to remove (the same as selected)
-  node := PropTree.FocusedNode;
-//  nodedata:= proptree.GetNodeData(node);
-//  showmessage(nodedata.name);
-  pList := settingsForm.parentList( node ); //now we do shit to get it in Xml yo!
-  //first we have to replace TreeView names with "spaces" for xml names with "-"
-  for i := 0 to length(pList)-1 do //begin showmessagE(plist[i]);
-    if pos(' ',pList[i]) > 0 then
-      begin            //BUGGED FOR MONSTER/loot LIST, BUGGED BUGGED BUGGED BUGGED
-      pList[i]:= StringReplace(pList[i],' ','-',[rfReplaceAll]);
-//      break;
-      end; //showmessagE(plist[i]); end;
-  xmlNode := settingsForm.findXmlNode( pList );
-  PropTree.DeleteNode( PropTree.FocusedNode );//kk, we delete the TreeView(visual GUI nub!)
-  PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
-//  showmessage(inttostr(xmlNode.Parent.ChildNodes.IndexOf(xmlNode)));
-  i:= xmlNode.Parent.ChildNodes.IndexOf(xmlNode);
-  xmlNode.TimerStarted:= False;
-  //here we have to put the number of index (0 first,1 second,etc) that we want deleted
-  xmlNode.Parent.ChildNodes.Delete(i);   //now we delete the Xml Code, else if we read it, it will still exist!
-//  showmessage(inttostr(xmlNode.Parent.ChildNodes.Count));
+  try
+  begin
+  HealerThread.Suspend;
+
+  //kk, we take the Node wich we are going to remove (the same as selected)
+    node := PropTree.FocusedNode;
+  //  nodedata:= proptree.GetNodeData(node);
+  //  showmessage(nodedata.name);
+    pList := settingsForm.parentList( node ); //now we do shit to get it in Xml yo!
+    //first we have to replace TreeView names with "spaces" for xml names with "-"
+    for i := 0 to length(pList)-1 do //begin showmessagE(plist[i]);
+      if pos(' ',pList[i]) > 0 then
+        begin            //BUGGED FOR MONSTER/loot LIST, BUGGED BUGGED BUGGED BUGGED
+        pList[i]:= StringReplace(pList[i],' ','-',[rfReplaceAll]);
+  //      break;
+        end; //showmessagE(plist[i]); end;
+    xmlNode := settingsForm.findXmlNode( pList );
+    xmlNode.TimerStarted:= False;
+    PropTree.DeleteNode( PropTree.FocusedNode );//kk, we delete the TreeView(visual GUI nub!)
+    PropTree.EndEditNode;  //we finish doing that, cleaning it now and so...
+  //  showmessage(inttostr(xmlNode.Parent.ChildNodes.IndexOf(xmlNode)));
+    i:= xmlNode.Parent.ChildNodes.IndexOf(xmlNode);
+//    sleep(50);   //so scripts/healrules can terminate by theirselves
+    //here we have to put the number of index (0 first,1 second,etc) that we want deleted
+    xmlNode.Parent.ChildNodes.Delete(i);   //now we delete the Xml Code, else if we read it, it will still exist!
+  //  showmessage(inttostr(xmlNode.Parent.ChildNodes.Count));
+//  settingsForm.initHealer();   //restart Healer
+  HealerThread.Resume;
+  end;
+     except
+        on exception: Exception do
+        begin
+//        showmessage('delete click:  '+exception.ToString);
+        end;
+    end;
 end;
 
 procedure TPropertyEditLink.EndEdit2(Sender: TObject; var key: char);

@@ -1,0 +1,3501 @@
+<sNeoSettings>
+ <sAlerts>
+  <sPlayerOnScreen>
+   <bPlaySound>no</bPlaySound>
+   <bFlashClient>no</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+   <uSafeList></uSafeList>
+  </sPlayerOnScreen>
+  <sPlayerAttacking>
+   <bPlaySound>yes</bPlaySound>
+   <bFlashClient>yes</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+   <uSafeList></uSafeList>
+  </sPlayerAttacking>
+  <sDefaultMessage>
+   <bPlaySound>no</bPlaySound>
+   <bFlashClient>no</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+   <uSafeList></uSafeList>
+  </sDefaultMessage>
+  <sPrivateMessage>
+   <bPlaySound>yes</bPlaySound>
+   <bFlashClient>yes</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+   <uSafeList></uSafeList>
+  </sPrivateMessage>
+  <sGmDetected>
+   <bPlaySound>no</bPlaySound>
+   <bFlashClient>no</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+  </sGmDetected>
+  <sDisconnected>
+   <bPlaySound>yes</bPlaySound>
+   <bFlashClient>yes</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+  </sDisconnected>
+  <sCrashedFroze>
+   <iFreezeTime>3000</iFreezeTime>
+   <bPlaySound>yes</bPlaySound>
+   <bFlashClient>yes</bFlashClient>
+   <bPauseBot>no</bPauseBot>
+   <bDisconnect>no</bDisconnect>
+  </sCrashedFroze>
+ </sAlerts>
+ <sCavebot>
+  <sLooting>
+   <lItemList>
+    <eQuara-Tentacle>
+     <iItemId>11487</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eQuara-Tentacle>
+    <eSmall-Amethyst>
+     <iItemId>3033</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eSmall-Amethyst>
+    <eQuara-Eye>
+     <iItemId>11488</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eQuara-Eye>
+    <eWhite-Pearl>
+     <iItemId>3026</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eWhite-Pearl>
+    <eBlack-Pearl>
+     <iItemId>3027</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eBlack-Pearl>
+    <eSmall-Emerald>
+     <iItemId>3032</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eSmall-Emerald>
+    <eWand-Of-Cosmic-Energy>
+     <iItemId>3073</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eWand-Of-Cosmic-Energy>
+    <eKnight-Armor>
+     <iItemId>3370</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eKnight-Armor>
+    <eBlue-Robe>
+     <iItemId>3567</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eBlue-Robe>
+    <eGlacier-Shoes>
+     <iItemId>819</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eGlacier-Shoes>
+    <eQuara-Pincers>
+     <iItemId>11490</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eQuara-Pincers>
+    <eWarrior-Helmet>
+     <iItemId>3369</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eWarrior-Helmet>
+    <eGlacier-Robe>
+     <iItemId>824</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eGlacier-Robe>
+    <eCrown-Armor>
+     <iItemId>3381</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eCrown-Armor>
+    <eQuara-Bone>
+     <iItemId>11491</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eQuara-Bone>
+    <eSmall-Diamond>
+     <iItemId>3028</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eSmall-Diamond>
+    <eSkull-Helmet>
+     <iItemId>5741</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eSkull-Helmet>
+    <eRelic-Sword>
+     <iItemId>7383</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eRelic-Sword>
+    <eFish-Fin>
+     <iItemId>5895</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </eFish-Fin>
+    <egiant-shrimp>
+     <iItemId>12318</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>Couldn't Loot</cAlarmOn>
+    </egiant-shrimp>
+    <esmall-ruby>
+     <iItemId>3030</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </esmall-ruby>
+    <egreat-mana-potion>
+     <iItemId>238</iItemId>
+     <tDestination></tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </egreat-mana-potion>
+    <esmall-sapphire>
+     <iItemId>3029</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </esmall-sapphire>
+    <eshrimp>
+     <iItemId>3581</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </eshrimp>
+    <estealth-ring>
+     <iItemId>3049</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </estealth-ring>
+    <esmall-rubies>
+     <iItemId>3030</iItemId>
+     <tDestination>Jewelled Backpack</tDestination>
+     <rMinQuantity>0 to 0</rMinQuantity>
+     <tOntoContainer></tOntoContainer>
+     <cAlarmOn>No Alarm</cAlarmOn>
+    </esmall-rubies>
+   </lItemList>
+   <sOpenBodyPriority>
+    <iPriority>70</iPriority>
+    <iOverridePriority>0</iOverridePriority>
+    <iExpireTime>5000</iExpireTime>
+    <iLifeTime>5000</iLifeTime>
+    <cEventType>Normal Event</cEventType>
+   </sOpenBodyPriority>
+   <sLootBodyPriority>
+    <iPriority>50</iPriority>
+    <iOverridePriority>0</iOverridePriority>
+    <iExpireTime>500</iExpireTime>
+    <iLifeTime>500</iLifeTime>
+    <cEventType>Normal Event</cEventType>
+   </sLootBodyPriority>
+   <bMoveItemsQuickly>yes</bMoveItemsQuickly>
+   <iOpenBodyTime>400</iOpenBodyTime>
+   <cLootingCondition>Open corpses with listed items</cLootingCondition>
+   <cLootingPolicy>Loot after all dead</cLootingPolicy>
+   <bLootingFlashOnAlert>yes</bLootingFlashOnAlert>
+   <iLootingRange>10</iLootingRange>
+   <bLootingEatFood>yes</bLootingEatFood>
+   <bLootingEnabled>yes</bLootingEnabled>
+  </sLooting>
+  <lWaypoints>
+   <wv2.2.1>Action 32801 31248 7 --You can find the configurable settings in Hotkeys - Persistent - Setup!&#xd;--Script made by BlakW, I hope you enjoy it.&#xd;&#xd;&#xd;--If you have a question add to msn  blakw_support@hotmail.com or send an Email or PM.&#xd;&#xd;&#xd;--Tell the security ID to BlakW if he asked you to prove that you bought this script from him.&#xd;--Security ID: ISJDAYEN832&#xd;&#xd;&#xd;--If you didn't got this script from BlakW please report back to him.&#xd;--If someone get cought trying to resell this script will be reported and banned from NeoBot Forums.&#xd;&#xd;&#xd;--For more scripts visit: http://forums.tibianeobot.com/showthread.php?8486-%E2%97%84-BlakW-Scripts-%E2%96%BA-Cavebot-amp-Targeting-List-%E2%80%BC&#xd;</wv2.2.1>
+   <wcheckPosition>Action 32802 31249 7 if $self.posz == 7 then&#xd;	gotolabel('onCity')&#xd;end&#xd;if $self.posz >= 8 then&#xd;	gotolabel('hunt')&#xd;end</wcheckPosition>
+   <wonCity>Stand 32797 31246 7</wonCity>
+   <w>Stand 32791 31246 6</w>
+   <w>Stand 32781 31246 6</w>
+   <w>Action 32781 31246 6 if not islocation()&#xd;then&#xd;	gotolabel('onCity')&#xd;else&#xd;	minimizewindows('equip')&#xd;	minimizewindows()&#xd;end</w>
+   <w>Stand 32781 31244 6</w>
+   <wdepositer>Action 32781 31244 6 --Advanced Depositer by BlakW&#xd;&#xd;init start&#xd;    local i = 1&#xd;    local itemdrop = (itemsRares)&#xd;init end&#xd;&#xd;setpriority(10,0,5000,300000,0)&#xd;wait(2000,4000)&#xd;reachgrounditem('depot')&#xd;openitem('depot')&#xd;wait(2000)&#xd;openitem(bp1, 'Locker') wait(500,1000)&#xd;local totalcount&#xd;repeat&#xd;    openitem(bp2, bp1, true, i) wait(500,1000)&#xd;    for a,b in ipairs(itemdrop) do&#xd;        moveitems(b,bp2,nil)&#xd;    end&#xd;    closewindows(bp2)&#xd;    totalcount = 0&#xd;    for a,b in ipairs(itemdrop) do&#xd;        totalcount = totalcount+itemcount(b,'0-15')&#xd;    end&#xd;    if totalcount > 0 then&#xd;        i = i+1&#xd;    end&#xd;until totalcount == 0 or i > 20  &#xd;&#xd;&#xd;&#xd;wait(2000)&#xd;closewindows()&#xd;wait(500, 1000)&#xd;openitem(Mainbpname, 'back')&#xd;wait(400, 1100)&#xd;resizewindows(0, Mainbpname, 1)&#xd;wait(400, 1100)&#xd;openitem(LootBpId, Mainbpname, true, 1)&#xd;wait(350,850)&#xd;resizewindows(0, LootBpId, 2)&#xd;wait(350,850)&#xd;&#xd;</wdepositer>
+   <w>Stand 32781 31247 6</w>
+   <w>Stand 32785 31248 6</w>
+   <wdpdown>Stand 32786 31248 6</wdpdown>
+   <w>Stand 32792 31249 7</w>
+   <w>Action 32792 31249 7 if windowcount(MainBpId) == 0 or windowcount(LootBpId) ==0&#xd;then&#xd;gotolabel('onCity')&#xd;end&#xd;&#xd;if not islocation()&#xd;then&#xd;gotolabel('dpdown')&#xd;end  </w>
+   <w>Stand 32809 31254 7</w>
+   <w>Stand 32826 31254 7</w>
+   <w>Stand 32830 31248 7</w>
+   <wbank>Stand 32825 31247 7</wbank>
+   <w>Stand 32825 31247 6</w>
+   <w>Action 32824 31248 7 say('hi') wait(2000, 3000)&#xd;npcsay('deposit all') wait(500, 1500)&#xd;npcsay('yes') wait(500, 1500)&#xd;npcsay('withdraw ' .. money) wait(500, 1500)&#xd;npcsay('yes') wait(500, 1500)&#xd;npcsay('balance') wait(500, 1500)&#xd;wait(1000)&#xd;openitem(GoldBpId, Mainbpname, true, 1)&#xd;wait(500,900)</w>
+   <w>Stand 32815 31254 7 </w>
+   <w>Action 32815 31254 7 if windowcount(GoldBpId) == 0&#xd;then&#xd;gotolabel('bank')&#xd;end&#xd;&#xd;if not islocation()&#xd;then&#xd;gotolabel('bank')&#xd;end  </w>
+   <wsoftcheck>Action 32816 31273 6 if itemcount(6530) == 0 then&#xd;	gotolabel('nosofts')&#xd;end</wsoftcheck>
+   <w>Stand 32801 31254 7</w>
+   <w>Stand 32801 31255 7</w>
+   <wboatdoor>Stand 32801 31258 6</wboatdoor>
+   <w>Stand 32816 31272 6</w>
+   <w>Use 32817 31275 6</w>
+   <w>Stand 32817 31276 6</w>
+   <w>Stand 32816 31276 6</w>
+   <w>Action 32816 31276 6 if not islocation()&#xd;then&#xd;gotolabel('boatdoor')&#xd;end  </w>
+   <w>Ladder 32815 31277 6</w>
+   <w>Stand 32816 31278 5</w>
+   <wtoVenore>Action 32816 31278 5 reachcreature('Karith')&#xd;travel('venore')</wtoVenore>
+   <w>Stand 32954 32025 6</w>
+   <w>Action 32954 32025 6 if not islocation()&#xd;then&#xd;gotolabel('boatdoor')&#xd;end  </w>
+   <w>Stand 32954 32047 6</w>
+   <w>Stand 32954 32070 6</w>
+   <w>Stand 32954 32093 6</w>
+   <w>Stand 32953 32108 6</w>
+   <wrepairsoft>Action 32953 32108 6 say('hi') wait(2000, 3000)&#xd;while itemcount(6530) > 0 do&#xd;	npcsay('repair') wait(500, 1500)&#xd;	npcsay('yes') wait(500, 1500)&#xd;end</wrepairsoft>
+   <w>Stand 32953 32093 6</w>
+   <w>Stand 32953 32068 6</w>
+   <w>Stand 32953 32043 6</w>
+   <wtoYalahar>Stand 32954 32023 6</wtoYalahar>
+   <w>Action 32954 32023 6 reachcreature('Captain Fearless')&#xd;travel('yalahar')</w>
+   <w>Stand 32812 31263 6</w>
+   <w>Action 32812 31263 6 if not islocation()&#xd;then&#xd;gotolabel('toYalahar')&#xd;end  </w>
+   <w>Stand 32802 31259 6</w>
+   <w>Stand 32801 31256 6</w>
+   <w>Stand 32801 31245 7</w>
+   <wnosofts>Stand 32801 31233 7</wnosofts>
+   <w>Stand 32790 31238 7</w>
+   <w>Action 32790 31238 7 minimizewindows()&#xd;&#xd;</w>
+   <w>Stand 32790 31239 7</w>
+   <w>Stand 32789 31239 6</w>
+   <wshop>Action 32789 31239 5 init start&#xd;	counter = 0&#xd;init end&#xd;setpriority(30,0,180000,180000,0)&#xd;&#xd;local flaskcount = itemcount(283)+itemcount(284)+itemcount(285)&#xd;say('default','hi') wait(2000,3000)&#xd;if flaskcount > 0 then&#xd;	npcsay('flask')&#xd;	for i=1,math.ceil(flaskcount/100) do&#xd;		npcsay('yes')&#xd;	end&#xd;end&#xd;npcsay('trade') wait(1000,1500)&#xd;while itemcount(mananame) &lt; maxmana do&#xd;	counter = counter+1&#xd;	buyitemsupto(mananame, maxmana)&#xd;	if counter > 10 then gotolabel('crash') end&#xd;end&#xd;while itemcount('sudden death rune') &lt; maxsd do&#xd;	counter = counter+1&#xd;	buyitemsupto('sudden death rune', maxsd)&#xd;	if counter > 10 then gotolabel('crash') end&#xd;end</wshop>
+   <w>Stand 32789 31239 5</w>
+   <wcrash>Stand 32789 31239 5</wcrash>
+   <w>Action 32789 31239 5 counter = 0</w>
+   <w>Stand 32789 31239 5</w>
+   <w>Stand 32790 31239 6</w>
+   <w>Stand 32790 31240 7</w>
+   <wreCheck>Action 32790 31235 7 if itemcount(mananame) &lt; maxmana then&#xd;	gotolabel('onCity')&#xd;end</wreCheck>
+   <wstart>Stand 32790 31235 7</wstart>
+   <w>Walk 32801 31233 7 </w>
+   <w>Walk 32813 31233 7 </w>
+   <w>Walk 32826 31233 7 </w>
+   <w>Walk 32831 31240 7 </w>
+   <w>Walk 32837 31245 7 </w>
+   <w>Walk 32847 31243 7 </w>
+   <w>Walk 32850 31237 7 </w>
+   <w>Walk 32856 31227 7 </w>
+   <w>Walk 32858 31220 7 </w>
+   <w>Walk 32859 31208 7 </w>
+   <w>Walk 32862 31201 7 </w>
+   <wgate1>Walk 32863 31201 7 </wgate1>
+   <w>Stand 32864 31201 7</w>
+   <w>Stand 32866 31201 6</w>
+   <w>Stand 32867 31201 5</w>
+   <w>Stand 32868 31203 5</w>
+   <w>Use 32869 31203 5</w>
+   <w>Stand 32874 31201 5</w>
+   <w>Stand 32875 31201 5</w>
+   <w>Stand 32876 31201 5</w>
+   <w>Stand 32878 31201 6</w>
+   <w>Stand 32879 31201 7</w>
+   <w>Action 32879 31201 7 if not islocation(3) then&#xd;gotolabel('gate1')&#xd;end</w>
+   <w>Walk 32885 31201 7 </w>
+   <w>Walk 32886 31201 7 </w>
+   <w>Walk 32887 31201 7 </w>
+   <w>Walk 32888 31201 7 </w>
+   <w>Walk 32889 31201 6 </w>
+   <w>Walk 32904 31199 6 </w>
+   <w>Walk 32908 31199 6 </w>
+   <wgo1>Stand 32913 31199 6</wgo1>
+   <w>Stand 32914 31199 6</w>
+   <w>Stand 32914 31199 7</w>
+   <w>Stand 32916 31199 7</w>
+   <wtravel>Action 32916 31199 7 say('hi')&#xd;wait(2000,2100)&#xd;npcsay('go')&#xd;wait(1000,1100)&#xd;npcsay('yes')&#xd;wait(1000,1100)</wtravel>
+   <w>Stand 32941 31182 7</w>
+   <w>Ladder 32944 31182 7</w>
+   <w>Stand 32944 31183 6</w>
+   <w>Action 32944 31183 6 if not islocation(3) then&#xd;	gotolabel('go1')&#xd;end</w>
+   <w>Stand 32947 31183 6</w>
+   <wtp>Stand 32949 31183 6</wtp>
+   <w>Stand 32950 31183 6</w>
+   <w>Stand 32949 31181 9</w>
+   <w>Stand 32950 31182 9</w>
+   <w>Action 32950 31182 9 if not islocation(3) then&#xd;	gotolabel('tp')&#xd;end</w>
+   <w>Walk 32951 31182 9 </w>
+   <w>Stand 32951 31183 10 </w>
+   <wchange-helmet-On-Off>Action 32951 31183 10 --This will change on helmet underwater. Just remove the -- to enable or add -- to disable.&#xd;&#xd;&#xd;--equipitem('yalahari mask','head')</wchange-helmet-On-Off>
+   <w>Walk 32945 31182 10 </w>
+   <w>Walk 32942 31182 10 </w>
+   <wspawn>Walk 32941 31182 10 </wspawn>
+   <w>Stand 32940 31182 10 </w>
+   <w>Walk 32939 31182 11 </w>
+   <w>Walk 32938 31180 11 </w>
+   <w>Walk 32938 31178 11 </w>
+   <w>Walk 32938 31174 11 </w>
+   <w>Stand 32937 31174 11</w>
+   <w>Stand 32936 31174 12</w>
+   <w>Action 32936 31174 12 if not islocation(3) then&#xd;	gotolabel('spawn')&#xd;end</w>
+   <w>Walk 32936 31170 12 </w>
+   <w>Walk 32936 31169 12 </w>
+   <w>Walk 32936 31169 12 </w>
+   <w>Walk 32936 31169 12 </w>
+   <w>Walk 32936 31165 12 </w>
+   <w>Walk 32937 31163 12 </w>
+   <wspawn2>Walk 32937 31161 12 </wspawn2>
+   <w>Stand 32936 31161 12</w>
+   <whunt>Stand 32935 31160 13</whunt>
+   <wcheck>Action 32935 31160 13 if itemcount(mananame) &lt; minmana or $cap &lt; 50 or itemcount('sudden death rune') &lt; 30&#xd;then&#xd;	gotolabel('refilling')&#xd;elseif&#xd;	windowcount(LootBpId) == 0 or windowcount(GoldBpId) ==0&#xd;	then&#xd;	pausewalking(8000)&#xd;	openitem(LootBpId, Mainbpname, true, 1)&#xd;	wait(350,850)&#xd;	resizewindows(0, LootBpId, 2)&#xd;	wait(350,850)&#xd;	openitem(GoldBpId, Mainbpname, true, 1)&#xd;	wait(500,900)&#xd;	resizewindows(0, GoldBpId, 3)&#xd;	wait(500,900)&#xd;end</wcheck>
+   <w>Stand 32935 31160 13</w>
+   <w>Action 32935 31160 13 if not islocation(3) then&#xd;	gotolabel('spawn2')&#xd;else&#xd;	setsetting('Cavebot/Pathfinding/WalkingMethod', 'Walk will map clicks')&#xd;end</w>
+   <w>Node 32933 31152 13</w>
+   <w>Node 32922 31153 13</w>
+   <w>Node 32920 31159 13</w>
+   <w>Node 32914 31162 13</w>
+   <w>Node 32912 31168 13</w>
+   <w>Node 32909 31173 13</w>
+   <w>Node 32907 31184 13</w>
+   <w>Node 32909 31194 13</w>
+   <w>Node 32908 31206 13</w>
+   <w>Node 32915 31210 13</w>
+   <w>Node 32927 31212 13</w>
+   <w>Stand 32935 31213 13</w>
+   <w>Action 32935 31213 13 if itemcount(mananame) &lt; minmana or $cap &lt; 50 or itemcount('sudden death rune') &lt; 30&#xd;then&#xd;	gotolabel('refillingsouth')&#xd;else&#xd;	gotolabel('norefillsouth')&#xd;end</w>
+   <wnorefillsouth>Stand 32936 31214 13</wnorefillsouth>
+   <w>Node 32939 31217 13</w>
+   <w>Node 32953 31219 13</w>
+   <w>Node 32961 31210 13</w>
+   <w>Node 32975 31210 13</w>
+   <w>Node 32977 31201 13</w>
+   <w>Node 32983 31193 13</w>
+   <w>Node 32984 31187 13</w>
+   <w>Node 32984 31177 13</w>
+   <w>Node 32981 31166 13</w>
+   <w>Node 32972 31154 13</w>
+   <w>Node 32965 31151 13</w>
+   <w>Node 32955 31149 13</w>
+   <w>Node 32969 31146 13</w>
+   <w>Node 32951 31145 13</w>
+   <w>Node 32934 31150 13</w>
+   <w>Stand 32934 31153 13</w>
+   <w>Action 32934 31152 13 gotolabel('end')</w>
+   <wrefillingsouth>Stand 32936 31206 13</wrefillingsouth>
+   <w>Stand 32936 31204 13 </w>
+   <w>Stand 32938 31196 12 </w>
+   <w>Stand 32937 31192 11</w>
+   <w>Stand 32940 31183 11</w>
+   <w>Stand 32942 31183 10</w>
+   <w>Action 32942 31183 10 if not islocation()&#xd;then&#xd;	gotolabel('refillingsouth')&#xd;else&#xd;	gotolabel('leave')&#xd;end</w>
+   <wend>Stand 32934 31157 13</wend>
+   <w>Action 32934 31159 13 gotolabel('hunt')</w>
+   <wrefilling>Walk 32934 31160 13 </wrefilling>
+   <w>Action 32934 31160 13 setsetting('Cavebot/Pathfinding/WalkingMethod', 'Walk with arrow keys')</w>
+   <w>Walk 32935 31161 13 </w>
+   <w>Stand 32936 31161 13</w>
+   <w>Walk 32937 31163 12 </w>
+   <w>Action 32937 31163 12 if not islocation(3) then&#xd;	gotolabel('refilling')&#xd;end</w>
+   <w>Walk 32937 31170 12 </w>
+   <w>Walk 32936 31172 12 </w>
+   <wtower>Walk 32936 31174 12 </wtower>
+   <w>Stand 32937 31174 12</w>
+   <w>Walk 32939 31175 11 </w>
+   <w>Walk 32938 31179 11 </w>
+   <w>Walk 32938 31181 11 </w>
+   <w>Stand 32939 31181 11</w>
+   <wleave>Walk 32940 31181 10 </wleave>
+   <w>Walk 32942 31181 10 </w>
+   <w>Walk 32947 31182 10 </w>
+   <w>Walk 32950 31182 10 </w>
+   <w>Stand 32951 31182 10</w>
+   <w>Walk 32950 31181 9 </w>
+   <w>Stand 32950 31180 9 </w>
+   <w>Walk 32950 31180 6 </w>
+   <w>Action 32950 31180 6 if not islocation(3) then&#xd;	gotolabel('tower')&#xd;end</w>
+   <w>Walk 32946 31182 6 </w>
+   <wchange-helmet-On-Off>Action 32946 31182 6 --This will change on helmet underwater. Just remove the -- to enable or add -- to disable.&#xd;&#xd;&#xd;equipitem('helmet of the deep','head')</wchange-helmet-On-Off>
+   <wgo2>Walk 32945 31182 6 </wgo2>
+   <w>Stand 32944 31182 6</w>
+   <w>Stand 32944 31182 7</w>
+   <w>Stand 32942 31182 7</w>
+   <wtravel>Action 32942 31182 7 say('hi')&#xd;wait(1000,1100)&#xd;npcsay('go')&#xd;wait(1000,1100)&#xd;npcsay('yes')&#xd;wait(1000,1100)</wtravel>
+   <w>Stand 32916 31199 7</w>
+   <w>Ladder 32914 31199 7</w>
+   <w>Stand 32913 31200 6</w>
+   <w>Action 32913 31200 6 if not islocation(3) then&#xd;	gotolabel('go2')&#xd;end</w>
+   <w>Walk 32909 31199 6 </w>
+   <w>Walk 32895 31199 6 </w>
+   <w>Walk 32890 31199 6 </w>
+   <wdownstairs>Walk 32889 31199 6 </wdownstairs>
+   <w>Stand 32888 31199 6</w>
+   <w>Walk 32883 31199 7 </w>
+   <w>Action 32883 31199 7 if not islocation(3) then&#xd;	gotolabel('downstairs')&#xd;end</w>
+   <w>Walk 32880 31199 7 </w>
+   <wgate2>Walk 32879 31199 7 </wgate2>
+   <w>Stand 32878 31199 7</w>
+   <w>Stand 32876 31199 6</w>
+   <w>Stand 32875 31199 5</w>
+   <w>Stand 32874 31202 5</w>
+   <w>Use 32874 31203 5</w>
+   <w>Stand 32867 31201 5</w>
+   <w>Stand 32866 31201 5</w>
+   <w>Stand 32864 31201 6</w>
+   <w>Stand 32863 31201 7</w>
+   <w>Action 32863 31201 7 if not islocation() then&#xd;gotolabel('gate2')&#xd;end</w>
+   <w>Walk 32862 31210 7 </w>
+   <w>Walk 32859 31223 7 </w>
+   <w>Walk 32854 31234 7 </w>
+   <w>Walk 32844 31244 7 </w>
+   <w>Walk 32828 31234 7 </w>
+   <w>Walk 32818 31234 7 </w>
+   <w>Walk 32803 31235 7 </w>
+   <w>Walk 32803 31244 7 </w>
+   <w>Stand 32803 31247 7</w>
+  </lWaypoints>
+  <sPathfinding>
+   <lSpecialAreas>
+    <eNewArea-2>
+     <jCoordinates>32941 31164 12</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-2>
+    <eNewArea-3>
+     <jCoordinates>32941 31163 12</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-3>
+    <eNewArea-4>
+     <jCoordinates>32939 31160 12</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-4>
+    <eNewArea-5>
+     <jCoordinates>32930 31174 12</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-5>
+    <eNewArea-6>
+     <jCoordinates>32931 31164 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-6>
+    <eNewArea-7>
+     <jCoordinates>32932 31164 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-7>
+    <eNewArea-8>
+     <jCoordinates>32933 31164 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-8>
+    <eNewArea-9>
+     <jCoordinates>32943 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-9>
+    <eNewArea-10>
+     <jCoordinates>32943 31149 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-10>
+    <eNewArea-11>
+     <jCoordinates>32943 31148 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-11>
+    <eNewArea-12>
+     <jCoordinates>32943 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-12>
+    <eNewArea-13>
+     <jCoordinates>32943 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-13>
+    <eNewArea-14>
+     <jCoordinates>32943 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-14>
+    <eNewArea-15>
+     <jCoordinates>32943 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-15>
+    <eNewArea-16>
+     <jCoordinates>32943 31146 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-16>
+    <eNewArea-17>
+     <jCoordinates>32943 31145 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-17>
+    <eNewArea-18>
+     <jCoordinates>32943 31144 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-18>
+    <eNewArea-19>
+     <jCoordinates>32943 31143 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-19>
+    <eNewArea-20>
+     <jCoordinates>32943 31142 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-20>
+    <eNewArea-21>
+     <jCoordinates>32943 31141 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-21>
+    <eNewArea-22>
+     <jCoordinates>32942 31141 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-22>
+    <eNewArea-23>
+     <jCoordinates>32931 31158 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-23>
+    <eNewArea-24>
+     <jCoordinates>32931 31157 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-24>
+    <eNewArea-25>
+     <jCoordinates>32928 31154 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-25>
+    <eNewArea-26>
+     <jCoordinates>32928 31153 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-26>
+    <eNewArea-27>
+     <jCoordinates>32928 31152 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-27>
+    <eNewArea-28>
+     <jCoordinates>32928 31151 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-28>
+    <eNewArea-29>
+     <jCoordinates>32928 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-29>
+    <eNewArea-30>
+     <jCoordinates>32928 31149 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-30>
+    <eNewArea-31>
+     <jCoordinates>32929 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-31>
+    <eNewArea-32>
+     <jCoordinates>32930 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-32>
+    <eNewArea-33>
+     <jCoordinates>32932 31147 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-33>
+    <eNewArea-34>
+     <jCoordinates>32938 31142 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-34>
+    <eNewArea-35>
+     <jCoordinates>32939 31142 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-35>
+    <eNewArea-36>
+     <jCoordinates>32947 31139 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-36>
+    <eNewArea-37>
+     <jCoordinates>32948 31139 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-37>
+    <eNewArea-38>
+     <jCoordinates>32949 31139 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-38>
+    <eNewArea-39>
+     <jCoordinates>32955 31139 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-39>
+    <eNewArea-40>
+     <jCoordinates>32956 31139 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-40>
+    <eNewArea-41>
+     <jCoordinates>32957 31139 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-41>
+    <eNewArea-42>
+     <jCoordinates>32957 31140 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-42>
+    <eNewArea-43>
+     <jCoordinates>32957 31141 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-43>
+    <eNewArea-44>
+     <jCoordinates>32957 31142 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-44>
+    <eNewArea-45>
+     <jCoordinates>32952 31148 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-45>
+    <eNewArea-46>
+     <jCoordinates>32951 31148 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-46>
+    <eNewArea-47>
+     <jCoordinates>32950 31148 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-47>
+    <eNewArea-48>
+     <jCoordinates>32949 31148 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-48>
+    <eNewArea-49>
+     <jCoordinates>32948 31148 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-49>
+    <eNewArea-50>
+     <jCoordinates>32945 31149 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-50>
+    <eNewArea-51>
+     <jCoordinates>32944 31149 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-51>
+    <eNewArea-52>
+     <jCoordinates>32953 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-52>
+    <eNewArea-53>
+     <jCoordinates>32954 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-53>
+    <eNewArea-54>
+     <jCoordinates>32955 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-54>
+    <eNewArea-55>
+     <jCoordinates>32956 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-55>
+    <eNewArea-56>
+     <jCoordinates>32957 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-56>
+    <eNewArea-57>
+     <jCoordinates>32957 31149 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-57>
+    <eNewArea-58>
+     <jCoordinates>32956 31149 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-58>
+    <eNewArea-59>
+     <jCoordinates>32961 31151 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>None</cConsideredBy>
+    </eNewArea-59>
+    <eNewArea-60>
+     <jCoordinates>32978 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-60>
+    <eNewArea-61>
+     <jCoordinates>32979 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-61>
+    <eNewArea-62>
+     <jCoordinates>32980 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-62>
+    <eNewArea-63>
+     <jCoordinates>32985 31150 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-63>
+    <eNewArea-64>
+     <jCoordinates>32983 31157 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-64>
+    <eNewArea-65>
+     <jCoordinates>32984 31157 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-65>
+    <eNewArea-66>
+     <jCoordinates>32982 31157 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-66>
+    <eNewArea-67>
+     <jCoordinates>32980 31158 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-67>
+    <eNewArea-68>
+     <jCoordinates>32979 31158 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-68>
+    <eNewArea-69>
+     <jCoordinates>32978 31158 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-69>
+    <eNewArea-70>
+     <jCoordinates>32977 31158 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-70>
+    <eNewArea-71>
+     <jCoordinates>32973 31163 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-71>
+    <eNewArea-72>
+     <jCoordinates>32973 31162 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-72>
+    <eNewArea-73>
+     <jCoordinates>32973 31161 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-73>
+    <eNewArea-74>
+     <jCoordinates>32974 31165 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-74>
+    <eNewArea-75>
+     <jCoordinates>32974 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-75>
+    <eNewArea-76>
+     <jCoordinates>32975 31170 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Cavebot, Targeting</cConsideredBy>
+    </eNewArea-76>
+    <eNewArea-77>
+     <jCoordinates>32975 31171 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Cavebot, Targeting</cConsideredBy>
+    </eNewArea-77>
+    <eNewArea-78>
+     <jCoordinates>32972 31173 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-78>
+    <eNewArea-79>
+     <jCoordinates>32972 31174 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-79>
+    <eNewArea-80>
+     <jCoordinates>32972 31175 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-80>
+    <eNewArea-81>
+     <jCoordinates>32973 31179 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-81>
+    <eNewArea-82>
+     <jCoordinates>32974 31179 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-82>
+    <eNewArea-83>
+     <jCoordinates>32975 31179 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-83>
+    <eNewArea-84>
+     <jCoordinates>32976 31179 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-84>
+    <eNewArea-85>
+     <jCoordinates>32985 31172 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-85>
+    <eNewArea-86>
+     <jCoordinates>32985 31178 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-86>
+    <eNewArea-87>
+     <jCoordinates>32984 31178 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-87>
+    <eNewArea-88>
+     <jCoordinates>32983 31178 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-88>
+    <eNewArea-89>
+     <jCoordinates>32985 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-89>
+    <eNewArea-90>
+     <jCoordinates>32984 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-90>
+    <eNewArea-91>
+     <jCoordinates>32983 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-91>
+    <eNewArea-92>
+     <jCoordinates>32978 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-92>
+    <eNewArea-93>
+     <jCoordinates>32977 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-93>
+    <eNewArea-94>
+     <jCoordinates>32979 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-94>
+    <eNewArea-95>
+     <jCoordinates>32976 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-95>
+    <eNewArea-96>
+     <jCoordinates>32975 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-96>
+    <eNewArea-97>
+     <jCoordinates>32974 31192 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-97>
+    <eNewArea-98>
+     <jCoordinates>32974 31193 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-98>
+    <eNewArea-99>
+     <jCoordinates>32974 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-99>
+    <eNewArea-100>
+     <jCoordinates>32974 31199 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-100>
+    <eNewArea-101>
+     <jCoordinates>32974 31200 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-101>
+    <eNewArea-102>
+     <jCoordinates>32974 31201 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-102>
+    <eNewArea-103>
+     <jCoordinates>32974 31202 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-103>
+    <eNewArea-104>
+     <jCoordinates>32974 31203 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-104>
+    <eNewArea-105>
+     <jCoordinates>32980 31202 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-105>
+    <eNewArea-106>
+     <jCoordinates>32981 31202 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-106>
+    <eNewArea-107>
+     <jCoordinates>32982 31202 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-107>
+    <eNewArea-108>
+     <jCoordinates>32979 31203 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-108>
+    <eNewArea-109>
+     <jCoordinates>32978 31203 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-109>
+    <eNewArea-110>
+     <jCoordinates>32977 31203 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-110>
+    <eNewArea-111>
+     <jCoordinates>32976 31203 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-111>
+    <eNewArea-112>
+     <jCoordinates>32979 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-112>
+    <eNewArea-113>
+     <jCoordinates>32978 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-113>
+    <eNewArea-114>
+     <jCoordinates>32977 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-114>
+    <eNewArea-115>
+     <jCoordinates>32976 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-115>
+    <eNewArea-116>
+     <jCoordinates>32970 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-116>
+    <eNewArea-117>
+     <jCoordinates>32970 31210 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-117>
+    <eNewArea-118>
+     <jCoordinates>32970 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-118>
+    <eNewArea-119>
+     <jCoordinates>32970 31213 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-119>
+    <eNewArea-120>
+     <jCoordinates>32970 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-120>
+    <eNewArea-121>
+     <jCoordinates>32970 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-121>
+    <eNewArea-122>
+     <jCoordinates>32970 31216 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-122>
+    <eNewArea-123>
+     <jCoordinates>32970 31217 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-123>
+    <eNewArea-124>
+     <jCoordinates>32970 31217 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-124>
+    <eNewArea-125>
+     <jCoordinates>32966 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-125>
+    <eNewArea-126>
+     <jCoordinates>32960 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-126>
+    <eNewArea-127>
+     <jCoordinates>32960 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-127>
+    <eNewArea-128>
+     <jCoordinates>32960 31220 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-128>
+    <eNewArea-129>
+     <jCoordinates>32961 31220 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-129>
+    <eNewArea>
+     <jCoordinates>32962 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea>
+    <eNewArea-130>
+     <jCoordinates>32960 31213 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-130>
+    <eNewArea-131>
+     <jCoordinates>32960 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-131>
+    <eNewArea-132>
+     <jCoordinates>32960 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-132>
+    <eNewArea-133>
+     <jCoordinates>32960 31210 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-133>
+    <eNewArea-134>
+     <jCoordinates>32960 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-134>
+    <eNewArea-135>
+     <jCoordinates>32960 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-135>
+    <eNewArea-136>
+     <jCoordinates>32960 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-136>
+    <eNewArea-137>
+     <jCoordinates>32960 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-137>
+    <eNewArea-138>
+     <jCoordinates>32960 31206 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-138>
+    <eNewArea-139>
+     <jCoordinates>32960 31206 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-139>
+    <eNewArea-140>
+     <jCoordinates>32960 31206 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-140>
+    <eNewArea-141>
+     <jCoordinates>32960 31206 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-141>
+    <eNewArea-142>
+     <jCoordinates>32960 31205 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-142>
+    <eNewArea-143>
+     <jCoordinates>32960 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-143>
+    <eNewArea-144>
+     <jCoordinates>32960 31203 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-144>
+    <eNewArea-145>
+     <jCoordinates>32960 31202 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-145>
+    <eNewArea-146>
+     <jCoordinates>32960 31201 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-146>
+    <eNewArea-147>
+     <jCoordinates>32969 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-147>
+    <eNewArea-148>
+     <jCoordinates>32970 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-148>
+    <eNewArea-149>
+     <jCoordinates>32971 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-149>
+    <eNewArea-150>
+     <jCoordinates>32972 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-150>
+    <eNewArea-151>
+     <jCoordinates>32973 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-151>
+    <eNewArea-152>
+     <jCoordinates>32956 31210 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-152>
+    <eNewArea-153>
+     <jCoordinates>32956 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-153>
+    <eNewArea-154>
+     <jCoordinates>32953 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-154>
+    <eNewArea-155>
+     <jCoordinates>32952 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-155>
+    <eNewArea-156>
+     <jCoordinates>32951 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-156>
+    <eNewArea-157>
+     <jCoordinates>32950 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-157>
+    <eNewArea-158>
+     <jCoordinates>32946 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-158>
+    <eNewArea-159>
+     <jCoordinates>32946 31216 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-159>
+    <eNewArea-160>
+     <jCoordinates>32946 31217 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-160>
+    <eNewArea-161>
+     <jCoordinates>32946 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-161>
+    <eNewArea-162>
+     <jCoordinates>32946 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-162>
+    <eNewArea-163>
+     <jCoordinates>32945 31220 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-163>
+    <eNewArea-164>
+     <jCoordinates>32944 31220 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-164>
+    <eNewArea-165>
+     <jCoordinates>32943 31220 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-165>
+    <eNewArea-166>
+     <jCoordinates>32942 31220 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-166>
+    <eNewArea-167>
+     <jCoordinates>32942 31224 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-167>
+    <eNewArea-168>
+     <jCoordinates>32949 31226 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-168>
+    <eNewArea-169>
+     <jCoordinates>32942 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-169>
+    <eNewArea-170>
+     <jCoordinates>32939 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-170>
+    <eNewArea-171>
+     <jCoordinates>32937 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-171>
+    <eNewArea-172>
+     <jCoordinates>32935 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-172>
+    <eNewArea-173>
+     <jCoordinates>32934 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-173>
+    <eNewArea-174>
+     <jCoordinates>32935 31219 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-174>
+    <eNewArea-175>
+     <jCoordinates>32944 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-175>
+    <eNewArea-176>
+     <jCoordinates>32943 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-176>
+    <eNewArea-177>
+     <jCoordinates>32942 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-177>
+    <eNewArea-178>
+     <jCoordinates>32941 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-178>
+    <eNewArea-179>
+     <jCoordinates>32934 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-179>
+    <eNewArea-180>
+     <jCoordinates>32934 31213 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-180>
+    <eNewArea-181>
+     <jCoordinates>32934 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-181>
+    <eNewArea-182>
+     <jCoordinates>32934 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-182>
+    <eNewArea-183>
+     <jCoordinates>32934 31210 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-183>
+    <eNewArea-184>
+     <jCoordinates>32934 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-184>
+    <eNewArea-185>
+     <jCoordinates>32934 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-185>
+    <eNewArea-186>
+     <jCoordinates>32934 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-186>
+    <eNewArea-187>
+     <jCoordinates>32935 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-187>
+    <eNewArea-188>
+     <jCoordinates>32936 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-188>
+    <eNewArea-189>
+     <jCoordinates>32937 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-189>
+    <eNewArea-190>
+     <jCoordinates>32933 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-190>
+    <eNewArea-191>
+     <jCoordinates>32931 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-191>
+    <eNewArea-192>
+     <jCoordinates>32930 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-192>
+    <eNewArea-193>
+     <jCoordinates>32929 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-193>
+    <eNewArea-194>
+     <jCoordinates>32928 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-194>
+    <eNewArea-195>
+     <jCoordinates>32927 31218 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-195>
+    <eNewArea-196>
+     <jCoordinates>32925 31215 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-196>
+    <eNewArea-197>
+     <jCoordinates>32923 31213 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-197>
+    <eNewArea-198>
+     <jCoordinates>32923 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-198>
+    <eNewArea-199>
+     <jCoordinates>32923 31211 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-199>
+    <eNewArea-200>
+     <jCoordinates>32923 31210 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-200>
+    <eNewArea-201>
+     <jCoordinates>32923 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-201>
+    <eNewArea-202>
+     <jCoordinates>32924 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-202>
+    <eNewArea-203>
+     <jCoordinates>32925 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-203>
+    <eNewArea-204>
+     <jCoordinates>32926 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-204>
+    <eNewArea-205>
+     <jCoordinates>32927 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-205>
+    <eNewArea-206>
+     <jCoordinates>32928 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-206>
+    <eNewArea-207>
+     <jCoordinates>32922 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-207>
+    <eNewArea-208>
+     <jCoordinates>32923 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-208>
+    <eNewArea-209>
+     <jCoordinates>32920 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-209>
+    <eNewArea-210>
+     <jCoordinates>32921 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-210>
+    <eNewArea-211>
+     <jCoordinates>32917 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-211>
+    <eNewArea-212>
+     <jCoordinates>32916 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-212>
+    <eNewArea-213>
+     <jCoordinates>32915 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-213>
+    <eNewArea-214>
+     <jCoordinates>32915 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-214>
+    <eNewArea-215>
+     <jCoordinates>32914 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-215>
+    <eNewArea-216>
+     <jCoordinates>32914 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-216>
+    <eNewArea-217>
+     <jCoordinates>32914 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-217>
+    <eNewArea-218>
+     <jCoordinates>32913 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-218>
+    <eNewArea-219>
+     <jCoordinates>32912 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-219>
+    <eNewArea-220>
+     <jCoordinates>32911 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-220>
+    <eNewArea-221>
+     <jCoordinates>32910 31214 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-221>
+    <eNewArea-222>
+     <jCoordinates>32909 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-222>
+    <eNewArea-223>
+     <jCoordinates>32908 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-223>
+    <eNewArea-224>
+     <jCoordinates>32907 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-224>
+    <eNewArea-225>
+     <jCoordinates>32906 31212 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-225>
+    <eNewArea-226>
+     <jCoordinates>32905 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-226>
+    <eNewArea-227>
+     <jCoordinates>32904 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-227>
+    <eNewArea-228>
+     <jCoordinates>32903 31209 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-228>
+    <eNewArea-229>
+     <jCoordinates>32905 31208 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-229>
+    <eNewArea-230>
+     <jCoordinates>32905 31207 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-230>
+    <eNewArea-231>
+     <jCoordinates>32905 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-231>
+    <eNewArea-232>
+     <jCoordinates>32906 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-232>
+    <eNewArea-233>
+     <jCoordinates>32907 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-233>
+    <eNewArea-234>
+     <jCoordinates>32908 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-234>
+    <eNewArea-235>
+     <jCoordinates>32909 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-235>
+    <eNewArea-236>
+     <jCoordinates>32910 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-236>
+    <eNewArea-237>
+     <jCoordinates>32911 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-237>
+    <eNewArea-238>
+     <jCoordinates>32912 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-238>
+    <eNewArea-239>
+     <jCoordinates>32913 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-239>
+    <eNewArea-240>
+     <jCoordinates>32916 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-240>
+    <eNewArea-241>
+     <jCoordinates>32917 31204 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-241>
+    <eNewArea-242>
+     <jCoordinates>32913 31202 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-242>
+    <eNewArea-243>
+     <jCoordinates>32913 31201 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-243>
+    <eNewArea-244>
+     <jCoordinates>32913 31200 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-244>
+    <eNewArea-245>
+     <jCoordinates>32913 31199 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-245>
+    <eNewArea-246>
+     <jCoordinates>32913 31198 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-246>
+    <eNewArea-247>
+     <jCoordinates>32913 31196 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-247>
+    <eNewArea-248>
+     <jCoordinates>32913 31195 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-248>
+    <eNewArea-249>
+     <jCoordinates>32913 31194 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-249>
+    <eNewArea-250>
+     <jCoordinates>32913 31193 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-250>
+    <eNewArea-251>
+     <jCoordinates>32913 31192 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-251>
+    <eNewArea-252>
+     <jCoordinates>32913 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-252>
+    <eNewArea-253>
+     <jCoordinates>32913 31190 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-253>
+    <eNewArea-254>
+     <jCoordinates>32901 31197 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-254>
+    <eNewArea-255>
+     <jCoordinates>32901 31196 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-255>
+    <eNewArea-256>
+     <jCoordinates>32901 31195 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-256>
+    <eNewArea-257>
+     <jCoordinates>32900 31194 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-257>
+    <eNewArea-258>
+     <jCoordinates>32900 31193 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-258>
+    <eNewArea-259>
+     <jCoordinates>32900 31192 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-259>
+    <eNewArea-260>
+     <jCoordinates>32900 31191 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-260>
+    <eNewArea-261>
+     <jCoordinates>32901 31190 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-261>
+    <eNewArea-262>
+     <jCoordinates>32902 31190 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-262>
+    <eNewArea-263>
+     <jCoordinates>32903 31189 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-263>
+    <eNewArea-264>
+     <jCoordinates>32904 31187 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-264>
+    <eNewArea-265>
+     <jCoordinates>32907 31186 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-265>
+    <eNewArea-266>
+     <jCoordinates>32908 31186 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-266>
+    <eNewArea-267>
+     <jCoordinates>32909 31186 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-267>
+    <eNewArea-268>
+     <jCoordinates>32910 31186 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-268>
+    <eNewArea-269>
+     <jCoordinates>32905 31185 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-269>
+    <eNewArea-270>
+     <jCoordinates>32904 31185 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-270>
+    <eNewArea-271>
+     <jCoordinates>32904 31184 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-271>
+    <eNewArea-272>
+     <jCoordinates>32909 31185 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-272>
+    <eNewArea-273>
+     <jCoordinates>32909 31184 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-273>
+    <eNewArea-274>
+     <jCoordinates>32909 31183 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-274>
+    <eNewArea-275>
+     <jCoordinates>32909 31182 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-275>
+    <eNewArea-276>
+     <jCoordinates>32908 31181 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-276>
+    <eNewArea-277>
+     <jCoordinates>32901 31174 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-277>
+    <eNewArea-278>
+     <jCoordinates>32900 31174 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-278>
+    <eNewArea-279>
+     <jCoordinates>32908 31174 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-279>
+    <eNewArea-280>
+     <jCoordinates>32909 31174 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-280>
+    <eNewArea-281>
+     <jCoordinates>32909 31175 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-281>
+    <eNewArea-282>
+     <jCoordinates>32909 31175 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-282>
+    <eNewArea-283>
+     <jCoordinates>32909 31175 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-283>
+    <eNewArea-284>
+     <jCoordinates>32909 31175 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-284>
+    <eNewArea-285>
+     <jCoordinates>32909 31175 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-285>
+    <eNewArea-286>
+     <jCoordinates>32909 31176 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-286>
+    <eNewArea-287>
+     <jCoordinates>32909 31177 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-287>
+    <eNewArea-288>
+     <jCoordinates>32910 31172 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-288>
+    <eNewArea-289>
+     <jCoordinates>32908 31168 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-289>
+    <eNewArea-290>
+     <jCoordinates>32908 31169 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-290>
+    <eNewArea-291>
+     <jCoordinates>32907 31163 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-291>
+    <eNewArea-292>
+     <jCoordinates>32913 31170 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-292>
+    <eNewArea-293>
+     <jCoordinates>32913 31169 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-293>
+    <eNewArea-294>
+     <jCoordinates>32914 31169 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-294>
+    <eNewArea-295>
+     <jCoordinates>32920 31168 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-295>
+    <eNewArea-296>
+     <jCoordinates>32917 31154 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-296>
+    <eNewArea-297>
+     <jCoordinates>32918 31154 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-297>
+    <eNewArea-298>
+     <jCoordinates>32919 31154 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-298>
+    <eNewArea-299>
+     <jCoordinates>32919 31153 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-299>
+    <eNewArea-300>
+     <jCoordinates>32919 31152 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-300>
+    <eNewArea-301>
+     <jCoordinates>32919 31155 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-301>
+    <eNewArea-302>
+     <jCoordinates>32919 31156 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-302>
+    <eNewArea-303>
+     <jCoordinates>32919 31157 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-303>
+    <eNewArea-304>
+     <jCoordinates>32919 31158 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-304>
+    <eNewArea-305>
+     <jCoordinates>32919 31159 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-305>
+    <eNewArea-306>
+     <jCoordinates>32919 31160 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-306>
+    <eNewArea-307>
+     <jCoordinates>32919 31161 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-307>
+    <eNewArea-308>
+     <jCoordinates>32919 31162 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-308>
+    <eNewArea-309>
+     <jCoordinates>32919 31163 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-309>
+    <eNewArea-310>
+     <jCoordinates>32920 31156 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-310>
+    <eNewArea-311>
+     <jCoordinates>32922 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-311>
+    <eNewArea-312>
+     <jCoordinates>32923 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-312>
+    <eNewArea-313>
+     <jCoordinates>32925 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-313>
+    <eNewArea-314>
+     <jCoordinates>32926 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-314>
+    <eNewArea-315>
+     <jCoordinates>32927 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-315>
+    <eNewArea-316>
+     <jCoordinates>32928 31167 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-316>
+    <eNewArea-317>
+     <jCoordinates>32930 31163 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-317>
+    <eNewArea-318>
+     <jCoordinates>32908 31162 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-318>
+    <eNewArea-319>
+     <jCoordinates>32910 31174 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-319>
+    <eNewArea-320>
+     <jCoordinates>32910 31173 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-320>
+    <eNewArea-321>
+     <jCoordinates>32909 31173 13</jCoordinates>
+     <zDimensions>1, 1</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Targeting</cConsideredBy>
+    </eNewArea-321>
+    <eNewArea-322>
+     <jCoordinates>32967 31153 13</jCoordinates>
+     <zDimensions>1, 6</zDimensions>
+     <iAvoidance>250</iAvoidance>
+     <rWaitTime>0 to 0</rWaitTime>
+     <cConsideredBy>Cavebot, Targeting</cConsideredBy>
+    </eNewArea-322>
+   </lSpecialAreas>
+   <bWalkThroughPlayers>no</bWalkThroughPlayers>
+   <cWalkingMethod>Walk will map clicks</cWalkingMethod>
+   <rMapWalkDistance>10 to 20</rMapWalkDistance>
+   <iCreatureMemoryTime>20000</iCreatureMemoryTime>
+   <zEnergyAvoidance>15, 20</zEnergyAvoidance>
+   <zFireAvoidance>0, 0</zFireAvoidance>
+   <zPoisonAvoidance>15, 20</zPoisonAvoidance>
+   <uWalkableIds>831-834&#xd;883&#xd;2131-2135&#xd;2319&#xd;2354-2385&#xd;2426&#xd;2431-2434&#xd;2471-2473&#xd;2519&#xd;2775-2811&#xd;2981-2985&#xd;3503-3504&#xd;3807&#xd;6114-6115&#xd;6371-6372&#xd;7864&#xd;8455&#xd;2118</uWalkableIds>
+  </sPathfinding>
+  <sSettings>
+   <cRopeToUse>Driller</cRopeToUse>
+   <cShovelToUse>Driller</cShovelToUse>
+   <iNodeRange>2</iNodeRange>
+   <cOpenNextBp>If cavebot enabled</cOpenNextBp>
+   <cOpenBpsAtLogin>no</cOpenBpsAtLogin>
+   <bPauseBotOnDeath>yes</bPauseBotOnDeath>
+   <rRefillAmmoCount>0 to 0</rRefillAmmoCount>
+  </sSettings>
+  <sCavebotPriority>
+   <iPriority>55</iPriority>
+   <iOverridePriority>0</iOverridePriority>
+   <iExpireTime>5000</iExpireTime>
+   <iLifeTime>15000</iLifeTime>
+   <cEventType>Normal Event</cEventType>
+  </sCavebotPriority>
+  <bCavebotEnabled>yes</bCavebotEnabled>
+ </sCavebot>
+ <sHealer>
+  <lHealRules>
+   <eExura-vita>
+    <xHealthRange>0 to 55 %</xHealthRange>
+    <xManaRange>160 and above</xManaRange>
+    <cHealMethod>Ultimate Healing</cHealMethod>
+    <cExtraCondition>No condition</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Urgent Event</cEventType>
+    </sMethodPriority>
+   </eExura-vita>
+   <eExura-gran>
+    <xHealthRange>55 to 70 %</xHealthRange>
+    <xManaRange>70 and above</xManaRange>
+    <cHealMethod>Intense Healing</cHealMethod>
+    <cExtraCondition>No condition</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Normal Event</cEventType>
+    </sMethodPriority>
+   </eExura-gran>
+   <eExura>
+    <xHealthRange>70 to 90 %</xHealthRange>
+    <xManaRange>20 and above</xManaRange>
+    <cHealMethod>Light Healing</cHealMethod>
+    <cExtraCondition>No condition</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Normal Event</cEventType>
+    </sMethodPriority>
+   </eExura>
+   <eSMP>
+    <xHealthRange>0 to 100 %</xHealthRange>
+    <xManaRange>0 to 60 %</xManaRange>
+    <cHealMethod>Strong Mana Potion</cHealMethod>
+    <cExtraCondition>No condition</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Normal Event</cEventType>
+    </sMethodPriority>
+   </eSMP>
+   <eParalyze-Low>
+    <xHealthRange>0 to 55 %</xHealthRange>
+    <xManaRange>120 and above</xManaRange>
+    <cHealMethod>Ultimate Healing</cHealMethod>
+    <cExtraCondition>If paralyzed</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Normal Event</cEventType>
+    </sMethodPriority>
+   </eParalyze-Low>
+   <eParalyze-Mid>
+    <xHealthRange>55 to 75 %</xHealthRange>
+    <xManaRange>60 and above</xManaRange>
+    <cHealMethod>Intense Healing</cHealMethod>
+    <cExtraCondition>If paralyzed</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Normal Event</cEventType>
+    </sMethodPriority>
+   </eParalyze-Mid>
+   <eParalyze-Hi>
+    <xHealthRange>75 to 100 %</xHealthRange>
+    <xManaRange>20 and above</xManaRange>
+    <cHealMethod>Light Healing</cHealMethod>
+    <cExtraCondition>If paralyzed</cExtraCondition>
+    <rSpamRate>200 to 400</rSpamRate>
+    <sMethodPriority>
+     <iPriority>80</iPriority>
+     <iOverridePriority>65</iOverridePriority>
+     <iExpireTime>1000</iExpireTime>
+     <iLifeTime>3000</iLifeTime>
+     <cEventType>Normal Event</cEventType>
+    </sMethodPriority>
+   </eParalyze-Hi>
+  </lHealRules>
+  <sManaTraining>
+   <rManaMissing>4 to 30</rManaMissing>
+   <cTrainSpell>Strong Haste</cTrainSpell>
+   <rSpamRate>500 to 1000</rSpamRate>
+   <bEnabled>yes</bEnabled>
+   <sSpellPriority>
+    <iPriority>50</iPriority>
+    <iOverridePriority>0</iOverridePriority>
+    <iExpireTime>1000</iExpireTime>
+    <iLifeTime>3000</iLifeTime>
+    <cEventType>Normal Event</cEventType>
+   </sSpellPriority>
+  </sManaTraining>
+  <sSettings>
+   <iPingCompensation>30</iPingCompensation>
+  </sSettings>
+  <bHealerEnabled>yes</bHealerEnabled>
+ </sHealer>
+ <sHotkeys>
+  <lHotkeyList>
+   <eHideUnhideSettings>
+    <hScript>listas('dontlist')&#xd;showsettings()&#xd;wait(300)</hScript>
+    <kMainKey>s</kMainKey>
+    <kComboKey>key91</kComboKey>
+    <cComboType>Must be pressed</cComboType>
+   </eHideUnhideSettings>
+   <ePauseHotkey>
+    <hScript>if not $targeting or not $cavebot then&#xd;	settargeting('on')&#xd;	setcavebot('on')&#xd;	setlooting('on')&#xd;	listas('Cavebot Resumed')&#xd;else&#xd;	settargeting('off')&#xd;	setcavebot('off')&#xd;	setlooting('off')&#xd;	listas('Cavebot Paused.')&#xd;end&#xd;wait(300)</hScript>
+    <kMainKey>pause</kMainKey>
+    <kComboKey></kComboKey>
+    <cComboType>Must be pressed</cComboType>
+   </ePauseHotkey>
+   <ePause>
+    <hScript>if not $cavebot or not $targeting then&#xd;    listas('Enabling Cavebot and Targeting')&#xd;    setcavebot('on')&#xd;    settargeting('on')&#xd;    wait(1000)&#xd;else&#xd;    listas('Disabling Cavebot and Targeting')&#xd;    setcavebot('off')&#xd;    settargeting('off')&#xd;    stopattack()&#xd;    wait(1000)&#xd;end</hScript>
+    <kMainKey>pause</kMainKey>
+    <kComboKey></kComboKey>
+    <cComboType>Must be pressed</cComboType>
+   </ePause>
+  </lHotkeyList>
+  <lPersistentList>
+   <eIDCheck>
+    <hScript>function cursorinfo() -- Credits to Anonymickey, for doing the calculations.&#xd;    local temp = {x,y,z,id}&#xd;    if $cursor.x >= $worldwin.left and $cursor.x &lt;= $worldwin.right and $cursor.y &lt;= $worldwin.bottom and $cursor.y >= $worldwin.top then&#xd;        local sqmWidth = ($worldwin.bottom - $worldwin.top)/11&#xd;        temp.x, temp.y, temp.z =  $posx - 8 + math.ceil(($cursor.x - $worldwin.left)/sqmWidth), $posy - 6 + math.ceil(($cursor.y - $worldwin.top)/sqmWidth), $posz&#xd;        temp.id = topitem(temp.x, temp.y, $posz).id&#xd;    else&#xd;        temp.x, temp.y, temp.z, temp.id = 0,0,0,0&#xd;    end&#xd;    return temp&#xd;end&#xd;&#xd;listas('dontlist')</hScript>
+    <bEnabled>yes</bEnabled>
+   </eIDCheck>
+   <eAdvanced-Setup-by-BlakW>
+    <hScript>----------------Advanced Setup by BlakW----------------&#xd;&#xd;init start&#xd;----------------Script----------------------&#xd;&#xd;	--Script Version (Dont edit this!)&#xd;	scriptversion = '2.2.1'&#xd;&#xd;----------------Wpt's setup-----------------&#xd;&#xd;    --None needed for this version. &#xd;&#xd;----------------BP setup--------------------&#xd;&#xd;    --Your main backpack name?&#xd;    Mainbpname = 'Backpack of Holding' &#xd;&#xd;    --Your gold backpack name?&#xd;    GoldBpId = 'Heart Backpack' &#xd;&#xd;    -- Your loot backpack name?&#xd;    LootBpId = 'Jewelled Backpack' &#xd;&#xd;----------------Supplys setup-----------------&#xd;&#xd;    --How many mfs bot will buy?&#xd;    maxmana = 500&#xd;&#xd;    --Name of mana that bot will use?&#xd;    mananame = 'strong mana potion' &#xd;&#xd;    --How many mfs bot will go refill?&#xd;    minmana = 100&#xd;&#xd;    --How many golds bot will withdraw from bank?&#xd;    money = 90000&#xd;&#xd;    --How many sd bot will buy?&#xd;    maxsd = 120&#xd;&#xd;----------------DP setup-----------------&#xd;&#xd;    --This is the backpack type that has the backpacks inside. Like a grey backpack filled with 20 fur backpacks.&#xd;    bp1 = 'red backpack' &#xd;&#xd;    --This is where the items will be throwed to.&#xd;    bp2 = 'brocade backpack' &#xd;&#xd;&#xd;	--Item ID's to deposit in Backpacks.&#xd;	itemsRares = {'Small Ruby', 'Quara Tentacle', 'Small Amethyst', 'Quara Eye', 'White Pearl', 'Black Pearl', 'Small Emerald', 'Wand of Cosmic Energy', 'Knight Armor', 'Blue Robe', 'Glacier Shoes', 'Quara Pincers', 'Warrior Helmet', 'Glacier Robe', 'Crown Armor', 'Giant Shrimp', 'Quara Bone', 'Small Diamond', 'Skull Helmet', 'Relic Sword', 'Fish Fin', 'Stealth Ring'}&#xd;&#xd;init end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eAdvanced-Setup-by-BlakW>
+   <eGeneralStatusSETUP>
+    <hScript>init start&#xd;	generalStatus = {&#xd;		fontSize = 7,&#xd;		font = 'Tahoma',&#xd;		fontSpace = 4,&#xd;		marging = 2,&#xd;		defaultColor = color('white'),&#xd;		titleColor = color('white'),&#xd;		space = 2,&#xd;		maxChar = 17,&#xd;		secondBlock = 115,&#xd;		showPriceLoot = true,&#xd;		showPriceSupplie = true,&#xd;		showAllLoot = false,&#xd;		showAllSupplie = false,&#xd;		showMed = true,&#xd;		showStatus = true,&#xd;		bkGcolor = color(60,60,60,60)&#xd;	}&#xd;&#xd;	supplies = {&#xd;		suppliesname = {'strong mana potion', 'great mana potion', 'soft boots', 'sudden death rune'},&#xd;		defineprice = {&#xd;						{name = 'great mana potion', price = 120},&#xd;						{name = 'strong mana potion', price = 80},&#xd;						{name = 'sudden death rune', price = 108},&#xd;						{name = 'soft boots', price = 10000}&#xd;						}&#xd;	}&#xd;&#xd;	loots = {&#xd;		itemlist = {'Quara Tentacle', 'Small Ruby', 'Small Amethyst', 'Quara Eye', 'White Pearl', 'Black Pearl', 'Small Emerald', 'Wand of Cosmic Energy', 'Knight Armor', 'Blue Robe', 'Glacier Shoes', 'Quara Pincers', 'Warrior Helmet', 'Glacier Robe', 'Crown Armor', 'Giant Shrimp', 'Quara Bone', 'Small Diamond', 'Skull Helmet', 'Relic Sword', 'Fish Fin', 'Stealth Ring'},&#xd;		defineprice = {&#xd;						{name = 'Quara Tentacle', price = 140},&#xd;						{name = 'Small Amethyst', price = 250},&#xd;						{name = 'Quara Eye', price = 350},&#xd;						{name = 'White Pearl', price = 160},&#xd;						{name = 'Black Pearl', price = 280},&#xd;						{name = 'Small Emerald', price = 250},&#xd;						{name = 'Wand of Cosmic Energy', price = 2000},&#xd;						{name = 'Knight Armor', price = 5000},&#xd;						{name = 'Blue Robe', price = 10000},&#xd;						{name = 'Glacier Robe', price = 11000},&#xd;						{name = 'Glacier Shoes', price = 2500},&#xd;						{name = 'Quara Pincers', price = 410},&#xd;						{name = 'Warrior Helmet', price = 5000},&#xd;						{name = 'Crown Armor', price = 12000},&#xd;						{name = 'Giant Shrimp', price = 200000},&#xd;						{name = 'Quara Bone', price = 500},&#xd;						{name = 'Small Diamond', price = 250},&#xd;						{name = 'Skull Helmet', price = 40000},&#xd;						{name = 'Relic Sword', price = 25000},&#xd;						{name = 'Small Ruby', price = 250},&#xd;						{name = 'Fish Fin', price = 4000}&#xd;					}&#xd;	}&#xd;&#xd;	generalStatus.fontSpacing = generalStatus.fontSize+generalStatus.fontSpace&#xd;&#xd;	function additemcounter(name, amount)&#xd;		local amount = amount or 1&#xd;		local index = table.find(suppliescount, name, 'name')&#xd;&#xd;		if index then&#xd;			suppliescount[index].count = suppliescount[index].count+amount&#xd;		else&#xd;			printerror('Unable to find ' .. name .. ', please add it on supplies list!')&#xd;		end&#xd;	end&#xd;init end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eGeneralStatusSETUP>
+   <eSuppliesCounter>
+    <hScript>--CODED BY PEDROSHOW&#xd;auto(100) dontlist()&#xd;&#xd;suppliescount = suppliescount or {}&#xd;&#xd;if #supplies.suppliesname ~= #suppliescount then&#xd;	suppliescount = {}&#xd;	for a, b in pairs(supplies.suppliesname) do&#xd;		local itemprice = itemprice(b)&#xd;		for y=1, #supplies.defineprice do&#xd;			if b == supplies.defineprice[y].name then&#xd;				itemprice = supplies.defineprice[y].price&#xd;			end&#xd;		end&#xd;			table.insert(suppliescount, {name = b:lower(), totalcount = servercount(b), count = 0, price = itemprice})&#xd;	end&#xd;	table.newsort(suppliescount, 'name', 'asc')&#xd;end&#xd;&#xd;for f, m in pairs(suppliescount) do&#xd;	if servercount(m.name) ~= m.totalcount then&#xd;		m.count,m.totalcount = m.count+1,servercount(m.name)&#xd;	end&#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eSuppliesCounter>
+   <eLootCounter>
+    <hScript>--CODED BY PEDROSHOW&#xd;auto(200) dontlist()&#xd;&#xd;lootcheck = lootcheck or {}&#xd;if #loots.itemlist ~= #lootcheck then&#xd;	lootcheck = {}&#xd;	for c, d in pairs(loots.itemlist) do&#xd;		local itemprice = itemvalue(d)&#xd;		for y=1, #loots.defineprice do&#xd;			if loots.defineprice[y].name == d then&#xd;				itemprice = loots.defineprice[y].price&#xd;			end&#xd;		end&#xd;		table.insert(lootcheck, {name = d:lower(), count = 0, price = itemprice})&#xd;	end&#xd;	table.newsort(lootcheck, 'name', 'asc')&#xd;end&#xd;&#xd;foreach newmessage m do&#xd;	if m.type == MSG_INFO and m.content:sub(1,8) == 'Loot of ' then&#xd;		local content = (m.content:match('Loot of .-: (.+)')):token(nil,', ')&#xd;		for i,j in ipairs(content) do&#xd;			for x=1, #lootcheck do&#xd;				if j:find(lootcheck[x].name) then&#xd;					local amount = tonumber(j:match('(%d-) .-')) or 1&#xd;					lootcheck[x].count = lootcheck[x].count + amount&#xd;				end&#xd;			end&#xd;		end&#xd;	end&#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eLootCounter>
+  </lPersistentList>
+  <lCavebotList>
+   <eSoft-Boots-Changer>
+    <hScript>init start&#xd;    local softequip,softunequip&#xd;    local softid = 6529&#xd;    local softuseid = 3549&#xd;    local wornsoftid = 6530&#xd;    local bootsid = 'boots of haste'&#xd;    local alertifnosoft = false&#xd;    local soundfile = 'monster.wav'&#xd;	if type(bootsid) == 'string' then bootsid = itemid(bootsid) end&#xd;init end&#xd;&#xd;if softequip == nil then&#xd;    softequip = math.random(70,75) --Mana percent range to equip soft boots&#xd;end&#xd;if softunequip == nil then&#xd;    softunequip = math.random(97,99) --Mana percent range to equip boots of haste back&#xd;end&#xd;&#xd;auto(100) listas('dontlist')&#xd;if ($mppc &lt;= softequip or ($feet.id == wornsoftid and itemcount(softid) > 0)) and not $pzone and $feet.id ~= softuseid then&#xd;    equipitem(softid,'feet','backpack')&#xd;    softequip = nil&#xd;    wait(500,1000)&#xd;elseif ($mppc >= softunequip or ($feet.id == wornsoftid and itemcount(softid) == 0) or $pzone) and $feet.id ~= bootsid then&#xd;    equipitem(bootsid,'feet','backpack')&#xd;    softunequip = nil&#xd;    wait(500,1000)&#xd;end&#xd;if $feet.id ~= softuseid and itemcount(softid) == 0 and itemcount(wornsoftid) > 0 and alertifnosoft then&#xd;    playsound(soundfile) &#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eSoft-Boots-Changer>
+   <eLife-Ring-Changer>
+    <hScript>init start &#xd;    local ringequip,ringunequip &#xd;    local ringid = 3052&#xd;    local ringuseid = 3089&#xd;init end &#xd;&#xd;if ringequip == nil then &#xd;    ringequip = math.random(70,75)&#xd;end &#xd;if ringunequip == nil then &#xd;    ringunequip = math.random(97,98)&#xd;end &#xd;&#xd;auto(100) listas('dontlist') &#xd;if ($mppc &lt;= ringequip) and not $pzone and $finger.id ~= ringuseid then &#xd;    equipitem(ringid,'finger','backpack') &#xd;    ringequip = nil &#xd;    wait(500,1000) &#xd;elseif (($mppc >= ringunequip) or $pzone) and $finger.id == ringuseid then &#xd;    moveitems(ringuseid,'backpack','finger') &#xd;    ringunequip = nil &#xd;    wait(500,1000) &#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eLife-Ring-Changer>
+   <eFood>
+    <hScript>auto(30000, 50000) listas('dontlist')&#xd;eatfood()</hScript>
+    <bEnabled>yes</bEnabled>
+   </eFood>
+   <eDrop-Vials>
+    <hScript>auto(15000,20000) listas('dontlist') &#xd;if itemcount(284)+itemcount(283)+itemcount(285) > 50 then&#xd;	moveitems(284,'ground')&#xd;	moveitems(283,'ground')&#xd;	moveitems(285,'ground')&#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eDrop-Vials>
+   <eStandtime-Alert>
+    <hScript>auto(100) listas('dontlist')&#xd;if $standtime > 240000 then&#xd;    playsound("monster.wav")&#xd;	listas('Standtime alert')&#xd;end  </hScript>
+    <bEnabled>yes</bEnabled>
+   </eStandtime-Alert>
+   <eSD-Alert>
+    <hScript>auto (1000) listas('dontlist')&#xd;if itemcount('sudden death rune') &lt;= 10 then&#xd;	listas ('SD alert')&#xd;	playsound ('defaultmessage.wav')&#xd;end</hScript>
+    <bEnabled>no</bEnabled>
+   </eSD-Alert>
+   <eMf-Alert>
+    <hScript>auto (1000) listas('dontlist')&#xd;if itemcount('great mana potions')+itemcount('strong mana potion')+itemcount('mana potion') &lt; 20 then&#xd;	playsound ('defaultmessage.wav')&#xd;	listas ('Mana alert')&#xd;end</hScript>
+    <bEnabled>no</bEnabled>
+   </eMf-Alert>
+   <eSs-Death>
+    <hScript>init start&#xd;     local takess = true&#xd;init end&#xd;&#xd;auto(10) listas('Take screenshot on death')&#xd;if $hppc == 0 then&#xd;     if takess then screenshot() end&#xd;     takess = false&#xd;else&#xd;     takess = true&#xd;end  </hScript>
+    <bEnabled>yes</bEnabled>
+   </eSs-Death>
+   <eStamina-Alert>
+    <hScript>auto(200)&#xd;if $stamina &lt; 60*43 then&#xd;	playsound("monster.wav")&#xd;	listas('Stamina Alert')&#xd;	flashclient()&#xd;end</hScript>
+    <bEnabled>no</bEnabled>
+   </eStamina-Alert>
+   <eAuto-Mount>
+    <hScript>auto(100)&#xd;if not $pzone and $self.mount == 0 then&#xd;	mount()&#xd;	wait(1300,2400)&#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eAuto-Mount>
+   <eAnti-KS>
+    <hScript>init start&#xd;    local r = 4 -- Range.&#xd;    local safelist = {'Bubble', 'Eternal Oblivion'} -- The bot WILL KS this players. Add more to this if you want.&#xd;    table.insert(safelist, $name) -- Do not edit it.&#xd;init end&#xd; &#xd;auto(100)&#xd;local ppos = {}&#xd;foreach creature p 'pf' do&#xd;    if not table.find(safelist, p.name) then&#xd;        table.insert(ppos, {x = p.posx, y = p.posy})&#xd;    end&#xd;end&#xd;foreach creature c 'mf' do&#xd;    local ignore = false&#xd;    if c.id ~= $mattacker.id then&#xd;        for i = 1, #ppos do&#xd;            local difx, dify = ppos[i].x - c.posx, ppos[i].y - c.posy&#xd;            if math.abs(difx) &lt;= r and math.abs(dify) &lt;= r then&#xd;                ignore = true&#xd;                if c.ignored == false then&#xd;                    ignorecreature(c.id)&#xd;                end&#xd;                break&#xd;            end&#xd;        end&#xd;    end&#xd;    if ignore == false and c.ignored == true then&#xd;        ignorecreature(c.id, true)&#xd;    end&#xd;end&#xd;if $attacked.id ~= 0 then&#xd;    if $attacked.ignored then&#xd;        stopattack()&#xd;    end&#xd;end  </hScript>
+    <bEnabled>no</bEnabled>
+   </eAnti-KS>
+   <eAuto-Haste>
+    <hScript>auto(1000)&#xd;if maround(7) == 0 and not $hasted and not $pzone&#xd;then&#xd;	cast('utani hur')&#xd;	waitping()&#xd;end</hScript>
+    <bEnabled>yes</bEnabled>
+   </eAuto-Haste>
+   <eCap-Gold>
+    <hScript>init start&#xd;    local capmin = 500&#xd;    local golddestination = GoldBpId&#xd;    setpriority(tonumber(getsetting('Cavebot/Looting/LootBodyPriority/Priority'))+1,0,500,5000,0)&#xd;init end&#xd;auto(100)&#xd;if $cap > capmin and itemcount(3031,'dead') > 0 then&#xd;    moveitems(3031,golddestination,'dead')&#xd;end  </hScript>
+    <bEnabled>no</bEnabled>
+   </eCap-Gold>
+  </lCavebotList>
+  <cHotkeyCondition>Client focus required</cHotkeyCondition>
+  <sDefaultEventPriority>
+   <iPriority>50</iPriority>
+   <iOverridePriority>0</iOverridePriority>
+   <iExpireTime>1000</iExpireTime>
+   <iLifeTime>10000</iLifeTime>
+   <cEventType>Normal Event</cEventType>
+  </sDefaultEventPriority>
+ </sHotkeys>
+ <sHud>
+  <lDisplaysList>
+   <eGeneralInfo>
+    <hScript>local fontsize = 10&#xd;local fontspacing = fontsize+2&#xd;&#xd;setposition($clientwin.x+260, $clientwin.y+10)&#xd;setfontstyle("Tahoma", fontsize, 0xE4B31B)&#xd;setfontweight(75)&#xd;&#xd;--addtext("Ping: " .. $pingaverage, 0, 0)&#xd;addtext("Xp\\h: " .. num($exphour), 80, 0)&#xd;--addtext("Next: " .. num(exptolevel()), 190, 0)&#xd;--addtext("Time: " .. time(timetolevel()), 300, 0)&#xd;</hScript>
+    <rRefreshRate>200 to 200</rRefreshRate>
+    <bEnabled>yes</bEnabled>
+   </eGeneralInfo>
+   <eSpellTimers>
+    <hScript>local row = 0&#xd;local fontsize = 10&#xd;local fontspacing = fontsize+2&#xd;&#xd;setposition($clientwin.x+10, $clientwin.y+10)&#xd;setfontstyle("Tahoma", fontsize, 0)&#xd;setfontweight(75)&#xd;&#xd;if $hastetime > 0 then &#xd;	setfontcolor(0x64FF64)&#xd;	addtext("Haste:     " .. timeshort($hastetime), 0, 0)&#xd;	row = 1&#xd;end&#xd;&#xd;if $mshieldtime > 0 then&#xd;	setfontcolor(0x6464FF)&#xd;	addtext("MShield:  " .. timeshort($mshieldtime), 0, row*fontspacing)&#xd;	row = row + 1&#xd;end&#xd;&#xd;if $invistime > 0 then &#xd;	setfontcolor(0xFF64FF)&#xd;	addtext("Invis:     " .. timeshort($invistime), 0, row*fontspacing)&#xd;	row = row + 1&#xd;end&#xd;&#xd;if $strenghtentime > 0 then &#xd;	setfontcolor(0xFF4646)&#xd;	addtext("Strenght: " .. timeshort($strenghtentime), 0, row*fontspacing)&#xd;	row = row + 1&#xd;end</hScript>
+    <rRefreshRate>100 to 100</rRefreshRate>
+    <bEnabled>yes</bEnabled>
+   </eSpellTimers>
+   <eActiveHotkeys>
+    <hScript>local fontsize = 10&#xd;local fontspacing = fontsize+3&#xd;&#xd;setfontstyle("Tahoma", fontsize, 0xE4B31B)&#xd;setfontweight(75)&#xd;&#xd;local row = 0&#xd;&#xd;local i = 0&#xd;while isscript("hotkey", i) do&#xd;	local listname = scriptlistname("hotkey", i)&#xd;&#xd;	if listname ~= "" then&#xd;		setfontcolor(scriptlistcolor("hotkey", i))&#xd;		addtext(listname, 0, row*fontspacing)&#xd;		row = row + 1&#xd;	end&#xd;	i=i+1&#xd;end&#xd;&#xd;local i = 0&#xd;while isscript("persistent", i) do&#xd;	local listname = scriptlistname("persistent", i)&#xd;&#xd;	if listname ~= "" then&#xd;		setfontcolor(scriptlistcolor("persistent", i))&#xd;		addtext(listname, 0, row*fontspacing)&#xd;		row = row + 1&#xd;	end&#xd;	i=i+1&#xd;end&#xd;&#xd;local i = 0&#xd;while isscript("cavebot", i) do&#xd;	local listname = scriptlistname("cavebot", i)&#xd;&#xd;	if listname ~= "" then&#xd;		setfontcolor(scriptlistcolor("cavebot", i))&#xd;		addtext(listname, 0, row*fontspacing)&#xd;		row = row + 1&#xd;	end&#xd;	i=i+1&#xd;end&#xd;&#xd;setposition($clientwin.x+9, $worldwin.bottom-3-row*fontspacing)&#xd;</hScript>
+    <rRefreshRate>200 to 200</rRefreshRate>
+    <bEnabled>yes</bEnabled>
+   </eActiveHotkeys>
+   <eRecentLoot>
+    <hScript>init start&#xd;	local warnitems = {'fire sword', 'boots of haste', 'wand of inferno'} -- you can add more items here&#xd;	local maxindex = 5 -- max lines to display at once&#xd;&#xd;	local fontsize = 10&#xd;	local fontspacing = fontsize+3&#xd;&#xd;	local index = 0&#xd;	local lootmsgs = {}&#xd;	local lootcolors = {}&#xd;init end&#xd;&#xd;setfontstyle("Tahoma", fontsize, 0x00FF00)&#xd;setfontweight(75)&#xd;&#xd;foreach newmessage m do&#xd;	if m.content:sub(0,8) == "Loot of " then&#xd;		local shortloot = m.content:sub(10)&#xd;		if math.random(0, 100) == 100 then&#xd;			shortloot = shortloot:gsub('a sword', 'a super sword')&#xd;		end&#xd;		lootmsgs[index] = shortloot&#xd;		lootcolors[index] = 0x00FF00&#xd;&#xd;		local i = 1&#xd;		while warnitems[i] do&#xd;			if shortloot:find(warnitems[i]) then&#xd;				lootcolors[index] = 0xFF0000&#xd;				break&#xd;			end&#xd;			i = i + 1&#xd;		end&#xd;&#xd;		index = index + 1&#xd;		if index >= maxindex then index = 0 end&#xd;	end&#xd;end&#xd;&#xd;local row = 0&#xd;local i = index&#xd;local j = 0&#xd;while j &lt; maxindex do&#xd;	if lootmsgs[i] then&#xd;		setfontcolor(lootcolors[i])&#xd;		addtext(lootmsgs[i], 0, row*fontspacing)&#xd;		row = row + 1&#xd;	end&#xd;&#xd;	j=j+1&#xd;	i=i+1&#xd;&#xd;	if i >= maxindex then i = 0 end&#xd;end&#xd;&#xd;setjustify("right")&#xd;setposition($worldwin.right-5, $worldwin.bottom-3-row*fontspacing)&#xd;</hScript>
+    <rRefreshRate>200 to 200</rRefreshRate>
+    <bEnabled>yes</bEnabled>
+   </eRecentLoot>
+   <eLoot-Counter-v2.0>
+    <hScript>init start&#xd;	if $windowsxp then&#xd;		generalStatus.bkGcolor = generalStatus.bkGcolor % 16777216&#xd;	end&#xd;init end&#xd;&#xd;--CODED BY PEDROSHOW&#xd;&#xd;shapeSize = shapeSize or 0&#xd;clist = generalStatus.space&#xd;&#xd;setfontweight(75)&#xd;setfillstyle("color", generalStatus.bkGcolor)&#xd;addshape("rect", 0, 0, 207, shapeSize + generalStatus.marging)&#xd;setposition($clientwin.right-390, $worldwin.centery-270)&#xd;&#xd;setfontstyle(generalStatus.font, 10, generalStatus.titleColor)&#xd;addtext('Items looted so far', generalStatus.marging, generalStatus.marging)&#xd;setfontstyle(generalStatus.font, generalStatus.fontSize, generalStatus.defaultColor)&#xd;&#xd;for x=1, #lootcheck do&#xd;	local itemname = string.capitalizeall(lootcheck[x].name)&#xd;	if #itemname > generalStatus.maxChar then&#xd;		itemname = string.match(string.sub(itemname, 1, generalStatus.maxChar), '(.-)%s?$') .. '...'&#xd;	end&#xd;&#xd;	if generalStatus.showPriceLoot then&#xd;		lootstring = num(lootcheck[x].count) .. ' (' .. math.floor((lootcheck[x].price*lootcheck[x].count)/100)/10 .. 'k)'&#xd;	else&#xd;		lootstring = num(lootcheck[x].count), generalStatus.secondBlock, clist*generalStatus.fontSpacing&#xd;	end&#xd;&#xd;	if generalStatus.showAllLoot then&#xd;		addtext(itemname, generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;		addtext(lootstring, generalStatus.secondBlock, clist*generalStatus.fontSpacing)&#xd;		clist = clist+1&#xd;	elseif lootcheck[x].count > 0 then&#xd;		addtext(itemname, generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;		addtext(lootstring, generalStatus.secondBlock, clist*generalStatus.fontSpacing)&#xd;		clist = clist+1&#xd;	end&#xd;end&#xd;clist = clist+1&#xd;&#xd;local loottotal = 0&#xd;for a, b in pairs(lootcheck) do	&#xd;	loottotal = loottotal + (b.count * b.price)&#xd;end&#xd;addtext('Total: '.. num(loottotal).. ' GPs', generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;clist = clist+generalStatus.space&#xd;&#xd;setfontstyle(generalStatus.font, 10, generalStatus.titleColor)&#xd;addtext('Supplies wasted so far', generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;setfontstyle(generalStatus.font, generalStatus.fontSize, generalStatus.defaultColor)&#xd;clist = clist+generalStatus.space&#xd;&#xd;for x=1, #suppliescount do&#xd;	local itemname = string.capitalizeall(suppliescount[x].name)&#xd;	if #itemname > generalStatus.maxChar then&#xd;		itemname = string.match(string.sub(itemname, 1, generalStatus.maxChar), '(.-)%s?$') .. '...'&#xd;	end&#xd;&#xd;	if generalStatus.showPriceSupplie then&#xd;		suppliestring = num(suppliescount[x].count) .. ' (' .. math.abs(math.floor((suppliescount[x].price*suppliescount[x].count)/100)/10) .. 'k)'&#xd;	else&#xd;		suppliestring = num(suppliescount[x].count)&#xd;	end&#xd;&#xd;	if generalStatus.showAllSupplie then&#xd;		addtext(itemname, generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;		addtext(suppliestring, generalStatus.secondBlock, clist*generalStatus.fontSpacing)&#xd;		clist = clist+1&#xd;	elseif suppliescount[x].count > 0 then&#xd;		addtext(itemname, generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;		addtext(suppliestring, generalStatus.secondBlock, clist*generalStatus.fontSpacing)		&#xd;		clist = clist+1&#xd;	end&#xd;end&#xd;clist = clist+1&#xd;&#xd;local totalwasted = 0&#xd;for a, b in pairs(suppliescount) do&#xd;	totalwasted = totalwasted + math.max(b.count * b.price, 0)&#xd;end&#xd;addtext('Total: '.. num(totalwasted).. ' GPs', generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;clist = clist+generalStatus.space&#xd;&#xd;if generalStatus.showStatus then&#xd;	local profit = loottotal-totalwasted&#xd;&#xd;	if profit > 0 then&#xd;		text = 'PROFIT'&#xd;		colorbased = color('green')&#xd;	else &#xd;		text = 'WASTE'&#xd;		colorbased = color('red')&#xd;	end&#xd;	&#xd;	setfontstyle(generalStatus.font, 10, colorbased)&#xd;	if generalStatus.showMed then&#xd;		local goldh = math.floor((profit*3600)/($exptime/1000)/100)/10&#xd;		addtext(text .. ': ' .. num(profit) .. ' GPs (' .. math.abs(goldh) .. ' k/h)', generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;	else&#xd;		addtext(text .. ': ' .. num(profit) .. ' GPs', generalStatus.marging, clist*generalStatus.fontSpacing)&#xd;	end&#xd;	clist = clist+1&#xd;end&#xd;&#xd;shapeSize = clist*generalStatus.fontSpacing</hScript>
+    <rRefreshRate>200 to 200</rRefreshRate>
+    <bEnabled>yes</bEnabled>
+   </eLoot-Counter-v2.0>
+   <ePerfect-HUD-by-BlakW-v1.1>
+    <hScript>-- Pos &amp; Style --&#xd;local fontSize = 8&#xd;local fontSpacing = fontSize + 4&#xd;setposition($clientwin.left + 4, $clientwin.top + 5)&#xd;setfontstyle('Tahoma', fontSize, 0xC0C0C0)&#xd;setfontweight(70)&#xd;setjustify('left')&#xd;local positionFromRight = 440&#xd;-- End --&#xd;&#xd;-- Colors --&#xd;local white = 0xFFFFFFF&#xd;local secondaryColor = 0xFFFFFFF&#xd;local red = 0xFF3333&#xd;local green = 0x00CC00&#xd;-- End --&#xd;&#xd;-- Don't change this! --&#xd;local a1 = 45&#xd;local a2 = 60&#xd;local a3 = 75&#xd;local a4 = 90&#xd;local a5 = 105&#xd;local a6 = 120&#xd;local a7 = 135&#xd;local a8 = 150&#xd;local a9 = 165&#xd;local a10 = 180&#xd;local a11 = 195&#xd;local a12 = 210&#xd;local a13 = 225&#xd;local a14 = 240&#xd;local a15 = 255&#xd;local a16 = 270&#xd;local a17 = 285&#xd;local a18 = 300&#xd;local a19 = 315&#xd;local a20 = 330&#xd;local a21 = 345&#xd;local a22 = 355&#xd;local a23 = 365&#xd;local a24 = 380&#xd;local a25 = 395&#xd;-- End --&#xd;&#xd;-- Config --&#xd;local Level = true&#xd;local Stamina = true&#xd;local MagicLevel = true&#xd;local SoulPoints = false&#xd;local Position = false&#xd;local PZ = true&#xd;local ExpToLevel = true&#xd;local ExpToday = true&#xd;local xph = true&#xd;local Club = false&#xd;local Sword = false&#xd;local Axe = false&#xd;local sversion = true&#xd;local Shielding = true&#xd;local version = true&#xd;local CaveBotEnabled = true&#xd;local TargettingEnabled = true&#xd;local LootingEnabled = true&#xd;local HealthPotionsEnabled = false&#xd;local HealthPotion = 'Health Potion'&#xd;local ManaPotionsEnabled = false&#xd;local ManaPotion = 'Mana Potion'&#xd;-- End --&#xd;&#xd;-- No change :) --&#xd;&#xd;-- Level pos --&#xd;if Level == false then&#xd;a2 = a2-15&#xd;a3 = a3-15&#xd;a4 = a4-15&#xd;a5 = a5-15&#xd;a6 = a6-15&#xd;a7 = a7-15&#xd;a8 = a8-15&#xd;a9 = a9-15&#xd;a10 = a10-15&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Stamina Pos --&#xd;if Stamina == false then&#xd;a3 = a3-15&#xd;a4 = a4-15&#xd;a5 = a5-15&#xd;a6 = a6-15&#xd;a7 = a7-15&#xd;a8 = a8-15&#xd;a9 = a9-15&#xd;a10 = a10-15&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;&#xd;-- MagicLevel Pos --&#xd;if MagicLevel == false then&#xd;a4 = a4-15&#xd;a5 = a5-15&#xd;a6 = a6-15&#xd;a7 = a7-15&#xd;a8 = a8-15&#xd;a9 = a9-15&#xd;a10 = a10-15&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- SoulPoints Pos --&#xd;if SoulPoints == false then&#xd;a5 = a5-15&#xd;a6 = a6-15&#xd;a7 = a7-15&#xd;a8 = a8-15&#xd;a9 = a9-15&#xd;a10 = a10-15&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Position Pos --&#xd;if Position == false then&#xd;a8 = a8-45&#xd;a9 = a9-45&#xd;a10 = a10-45&#xd;a11 = a11-45&#xd;a12 = a12-45&#xd;a13 = a13-45&#xd;a14 = a14-45&#xd;a15 = a15-45&#xd;a16 = a16-45&#xd;a17 = a17-45&#xd;a18 = a18-45&#xd;a19 = a19-45&#xd;a20 = a20-45&#xd;a21 = a21-45&#xd;a22 = a22-45&#xd;a23 = a23-45&#xd;a24 = a24-45&#xd;a25 = a25-45&#xd;end&#xd;-- End --&#xd;&#xd;-- PZ Pos --&#xd;if PZ == false then&#xd;a9 = a9-15&#xd;a10 = a10-15&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- ExpToLevel Pos --&#xd;if ExpToLevel == false then&#xd;a10 = a10-15&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- ExpToday Pos --&#xd;if ExpToday == false then&#xd;a11 = a11-15&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Fist Pos --&#xd;if Fist == false then&#xd;a12 = a12-15&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Club Pos --&#xd;if Club == false then&#xd;a13 = a13-15&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Sword Pos --&#xd;if Sword == false then&#xd;a14 = a14-15&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Axe Pos --&#xd;if Axe == false then&#xd;a15 = a15-15&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Distance Pos --&#xd;if Distance == false then&#xd;a16 = a16-15&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Shielding Pos --&#xd;if Shielding == false then&#xd;a17 = a17-15&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- Fishing Pos --&#xd;if Fishing == false then&#xd;a18 = a18-15&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- CaveBotEnabled Pos --&#xd;if CaveBotEnabled == false then&#xd;a19 = a19-15&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- TargettingEnabled Pos --&#xd;if TargettingEnabled == false then&#xd;a20 = a20-15&#xd;a21 = a21-15&#xd;a22 = a22-15&#xd;a23 = a23-15&#xd;a24 = a24-15&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;-- HealthPotions Pos --&#xd;if HealthPotionsEnabled == false then&#xd;a25 = a25-15&#xd;end&#xd;-- End --&#xd;&#xd;&#xd;-- Start --&#xd;-- Training Status --&#xd;setfontcolor(0xFFCC00)&#xd;addtext('-----------------------------------------', 0, 0)&#xd;setfontcolor(white)&#xd;addtext('              ~*~ Perfect HUD ~*~           ', 0, 10)&#xd;setfontcolor(0x0099FF)&#xd;addtext('                 ~*~ By BlakW ~*~                   ', 0, 20)&#xd;setfontcolor(0xFFCC00)&#xd;addtext('-----------------------------------------', 0, 30)&#xd;&#xd;-- Level --&#xd;setfontcolor(white)&#xd;if Level == true then&#xd;addtext('   Level:', 0, a1)&#xd;addtext(num($level)..' ('..num(100 - levelpc())..'%)', 135, a1)&#xd;end&#xd;-- End --&#xd;-- Stamina --&#xd;if Stamina == true then&#xd;addtext('   Stamina:', 0, a2)&#xd;addtext(time($stamina), 135, a2)&#xd;end&#xd;-- End --&#xd;-- Magic level --&#xd;if MagicLevel == true then&#xd;addtext('   Magic Level:', 0, a3)&#xd;addtext(num($mlevel)..' ('..num(100 - $mlevelpc)..'%)', 135, a3)&#xd;end&#xd;-- End --&#xd;-- Soul points --&#xd;if SoulPoints == true then&#xd;addtext('   Soul points:', 0, a4)&#xd;addtext($soul, 135, a4)&#xd;end&#xd;-- End --&#xd;-- Position --&#xd;if Position == true then&#xd;addtext('   X:', 0, a5)&#xd;addtext($posx, 135, a5)&#xd;addtext('   Y:', 0, a6)&#xd;addtext($posy, 135, a6)&#xd;addtext('   Z:', 0, a7)&#xd;addtext($posz, 135, a7)&#xd;end&#xd;-- End --&#xd;-- Protection Zone --&#xd;if PZ == true then&#xd;addtext('   Protection zone?', 0, a8)&#xd;if $pzone == true then&#xd;setfontcolor(green)&#xd;addtext('Yes!', 135, a8)&#xd;else&#xd;setfontcolor(red)&#xd;addtext('No!', 135, a8)&#xd;end&#xd;end&#xd;-- End --&#xd;-- Exp to level --&#xd;if ExpToLevel == true then&#xd;setfontcolor(white)&#xd;addtext('   Experience Left:', 0, a9)&#xd;addtext(num(exptolevel()), 135, a9)&#xd;end&#xd;-- End --&#xd;-- Experience Today --&#xd;if ExpToday == true then&#xd;addtext('   Experience Today:', 0, a10)&#xd;addtext(num($expgained), 135, a10)&#xd;end&#xd;-- End --&#xd;-- Exp/h --&#xd;if xph == true then&#xd;addtext('   Experience Hour:', 0, a11)&#xd;addtext(num($exphour), 135, a11)&#xd;&#xd;end&#xd;-- End --&#xd;&#xd;-- Club --&#xd;if Club == true then&#xd;addtext('   Club:', 0, a12)&#xd;addtext(num($club)..' ('..num(100 - $clubpc)..'%)', 135, a12)&#xd;end&#xd;-- End --&#xd;&#xd;-- Sword --&#xd;if Sword == true then&#xd;addtext('   Sword:', 0, a13)&#xd;addtext(num($sword)..' ('..num(100 - $swordpc)..'%)', 135, a13)&#xd;end&#xd;-- End --&#xd;&#xd;-- Axe --&#xd;if Axe == true then&#xd;addtext('   Axe:', 0, a14)&#xd;addtext(num($axe)..' ('..num(100 - $axepc)..'%)', 135, a14)&#xd;end&#xd;--End --&#xd;&#xd;-- Script Version --&#xd;if sversion == true then&#xd;addtext('   Script Version:', 0, a16)&#xd;addtext(scriptversion, 135, a16)&#xd;end&#xd;--End --&#xd;&#xd;-- Shielding --&#xd;if Shielding == true then&#xd;addtext('   Shielding:', 0, a15)&#xd;addtext(num($shielding)..' ('..num(100 - $shieldingpc)..'%)', 135, a15)&#xd;end&#xd;--End --&#xd;&#xd;-- HuD Version --&#xd;if version == true then&#xd;addtext('   HuD Version:', 0, a17)&#xd;addtext('1.1', 135, a17)&#xd;end&#xd;--End --&#xd;&#xd;-- CaveBotEnabled --&#xd;if CaveBotEnabled == true then&#xd;addtext('   CaveBot Enabled?', 0, a18)&#xd;if $cavebot then&#xd;setfontcolor(green)&#xd;addtext('Yes', 135, a18)&#xd;else&#xd;setfontcolor(red)&#xd;addtext('No', 135, a18)&#xd;end&#xd;end&#xd;--End --&#xd;&#xd;-- TargettingEnabled --&#xd;if TargettingEnabled == true then&#xd;setfontcolor(white)&#xd;addtext('   Targeting Enabled?', 0, a19)&#xd;if $targeting then&#xd;setfontcolor(green)&#xd;addtext('Yes', 135, a19)&#xd;else&#xd;setfontcolor(red)&#xd;addtext('No', 135, a19)&#xd;end&#xd;end&#xd;--End --&#xd;&#xd;-- LootingEnabled --&#xd;if LootingEnabled == true then&#xd;setfontcolor(white)&#xd;addtext('   Looting Enabled?', 0, a20)&#xd;if $looting then&#xd;setfontcolor(green)&#xd;addtext('Yes', 135, a20)&#xd;else&#xd;setfontcolor(red)&#xd;addtext('No', 135, a20)&#xd;end&#xd;end&#xd;--End --&#xd;&#xd;-- HealthPotionEnabled --&#xd;if HealthPotionsEnabled == true then&#xd;setfontcolor(0xFFCC00)&#xd;addtext('-----------------------------------------', 0, a21)&#xd;setfontcolor(white)&#xd;addtext('                ~*~ Potions ~*~                    ', 0, a22)&#xd;setfontcolor(0xFFCC00)&#xd;addtext('-----------------------------------------', 0, a23)&#xd;setfontcolor(white)&#xd;if HealthPotion == 'Health Potion' then&#xd;addtext('   Health Potion/s:', 0, a24)&#xd;addtext(itemcount(266), 135, a24)&#xd;end&#xd;&#xd;if HealthPotion == 'SHP' then&#xd;addtext('   S.Health Potion/s:', 0, a24)&#xd;addtext(itemcount(236), 135, a24)&#xd;end&#xd;&#xd;if HealthPotion == 'GHP' then&#xd;addtext('   G.Health Potion/s:', 0, a24)&#xd;addtext(itemcount(239), 135, a24)&#xd;end&#xd;&#xd;if HealthPotion == 'UHP' then&#xd;addtext('   U.Health Potion/s:', 0, a24)&#xd;addtext(itemcount(7643), 135, a24)&#xd;end&#xd;end&#xd;&#xd;-- End --&#xd;&#xd;-- ManaPotionsEnabled --&#xd;if ManaPotionsEnabled == true then&#xd;setfontcolor(0xFFCC00)&#xd;addtext('-----------------------------------------', 0, a21)&#xd;setfontcolor(white)&#xd;addtext('                ~*~ Potions ~*~                    ', 0, a22)&#xd;setfontcolor(0xFFCC00)&#xd;addtext('-----------------------------------------', 0, a23)&#xd;setfontcolor(white)&#xd;if ManaPotion == 'Mana Potion' then&#xd;addtext('   Mana Potion/s:', 0, a25)&#xd;addtext(itemcount(268), 135, a25)&#xd;end&#xd;&#xd;if ManaPotion == 'SMP' then&#xd;addtext('   S.Health Potion/s:', 0, a25)&#xd;addtext(itemcount(237), 135, a25)&#xd;end&#xd;&#xd;if ManaPotion == 'GMP' then&#xd;addtext('   G.Health Potion/s:', 0, a25)&#xd;addtext(itemcount(238), 135, a25)&#xd;end&#xd;end&#xd;</hScript>
+    <rRefreshRate>100 to 100</rRefreshRate>
+    <bEnabled>yes</bEnabled>
+   </ePerfect-HUD-by-BlakW-v1.1>
+  </lDisplaysList>
+  <cHudPolicy>Show if focused</cHudPolicy>
+ </sHud>
+ <sInput>
+  <sKeyboard>
+   <cKeyboardMode>Simulate keyboard</cKeyboardMode>
+   <cStuckCtrlShiftPolicy>If cavebot on, release after 3 secs</cStuckCtrlShiftPolicy>
+   <rTypeWaitTime>50 to 180</rTypeWaitTime>
+   <rPressWaitTime>200 to 300</rPressWaitTime>
+  </sKeyboard>
+  <sMouse>
+   <cMouseMode>Simulate mouse</cMouseMode>
+   <cScrollMode>Click on scrollbar</cScrollMode>
+   <cStuckCursorPolicy>If cavebot on, release after 3 secs</cStuckCursorPolicy>
+   <cMoveSpeed>Instantaneous</cMoveSpeed>
+   <rClickWaitTime>30 to 45</rClickWaitTime>
+  </sMouse>
+  <cFocusPolicy>Don't auto-focus</cFocusPolicy>
+  <cOpenMenuPolicy>Confirm menu</cOpenMenuPolicy>
+ </sInput>
+ <sTargeting>
+  <lMonsters>
+   <eCategory-A_8>
+    <pName>Category A</pName>
+    <pCategories></pCategories>
+    <cCount>5+</cCount>
+    <sSetting1>
+     <rHpRange>0 to 100</rHpRange>
+     <iDanger>99</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Sudden Death</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting1>
+    <sSetting2>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting2>
+    <sSetting3>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting3>
+    <sSetting4>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting4>
+    <bLootMonster>yes</bLootMonster>
+    <bMustAttackMe>no</bMustAttackMe>
+    <bOnlyIfTrapped>no</bOnlyIfTrapped>
+    <bPlayAlarm>no</bPlayAlarm>
+   </eCategory-A_8>
+   <eQuara-Hydromancer_0>
+    <pName>Quara Hydromancer</pName>
+    <pCategories>A</pCategories>
+    <cCount>Any</cCount>
+    <sSetting1>
+     <rHpRange>0 to 100</rHpRange>
+     <iDanger>4</iDanger>
+     <cMonsterAttacks>Avoid Beam</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Ultimate Energy Strike</cFirstSpell>
+     <cSecondSpell>Strong Energy Strike</cSecondSpell>
+     <cThirdSpell>Energy Strike</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting1>
+    <sSetting2>
+     <rHpRange>0 to 15</rHpRange>
+     <iDanger>4</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Energy Strike</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting2>
+    <sSetting3>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting3>
+    <sSetting4>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting4>
+    <bLootMonster>yes</bLootMonster>
+    <bMustAttackMe>no</bMustAttackMe>
+    <bOnlyIfTrapped>no</bOnlyIfTrapped>
+    <bPlayAlarm>no</bPlayAlarm>
+   </eQuara-Hydromancer_0>
+   <eQuara-Predator_0>
+    <pName>Quara Predator</pName>
+    <pCategories>A</pCategories>
+    <cCount>Any</cCount>
+    <sSetting1>
+     <rHpRange>15 to 100</rHpRange>
+     <iDanger>10</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Ultimate Energy Strike</cFirstSpell>
+     <cSecondSpell>Strong Energy Strike</cSecondSpell>
+     <cThirdSpell>Energy Strike</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting1>
+    <sSetting2>
+     <rHpRange>0 to 15</rHpRange>
+     <iDanger>10</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Energy Strike</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting2>
+    <sSetting3>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting3>
+    <sSetting4>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting4>
+    <bLootMonster>yes</bLootMonster>
+    <bMustAttackMe>no</bMustAttackMe>
+    <bOnlyIfTrapped>no</bOnlyIfTrapped>
+    <bPlayAlarm>no</bPlayAlarm>
+   </eQuara-Predator_0>
+   <eQuara-Pincher_0>
+    <pName>Quara Pincher</pName>
+    <pCategories>A</pCategories>
+    <cCount>Any</cCount>
+    <sSetting1>
+     <rHpRange>15 to 100</rHpRange>
+     <iDanger>8</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Ultimate Energy Strike</cFirstSpell>
+     <cSecondSpell>Strong Energy Strike</cSecondSpell>
+     <cThirdSpell>Energy Strike</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting1>
+    <sSetting2>
+     <rHpRange>0 to 15</rHpRange>
+     <iDanger>8</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Energy Strike</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting2>
+    <sSetting3>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting3>
+    <sSetting4>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting4>
+    <bLootMonster>yes</bLootMonster>
+    <bMustAttackMe>no</bMustAttackMe>
+    <bOnlyIfTrapped>no</bOnlyIfTrapped>
+    <bPlayAlarm>no</bPlayAlarm>
+   </eQuara-Pincher_0>
+   <eQuara-Mantassin_0>
+    <pName>Quara Mantassin</pName>
+    <pCategories></pCategories>
+    <cCount>Any</cCount>
+    <sSetting1>
+     <rHpRange>0 to 100</rHpRange>
+     <iDanger>2</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Keep Away</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Strong Energy Strike</cFirstSpell>
+     <cSecondSpell>Energy Strike</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting1>
+    <sSetting2>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting2>
+    <sSetting3>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting3>
+    <sSetting4>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting4>
+    <bLootMonster>yes</bLootMonster>
+    <bMustAttackMe>no</bMustAttackMe>
+    <bOnlyIfTrapped>no</bOnlyIfTrapped>
+    <bPlayAlarm>no</bPlayAlarm>
+   </eQuara-Mantassin_0>
+   <eQuara-Constrictor_0>
+    <pName>Quara Constrictor</pName>
+    <pCategories></pCategories>
+    <cCount>Any</cCount>
+    <sSetting1>
+     <rHpRange>0 to 100</rHpRange>
+     <iDanger>1</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>Reach</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>Attack</cDesiredAttack>
+     <cFirstSpell>Strong Energy Strike</cFirstSpell>
+     <cSecondSpell>Energy Strike</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>1000 to 1000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting1>
+    <sSetting2>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting2>
+    <sSetting3>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting3>
+    <sSetting4>
+     <rHpRange>0 to 0</rHpRange>
+     <iDanger>0</iDanger>
+     <cMonsterAttacks>No Avoidance</cMonsterAttacks>
+     <cDesiredStance>No Movement</cDesiredStance>
+     <cCustomDistance>Default</cCustomDistance>
+     <cDesiredAttack>No Action</cDesiredAttack>
+     <cFirstSpell>No Action</cFirstSpell>
+     <cSecondSpell>No Action</cSecondSpell>
+     <cThirdSpell>No Action</cThirdSpell>
+     <cFourthSpell>No Action</cFourthSpell>
+     <rSpellRate>2000 to 3000</rSpellRate>
+     <bSyncSpell>no</bSyncSpell>
+     <cAttackMode>No Change</cAttackMode>
+    </sSetting4>
+    <bLootMonster>yes</bLootMonster>
+    <bMustAttackMe>no</bMustAttackMe>
+    <bOnlyIfTrapped>no</bOnlyIfTrapped>
+    <bPlayAlarm>no</bPlayAlarm>
+   </eQuara-Constrictor_0>
+  </lMonsters>
+  <sStanceOptions>
+   <bDiagonalMovement>yes</bDiagonalMovement>
+   <cRangeDistance>3</cRangeDistance>
+   <iLureIntensity>30</iLureIntensity>
+  </sStanceOptions>
+  <sTargetSelection>
+   <iListOrder>0</iListOrder>
+   <iHealth>13</iHealth>
+   <iProximity>100</iProximity>
+   <iDanger>0</iDanger>
+   <iRandom>0</iRandom>
+   <iStick>4</iStick>
+   <bMustBeReachable>no</bMustBeReachable>
+   <bMustBeShootable>yes</bMustBeShootable>
+  </sTargetSelection>
+  <sTargetingPriority>
+   <iPriority>60</iPriority>
+   <iOverridePriority>0</iOverridePriority>
+   <iExpireTime>2000</iExpireTime>
+   <iLifeTime>5000</iLifeTime>
+   <cEventType>Normal Event</cEventType>
+  </sTargetingPriority>
+  <bTargetingEnabled>yes</bTargetingEnabled>
+ </sTargeting>
+</sNeoSettings>

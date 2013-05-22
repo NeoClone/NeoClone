@@ -88,13 +88,13 @@ var                      //we have to clean this... XD
 begin
   inherited;
   FreeOnTerminate := True;
-  while not Terminated do
+  while (not Terminated) and (node <> nil) do
   try
   begin
-	sleep(10); //just in case...
+	sleep(5); //just in case...
     spamRate := 100;
     Application.ProcessMessages;
-    if node.TimerStarted = False then exit;
+  if (node.TimerStarted = null) or (node.TimerStarted = False) then exit;
 
     if  assigned(HealerThread.FXml)
      and (GUI.Player.OnLine) and (tree.getsetting('Healer/HealerEnabled') = 'yes') then
@@ -255,8 +255,8 @@ begin
     sleep(spamRate);
   end;  //try
     except
-        on exception: Exception do
-        begin
+        on exception: Exception do    //just in the weird case that the node is deleted while
+        begin                         // it is taking its info
           node.TimerStarted:= False;
           Terminate;
 //        showmessage('Healer:  '+exception.ToString);
@@ -350,6 +350,11 @@ begin
   xNode := HealerThread.FXml.Find('lHealRules');  //This will work as Healer.Terminate
   if xNode.ChildNodes.Count > 0 then              // for every single thread created
     for node in xNode.ChildNodes do
+    begin
+      node.TimerStarted:= False;
+    end;
+  xNode := HealerThread.FXml.Find('sManaTraining');  //here we change the value of the NAME
+  if xNode <> nil then //if it exists
     begin
       node.TimerStarted:= False;
     end;
