@@ -130,9 +130,11 @@ object settingsForm: TsettingsForm
       Caption = 'Clear'
       object ClearCavebotHotkeys1: TMenuItem
         Caption = 'Clear Cavebot Hotkeys...'
+        OnClick = ClearCavebotHotkeys1Click
       end
       object ClearDisplays1: TMenuItem
         Caption = 'Clear Displays...'
+        OnClick = ClearDisplays1Click
       end
       object ClearHealrules1: TMenuItem
         Caption = 'Clear Heal Rules...'
@@ -140,12 +142,14 @@ object settingsForm: TsettingsForm
       end
       object ClearHotkeys1: TMenuItem
         Caption = 'Clear Hotkeys...'
+        OnClick = ClearHotkeys1Click
       end
       object ClearLoot1: TMenuItem
         Caption = 'Clear Loot Items...'
       end
       object ClearPersistent1: TMenuItem
         Caption = 'Clear Persistent...'
+        OnClick = ClearPersistent
       end
       object ClearTrageting1: TMenuItem
         Caption = 'Clear Targeting Monsters...'

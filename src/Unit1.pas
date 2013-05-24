@@ -319,11 +319,10 @@ var
 hp: integer;
   r: TRect;
   xmlItems: TVerySimpleXML;
+  LuaScripter: TLuaScripter;
 begin
-  xmlItems:= TVerySimpleXML.Create;   //create new settingsXML
-  xmlItems.LoadFromString( loadCleanSettings() );  //add new stuff to the XML
-  showmessage(xmlItems.Root.Find('sHealer').Find('lHealRules').NodeName);
-  xmlItems.Free;
+//                            LuaScripter.useitem(234);
+// You can check success of the call
 //if Gui.Map.IsShootable(32352,31831,7) then
 //  showmessage('shottable');
 //Inputer.SendRClickPoint( Gui.GameWindow.map2mouse(32355,32210,7));

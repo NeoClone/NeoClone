@@ -259,7 +259,7 @@ begin
         begin                         // it is taking its info
           node.TimerStarted:= False;
           Terminate;
-//        showmessage('Healer:  '+exception.ToString);
+//        showmessage('HealerExecutor:  '+exception.ToString);
         end;
     end;
 end;
@@ -337,7 +337,7 @@ begin
      except
         on exception: Exception do
         begin
-//        showmessage(exception.ToString);
+//        showmessage('THealerThread: '+exception.ToString);
         end;
     end;
 

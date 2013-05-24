@@ -11,7 +11,7 @@ type
   TScriptExecutor = class(TThread)
   public
     node: TXmlNode;
-    PNode: PVirtualNode;
+//    PNode: PVirtualNode;
     name: string;
     procedure Finish;
   protected
@@ -48,15 +48,17 @@ ress: integer;
 
 procedure TScriptExecutor.Execute;
 var
-  start, finish: integer;
+  start, finish, spamRate: integer;
   Script: TXmlNode;
   buffer, delay: string;
 begin
   inherited;
   FreeOnTerminate := True;
-while not Terminated do
+while (not Terminated) and (node <> nil) do
+try
 begin
   sleep(5);
+  spamRate:= 100;
   Application.ProcessMessages;
   if (node.TimerStarted = null) or (node.TimerStarted = False) then exit;// Terminate;
 
@@ -64,7 +66,8 @@ begin
     if (node.Find('bEnabled').Text = 'yes') then
     begin
       Script:= node.Find('hScript');
-      if Script.Text= '' then continue;  //performance purppose
+      if Script.Text= '' then continue;  //performance purppose, not sure if
+      //break or continue
 
       if pos('auto(', lowercase(Script.Text)) > 0 then
       begin        //first we take the delay of the auto()
@@ -126,7 +129,6 @@ begin
         Script.FirstRun:= False;
       end;
     end;
-end;
 
     //(TO DO) not sure if this goes here or in ScriptThreadUnit.pas
 //              event.priority := StrToInt(mNode.Find('iPriority').Text);
@@ -136,6 +138,16 @@ end;
 //              event.eventType := StrToEventType(mNode.Find('cEventType').Text);
 //              event.script := 'cast("'+ spell +'")' else event.script:= '';
 //                EvtQueue.insert( event );
+    sleep(spamRate);
+  end;  //try
+    except
+        on exception: Exception do    //just in the weird case that the node is deleted while
+        begin                         // it is taking its info
+          node.TimerStarted:= False;
+          Terminate;
+//        showmessage('ScriptExecutor:  '+exception.ToString);
+        end;
+    end;
 end;
 
 procedure TScriptThread.ShowLogError;  //Synchronize(ShowLogError);
@@ -150,7 +162,7 @@ end;
 
 procedure TScriptThread.Execute;
 var
-  Pnode: PVirtualNode;
+//  Pnode: PVirtualNode;
   nodeData: ^TTreeData;
   spamRate, start, finish, i: integer;
   xNode, node, Script: TXmlNode;
@@ -163,15 +175,10 @@ begin
 
     spamRate := 3000; //we will change this after having finished the Scripter
 
-//           Scripter := TScriptExecutor.Create(True);
-//            Scripter.PNode:=PNode;
-//            Scripter.node:=node;
-//            Scripter.Start;
-
     if  assigned(S1Xml) then   //if Hotkeys tree...
     begin
-      Pnode := settingsForm.PropTree.RootNode.FirstChild;
-      Pnode:= PNode.FirstChild.NextSibling.NextSibling.NextSibling; //Hotkeys
+//      Pnode := settingsForm.PropTree.RootNode.FirstChild;
+//      Pnode:= PNode.FirstChild.NextSibling.NextSibling.NextSibling; //Hotkeys
 //      nodeData := settingsForm.PropTree.GetNodeData( Pnode);
 //      showmessage(nodeData.name);
 //----------------------Hotkeys----------------------------------------------------
@@ -194,7 +201,7 @@ begin
             node.TimerStarted:= True;  //change state (control and so)
 
             Scripter := TScriptExecutor.Create(True);
-              Scripter.PNode:=PNode;
+//              Scripter.PNode:=PNode;
               Scripter.node:=node;
               Scripter.name:='Persistent';
               Scripter.Start;
@@ -280,8 +287,8 @@ begin
 
     if  assigned(S2Xml) then   //if HUD tree...
     begin
-      Pnode := settingsForm.PropTree.RootNode.FirstChild;
-      Pnode:= PNode.FirstChild.NextSibling.NextSibling.NextSibling.NextSibling; //HUD
+//      Pnode := settingsForm.PropTree.RootNode.FirstChild;
+//      Pnode:= PNode.FirstChild.NextSibling.NextSibling.NextSibling.NextSibling; //HUD
 //----------------------HUD----------------------------------------------------
       xNode := S2Xml.Find('lDisplaysList');
       if xNode.ChildNodes.Count > 0 then
@@ -301,7 +308,7 @@ begin
      except
         on exception: Exception do
         begin //there is an AccessViolation when you try to close the bot while Lua Errors are being shown/executed
-//        showmessage(exception.ToString);
+//        showmessage('TScriptThread: '+exception.ToString);
         end;
     end;
 
